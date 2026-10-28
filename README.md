@@ -80,6 +80,7 @@ Not yet defined. No robot-level architecture document exists. The first architec
 | [planning/REVIEW_CHECKLIST.md](planning/REVIEW_CHECKLIST.md) | AUTHORITATIVE for review (role); status: PROPOSED | What a reviewer checks before approving |
 | [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md) | AUTHORITATIVE for branch and commit sequence once adopted; status: PROPOSED | The branch, commit and pull request sequence |
 | [planning/CHANGELOG.md](planning/CHANGELOG.md) | EVIDENCE, append only; status: PROPOSED | How the plan itself has changed and why |
+| [reviews/2026-10-28-external-review-chatgpt.md](reviews/2026-10-28-external-review-chatgpt.md) | EVIDENCE of an advisory external review; status: DRAFT, dispositions pending | What the external reviewer found and how each finding maps to the plan |
 | [Program acceptance standard](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/ACCEPTANCE_STANDARD.md) | PROPOSED standard in kritva-program (current link; the program record controls) | Task definition of done, test gates, commit format, tags, required files |
 | [Program agent instructions](https://github.com/KritvaOS/kritva-program/blob/main/AGENTS.md) | AUTHORITATIVE for kritva-program agents (current link) | What agents must not change without an owner decision |
 
@@ -95,6 +96,7 @@ The files named in the first four rows exist today (the planning and verificatio
 | `LICENSE` | Apache License 2.0 text | AUTHORITATIVE; in place | No |
 | [planning/](planning/) | Milestones, task register, acceptance criteria, review checklist, commit procedure, changelog. Layout follows the ChatGPT planning session; the program standard places `ACCEPTANCE_CRITERIA.md` at the repository root, a deviation the owner chose on 2026-10-28 and recorded in the changelog | MIXED; IMPLEMENTED as drafts (PROPOSED) | Yes |
 | [verification/](verification/) | Sanity plan and regression plan (plans only; no check is implemented). Later test procedures | MIXED; plans IMPLEMENTED as drafts (PROPOSED), checks NOT YET IMPLEMENTED | Yes |
+| [reviews/](reviews/) | Recorded external and independent reviews with finding dispositions | EVIDENCE; IMPLEMENTED (one advisory review recorded) | Append only |
 | `requirements/` | Robot-level mechanical requirements and load cases | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
 | `architecture/` | Frame, torso, limb and joint architecture, interface control | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
 | `cad/` | Native CAD sources and neutral exports | INPUT; NOT YET IMPLEMENTED, on hold (section 13) | Via CAD tool |
