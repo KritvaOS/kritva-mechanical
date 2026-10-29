@@ -95,6 +95,11 @@ The files named in the first four rows exist today (the planning and verificatio
 |---|---|---|---|
 | `README.md` | Navigation page for this repository | REFERENCE; status: DRAFT | Yes |
 | `LICENSE` | Apache License 2.0 text | AUTHORITATIVE; in place | No |
+| [AGENTS.md](AGENTS.md) | Instructions for agents: authority, hold, what not to change, validation, commit rules | AUTHORITATIVE for agents once adopted; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision for changes |
+| [SECURITY.md](SECURITY.md) | Private reporting route for vulnerabilities and safety concerns | AUTHORITATIVE once the owner confirms the route; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to pick a task, change, check and submit | REFERENCE; IMPLEMENTED as a draft (PROPOSED) | Yes |
+| [.github/CODEOWNERS](.github/CODEOWNERS) | Code owner for every path | AUTHORITATIVE once the owner confirms the login; IMPLEMENTED as a draft (PROPOSED); not verified as enforced | Yes, owner decision |
+| [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md) | Pull request checklist | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
 | [planning/](planning/) | Milestones, task register, acceptance criteria, review checklist, commit procedure, changelog. Layout follows the ChatGPT planning session; the program standard places `ACCEPTANCE_CRITERIA.md` at the repository root, a deviation the owner chose on 2026-10-28 and recorded in the changelog | MIXED; IMPLEMENTED as drafts (PROPOSED) | Yes |
 | [verification/](verification/) | Sanity plan and regression plan (plans only; no check is implemented). Later test procedures | MIXED; plans IMPLEMENTED as drafts (PROPOSED), checks NOT YET IMPLEMENTED | Yes |
 | [reviews/](reviews/) | Recorded external and independent reviews with finding dispositions | EVIDENCE; IMPLEMENTED (one advisory review recorded) | Append only |
@@ -109,7 +114,7 @@ The files named in the first four rows exist today (the planning and verificatio
 | `scripts/`, `tests/`, `Makefile` | Checks and generators | INPUT; NOT YET IMPLEMENTED | Yes |
 | `releases/` | Immutable released hardware configurations | EVIDENCE; NOT YET IMPLEMENTED | Append only |
 
-Required program files not yet present: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `Makefile`, `.github/CODEOWNERS`, `.github/PULL_REQUEST_TEMPLATE.md` and the `secret-scan` and `commit-message-check` workflows (program acceptance standard section 7).
+Required program files not yet present: `Makefile` and the `secret-scan` and `commit-message-check` workflows. The governance files `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS` and `.github/PULL_REQUEST_TEMPLATE.md` exist as unreviewed drafts, and nothing shows that `CODEOWNERS` is enforced on GitHub (program acceptance standard section 7).
 
 ## 6. Toolchain, Getting Started and Development Workflow
 
@@ -200,7 +205,7 @@ Lifting a hold or passing one gate does not approve a design, waive another gate
 
 Evidence is stated by type: software test, calculation, simulation, bench measurement or independently accepted physical test. Each statement names the tested revision, procedure, result and scope. Software and model evidence is never offered as physical test evidence. Required human safety reviews stay mandatory for safety-gated work.
 
-Security: `SECURITY.md` is Not yet defined; the owner will define the vulnerability-reporting route. Never post details of an unfixed vulnerability in a public issue or pull request. Never commit credentials, tokens, keys, production or personal data.
+Security: [SECURITY.md](SECURITY.md) is a draft; the owner must confirm the vulnerability-reporting route. Never post details of an unfixed vulnerability in a public issue or pull request. Never commit credentials, tokens, keys, production or personal data.
 
 ## 14. Release and Versioning
 
@@ -208,7 +213,7 @@ Nothing is released. Planned: annotated SemVer tags (`vMAJOR.MINOR.PATCH`) creat
 
 ## 15. Ownership and Escalation
 
-Repository and security owner: Dinesh. Code ownership is Not yet defined (`.github/CODEOWNERS` absent). With a single owner, a pull request author cannot self-approve under the program's usual ruleset; the program's approach is that the owner merges using the bypass or a second reviewer is added. Raise a blocker by opening an issue or commenting on the pull request and naming the owner. Do not invent evidence, test results, hardware behaviour or approvals, and do not claim a check passed unless it was run.
+Repository and security owner: Dinesh. Code ownership is drafted in [.github/CODEOWNERS](.github/CODEOWNERS) (owner login to be confirmed; enforcement not verified). With a single owner, a pull request author cannot self-approve under the program's usual ruleset; the program's approach is that the owner merges using the bypass or a second reviewer is added. Raise a blocker by opening an issue or commenting on the pull request and naming the owner. Do not invent evidence, test results, hardware behaviour or approvals, and do not claim a check passed unless it was run.
 
 ## 16. Related Repositories and References
 
