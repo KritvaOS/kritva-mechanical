@@ -1,0 +1,9 @@
+# gitleaks configuration for kritva-mechanical (ROB-MECH-003).
+# Uses gitleaks' built-in rules. There is deliberately no allowlist:
+# do not add one to silence a finding. Propose an entry to the owner,
+# with the reason, in a pull request (AC-003-04).
+
+title = "kritva-mechanical secret scan"
+
+[extend]
+useDefault = true

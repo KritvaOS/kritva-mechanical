@@ -13,7 +13,7 @@ These instructions apply to the `kritva-mechanical` repository: robot-level mech
 - Any file in `kritva-program`, including its baseline, approvals, gate records, workstream registry and source manifest. Proposals go in this repository (see `planning/REGISTRATION_PROPOSAL.md`); the owner makes the program change.
 - The mechanical HOLD (program decision D-003). The actuator lift (D-052) covers the actuator workstreams only. Do not start or add CAD, BOM, quotes, procurement, fabrication, prototypes, physical tests or a design freeze for the robot. Tasks that need the hold lifted stay BLOCKED.
 - Open safety gates, task IDs (never renumber or reuse), acceptance criteria IDs, and any recorded reference value or tolerance (a re-baseline needs a decision reference and a changelog entry).
-- Governance files: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`, `.github/` (workflows, `CODEOWNERS`, the pull request template) and, once present, the `Makefile` and `scripts/`. Do not edit them to make a check pass.
+- Governance files: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`, `.github/` (workflows, `CODEOWNERS`, the pull request template), `.gitleaks.toml`, `scripts/security/` (a vendored copy; see its PROVENANCE.md) and, once present, the `Makefile`. Do not edit them to make a check pass.
 - The generated `status/status.json`, once it exists. Regenerate it; never edit it by hand.
 
 ## Status semantics
@@ -24,7 +24,7 @@ These instructions apply to the `kritva-mechanical` repository: robot-level mech
 
 ## Validation before a pull request
 
-Today nothing is automated here. Until the `Makefile` exists (task ROB-MECH-004), check by hand and say so in the pull request:
+The `commit-message-check` and `secret-scan` workflows run on pushes and pull requests. There is no `Makefile` yet (task ROB-MECH-004), so check the rest by hand and say so in the pull request. Run `python3 -m unittest discover -s tests` for the commit-format tests:
 
 - Every local link in the changed Markdown files resolves.
 - Task IDs and acceptance criteria IDs are unique, and every task has criteria.
@@ -37,7 +37,7 @@ When the `Makefile` is added, an unimplemented gate must exit with code 3 (`NOT_
 
 - Never commit credentials, tokens, private keys, production data or personal data. Use obviously fake values in examples and mark them as such.
 - If a secret is committed by mistake, tell the Security Owner (Dinesh) at once. Removing it in a later commit does not make it safe; it must be revoked or rotated.
-- The `secret-scan` workflow, once added, runs on every push and pull request. Do not add allowlist entries to silence it; propose them to the owner with the reason.
+- The `secret-scan` workflow (gitleaks) runs on every push and pull request. Do not add allowlist entries to silence it; propose them to the owner with the reason.
 
 ## Commits and pull requests
 

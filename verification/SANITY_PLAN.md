@@ -22,7 +22,7 @@ A sanity check answers "is this change well formed and internally consistent?" I
 
 ## 1. Current state
 
-Nothing in this plan is implemented. The repository has no Makefile, scripts, tests or workflows. Every check below is therefore NOT_IMPLEMENTED and must be reported that way, never as a pass. The implementing tasks are ROB-MECH-002 (governance files), ROB-MECH-003 (workflows), ROB-MECH-004 (Makefile) and ROB-MECH-005 (status generator).
+Nothing in this plan is implemented. The repository has no Makefile. The only implemented items are the commit-format checker with its unit tests and the two ROB-MECH-003 workflows (drafts, no CI run recorded). Every check below is therefore NOT_IMPLEMENTED and must be reported that way, never as a pass. The implementing tasks are ROB-MECH-002 (governance files), ROB-MECH-003 (workflows), ROB-MECH-004 (Makefile) and ROB-MECH-005 (status generator).
 
 The mechanical hold (program decision D-003) currently blocks CAD, BOM, drawings, procurement, fabrication and physical work for the robot scope. The checks are therefore introduced in two stages:
 

@@ -111,10 +111,14 @@ The files named in the first four rows exist today (the planning and verificatio
 | `assembly/` | Assembly and inspection procedures | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
 | `results/` | Immutable, revision-specific verification evidence | EVIDENCE; NOT YET IMPLEMENTED | Append only |
 | `status/` | `status.json` generated from the task register | GENERATED; NOT YET IMPLEMENTED | No |
-| `scripts/`, `tests/`, `Makefile` | Checks and generators | INPUT; NOT YET IMPLEMENTED | Yes |
+| [scripts/security/](scripts/security/) | Vendored program commit-format checker with its [provenance](scripts/security/PROVENANCE.md) | INPUT; IMPLEMENTED as a draft (PROPOSED); not yet run in CI | Only by re-copying from kritva-program |
+| [tests/](tests/) | Unit tests for the commit-format checker | INPUT; IMPLEMENTED as a draft (PROPOSED); run locally only | Yes |
+| [.github/workflows/](.github/workflows/) | `secret-scan` and `commit-message-check` workflows | INPUT; IMPLEMENTED as drafts (PROPOSED); no CI run recorded yet | Yes, owner decision |
+| [.gitleaks.toml](.gitleaks.toml) | Secret-scan configuration, no allowlist | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision |
+| `Makefile`, other `scripts/` | Gate targets and generators | INPUT; NOT YET IMPLEMENTED | Yes |
 | `releases/` | Immutable released hardware configurations | EVIDENCE; NOT YET IMPLEMENTED | Append only |
 
-Required program files not yet present: `Makefile` and the `secret-scan` and `commit-message-check` workflows. The governance files `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS` and `.github/PULL_REQUEST_TEMPLATE.md` exist as unreviewed drafts, and nothing shows that `CODEOWNERS` is enforced on GitHub (program acceptance standard section 7).
+Required program files not yet present: `Makefile`. The `secret-scan` and `commit-message-check` workflows exist as drafts that have not yet run. The governance files `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS` and `.github/PULL_REQUEST_TEMPLATE.md` exist as unreviewed drafts, and nothing shows that `CODEOWNERS` is enforced on GitHub (program acceptance standard section 7).
 
 ## 6. Toolchain, Getting Started and Development Workflow
 
@@ -185,7 +189,7 @@ Plans are drafted in [verification/SANITY_PLAN.md](verification/SANITY_PLAN.md) 
 
 ## 12. Git Workflow and Review
 
-No commit or pull request rule is enforced in this repository yet: it has no workflows, no `CODEOWNERS` and no branch protection that anyone has verified.
+No commit or pull request rule is verified as enforced in this repository yet: the `secret-scan` and `commit-message-check` workflows and `CODEOWNERS` exist as drafts with no recorded CI run, and nobody has verified branch protection or required checks.
 
 Proposed convention, to be adopted formally through the owner and recorded in [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md): the kritva-program commit standard (decision D-053; see section 4 of the program acceptance standard). In short, `type(scope): summary` with exactly one `Task:` or `Tasks:` footer, or `Tasks: None (reason)` on a docs or chore commit that implements no task; work on a branch and open a pull request; merge with a merge commit; never push to `main`; no AI-session trailers or links in commit messages or pull request text. Until adopted, this is advisory reference, not a second mandatory format.
 
