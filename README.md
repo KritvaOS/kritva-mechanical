@@ -98,7 +98,7 @@ The files named in the first four rows exist today (the planning and verificatio
 | [AGENTS.md](AGENTS.md) | Instructions for agents: authority, hold, what not to change, validation, commit rules | AUTHORITATIVE for agents once adopted; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision for changes |
 | [SECURITY.md](SECURITY.md) | Private reporting route for vulnerabilities and safety concerns | AUTHORITATIVE once the owner confirms the route; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to pick a task, change, check and submit | REFERENCE; IMPLEMENTED as a draft (PROPOSED) | Yes |
-| [.github/CODEOWNERS](.github/CODEOWNERS) | Code owner for every path | AUTHORITATIVE once the owner confirms the login; IMPLEMENTED as a draft (PROPOSED); not verified as enforced | Yes, owner decision |
+| [.github/CODEOWNERS](.github/CODEOWNERS) | Code owner for every path | AUTHORITATIVE once adopted (login confirmed by the owner); IMPLEMENTED as a draft (PROPOSED); not verified as enforced | Yes, owner decision |
 | [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md) | Pull request checklist | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
 | [planning/](planning/) | Milestones, task register, acceptance criteria, review checklist, commit procedure, changelog. Layout follows the ChatGPT planning session; the program standard places `ACCEPTANCE_CRITERIA.md` at the repository root, a deviation the owner chose on 2026-10-28 and recorded in the changelog | MIXED; IMPLEMENTED as drafts (PROPOSED) | Yes |
 | [verification/](verification/) | Sanity plan and regression plan (plans only; no check is implemented). Later test procedures | MIXED; plans IMPLEMENTED as drafts (PROPOSED), checks NOT YET IMPLEMENTED | Yes |
@@ -213,7 +213,7 @@ Nothing is released. Planned: annotated SemVer tags (`vMAJOR.MINOR.PATCH`) creat
 
 ## 15. Ownership and Escalation
 
-Repository and security owner: Dinesh. Code ownership is drafted in [.github/CODEOWNERS](.github/CODEOWNERS) (owner login to be confirmed; enforcement not verified). With a single owner, a pull request author cannot self-approve under the program's usual ruleset; the program's approach is that the owner merges using the bypass or a second reviewer is added. Raise a blocker by opening an issue or commenting on the pull request and naming the owner. Do not invent evidence, test results, hardware behaviour or approvals, and do not claim a check passed unless it was run.
+Repository and security owner: Dinesh. Code ownership is drafted in [.github/CODEOWNERS](.github/CODEOWNERS) (owner login confirmed by the owner; enforcement not verified). With a single owner, a pull request author cannot self-approve under the program's usual ruleset; the program's approach is that the owner merges using the bypass or a second reviewer is added. Raise a blocker by opening an issue or commenting on the pull request and naming the owner. Do not invent evidence, test results, hardware behaviour or approvals, and do not claim a check passed unless it was run.
 
 ## 16. Related Repositories and References
 
