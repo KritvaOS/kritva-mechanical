@@ -1,0 +1,16 @@
+# Code owners for kritva-mechanical (PROPOSED; ROB-MECH-002).
+# Single Code Owner today (program decision D-040). The owner's GitHub
+# login below is taken from local git history and must be confirmed.
+# The last matching pattern wins, so the specific rules repeat the owner
+# on purpose: governance paths must always need the owner.
+
+*                          @dineshannayya
+
+/.github/                  @dineshannayya
+/AGENTS.md                 @dineshannayya
+/SECURITY.md               @dineshannayya
+/CONTRIBUTING.md           @dineshannayya
+/LICENSE                   @dineshannayya
+/planning/                 @dineshannayya
+/verification/             @dineshannayya
+/reviews/                  @dineshannayya
