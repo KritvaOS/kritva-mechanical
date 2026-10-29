@@ -115,14 +115,16 @@ The files named in the first four rows exist today (the planning and verificatio
 | [tests/](tests/) | Unit tests for the commit-format checker | INPUT; IMPLEMENTED as a draft (PROPOSED); run locally only | Yes |
 | [.github/workflows/](.github/workflows/) | `secret-scan` and `commit-message-check` workflows | INPUT; IMPLEMENTED as drafts (PROPOSED); no CI run recorded yet | Yes, owner decision |
 | [.gitleaks.toml](.gitleaks.toml) | Secret-scan configuration, no allowlist | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision |
-| `Makefile`, other `scripts/` | Gate targets and generators | INPUT; NOT YET IMPLEMENTED | Yes |
+| [Makefile](Makefile) | The eight standard gate targets plus `make test-tools`; every standard gate is NOT_IMPLEMENTED and fails | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
+| [scripts/gate.sh](scripts/gate.sh) | Prints `NOT_IMPLEMENTED` and exits 3 for each standard gate | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
+| Other `scripts/` | Generators, including the status generator | INPUT; NOT YET IMPLEMENTED | Yes |
 | `releases/` | Immutable released hardware configurations | EVIDENCE; NOT YET IMPLEMENTED | Append only |
 
-Required program files not yet present: `Makefile`. The `secret-scan` and `commit-message-check` workflows exist as drafts that have not yet run. The governance files `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS` and `.github/PULL_REQUEST_TEMPLATE.md` exist as unreviewed drafts, and nothing shows that `CODEOWNERS` is enforced on GitHub (program acceptance standard section 7).
+All required program files now exist as drafts. The `secret-scan` and `commit-message-check` workflows exist as drafts that have not yet run. The governance files `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS` and `.github/PULL_REQUEST_TEMPLATE.md` exist as unreviewed drafts, and nothing shows that `CODEOWNERS` is enforced on GitHub (program acceptance standard section 7).
 
 ## 6. Toolchain, Getting Started and Development Workflow
 
-No toolchain is defined and no command exists in this repository. There is no Makefile, script or CI workflow, so none is advertised here.
+No toolchain beyond Git and Python 3 is defined. The only commands are the Makefile targets below. The eight standard gates exist but none is implemented, so each prints `NOT_IMPLEMENTED` and fails; none is ever a pass.
 
 | Tool | Purpose | Version | Check |
 |---|---|---|---|
@@ -132,10 +134,20 @@ No toolchain is defined and no command exists in this repository. There is no Ma
 | Command | Effect | Needs | Preview |
 |---|---|---|---|
 | `python3 ../kritva-program/scripts/docs/check_readme.py README.md` | check (read only); requires a sibling clone of kritva-program | Local clone only | Not needed |
+| `make help` | prints the targets (read only) | make | Not needed |
+| `make check` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make lint` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make test-unit` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make test-integration` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make test-regression` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make test` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make docs-check` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make acceptance` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
+| `make test-tools` | runs the unit tests of the commit-format checker and the gates (read only); not a standard gate and not evidence that any design check passed | make, Python 3 | Not needed |
 
-The program's standard make targets (`make check`, `make lint`, `make test-unit`, `make test-integration`, `make test-regression`, `make test`, `make docs-check`, `make acceptance`) are not implemented here. When they are added, an unimplemented target must exit non-zero with `NOT_IMPLEMENTED`; it is never reported as a pass.
+The program's standard make targets are listed above and none is implemented. `scripts/gate.sh` exits with code 3 (`NOT_IMPLEMENTED`); GNU make itself reports any failed recipe as exit status 2 and prints `Error 3`, so run `sh scripts/gate.sh <target>` when the exact code 3 is needed. An unimplemented target is never reported as a pass.
 
-Working practice today: edit Markdown on a branch, run the README check above, and open a pull request. Do not commit CAD or binary design files until the hold in section 13 allows it and a storage and revision convention is approved.
+Working practice today: edit Markdown on a branch, run the README check above and `make test-tools`, and open a pull request. Do not commit CAD or binary design files until the hold in section 13 allows it and a storage and revision convention is approved.
 
 ## 7. Dependencies and Interfaces
 

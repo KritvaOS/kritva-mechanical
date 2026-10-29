@@ -13,7 +13,7 @@ These instructions apply to the `kritva-mechanical` repository: robot-level mech
 - Any file in `kritva-program`, including its baseline, approvals, gate records, workstream registry and source manifest. Proposals go in this repository (see `planning/REGISTRATION_PROPOSAL.md`); the owner makes the program change.
 - The mechanical HOLD (program decision D-003). The actuator lift (D-052) covers the actuator workstreams only. Do not start or add CAD, BOM, quotes, procurement, fabrication, prototypes, physical tests or a design freeze for the robot. Tasks that need the hold lifted stay BLOCKED.
 - Open safety gates, task IDs (never renumber or reuse), acceptance criteria IDs, and any recorded reference value or tolerance (a re-baseline needs a decision reference and a changelog entry).
-- Governance files: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`, `.github/` (workflows, `CODEOWNERS`, the pull request template), `.gitleaks.toml`, `scripts/security/` (a vendored copy; see its PROVENANCE.md) and, once present, the `Makefile`. Do not edit them to make a check pass.
+- Governance files: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`, `.github/` (workflows, `CODEOWNERS`, the pull request template), `.gitleaks.toml`, `scripts/security/` (a vendored copy; see its PROVENANCE.md) `Makefile` and `scripts/gate.sh`. Do not edit them to make a check pass.
 - The generated `status/status.json`, once it exists. Regenerate it; never edit it by hand.
 
 ## Status semantics
@@ -24,14 +24,14 @@ These instructions apply to the `kritva-mechanical` repository: robot-level mech
 
 ## Validation before a pull request
 
-The `commit-message-check` and `secret-scan` workflows run on pushes and pull requests. There is no `Makefile` yet (task ROB-MECH-004), so check the rest by hand and say so in the pull request. Run `python3 -m unittest discover -s tests` for the commit-format tests:
+The `commit-message-check` and `secret-scan` workflows run on pushes and pull requests. The standard `make` gates exist but are all NOT_IMPLEMENTED and fail, so check the rest by hand and say so in the pull request. `make test-tools` runs the unit tests for the tooling only. Run `python3 -m unittest discover -s tests` for the commit-format tests:
 
 - Every local link in the changed Markdown files resolves.
 - Task IDs and acceptance criteria IDs are unique, and every task has criteria.
 - `README.md` passes the program's `check_readme.py` when it changed.
 - No secrets, credentials, personal data or production data are in the change.
 
-When the `Makefile` is added, an unimplemented gate must exit with code 3 (`NOT_IMPLEMENTED`), never 0. Do not claim a check passed unless you ran it.
+An unimplemented gate must say `NOT_IMPLEMENTED` and fail (`scripts/gate.sh` exits 3), never 0. Do not claim a check passed unless you ran it.
 
 ## Secrets and data
 

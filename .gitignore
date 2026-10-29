@@ -1,0 +1,4 @@
+# Python bytecode and caches must never be committed (ROB-MECH-004).
+__pycache__/
+*.py[cod]
+.pytest_cache/

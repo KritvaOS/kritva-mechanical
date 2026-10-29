@@ -111,13 +111,15 @@ Software checks, calculations and simulation never prove physical safety, compon
 
 ## 6. Running and reporting
 
-Today no command exists. Planned behaviour, to be implemented in task ROB-MECH-004:
+Today the Makefile exists (ROB-MECH-004) but every standard gate is NOT_IMPLEMENTED and fails. Planned behaviour once the checks are implemented:
 
 | Command | Effect | Result |
 |---|---|---|
 | `make check` | check (read only): structure, registers, evidence, hold guard, status | exit 0 if all pass; 1 on a failure; 3 if any required check is NOT_IMPLEMENTED |
 | `make docs-check` | check (read only): documents, headers, links, README, placeholders | same exit codes |
 | `make test-unit` | check (read only): known-answer tests and other unit tests | same exit codes |
+
+The exit codes below are those of `scripts/gate.sh`. GNU make reports any failed recipe as status 2 and prints `Error 3`, so a caller that needs the exact code runs `sh scripts/gate.sh <target>` (open item in the changelog).
 
 Every check prints its ID and one result line, then a summary that lists counts by result. The pull request records the CI run ID and the tested commit. A failure message names the file, the rule and how to fix it. Local runs and CI runs use the same commands so a result can be reproduced.
 
