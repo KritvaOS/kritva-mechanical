@@ -1,0 +1,56 @@
+# commit-message-check (ROB-MECH-003): enforces the program commit format (D-053).
+# Checks only the commits of the push or pull request, never existing history.
+name: commit-message-check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  commit-message-check:
+    name: commit-message-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Unit tests for the checker
+        run: python3 -m unittest discover -s tests
+
+      - name: Build the task ID registry from the task register
+        run: |
+          grep -o 'ROB-MECH-[0-9]\{3\}' planning/TASKS.md | sort -u > "$RUNNER_TEMP/task_ids.txt"
+          test -s "$RUNNER_TEMP/task_ids.txt" || { echo "No task IDs found in planning/TASKS.md" >&2; exit 2; }
+
+      - name: Work out the commit range
+        id: range
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          PUSH_AFTER: ${{ github.sha }}
+        run: |
+          set -eu
+          if [ "$EVENT" = "pull_request" ]; then
+            echo "range=${PR_BASE}..${PR_HEAD}" >> "$GITHUB_OUTPUT"
+          elif [ "$PUSH_BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            # New branch: check what it adds on top of the default branch.
+            git fetch --no-tags origin main
+            BASE=$(git merge-base origin/main "$PUSH_AFTER")
+            echo "range=${BASE}..${PUSH_AFTER}" >> "$GITHUB_OUTPUT"
+          else
+            echo "range=${PUSH_BEFORE}..${PUSH_AFTER}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check commit messages
+        env:
+          RANGE: ${{ steps.range.outputs.range }}
+        run: |
+          echo "Checking range: $RANGE"
+          python3 scripts/security/check_commit_format.py --range "$RANGE" --registry "$RUNNER_TEMP/task_ids.txt"

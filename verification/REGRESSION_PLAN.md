@@ -22,7 +22,7 @@ The sanity plan asks whether a change is well formed. This plan asks whether it 
 
 ## 1. Current state
 
-Nothing in this plan is implemented. The repository has no Makefile, scripts, tests or workflows, and nothing has been accepted yet, so there is no accepted baseline to regress against. Every check below is NOT_IMPLEMENTED and must be reported that way. A regression suite with no accepted baseline reports NOT_APPLICABLE with the reason, never PASS.
+Nothing in this plan is implemented. The repository has no Makefile and no regression tests; its only scripts, tests and workflows are the commit-format checker, its unit tests and the two ROB-MECH-003 workflows, and nothing has been accepted yet, so there is no accepted baseline to regress against. Every check below is NOT_IMPLEMENTED and must be reported that way. A regression suite with no accepted baseline reports NOT_APPLICABLE with the reason, never PASS.
 
 The checks arrive in three stages, tied to the milestones in [MILESTONE.md](../planning/MILESTONE.md):
 

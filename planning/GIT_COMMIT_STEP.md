@@ -22,7 +22,7 @@ A commit is evidence of change, not of acceptance. A merge, a passing run or a t
 
 ## 1. Current state
 
-No commit or pull request rule is enforced in this repository today. It has no workflows, no `CODEOWNERS` and no branch protection that anyone has verified. The rules below follow the kritva-program commit standard (decision D-053) and are PROPOSED for this repository. Until the owner adopts them formally and tasks ROB-MECH-002 and ROB-MECH-003 add enforcement, they are advisory reference, not a second mandatory format. Existing history is never checked or rewritten.
+No commit or pull request rule is verified as enforced in this repository today. The `secret-scan` and `commit-message-check` workflows and `CODEOWNERS` exist as drafts with no recorded CI run, and nobody has verified branch protection or required checks. The rules below follow the kritva-program commit standard (decision D-053) and are PROPOSED for this repository. Until the owner adopts them formally and tasks ROB-MECH-002 and ROB-MECH-003 add enforcement, they are advisory reference, not a second mandatory format. Existing history is never checked or rewritten.
 
 Where the pinned engineering contract (decision D-023) and this document differ, the contract wins and this file is corrected. The contract text is not yet committed to kritva-program, so the branch naming below is also PROPOSED.
 
