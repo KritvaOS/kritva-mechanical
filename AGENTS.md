@@ -13,8 +13,8 @@ These instructions apply to the `kritva-mechanical` repository: robot-level mech
 - Any file in `kritva-program`, including its baseline, approvals, gate records, workstream registry and source manifest. Proposals go in this repository (see `planning/REGISTRATION_PROPOSAL.md`); the owner makes the program change.
 - The mechanical HOLD (program decision D-003). The actuator lift (D-052) covers the actuator workstreams only. Do not start or add CAD, BOM, quotes, procurement, fabrication, prototypes, physical tests or a design freeze for the robot. Tasks that need the hold lifted stay BLOCKED.
 - Open safety gates, task IDs (never renumber or reuse), acceptance criteria IDs, and any recorded reference value or tolerance (a re-baseline needs a decision reference and a changelog entry).
-- Governance files: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`, `.github/` (workflows, `CODEOWNERS`, the pull request template), `.gitleaks.toml`, `scripts/security/` (a vendored copy; see its PROVENANCE.md) `Makefile` and `scripts/gate.sh`. Do not edit them to make a check pass.
-- The generated `status/status.json`, once it exists. Regenerate it; never edit it by hand.
+- Governance files: `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`, `.github/` (workflows, `CODEOWNERS`, the pull request template), `.gitleaks.toml`, `scripts/security/` and `scripts/status/status.schema.json` (vendored copies; see their PROVENANCE.md files), `Makefile` and `scripts/gate.sh`. Do not edit them to make a check pass.
+- The generated `status/status.json`, once it exists. Regenerate it with `scripts/status/gen_status.py --write` in its own commit after the register commit; never edit it by hand. Do not edit the vendored schema in `scripts/status/`.
 
 ## Status semantics
 
