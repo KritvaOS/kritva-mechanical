@@ -9,7 +9,7 @@
 | Owner | Dinesh (program owner) |
 | Reviewer / Approver | Dinesh |
 | Version | 0.1.0 |
-| Last Updated | 2026-10-28 |
+| Last Updated | 2026-10-29 |
 | Authority | EVIDENCE for changes to this repository's planning baseline (role, not approval). Append only. |
 | Related Tasks / Milestones | All tasks and milestones |
 | Related Documents | [MILESTONE.md](MILESTONE.md), [TASKS.md](TASKS.md), [ACCEPTANCE_CRITERIA.md](ACCEPTANCE_CRITERIA.md), [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md), [GIT_COMMIT_STEP.md](GIT_COMMIT_STEP.md), [SANITY_PLAN.md](../verification/SANITY_PLAN.md), [REGRESSION_PLAN.md](../verification/REGRESSION_PLAN.md), [README.md](../README.md) |
@@ -71,12 +71,13 @@ This is the change record for the plan, not the program's change record. Nothing
 | CL-009 | 2026-10-28 | Layout | Placed the planning set under `planning/` and the test plans under `verification/`, including `ACCEPTANCE_CRITERIA.md` under `planning/` | Owner chose to align the folder structure with the ChatGPT planning session. The kritva-program acceptance standard section 7 places `ACCEPTANCE_CRITERIA.md` at the repository root, so this is a recorded deviation | None here; the owner may later align with the standard or record the deviation as accepted | Pending | Drafted by Claude; review pending (Dinesh) |
 | CL-010 | 2026-10-28 | Git | Aligned `GIT_COMMIT_STEP.md` with the ChatGPT planning session: added `mechanical` as the default commit scope and `actuator-*` scopes for interface work, added the `test(mechanical): add frame dimensional sanity checks` example, and added the seven-stage pull request acceptance sequence (task authorisation, commit validation, scope validation, automated checks, human review, merge and evidence, submodule update) | Owner asked for the git commit format to match the ChatGPT session | None; adoption of D-053 for this repository remains PROPOSED | Pending | Drafted by Claude; review pending (Dinesh) |
 | CL-011 | 2026-10-28 | Review | Added `reviews/2026-10-28-external-review-chatgpt.md`, a recorded copy of the external ChatGPT review of this repository: eight findings (ER-01 to ER-08), the claims not yet verified by us, mapping to existing tasks and checks, and an empty disposition log | Owner asked for the audit to be added to the repository so its findings are traceable | None; the review is advisory evidence, not an approval, and creates no task or program record | Pending | Drafted by Claude; review pending (Dinesh) |
+| CL-012 | 2026-10-29 | Task | Added `REGISTRATION_PROPOSAL.md` for task ROB-MECH-001: proposes a child workstream `ROB_MECH` rolling up to `MECHANICAL`, the `ROB-MECH` prefix and `ROB-` namespace, the relationship to `ACT_INT`, `ACT_EMB`, `ACT_S`, `ACT_M` and `ACT_L`, the program-side changes the owner would make, eight owner decisions and an empty decision log. ROB-MECH-001 moved to IMPLEMENTED (not accepted) | Owner asked to start with the registration proposal; external review findings ER-01 and ER-03 | None; no program record is changed and the hold is unchanged. The program-side changes are listed, not made | Pending | Drafted by Claude; review pending (Dinesh) |
 
 ## 5. Open items carried from the planning set
 
 These are not changes; they are decisions the plan is waiting on. Each becomes a changelog entry when it is made.
 
-1. Registration of the mechanical workstream, the `ROB-MECH` prefix and the `ROB-` namespace in kritva-program.
+1. Registration of the mechanical workstream, the `ROB-MECH` prefix and the `ROB-` namespace in kritva-program (proposal drafted in [REGISTRATION_PROPOSAL.md](REGISTRATION_PROPOSAL.md); decision pending).
 2. Whether and when robot mechanical work is reopened (decision D-003 and the `MECHANICAL` workstream hold).
 3. Visibility class of this repository.
 4. Filling the independent mechanical reviewer and safety reviewer roles (program decision PD-007).
