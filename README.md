@@ -77,6 +77,7 @@ Not yet defined. No robot-level architecture document exists. The first architec
 | [planning/ACCEPTANCE_CRITERIA.md](planning/ACCEPTANCE_CRITERIA.md) | AUTHORITATIVE for acceptance criteria (role); status: PROPOSED | What measurable evidence makes a task or milestone acceptable |
 | [verification/SANITY_PLAN.md](verification/SANITY_PLAN.md) | AUTHORITATIVE for fast checks (role); status: PROPOSED, nothing implemented | Which fast checks run on every pull request |
 | [verification/REGRESSION_PLAN.md](verification/REGRESSION_PLAN.md) | AUTHORITATIVE for regression checks (role); status: PROPOSED, nothing implemented | Which checks protect accepted designs from regressions |
+| [planning/REGISTRATION_PROPOSAL.md](planning/REGISTRATION_PROPOSAL.md) | PROPOSAL; status: PROPOSED, owner decision pending | How this repository would be registered in kritva-program |
 | [planning/REVIEW_CHECKLIST.md](planning/REVIEW_CHECKLIST.md) | AUTHORITATIVE for review (role); status: PROPOSED | What a reviewer checks before approving |
 | [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md) | AUTHORITATIVE for branch and commit sequence once adopted; status: PROPOSED | The branch, commit and pull request sequence |
 | [planning/CHANGELOG.md](planning/CHANGELOG.md) | EVIDENCE, append only; status: PROPOSED | How the plan itself has changed and why |
