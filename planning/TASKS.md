@@ -9,9 +9,9 @@
 | Owner | Dinesh (program owner) |
 | Reviewer / Approver | Dinesh; independent mechanical reviewer not yet identified (program decision PD-007 pending) |
 | Version | 0.1.0 |
-| Last Updated | 2026-10-28 |
+| Last Updated | 2026-10-30 |
 | Authority | AUTHORITATIVE for this repository's local task records (role, not approval). INPUT to `status/status.json` once that exists. Not the program baseline. |
-| Related Tasks / Milestones | ROB-MECH-001 to ROB-MECH-042; ROB-M0 to ROB-M5; alignment batch B3 |
+| Related Tasks / Milestones | ROB-MECH-001 to ROB-MECH-052; ROB-M0 to ROB-M5; alignment batch B3 |
 | Related Documents | [MILESTONE.md](MILESTONE.md), [README.md](../README.md); kritva-program [acceptance standard](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/ACCEPTANCE_STANDARD.md) |
 
 ## Purpose
@@ -122,6 +122,23 @@ Owners are UNASSIGNED until the owner assigns them. "Gate" names what limits the
 | ROB-MECH-041 | Defect closure | 040 | UNASSIGNED | BLOCKED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | |
 | ROB-MECH-042 | Independent acceptance and ROB-M5 completion record | 040, 041 | UNASSIGNED | BLOCKED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | |
 
+### 3.8 Robot feasibility study (paper only; added 2026-10-30, PROPOSED)
+
+Tasks 043 to 052 cover the dual-arm versus legged comparative feasibility study described in [../feasibility/STUDY_PLAN.md](../feasibility/STUDY_PLAN.md). They are paper work (calculation evidence C) and stay inside the mechanical hold: no CAD, BOM, quotes, procurement, fabrication or physical test. Milestone association is PROPOSED: 043 under ROB-M0, 044 to 052 under ROB-M1.
+
+| ID | Task | Depends on | Owner | Execution | Review | Acceptance | Git | Notes |
+|---|---|---|---|---|---|---|---|---|
+| ROB-MECH-043 | Establish the feasibility study baseline documentation package | none | UNASSIGNED | IMPLEMENTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M0. Study plan, assignments, guidelines, criteria, registers, templates, review records and concept stubs under `feasibility/`; implemented, not accepted. Paper study only; D-003 stays in effect. |
+| ROB-MECH-044 | Complete INTERN-01 concept feasibility assessments (DA-01, QR-02, DA-04, QR-04) | 043 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Paper assessments in `feasibility/concepts/`; no CAD or BOM. |
+| ROB-MECH-045 | Complete INTERN-02 concept feasibility assessments (QR-01, DA-02, DA-03, QR-05) | 043 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Paper assessments in `feasibility/concepts/`; no CAD or BOM. |
+| ROB-MECH-046 | Complete INTERN-03 concept feasibility assessments (DA-05, QR-03, DA-06, QR-06) | 043 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Paper assessments in `feasibility/concepts/`; no CAD or BOM. |
+| ROB-MECH-047 | Complete the CP2 architecture review | 044 to 046 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Record in `feasibility/reviews/CP2_ARCHITECTURE_REVIEW.md`. |
+| ROB-MECH-048 | Complete the CP3 engineering review | 047 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Record in `feasibility/reviews/CP3_ENGINEERING_REVIEW.md`. Calculation evidence only. |
+| ROB-MECH-049 | Complete the CP4 final feasibility review | 048 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Record in `feasibility/reviews/CP4_FINAL_REVIEW.md`. A PASS does not authorise implementation. |
+| ROB-MECH-050 | Complete the comparative design, actuator and cost assessments | 048 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Scorecards, hard gates and weight sensitivity per `feasibility/EVALUATION_CRITERIA.md`. Costs are estimates, not quotations. |
+| ROB-MECH-051 | Prepare the final feasibility recommendation and shortlist | 049, 050 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Two dual-arm and two legged candidates, or a documented shortfall. Recommendation only. |
+| ROB-MECH-052 | Record the owner decision on any CAD or BOM follow-up | 051 | UNASSIGNED | NOT_STARTED | NOT_REVIEWED | NOT_RUN | NOT_COMMITTED | ROB-M1. Recording a decision is planning work. It does not lift D-003; CAD and BOM tasks (020, 022 to 026) stay BLOCKED until an owner decision reopens robot mechanical work. |
+
 ## 4. Task definitions
 
 Each task is done only when the program definition of done holds (stable ID, testable criteria in [ACCEPTANCE_CRITERIA.md](ACCEPTANCE_CRITERIA.md), merged through the required review, required checks passed on the exact closing commit, reviews recorded against that commit, documentation updated, evidence pointing at immutable references). The tables give the specifics. Criteria IDs are written in `ACCEPTANCE_CRITERIA.md` in the form `AC-NNN-nn`, where NNN is the task number.
@@ -188,6 +205,21 @@ Each task is done only when the program definition of done holds (stable ID, tes
 | 041 | Defect register with dispositions | B, review | Independent reviewer | Safety gates |
 | 042 | Independent acceptance record and completion record | P, review | Independent mechanical and safety reviewers | Safety gates |
 
+### 4.5 Feasibility study (tasks 043 to 052)
+
+| Task | Deliverable | Evidence type | Reviewer | Gate |
+|---|---|---|---|---|
+| 043 | The `feasibility/` package: study plan, intern assignments, design guidelines, evaluation criteria, requirements and risk registers, templates, review records, concept stubs | S, review | Owner | None (paper only) |
+| 044 | Four concept assessments for INTERN-01, each with architecture, DOF, joint requirements, mass and cost assumptions and risks | C, review | Independent reviewer | None (paper only) |
+| 045 | Four concept assessments for INTERN-02, same content | C, review | Independent reviewer | None (paper only) |
+| 046 | Four concept assessments for INTERN-03, same content | C, review | Independent reviewer | None (paper only) |
+| 047 | CP2 review record with criteria CP2-01 to CP2-09 and all 12 concepts | Review | Owner and independent reviewer | None |
+| 048 | CP3 review record with criteria CP3-01 to CP3-11 and all 12 concepts | C, review | Owner and independent reviewer | None |
+| 049 | CP4 review record with criteria CP4-01 to CP4-12, hard gates HG-01 to HG-04 and outstanding owner decisions | Review | Owner and independent reviewer | None |
+| 050 | Design, actuator and cost comparison records with scorecards that show NOT SCORED criteria and a weight sensitivity check | C, review | Independent reviewer | None |
+| 051 | Recommendation document naming candidates and evidence limits; no approval claimed | Review | Owner | Owner decision |
+| 052 | Owner decision record on any CAD or BOM follow-up | Review | Owner | Owner decision; mechanical hold |
+
 ## 5. Dependencies and critical path
 
 ```text
@@ -198,6 +230,7 @@ M2:      021 -> 022 -> 023, 024, 026 ; 009 + 022 -> 025 -> 027
 M3:      027 -> 028 -> 029, 030 -> 031 -> 032 -> 033
 M4:      033 -> 034 -> 035 -> 036, 037 -> 038
 M5:      038 -> 039 -> 040 -> 041 -> 042
+Study:   043 -> 044, 045, 046 -> 047 -> 048 -> 049, 050 -> 051 -> 052   (paper only; does not need the hold lifted)
 ```
 
 The critical path to the first reportable outcome runs 007 to 011 to 013. It does not need the hold to be lifted. Setup tasks 001 to 006 run in parallel and are needed before any of this progress can be reported to kritva-program.
