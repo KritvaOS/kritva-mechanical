@@ -5,13 +5,13 @@
 | Document ID | KOS-MECH-AC |
 | Repository | `KritvaOS/kritva-mechanical` |
 | Document Type | Specification |
-| Status | PROPOSED (criteria version 0.1.0; accepted as a working planning baseline on 2026-10-28, not an approved program acceptance record) |
+| Status | PROPOSED (criteria version 0.1.1; version 0.1.0 was accepted as a working planning baseline on 2026-10-28, the 0.1.1 additions for tasks 043 to 052 are PROPOSED and not yet accepted; not an approved program acceptance record) |
 | Owner | Dinesh (program owner) |
 | Reviewer / Approver | Dinesh; independent mechanical reviewer not yet identified (program decision PD-007 pending) |
-| Version | 0.1.0 |
-| Last Updated | 2026-10-28 |
+| Version | 0.1.1 |
+| Last Updated | 2026-10-30 |
 | Authority | AUTHORITATIVE for this repository's acceptance criteria (role, not approval). Criteria never grant program credit. |
-| Related Tasks / Milestones | ROB-MECH-001 to ROB-MECH-042; ROB-M0 to ROB-M5 |
+| Related Tasks / Milestones | ROB-MECH-001 to ROB-MECH-052; ROB-M0 to ROB-M5 |
 | Related Documents | [TASKS.md](TASKS.md), [MILESTONE.md](MILESTONE.md), [SANITY_PLAN.md](../verification/SANITY_PLAN.md), [REGRESSION_PLAN.md](../verification/REGRESSION_PLAN.md), [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md); kritva-program [acceptance standard](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/ACCEPTANCE_STANDARD.md) and [criteria template](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/templates/ACCEPTANCE_CRITERIA.template.md) |
 
 ## Purpose
@@ -218,9 +218,48 @@ All criteria in this group are blocked by the controlled fixture, an approved te
 | AC-042-02 | Every requirement with a physical method has a recorded result | S, R | NOT_RUN |
 | AC-042-03 | The completion record is approved; it states that it does not release the hardware | R | NOT_RUN |
 
+### 3.8 Feasibility study (paper only, PROPOSED in version 0.1.1)
+
+These criteria cover tasks 043 to 052. They use evidence types C and R (and S for file and link checks) only; simulation, bench and physical evidence are not part of this study and are never claimed from it.
+
+| ID | Criterion (testable) | Verified by | Result |
+|---|---|---|---|
+| AC-043-01 | Every file listed in the study README index exists and every local link in the `feasibility/` Markdown files resolves | S | NOT_RUN |
+| AC-043-02 | Every `feasibility/` document states status PROPOSED and states that mechanical hold D-003 remains in effect; no `cad/`, BOM, quote or procurement artefact exists in the folder | S, R | NOT_RUN |
+| AC-043-03 | No document gives a numeric value for payload, reach, mass, torque, speed or cost without a source, or labels it ESTIMATE, TBD or UNKNOWN | R | NOT_RUN |
+| AC-043-04 | The owner review is recorded against the exact commit | R | NOT_RUN |
+| AC-044-01 | Each of the four INTERN-01 concepts has the documents required by `feasibility/DESIGN_GUIDELINES.md` section 4, or each missing item is marked BLOCKED or INCOMPLETE with a reason | S, R | NOT_RUN |
+| AC-044-02 | Every joint torque and speed requirement shows formula, inputs, units and assumptions, or is marked TBD | C, R | NOT_RUN |
+| AC-044-03 | S/M/L compatibility is derived per joint and is not copied from the elbow reference | R | NOT_RUN |
+| AC-044-04 | Every numeric value is labelled sourced, ESTIMATE or UNKNOWN, and the evidence type is stated as C; no simulation, bench or physical evidence is claimed | R | NOT_RUN |
+| AC-045-01 | Each of the four INTERN-02 concepts has the documents required by `feasibility/DESIGN_GUIDELINES.md` section 4, or each missing item is marked BLOCKED or INCOMPLETE with a reason | S, R | NOT_RUN |
+| AC-045-02 | Every joint torque and speed requirement shows formula, inputs, units and assumptions, or is marked TBD | C, R | NOT_RUN |
+| AC-045-03 | S/M/L compatibility is derived per joint and is not copied from the elbow reference | R | NOT_RUN |
+| AC-045-04 | Every numeric value is labelled sourced, ESTIMATE or UNKNOWN, and the evidence type is stated as C; no simulation, bench or physical evidence is claimed | R | NOT_RUN |
+| AC-046-01 | Each of the four INTERN-03 concepts has the documents required by `feasibility/DESIGN_GUIDELINES.md` section 4, or each missing item is marked BLOCKED or INCOMPLETE with a reason | S, R | NOT_RUN |
+| AC-046-02 | Every joint torque and speed requirement shows formula, inputs, units and assumptions, or is marked TBD | C, R | NOT_RUN |
+| AC-046-03 | S/M/L compatibility is derived per joint and is not copied from the elbow reference | R | NOT_RUN |
+| AC-046-04 | Every numeric value is labelled sourced, ESTIMATE or UNKNOWN, and the evidence type is stated as C; no simulation, bench or physical evidence is claimed | R | NOT_RUN |
+| AC-047-01 | Criteria CP2-01 to CP2-09 each have a result (PASS, FAIL, BLOCKED or NOT REVIEWED) with evidence | R | NOT_RUN |
+| AC-047-02 | All 12 concepts appear with a status; none is omitted silently | R | NOT_RUN |
+| AC-047-03 | The review record cites the 40-character reviewed commit | S, R | NOT_RUN |
+| AC-048-01 | Criteria CP3-01 to CP3-11 each have a result with evidence | R | NOT_RUN |
+| AC-048-02 | All 12 concepts appear with a status and the cross-intern consistency of calculations is reviewed | R | NOT_RUN |
+| AC-048-03 | The review record cites the 40-character reviewed commit | S, R | NOT_RUN |
+| AC-049-01 | Criteria CP4-01 to CP4-12 each have a result with evidence | R | NOT_RUN |
+| AC-049-02 | Hard gates HG-01 to HG-04 are recorded separately from weighted scores; an unresolved gate is not shown as passed | R | NOT_RUN |
+| AC-049-03 | Outstanding owner decisions are listed and the record states that a PASS does not authorise implementation | R | NOT_RUN |
+| AC-050-01 | Every scorecard shows all seven criteria; a criterion with UNKNOWN evidence is NOT SCORED, weights are not renormalised, and scored and unscored weight are reported | R | NOT_RUN |
+| AC-050-02 | A weight sensitivity check is recorded and the proposed weights were not changed after scoring | C, R | NOT_RUN |
+| AC-050-03 | Cost values are labelled ESTIMATE or UNKNOWN, are compared with the planning ceiling only as estimates, and no quotation is represented | R | NOT_RUN |
+| AC-051-01 | The recommendation names two dual-arm and two legged candidates, or documents the shortfall | R | NOT_RUN |
+| AC-051-02 | It states evidence limits, unresolved hard gates and NOT SCORED criteria, and states that it does not authorise CAD, BOM, quotes, procurement, fabrication or physical testing | R | NOT_RUN |
+| AC-052-01 | The decision record states the decision, date, decider and the evidence reviewed | R | NOT_RUN |
+| AC-052-02 | CAD and BOM tasks stay BLOCKED unless the record explicitly reopens robot mechanical work and the matching decision is recorded in kritva-program | R | NOT_RUN |
+
 ## 4. Milestone acceptance criteria
 
-A milestone closes only through an approved completion record. The exit criteria themselves are in [MILESTONE.md](MILESTONE.md); this table sets the evidence required.
+A milestone closes only through an approved completion record. The exit criteria themselves are in [MILESTONE.md](MILESTONE.md); this table sets the evidence required. Tasks 043 to 052 are not part of any milestone's required evidence unless the owner decides so (see MILESTONE.md open decision 8).
 
 | Milestone | Required evidence | Result |
 |---|---|---|
@@ -254,11 +293,12 @@ An unimplemented gate exits non-zero and is never counted as a pass. A gate is N
 
 | Gate | Applies to | Requirement |
 |---|---|---|
-| Calculation reproducibility | Tasks 009, 015, 016, 025, 026 | Inputs are stored with the result and the result recomputes within the stated tolerance |
+| Calculation reproducibility | Tasks 009, 015, 016, 025, 026, 044 to 046, 048, 050 | Inputs are stored with the result and the result recomputes within the stated tolerance |
 | Dimensional inspection | Tasks 030, 034, 036 | Instruments are identified and calibrated; accuracy is stated against tolerance |
 | Mass and balance | Tasks 016, 024, 026 | Mass roll-ups agree across BOM, CAD and the budget within the stated tolerance |
 | Physical test | Tasks 039 to 042 | Controlled procedure and fixture, evidence per exact revision, independent acceptance |
 | Safety review | Any task touching a safety-gated function, and M3 to M5 | Recorded against the commit; required human reviews are never replaced by software checks |
+| Paper-only study | Tasks 043 to 052 | No CAD, BOM, quote, procurement, fabrication or physical test is produced; evidence is C and R only |
 | Hold and authorisation | Tasks 020 to 042 | The matching decision is recorded in kritva-program before the task starts |
 
 Software checks, calculations and simulation never stand in for physical verification, and a physical-test criterion is never marked PASS from them.
