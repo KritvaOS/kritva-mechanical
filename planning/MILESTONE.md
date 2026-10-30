@@ -9,7 +9,7 @@
 | Owner | Dinesh (program owner) |
 | Reviewer / Approver | Dinesh for planning acceptance; independent mechanical reviewer not yet identified (program reviewer roles are pending decision PD-007) |
 | Version | 0.1.0 |
-| Last Updated | 2026-10-28 |
+| Last Updated | 2026-10-30 |
 | Authority | AUTHORITATIVE for this repository's milestone definitions (role, not approval). Not a program baseline entry. |
 | Related Tasks / Milestones | ROB-M0 to ROB-M5; tasks are defined in `TASKS.md` (PLANNED) |
 | Related Documents | [README.md](../README.md); kritva-program [acceptance standard](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/ACCEPTANCE_STANDARD.md), [gate register](https://github.com/KritvaOS/kritva-program/blob/main/v2/GATE_REGISTER.md), [decision log](https://github.com/KritvaOS/kritva-program/blob/main/v2/DECISIONS.md) |
@@ -59,6 +59,8 @@ All milestones are NOT_STARTED. No percentage or count of completion is recorded
 | ROB-M3 | Fabrication readiness | Establish manufacturing and assembly readiness | Approved manufacturing package, tolerances, procurement list, inspection plan | ROB-M2 | Needs the hold reopened and explicit authority to procure and fabricate |
 | ROB-M4 | Assembly and inspection | Assemble the authorised prototype and inspect it | Inspection records, dimensional results, deviation register | ROB-M3, actuator inputs | Needs fabrication authority and open safety gates handled |
 | ROB-M5 | Mechanical verification | Verify the assembly against its requirements | Test records, defect closure, independent acceptance | ROB-M4 | Needs controlled test fixture, procedures and independent safety review |
+
+**Feasibility study association (PROPOSED, 2026-10-30).** Task ROB-MECH-043 is associated with ROB-M0 and tasks ROB-MECH-044 to 052 with ROB-M1 (see [TASKS.md](TASKS.md) section 3.8 and the [feasibility study](../feasibility/STUDY_PLAN.md)). This is paper work and changes no objective, entry criterion, exit criterion, sequence or gate. The milestones can close without these tasks unless the owner decides otherwise (open decision 8). The study does not lift the mechanical hold.
 
 ## 4. Milestone records
 
@@ -303,6 +305,7 @@ These need an owner answer before the dependent work can be planned in detail.
 5. **CAD and storage convention.** Which CAD tool, file format, revision identifiers and artifact storage the repository uses.
 6. **Dates.** Whether and when to propose target dates; none exist today.
 7. **Visibility.** The repository's visibility class decision.
+8. **Feasibility study.** Whether tasks 043 to 052 count toward the ROB-M0 and ROB-M1 exit criteria, and whether the study outcome feeds the ROB-A0 definition (task 007), which is the owner's decision.
 
 ## 10. Completion record
 
