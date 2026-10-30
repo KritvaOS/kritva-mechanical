@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">KMECH-CONCEPT-DA-05 — Rotating Platform Dual-Arm</title>
+<desc id="desc">Front and top schematic views of a rotating platform carrying two three-degree-of-freedom articulated arms.</desc>
+<defs>
+<style>
+text{font-family:Arial,sans-serif;fill:#20394b}.h{font-size:27px;font-weight:bold}.sub{font-size:15px;fill:#526575}.pt{font-size:19px;font-weight:bold}.lb{font-size:14px}.sm{font-size:12px;fill:#526575}.jl{font-size:12px;font-weight:bold}.joint{fill:#f3f6f8;stroke:#31566f;stroke-width:4}.core{fill:#31566f}.arm{fill:none;stroke:#477b9e;stroke-width:17;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#a9c4d5;stroke-width:5;stroke-linecap:round}.body{fill:#dce5eb;stroke:#344e60;stroke-width:3}.leader{fill:none;stroke:#718695;stroke-width:1.5}.panel{fill:#fbfcfd;stroke:#c9d4dc;stroke-width:2}.grip{fill:none;stroke:#31566f;stroke-width:6;stroke-linecap:round}
+</style>
+</defs>
+<rect width="1200" height="800" fill="#fff"/>
+<text x="50" y="48" class="h">KMECH-CONCEPT-DA-05</text>
+<text x="50" y="76" class="sub">Rotating Platform Dual-Arm | Concept architecture schematic</text>
+<path d="M50 96H1150" stroke="#c9d4dc" stroke-width="2"/>
+<rect x="45" y="120" width="700" height="490" rx="10" class="panel"/>
+<text x="70" y="155" class="pt">FRONT VIEW</text>
+<text x="70" y="178" class="sm">Two 3-DOF arms mounted on a common rotating platform</text>
+<!-- arms and rotating platform -->
+<path d="M245 360L205 275L275 225M545 360L585 275L515 225" class="arm"/>
+<path d="M245 360L205 275L275 225M545 360L585 275L515 225" class="detail"/>
+<circle cx="245" cy="360" r="16" class="joint"/><circle cx="245" cy="360" r="5" class="core"/>
+<circle cx="205" cy="275" r="14" class="joint"/><circle cx="205" cy="275" r="5" class="core"/>
+<circle cx="275" cy="225" r="14" class="joint"/><circle cx="275" cy="225" r="5" class="core"/>
+<path d="M275 225l25-25m-25 25l30 15" class="grip"/>
+<circle cx="545" cy="360" r="16" class="joint"/><circle cx="545" cy="360" r="5" class="core"/>
+<circle cx="585" cy="275" r="14" class="joint"/><circle cx="585" cy="275" r="5" class="core"/>
+<circle cx="515" cy="225" r="14" class="joint"/><circle cx="515" cy="225" r="5" class="core"/>
+<path d="M515 225l-25-25m25 25l-30 15" class="grip"/>
+<!-- rotating deck, bearing and fixed pedestal -->
+<path d="M175 390Q395 345 615 390L590 425Q395 465 200 425Z" class="body"/>
+<ellipse cx="395" cy="450" rx="105" ry="24" fill="#c6d3dc" stroke="#344e60" stroke-width="3"/>
+<rect x="365" y="450" width="60" height="85" class="body"/>
+<rect x="315" y="535" width="160" height="24" rx="4" class="body"/>
+<rect x="285" y="559" width="220" height="18" rx="3" fill="#aebdc7" stroke="#344e60" stroke-width="2"/>
+<text x="395" y="405" text-anchor="middle" class="sm">Rotating deck</text>
+<text x="395" y="515" text-anchor="middle" class="sm">Rotation axis</text>
+<path d="M445 500L465 480" class="leader"/>
+<text x="85" y="225" class="lb">Left arm</text><path d="M150 230L190 250" class="leader"/>
+<text x="610" y="225" class="lb">Right arm</text><path d="M610 230L590 250" class="leader"/>
+<text x="80" y="320" class="jl">J1</text><path d="M105 316L230 355" class="leader"/>
+<text x="80" y="275" class="jl">J2</text><path d="M105 271L190 275" class="leader"/>
+<text x="320" y="205" class="jl">J3</text><path d="M320 210L285 225" class="leader"/>
+<text x="650" y="320" class="jl">J1</text><path d="M645 316L560 355" class="leader"/>
+<text x="650" y="275" class="jl">J2</text><path d="M645 271L600 275" class="leader"/>
+<text x="455" y="205" class="jl">J3</text><path d="M455 210L505 225" class="leader"/>
+<text x="395" y="595" text-anchor="middle" class="sm">Fixed support base</text>
+<!-- top view -->
+<rect x="770" y="120" width="385" height="490" rx="10" class="panel"/>
+<text x="795" y="155" class="pt">TOP VIEW</text>
+<text x="795" y="178" class="sm">Plan layout — indicative only</text>
+<text x="962" y="218" text-anchor="middle" class="sm">FRONT</text>
+<path d="M962 225v25m-7-8l7-9 7 9" class="leader"/>
+<!-- circular rotating platform -->
+<circle cx="962" cy="390" r="125" fill="#eef2f5" stroke="#344e60" stroke-width="3"/>
+<circle cx="962" cy="390" r="88" fill="#dce5eb" stroke="#718695" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="962" cy="390" r="25" fill="#c6d3dc" stroke="#344e60" stroke-width="3"/>
+<circle cx="962" cy="390" r="6" class="core"/>
+<!-- arm projections -->
+<path d="M930 350L875 315L825 350L805 415M994 350L1049 315L1099 350L1119 415" class="arm"/>
+<circle cx="930" cy="350" r="12" class="joint"/><circle cx="875" cy="315" r="12" class="joint"/><circle cx="825" cy="350" r="12" class="joint"/>
+<circle cx="994" cy="350" r="12" class="joint"/><circle cx="1049" cy="315" r="12" class="joint"/><circle cx="1099" cy="350" r="12" class="joint"/>
+<path d="M805 415l-15 20m15-20l8 23m311-23l15 20m-15-20l-8 23" class="grip"/>
+<path d="M850 480A115 115 0 0 0 1074 480" fill="none" stroke="#718695" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="962" y="535" text-anchor="middle" class="sm">Rotating platform</text>
+<text x="962" y="553" text-anchor="middle" class="sm">and central axis</text>
+<text x="795" y="585" class="sm">Arms rotate together with platform</text>
+<!-- summary -->
+<rect x="45" y="635" width="1110" height="105" rx="8" fill="#f3f6f8" stroke="#c9d4dc" stroke-width="2"/>
+<text x="70" y="665" class="pt">CONCEPT SUMMARY</text>
+<text x="70" y="691" class="lb">Configuration: rotating platform carrying two independently articulated arms</text>
+<text x="70" y="715" class="lb">Joint arrangement: 3 DOF per arm (6 total arm joints), plus platform rotation — illustrative</text>
+<text x="1125" y="765" text-anchor="end" font-size="14" font-weight="bold" fill="#9a3f32">PROPOSED concept sketch, not to scale, no CAD</text>
+</svg>

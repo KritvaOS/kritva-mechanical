@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">KMECH-CONCEPT-QR-06 — Hexapod</title>
+<desc id="desc">Side and top schematic views of a hexapod with six articulated legs and two degrees of freedom per leg.</desc>
+<defs>
+<style>
+text{font-family:Arial,sans-serif;fill:#20394b}.h{font-size:27px;font-weight:bold}.sub{font-size:15px;fill:#526575}.pt{font-size:19px;font-weight:bold}.lb{font-size:14px}.sm{font-size:12px;fill:#526575}.jl{font-size:12px;font-weight:bold}.joint{fill:#f3f6f8;stroke:#31566f;stroke-width:4}.core{fill:#31566f}.leg{fill:none;stroke:#477b9e;stroke-width:16;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#a9c4d5;stroke-width:5;stroke-linecap:round}.body{fill:#dce5eb;stroke:#344e60;stroke-width:3}.leader{fill:none;stroke:#718695;stroke-width:1.5}.panel{fill:#fbfcfd;stroke:#c9d4dc;stroke-width:2}.foot{fill:#53616b;stroke:#344e60;stroke-width:2}
+</style>
+</defs>
+<rect width="1200" height="800" fill="#fff"/>
+<text x="50" y="48" class="h">KMECH-CONCEPT-QR-06</text>
+<text x="50" y="76" class="sub">Hexapod | Concept architecture schematic</text>
+<path d="M50 96H1150" stroke="#c9d4dc" stroke-width="2"/>
+<!-- side view -->
+<rect x="45" y="120" width="700" height="490" rx="10" class="panel"/>
+<text x="70" y="155" class="pt">SIDE VIEW</text>
+<text x="70" y="178" class="sm">Six-legged platform with two joints per leg</text>
+<!-- body -->
+<path d="M205 285Q390 255 575 285L590 355Q390 385 190 355Z" class="body"/>
+<rect x="270" y="300" width="250" height="38" rx="8" fill="#c6d3dc" stroke="#344e60" stroke-width="2"/>
+<!-- visible front, middle and rear legs -->
+<path d="M235 345L205 425L185 515M390 355L390 435L390 525M545 345L575 425L595 515" class="leg"/>
+<path d="M235 345L205 425L185 515M390 355L390 435L390 525M545 345L575 425L595 515" class="detail"/>
+<circle cx="235" cy="345" r="15" class="joint"/><circle cx="235" cy="345" r="5" class="core"/>
+<circle cx="205" cy="425" r="14" class="joint"/><circle cx="205" cy="425" r="5" class="core"/>
+<circle cx="390" cy="355" r="15" class="joint"/><circle cx="390" cy="355" r="5" class="core"/>
+<circle cx="390" cy="435" r="14" class="joint"/><circle cx="390" cy="435" r="5" class="core"/>
+<circle cx="545" cy="345" r="15" class="joint"/><circle cx="545" cy="345" r="5" class="core"/>
+<circle cx="575" cy="425" r="14" class="joint"/><circle cx="575" cy="425" r="5" class="core"/>
+<path d="M185 515l-18 5h35M390 525l-18 5h35M595 515l-18 5h35" class="foot"/>
+<!-- far-side leg outlines -->
+<path d="M275 355L285 430L270 505M390 355L405 435L420 515M505 355L495 430L510 505" fill="none" stroke="#91a8b8" stroke-width="9" stroke-dasharray="6 5" stroke-linecap="round"/>
+<text x="85" y="240" class="lb">Central chassis</text><path d="M175 245L235 290" class="leader"/>
+<text x="75" y="375" class="jl">Hip J1</text><path d="M130 371L225 350" class="leader"/>
+<text x="75" y="445" class="jl">Knee J2</text><path d="M145 441L195 425" class="leader"/>
+<text x="395" y="570" text-anchor="middle" class="sm">Ground contact plane</text>
+<path d="M110 530H660" stroke="#718695" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="610" y="390" class="sm">Three leg pairs</text><text x="610" y="407" class="sm">along body</text><path d="M605 412L585 430" class="leader"/>
+<!-- top view -->
+<rect x="770" y="120" width="385" height="490" rx="10" class="panel"/>
+<text x="795" y="155" class="pt">TOP VIEW</text>
+<text x="795" y="178" class="sm">Plan layout — indicative only</text>
+<text x="962" y="218" text-anchor="middle" class="sm">FRONT</text>
+<path d="M962 225v24m-7-8l7-9 7 9" class="leader"/>
+<path d="M920 310L1004 310L1025 390L1004 470L920 470L899 390Z" class="body"/>
+<rect x="930" y="330" width="64" height="120" rx="8" fill="#c6d3dc" stroke="#718695" stroke-width="2"/>
+<text x="962" y="395" text-anchor="middle" class="sm">Body</text>
+<!-- six legs: three on each side -->
+<path d="M920 330L875 300L835 275M920 390L865 390L820 390M920 450L875 480L835 505M1004 330L1049 300L1089 275M1004 390L1059 390L1104 390M1004 450L1049 480L1089 505" class="leg"/>
+<circle cx="920" cy="330" r="12" class="joint"/><circle cx="875" cy="300" r="11" class="joint"/>
+<circle cx="920" cy="390" r="12" class="joint"/><circle cx="865" cy="390" r="11" class="joint"/>
+<circle cx="920" cy="450" r="12" class="joint"/><circle cx="875" cy="480" r="11" class="joint"/>
+<circle cx="1004" cy="330" r="12" class="joint"/><circle cx="1049" cy="300" r="11" class="joint"/>
+<circle cx="1004" cy="390" r="12" class="joint"/><circle cx="1059" cy="390" r="11" class="joint"/>
+<circle cx="1004" cy="450" r="12" class="joint"/><circle cx="1049" cy="480" r="11" class="joint"/>
+<circle cx="835" cy="275" r="8" class="foot"/><circle cx="820" cy="390" r="8" class="foot"/><circle cx="835" cy="505" r="8" class="foot"/>
+<circle cx="1089" cy="275" r="8" class="foot"/><circle cx="1104" cy="390" r="8" class="foot"/><circle cx="1089" cy="505" r="8" class="foot"/>
+<text x="795" y="555" class="sm">Three leg pairs: front, middle, rear</text>
+<text x="795" y="575" class="sm">Six legs, two DOF each</text>
+<!-- summary -->
+<rect x="45" y="635" width="1110" height="105" rx="8" fill="#f3f6f8" stroke="#c9d4dc" stroke-width="2"/>
+<text x="70" y="665" class="pt">CONCEPT SUMMARY</text>
+<text x="70" y="691" class="lb">Configuration: hexapod with six articulated legs arranged in three pairs</text>
+<text x="70" y="715" class="lb">Joint arrangement: 2 DOF per leg (12 total leg joints) — illustrative arrangement</text>
+<text x="1125" y="765" text-anchor="end" font-size="14" font-weight="bold" fill="#9a3f32">PROPOSED concept sketch, not to scale, no CAD</text>
+</svg>

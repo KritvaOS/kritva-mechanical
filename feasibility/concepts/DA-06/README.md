@@ -30,6 +30,12 @@
 - Major assumptions: TBD
 - Known limitations: TBD
 
+### Concept sketch
+
+![KMECH-CONCEPT-DA-06 — Humanoid Upper-Body - concept sketch](../../../docs/images/KMECH-CONCEPT-DA-06.svg)
+
+Illustrative schematic only (evidence type C, PROPOSED). It is not to scale, is not CAD, and carries no engineering evidence. Source file: `docs/images/KMECH-CONCEPT-DA-06.svg`.
+
 ## 3. Folder Contents
 
 Only this README exists today. The files and folders below are created by the assigned intern as work progresses, using `feasibility/templates/`. There is no `cad/` folder while HOLD D-003 is active.

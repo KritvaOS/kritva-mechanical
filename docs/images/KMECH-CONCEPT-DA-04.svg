@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">KMECH-CONCEPT-DA-04 — Advanced Dual-Arm</title>
+<desc id="desc">Front and top schematic views of an advanced dual-arm configuration with two five-degree-of-freedom articulated arms on a common fixed support.</desc>
+<defs>
+<style>
+text{font-family:Arial,sans-serif;fill:#20394b}.h{font-size:27px;font-weight:bold}.sub{font-size:15px;fill:#526575}.pt{font-size:19px;font-weight:bold}.lb{font-size:14px}.sm{font-size:12px;fill:#526575}.jl{font-size:12px;font-weight:bold}.joint{fill:#f3f6f8;stroke:#31566f;stroke-width:4}.core{fill:#31566f}.arm{fill:none;stroke:#477b9e;stroke-width:17;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#a9c4d5;stroke-width:5;stroke-linecap:round}.body{fill:#dce5eb;stroke:#344e60;stroke-width:3}.leader{fill:none;stroke:#718695;stroke-width:1.5}.panel{fill:#fbfcfd;stroke:#c9d4dc;stroke-width:2}.grip{fill:none;stroke:#31566f;stroke-width:6;stroke-linecap:round}
+</style>
+</defs>
+<rect width="1200" height="800" fill="#fff"/>
+<text x="50" y="48" class="h">KMECH-CONCEPT-DA-04</text>
+<text x="50" y="76" class="sub">Advanced Dual-Arm | Concept architecture schematic</text>
+<path d="M50 96H1150" stroke="#c9d4dc" stroke-width="2"/>
+<rect x="45" y="120" width="700" height="490" rx="10" class="panel"/>
+<text x="70" y="155" class="pt">FRONT VIEW</text>
+<text x="70" y="178" class="sm">Two independently articulated 5-DOF arms on a common fixed support</text>
+<!-- central support -->
+<rect x="340" y="365" width="120" height="110" rx="8" class="body"/>
+<rect x="315" y="475" width="170" height="22" rx="4" class="body"/>
+<rect x="335" y="497" width="130" height="65" rx="5" class="body"/>
+<rect x="300" y="562" width="200" height="16" rx="3" fill="#aebdc7" stroke="#344e60" stroke-width="2"/>
+<!-- left arm: shoulder, upper arm articulation, elbow, forearm articulation, wrist -->
+<path d="M340 390L285 315L220 285L165 350L205 425" class="arm"/>
+<path d="M340 390L285 315L220 285L165 350L205 425" class="detail"/>
+<circle cx="340" cy="390" r="16" class="joint"/><circle cx="340" cy="390" r="5" class="core"/>
+<circle cx="285" cy="315" r="14" class="joint"/><circle cx="285" cy="315" r="5" class="core"/>
+<circle cx="220" cy="285" r="14" class="joint"/><circle cx="220" cy="285" r="5" class="core"/>
+<circle cx="165" cy="350" r="14" class="joint"/><circle cx="165" cy="350" r="5" class="core"/>
+<circle cx="205" cy="425" r="14" class="joint"/><circle cx="205" cy="425" r="5" class="core"/>
+<path d="M205 425l-25 25m25-25l8 30" class="grip"/>
+<!-- right arm -->
+<path d="M460 390L515 315L580 285L635 350L595 425" class="arm"/>
+<path d="M460 390L515 315L580 285L635 350L595 425" class="detail"/>
+<circle cx="460" cy="390" r="16" class="joint"/><circle cx="460" cy="390" r="5" class="core"/>
+<circle cx="515" cy="315" r="14" class="joint"/><circle cx="515" cy="315" r="5" class="core"/>
+<circle cx="580" cy="285" r="14" class="joint"/><circle cx="580" cy="285" r="5" class="core"/>
+<circle cx="635" cy="350" r="14" class="joint"/><circle cx="635" cy="350" r="5" class="core"/>
+<circle cx="595" cy="425" r="14" class="joint"/><circle cx="595" cy="425" r="5" class="core"/>
+<path d="M595 425l25 25m-25-25l-8 30" class="grip"/>
+<text x="85" y="225" class="lb">Left arm</text><path d="M155 230L210 270" class="leader"/>
+<text x="610" y="225" class="lb">Right arm</text><path d="M610 230L590 270" class="leader"/>
+<text x="75" y="300" class="jl">J1</text><path d="M95 296L330 385" class="leader"/>
+<text x="75" y="345" class="jl">J2</text><path d="M95 341L270 315" class="leader"/>
+<text x="75" y="390" class="jl">J3</text><path d="M95 386L207 290" class="leader"/>
+<text x="75" y="435" class="jl">J4</text><path d="M95 431L155 355" class="leader"/>
+<text x="75" y="475" class="jl">J5</text><path d="M95 471L195 430" class="leader"/>
+<text x="400" y="430" text-anchor="middle" class="lb">Common</text>
+<text x="400" y="449" text-anchor="middle" class="lb">support</text>
+<text x="400" y="595" text-anchor="middle" class="sm">Fixed mounting base</text>
+<rect x="770" y="120" width="385" height="490" rx="10" class="panel"/>
+<text x="795" y="155" class="pt">TOP VIEW</text>
+<text x="795" y="178" class="sm">Plan layout — indicative only</text>
+<text x="962" y="220" text-anchor="middle" class="sm">FRONT</text>
+<path d="M962 228v24m-7-8l7-9 7 9" class="leader"/>
+<rect x="925" y="325" width="75" height="145" rx="8" class="body"/>
+<rect x="900" y="455" width="125" height="38" rx="4" class="body"/>
+<path d="M925 350L875 310L835 335L815 405L845 465M1000 350L1050 310L1090 335L1110 405L1080 465" class="arm"/>
+<circle cx="925" cy="350" r="12" class="joint"/><circle cx="875" cy="310" r="11" class="joint"/><circle cx="835" cy="335" r="11" class="joint"/><circle cx="815" cy="405" r="11" class="joint"/><circle cx="845" cy="465" r="11" class="joint"/>
+<circle cx="1000" cy="350" r="12" class="joint"/><circle cx="1050" cy="310" r="11" class="joint"/><circle cx="1090" cy="335" r="11" class="joint"/><circle cx="1110" cy="405" r="11" class="joint"/><circle cx="1080" cy="465" r="11" class="joint"/>
+<path d="M845 465l-15 20m15-20l8 23m227-23l15 20m-15-20l-8 23" class="grip"/>
+<text x="800" y="540" class="sm">Mirrored multi-joint arm layout</text>
+<text x="800" y="560" class="sm">around a shared central support</text>
+<rect x="45" y="635" width="1110" height="105" rx="8" fill="#f3f6f8" stroke="#c9d4dc" stroke-width="2"/>
+<text x="70" y="665" class="pt">CONCEPT SUMMARY</text>
+<text x="70" y="691" class="lb">Configuration: advanced dual-arm arrangement with two independently articulated arms</text>
+<text x="70" y="715" class="lb">Joint arrangement: 5 DOF per arm (10 total arm joints) — illustrative arrangement</text>
+<text x="1125" y="765" text-anchor="end" font-size="14" font-weight="bold" fill="#9a3f32">PROPOSED concept sketch, not to scale, no CAD</text>
+</svg>

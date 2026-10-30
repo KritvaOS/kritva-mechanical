@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">KMECH-CONCEPT-QR-05 — Modular Quadruped</title>
+<desc id="desc">Side and top schematic views of a modular quadruped with four interchangeable legs, each provisioned for two to three degrees of freedom.</desc>
+<defs>
+<style>
+text{font-family:Arial,sans-serif;fill:#20394b}.h{font-size:27px;font-weight:bold}.sub{font-size:15px;fill:#526575}.pt{font-size:19px;font-weight:bold}.lb{font-size:14px}.sm{font-size:12px;fill:#526575}.jl{font-size:12px;font-weight:bold}.joint{fill:#f3f6f8;stroke:#31566f;stroke-width:4}.core{fill:#31566f}.leg{fill:none;stroke:#477b9e;stroke-width:17;stroke-linecap:round;stroke-linejoin:round}.detail{fill:none;stroke:#a9c4d5;stroke-width:5;stroke-linecap:round}.body{fill:#dce5eb;stroke:#344e60;stroke-width:3}.leader{fill:none;stroke:#718695;stroke-width:1.5}.panel{fill:#fbfcfd;stroke:#c9d4dc;stroke-width:2}.foot{fill:#53616b;stroke:#344e60;stroke-width:2}.module{fill:#eef2f5;stroke:#31566f;stroke-width:2;stroke-dasharray:5 3}
+</style>
+</defs>
+<rect width="1200" height="800" fill="#fff"/>
+<text x="50" y="48" class="h">KMECH-CONCEPT-QR-05</text>
+<text x="50" y="76" class="sub">Modular Quadruped | Concept architecture schematic</text>
+<path d="M50 96H1150" stroke="#c9d4dc" stroke-width="2"/>
+<!-- side view -->
+<rect x="45" y="120" width="700" height="490" rx="10" class="panel"/>
+<text x="70" y="155" class="pt">SIDE VIEW</text>
+<text x="70" y="178" class="sm">Central chassis with interchangeable modular leg assemblies</text>
+<path d="M220 285Q390 255 560 285L575 355Q390 385 205 355Z" class="body"/>
+<rect x="285" y="300" width="210" height="38" rx="8" fill="#c6d3dc" stroke="#344e60" stroke-width="2"/>
+<!-- front modular leg -->
+<path d="M270 345L250 405L220 475L205 530" class="leg"/>
+<path d="M270 345L250 405L220 475L205 530" class="detail"/>
+<circle cx="270" cy="345" r="15" class="joint"/><circle cx="270" cy="345" r="5" class="core"/>
+<rect x="237" y="392" width="26" height="26" rx="5" class="module"/>
+<circle cx="250" cy="405" r="13" class="joint"/><circle cx="250" cy="405" r="5" class="core"/>
+<circle cx="220" cy="475" r="14" class="joint"/><circle cx="220" cy="475" r="5" class="core"/>
+<path d="M205 530l-18 5h35" class="foot"/>
+<!-- rear modular leg -->
+<path d="M510 345L530 405L560 475L575 530" class="leg"/>
+<path d="M510 345L530 405L560 475L575 530" class="detail"/>
+<circle cx="510" cy="345" r="15" class="joint"/><circle cx="510" cy="345" r="5" class="core"/>
+<rect x="517" y="392" width="26" height="26" rx="5" class="module"/>
+<circle cx="530" cy="405" r="13" class="joint"/><circle cx="530" cy="405" r="5" class="core"/>
+<circle cx="560" cy="475" r="14" class="joint"/><circle cx="560" cy="475" r="5" class="core"/>
+<path d="M575 530l-18 5h35" class="foot"/>
+<!-- far legs -->
+<path d="M300 355L315 420L295 480L285 520M480 355L465 420L485 480L495 520" fill="none" stroke="#91a8b8" stroke-width="10" stroke-dasharray="6 5" stroke-linecap="round"/>
+<text x="85" y="240" class="lb">Central chassis</text><path d="M180 245L245 290" class="leader"/>
+<text x="75" y="365" class="jl">Hip module</text><path d="M155 361L260 350" class="leader"/>
+<text x="75" y="425" class="jl">Interchangeable</text><text x="75" y="442" class="jl">leg module</text><path d="M175 430L238 410" class="leader"/>
+<text x="600" y="390" class="sm">Modular joint</text><text x="600" y="407" class="sm">and link sections</text><path d="M595 412L545 405" class="leader"/>
+<text x="395" y="575" text-anchor="middle" class="sm">Ground contact plane</text>
+<path d="M110 540H660" stroke="#718695" stroke-width="1.5" stroke-dasharray="6 5"/>
+<!-- top view -->
+<rect x="770" y="120" width="385" height="490" rx="10" class="panel"/>
+<text x="795" y="155" class="pt">TOP VIEW</text>
+<text x="795" y="178" class="sm">Plan layout — indicative only</text>
+<text x="962" y="218" text-anchor="middle" class="sm">FRONT</text>
+<path d="M962 225v24m-7-8l7-9 7 9" class="leader"/>
+<rect x="910" y="305" width="105" height="190" rx="16" class="body"/>
+<rect x="925" y="325" width="75" height="150" rx="8" fill="#c6d3dc" stroke="#718695" stroke-width="2"/>
+<text x="962" y="405" text-anchor="middle" class="sm">Modular</text><text x="962" y="421" text-anchor="middle" class="sm">chassis</text>
+<!-- four interchangeable leg modules -->
+<path d="M910 335L875 305L845 270L815 245M1015 335L1050 305L1080 270L1110 245M910 465L875 495L845 530L815 555M1015 465L1050 495L1080 530L1110 555" class="leg"/>
+<circle cx="910" cy="335" r="12" class="joint"/><circle cx="875" cy="305" r="11" class="joint"/>
+<circle cx="1015" cy="335" r="12" class="joint"/><circle cx="1050" cy="305" r="11" class="joint"/>
+<circle cx="910" cy="465" r="12" class="joint"/><circle cx="875" cy="495" r="11" class="joint"/>
+<circle cx="1015" cy="465" r="12" class="joint"/><circle cx="1050" cy="495" r="11" class="joint"/>
+<rect x="835" y="260" width="20" height="20" rx="4" class="module"/><rect x="1070" y="260" width="20" height="20" rx="4" class="module"/>
+<rect x="835" y="520" width="20" height="20" rx="4" class="module"/><rect x="1070" y="520" width="20" height="20" rx="4" class="module"/>
+<circle cx="815" cy="245" r="8" class="foot"/><circle cx="1110" cy="245" r="8" class="foot"/>
+<circle cx="815" cy="555" r="8" class="foot"/><circle cx="1110" cy="555" r="8" class="foot"/>
+<text x="795" y="585" class="sm">Four replaceable leg assemblies</text>
+<!-- summary -->
+<rect x="45" y="635" width="1110" height="105" rx="8" fill="#f3f6f8" stroke="#c9d4dc" stroke-width="2"/>
+<text x="70" y="665" class="pt">CONCEPT SUMMARY</text>
+<text x="70" y="691" class="lb">Configuration: modular quadruped with four interchangeable leg assemblies</text>
+<text x="70" y="715" class="lb">Joint arrangement: 2–3 DOF per leg (8–12 total leg joints) — illustrative arrangement</text>
+<text x="1125" y="765" text-anchor="end" font-size="14" font-weight="bold" fill="#9a3f32">PROPOSED concept sketch, not to scale, no CAD</text>
+</svg>
