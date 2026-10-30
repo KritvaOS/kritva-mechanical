@@ -82,6 +82,7 @@ Not yet defined. No robot-level architecture document exists. The first architec
 | [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md) | AUTHORITATIVE for branch and commit sequence once adopted; status: PROPOSED | The branch, commit and pull request sequence |
 | [planning/CHANGELOG.md](planning/CHANGELOG.md) | EVIDENCE, append only; status: PROPOSED | How the plan itself has changed and why |
 | [reviews/2026-10-28-external-review-chatgpt.md](reviews/2026-10-28-external-review-chatgpt.md) | EVIDENCE of an advisory external review; status: DRAFT, dispositions pending | What the external reviewer found and how each finding maps to the plan |
+| [feasibility/README.md](feasibility/README.md) | EVIDENCE of a proposed paper-only comparative feasibility study (6 dual-arm and 6 legged concepts, tasks ROB-MECH-043 to 052); status: PROPOSED, nothing assessed yet | What the study covers, who owns which concept, and its checkpoints |
 | [Program acceptance standard](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/ACCEPTANCE_STANDARD.md) | PROPOSED standard in kritva-program (current link; the program record controls) | Task definition of done, test gates, commit format, tags, required files |
 | [Program agent instructions](https://github.com/KritvaOS/kritva-program/blob/main/AGENTS.md) | AUTHORITATIVE for kritva-program agents (current link) | What agents must not change without an owner decision |
 
@@ -103,6 +104,7 @@ The files named in the first four rows exist today (the planning and verificatio
 | [planning/](planning/) | Milestones, task register, acceptance criteria, review checklist, commit procedure, changelog. Layout follows the ChatGPT planning session; the program standard places `ACCEPTANCE_CRITERIA.md` at the repository root, a deviation the owner chose on 2026-10-28 and recorded in the changelog | MIXED; IMPLEMENTED as drafts (PROPOSED) | Yes |
 | [verification/](verification/) | Sanity plan and regression plan (plans only; no check is implemented). Later test procedures | MIXED; plans IMPLEMENTED as drafts (PROPOSED), checks NOT YET IMPLEMENTED | Yes |
 | [reviews/](reviews/) | Recorded external and independent reviews with finding dispositions | EVIDENCE; IMPLEMENTED (one advisory review recorded) | Append only |
+| [feasibility/](feasibility/) | Paper-only feasibility study: study plan, intern assignments, design guidelines, evaluation criteria, registers, templates, 12 concept stubs and checkpoint review records. No CAD, BOM, quote or procurement | MIXED; IMPLEMENTED as drafts (PROPOSED), assessments NOT YET STARTED | Yes (interns edit only their concept folders) |
 | `requirements/` | Robot-level mechanical requirements and load cases | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
 | `architecture/` | Frame, torso, limb and joint architecture, interface control | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
 | `cad/` | Native CAD sources and neutral exports | INPUT; NOT YET IMPLEMENTED, on hold (section 13) | Via CAD tool |
@@ -177,7 +179,7 @@ Accepting a milestone for planning does not mean its tasks are done, its evidenc
 
 ## 9. Tasks and Acceptance Criteria
 
-Tasks live in a single canonical register, [planning/TASKS.md](planning/TASKS.md), with one stable ID each (`ROB-MECH-001` to `ROB-MECH-042` are drafted). The proposed ID family is `ROB-MECH-NNN`, which needs approval and registration in kritva-program before it earns credit. Existing actuator task IDs (`ACT-INT`, `ACT-EMB`, `ACT-S`, `ACT-M`, `ACT-L`) are preserved and are not renumbered or reused here.
+Tasks live in a single canonical register, [planning/TASKS.md](planning/TASKS.md), with one stable ID each (`ROB-MECH-001` to `ROB-MECH-052` are drafted). The proposed ID family is `ROB-MECH-NNN`, which needs approval and registration in kritva-program before it earns credit. Existing actuator task IDs (`ACT-INT`, `ACT-EMB`, `ACT-S`, `ACT-M`, `ACT-L`) are preserved and are not renumbered or reused here.
 
 Acceptance criteria live in [planning/ACCEPTANCE_CRITERIA.md](planning/ACCEPTANCE_CRITERIA.md), written to the program template. Work is not accepted because a file exists, a commit was made, a pull request merged or a local test passed. A task is done only when it meets the program definition of done: stable ID, testable criteria, merged through the required review, required checks passed on the exact closing commit, reviews recorded against that commit, documentation updated and evidence pointing at immutable references.
 
