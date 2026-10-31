@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -48,7 +48,7 @@ Both sheets are concept artwork (evidence type C, PROPOSED, maturity L0 as propo
 | Head | Optional camera and sensor mount | Concept |
 | Gripper | 2-finger; optional servo; may be passive | Concept and Cross-section |
 | Base | Fixed base plate; no mobility | Concept and Cross-section |
-| Future path | Upgrade path to 5-DOF arms and a mobile base is named as a design feature | Concept |
+| Future path | Upgrade path to 5-DOF arms and a mobile base is printed on the concept sheet as a design feature; it is not part of the study baseline | Concept |
 
 ## 4. CONCEPT_TARGET
 
@@ -84,7 +84,7 @@ Subsystem-level description from the sheets. Materials and mechanisms are option
 | Arm links | Aluminium, CNC machined or 3D printed; composite options named on the concept sheet | Illustrative |
 | Joint assemblies | Joint housing (aluminium or CNC) with a BLDC/PMSM motor, a harmonic or planetary gearbox, an output shaft with an absolute or incremental encoder, and a timing belt where used; modular joints with common mounting interfaces | Illustrative |
 | Grippers | Two-finger linkage on a gripper mount; optional servo or BLDC; optional force sensor; rubber or TPU finger pads | Illustrative |
-| Head and camera | One-axis pan head (BLDC and gearbox) carrying an RGB-D or stereo camera on a neck mount in aluminium or CNC | Illustrative; see D6 |
+| Head and camera | One-axis pan head (BLDC and gearbox) carrying an RGB-D or stereo camera on a neck mount in aluminium or CNC | Illustrative; optional, see D6 |
 
 ## 6. Joint and Actuator Mapping
 
@@ -97,7 +97,7 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Elbow (each arm) | Pitch | 1 | BLDC/PMSM with gearbox | Baseline |
 | Wrist (each arm) | Pitch | 1 | BLDC/PMSM with gearbox | Baseline |
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Optional servo or BLDC, as shown | Optional |
-| Head pan | Pan about the vertical axis | 1 (optional on the concept sheet; counted in the cross-section's 9 actuators) | BLDC with gearbox (cross-section) | Optional; see D6 |
+| Head pan | Pan about the vertical axis | 1 (optional; baseline is 8 arm actuators, 9 when the head pan is fitted) | BLDC with gearbox (cross-section) | Optional; see D6 |
 
 Count: 8 baseline arm actuators (4 DOF × 2 arms); the concept sheet adds 1 optional actuator for the head. The sheet does not give a gripper actuator count; gripper actuation is optional and its type and count are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
 
@@ -141,9 +141,9 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 | D3 | Camera arrangement: single-camera head (concept) vs three-camera mast (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); cross-section now shows a head camera |
 | D4 | Head motion: one optional head DOF (concept) vs pan/tilt mount (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); cross-section now shows a one-axis pan |
 | D5 | Shoulder-to-shoulder width is 600 mm on the concept sheet only | Concept | NOT VERIFIABLE FROM CURRENT ARTWORK |
-| D6 | Actuator count: the concept counts 8 arm actuators plus 1 optional head actuator; the cross-section prints '9 Actuators Total' with the head counted | Both | OPEN — OWNER REVIEW |
+| D6 | Actuator count: the concept counts 8 arm actuators plus 1 optional head actuator; the cross-section prints '9 Actuators Total' with the head counted | Both | RESOLVED (owner decision 2026-10-31): baseline is 8 arm actuators; the optional head pan adds 1, giving 9 when fitted. The cross-section's 9 is the head-fitted configuration |
 
-The two sheets now agree on width 800 mm, height 550 mm, torso 300 mm × 250 mm, base 300 mm × 250 mm, reach 350 mm, 4 DOF per arm and a one-axis head. Review status: concept sheet `REVIEWED`, cross-section `REVIEWED_WITH_ISSUES` (D6) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
+The two sheets now agree on width 800 mm, height 550 mm, torso 300 mm × 250 mm, base 300 mm × 250 mm, reach 350 mm, 4 DOF per arm and a one-axis head. Review status: concept sheet `REVIEWED`, cross-section `REVIEWED` in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
 
 ## 11. Feasibility Activity and Evidence
 
@@ -161,7 +161,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 | Item | Value |
 |---|---|
-| README revision | 0.3.0 |
+| README revision | 0.3.1 |
 | Concept sheet | `docs/images/KMECH-CONCEPT-DA-02.png` |
 | Cross-section sheet | `docs/images/KMECH-CROSS-SECTION-DA-02.png` |
 | Manifest | `docs/images/ARTWORK_MANIFEST.json` |
@@ -205,7 +205,7 @@ This README and the two artwork sheets exist today. The files and folders below 
 
 ## 16. Open Decisions
 
-1. Whether the head pan is part of the baseline and counted as an actuator (D6); the owner decides.
+1. Whether the optional head pan is fitted in the study configuration (D6 is settled: 8 baseline, 9 when fitted).
 2. Whether grippers are powered in the baseline configuration (currently optional).
 3. Payload, reach and mass targets remain `UNKNOWN` in the requirements register until resolved.
 4. Joint to S/M/L actuator mapping is not started.

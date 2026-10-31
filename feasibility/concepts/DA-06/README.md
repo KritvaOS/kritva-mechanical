@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-03 |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -140,7 +140,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 | D3 | Mast: both sheets say adjustable height but do not say how it adjusts, whether it is powered, or its travel; the actuator count excludes it | Both | OPEN — OWNER REVIEW |
 | D4 | IMU: the concept labels the mast camera / IMU, the cross-section had no IMU | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets show an IMU on the mast |
 | D5 | Cross-section title read 'KMECH-CONCEPT-DA-06' | Cross-section | RESOLVED (cross-section regenerated 2026-10-31) |
-| D6 | Study-plan definition: STUDY_PLAN.md described DA-06 as Humanoid Upper-Body; both sheets show a fixed-tabletop vision-integrated dual-arm. STUDY_PLAN.md now carries the artwork definition as a PROPOSED redefinition | Study plan | OPEN — OWNER REVIEW |
+| D6 | Study-plan definition: STUDY_PLAN.md described DA-06 as Humanoid Upper-Body; both sheets show a fixed-tabletop vision-integrated dual-arm. STUDY_PLAN.md now carries the artwork definition as the baseline | Study plan | RESOLVED (owner decision 2026-10-31): redefinition approved |
 | D7 | Torso width 300 mm is on the cross-section only | Cross-section | OPEN — OWNER REVIEW |
 
 The two sheets agree on width 800 mm, height 500 mm with mast, base 300 mm × 250 mm, reach 350 mm, 4 DOF per arm, a fixed base, 8 actuators and the camera set. Review status: concept sheet `REVIEWED`, cross-section `REVIEWED_WITH_ISSUES` (D7) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
@@ -161,7 +161,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 | Item | Value |
 |---|---|
-| README revision | 0.3.0 |
+| README revision | 0.3.1 |
 | Concept sheet | `docs/images/KMECH-CONCEPT-DA-06.png` |
 | Cross-section sheet | `docs/images/KMECH-CROSS-SECTION-DA-06.png` |
 | Manifest | `docs/images/ARTWORK_MANIFEST.json` |
@@ -205,7 +205,7 @@ This README and the two artwork sheets exist today. The files and folders below 
 
 ## 16. Open Decisions
 
-1. Whether the owner approves redefining DA-06 from Humanoid Upper-Body to Vision-Integrated Dual-Arm (D6); STUDY_PLAN.md carries it as PROPOSED.
+1. Torso width on the cross-section only (D7); the DA-06 definition is approved as baseline.
 2. How the mast height is adjusted and whether it is powered (D3).
 3. Whether the torso width on the cross-section is kept (D7).
 4. Whether grippers are powered in the baseline configuration (currently optional).

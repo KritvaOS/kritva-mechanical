@@ -46,7 +46,7 @@ The complexity balance and concept-family balance are fixed. Do not exchange, ad
 |---|---|---|
 | DA-01 | Fixed Tabletop Dual-Arm: fixed base, two 3-DOF arms | Low |
 | QR-02 | Standard Quadruped: four legs, 3 DOF per leg | Medium |
-| DA-04 | Humanoid Mobile Dual-Arm: humanoid torso with head on a differential-drive base, two 4-DOF arms (proposed redefinition) | High |
+| DA-04 | Humanoid Mobile Dual-Arm: humanoid torso with head on a differential-drive base, two 4-DOF arms, 10 actuators (approved baseline) | High |
 | QR-04 | Agile Long-Leg Quadruped: four legs, 3 DOF per leg | High |
 
 **Responsibilities**
@@ -98,7 +98,7 @@ The complexity balance and concept-family balance are fixed. Do not exchange, ad
 |---|---|---|
 | DA-05 | Rotating Platform Dual-Arm: rotating base, two 3-DOF arms | Low |
 | QR-03 | Low-Profile Quadruped: four legs, 2 DOF per leg | Medium |
-| DA-06 | Vision-Integrated Dual-Arm: fixed tabletop, two 4-DOF arms, multi-camera mast (proposed redefinition) | High |
+| DA-06 | Vision-Integrated Dual-Arm: fixed tabletop, two 4-DOF arms, multi-camera mast, 8 actuators (approved baseline) | High |
 | QR-06 | Hexapod: six legs, 2 DOF per leg | High |
 
 **Responsibilities**

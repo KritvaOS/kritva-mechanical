@@ -31,6 +31,8 @@ The study evaluates 12 concepts over four weeks. All specifications not supporte
 | [REQUIREMENTS_REGISTER.md](REQUIREMENTS_REGISTER.md) | Study-level requirements | PROPOSED |
 | [RISK_REGISTER.md](RISK_REGISTER.md) | Study-level risk tracking | OPEN |
 | [templates/](templates/) | Reusable concept and review templates | PROPOSED |
+| [CONCEPT_VARIATION_AUDIT.md](CONCEPT_VARIATION_AUDIT.md) | Audit of how the 12 concepts differ, with findings F1 to F10 and a cross-check with the ChatGPT audit | DRAFT, PROPOSED |
+| [FUNCTIONAL_COMPARISON_MATRIX.md](FUNCTIONAL_COMPARISON_MATRIX.md) | Family comparison dimensions with printed targets; unknowns stay NOT SCORED | DRAFT, PROPOSED |
 | [concepts/](concepts/) | Twelve concept-specific feasibility assessments | Artwork-based concept READMEs (v0.3.0) drafted; feasibility assessments NOT STARTED |
 | [interns/](interns/) | Per-intern weekly status | NOT STARTED |
 | [reviews/](reviews/) | Checkpoint and comparative review records | NOT STARTED (templates only) |
@@ -99,9 +101,9 @@ Each concept has a concept sheet and a cross-section sheet (24 PNG files) in [`.
 | DA-01 | Fixed Tabletop Dual-Arm | Low |
 | DA-02 | Humanoid Torso Dual-Arm | Medium |
 | DA-03 | Mobile Dual-Arm | High |
-| DA-04 | Humanoid Mobile Dual-Arm (proposed redefinition) | High |
+| DA-04 | Humanoid Mobile Dual-Arm (approved baseline) | High |
 | DA-05 | Rotating Platform Dual-Arm | Low |
-| DA-06 | Vision-Integrated Dual-Arm (proposed redefinition) | High |
+| DA-06 | Vision-Integrated Dual-Arm (approved baseline) | High |
 | QR-01 | Compact Quadruped | Low |
 | QR-02 | Standard Quadruped | Medium |
 | QR-03 | Low-Profile Quadruped | Medium |

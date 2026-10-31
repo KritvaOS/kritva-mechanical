@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -78,8 +78,8 @@ Subsystem-level description from the sheets. Materials and mechanisms are option
 
 | Element | What the artwork shows | Status |
 |---|---|---|
-| Mobile base | Differential-drive chassis with four drive wheels (left pair and right pair), one drive motor per wheel, 2 DOF in total; aluminium or steel base frame | Illustrative |
-| Wheel drive | BLDC motor with encoder per driven wheel, optional gearbox, wheel hub and rubber tyre | Illustrative |
+| Mobile base | Differential-drive chassis with four drive wheels (left pair and right pair), two driven channels (one per side, each driving a wheel pair), 2 DOF in total; aluminium or steel base frame | Illustrative |
+| Wheel drive | BLDC motor with encoder per driven side (left and right pair), optional gearbox, wheel hub and rubber tyre | Illustrative |
 | Torso / arm mount | Fixed central torso carrying both arms and the electronics enclosure | Illustrative |
 | Arms | Aluminium or 3D-printed links, three joints per arm; cables routed through the shoulder and links | Illustrative |
 | Joint assemblies | Joint housing (aluminium or CNC) with a BLDC/PMSM motor, a harmonic or planetary gearbox and an output shaft with an absolute or incremental encoder | Illustrative |
@@ -96,8 +96,8 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Shoulder (each arm) | Yaw / rotation | 1 | BLDC/PMSM with gearbox | Baseline |
 | Elbow (each arm) | Pitch (flexion / extension) | 1 | BLDC/PMSM with gearbox | Baseline |
 | Wrist (each arm) | Pitch (concept sheet label: rotation / pitch; see D3) | 1 | BLDC/PMSM with gearbox | Baseline |
-| Left wheel | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
-| Right wheel | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
+| Left wheel pair | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
+| Right wheel pair | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Optional servo or BLDC, as shown | Optional |
 
 Count: 6 arm actuators (3 DOF × 2 arms) plus 2 base actuators = 8, as the concept sheet states. Gripper actuation is optional and not counted; its type and count are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
@@ -110,7 +110,7 @@ Block-level placement and interfaces as shown on the sheets; there is no wiring 
 |---|---|---|
 | Kritva Edge (compute and control) | Board in the torso electronics enclosure | Illustrative; board dimensions TBD |
 | Power distribution board | 24 V in with 5 V and 12 V rails | Illustrative; electrical requirements TBD |
-| Motor drivers | Left wheel driver and right wheel driver in the base; arm drivers in the torso enclosure | Illustrative; driver selection TBD |
+| Motor drivers | Left-side and right-side drive drivers in the base; arm drivers in the torso enclosure | Illustrative; driver selection TBD |
 | Battery | 24 V Li-ion pack in the base | Illustrative; capacity, protection and charging TBD |
 | Sensors | Optional RGB-D or stereo camera on the mast; the concept sheet also mentions space for LiDAR, camera and IMU (LiDAR is not drawn on the current cross-section) | Optional; sensor selection TBD |
 | Emergency stop | A red button is visible on the concept side-view render but is not labelled or listed on either sheet | Author observation; safety design TBD |
@@ -139,7 +139,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 | ID | Discrepancy | Sheets | Status |
 |---|---|---|---|
 | D1 | No dimension or DOF disagrees between the two sheets; overall width, base size, height, 6 arm DOF and 2 base DOF match | Both | NONE FOUND |
-| D2 | Wheel arrangement: 2 DOF differential drive versus four wheels drawn | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets show four wheels as a left pair and a right pair, 2 DOF in total |
+| D2 | Wheel arrangement: 2 DOF differential drive versus four wheels drawn | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets show four wheels as a left pair and a right pair, 2 DOF in total. Owner decision 2026-10-31: one drive channel per side drives each wheel pair, so the 2 base actuators are not four independent wheel motors |
 | D3 | Wrist terminology: the concept labels the wrist rotation / pitch while its specification and the cross-section state wrist pitch; one DOF per wrist is counted on both | Both | OPEN |
 | D4 | LiDAR is mentioned on the concept sheet and is not drawn on the cross-section | Both | OPEN |
 | D5 | Reach and width: the sheets print 350 mm reach each side and 800 mm overall width and total reach, but do not state the shoulder spacing or whether the arms are drawn fully extended, so the three figures cannot be reconciled from the artwork | Concept | NOT VERIFIABLE FROM CURRENT ARTWORK |
@@ -151,7 +151,7 @@ Both sheets agree on width 800 mm, height 650 mm with mast, base 400 mm × 450 m
 
 What the assigned intern investigates, using paper methods only (calculations, comparison tables, sketches and cited datasheets):
 
-- [ ] Decide with the owner whether the base is two driven wheels with a caster or a four-wheel layout, then sketch the drive arrangement and turning behaviour (evidence C)
+- [ ] Sketch the four-wheel paired-drive arrangement (one channel per side) and its turning behaviour, including scrub (evidence C)
 - [ ] Draw the three-axis arm kinematic sketch with joint axes and coordinate frames, and estimate the reachable workspace from the base (evidence C)
 - [ ] Calculate static tipping margin for the extended-arm case with a stated payload and mass (evidence C)
 - [ ] Derive static torque at the arm joints and a drive torque estimate for the wheels on a stated slope and mass; compare with S/M/L data once the owner supplies it (evidence C)
@@ -163,7 +163,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 | Item | Value |
 |---|---|
-| README revision | 0.3.0 |
+| README revision | 0.3.1 |
 | Concept sheet | `docs/images/KMECH-CONCEPT-DA-03.png` |
 | Cross-section sheet | `docs/images/KMECH-CROSS-SECTION-DA-03.png` |
 | Manifest | `docs/images/ARTWORK_MANIFEST.json` |
