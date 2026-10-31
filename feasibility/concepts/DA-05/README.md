@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-03 |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -118,7 +118,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 
 - Cables pass through the base via a slip ring carrying power and signals.
 - Cables run from the torso to both arms and through the arm links to the wrist and gripper.
-- The concept sheet allows a slip ring or a cable loop for the rotating base.
+- The concept sheet allows a slip ring or a cable loop for the rotating base; the owner selected the slip ring on 2026-10-31.
 - Concern to investigate: a cable loop limits rotation and conflicts with continuous 360° rotation (D3); a slip ring adds signal-integrity, cost and life questions.
 
 ## 9. Risks and Unknowns
@@ -136,7 +136,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 |---|---|---|---|
 | D1 | No dimension or DOF disagrees between the two sheets; width, base size, height, 6 arm DOF and 1 base DOF match | Both | NONE FOUND |
 | D2 | Wrist terminology: the concept labels the wrist rotation / pitch while its specification and the cross-section state wrist pitch; one DOF per wrist is counted on both | Both | OPEN |
-| D3 | Base cabling: the concept allows a slip ring or a cable loop; the cross-section shows a slip ring only; both call the rotation 360° continuous, which a cable loop does not allow | Both | OPEN — OWNER REVIEW |
+| D3 | Base cabling: the concept allows a slip ring or a cable loop; the cross-section shows a slip ring only; both call the rotation 360° continuous, which a cable loop does not allow | Both | OPEN; owner decision 2026-10-31: the slip ring is the selected implementation and the cable loop is dropped; the concept sheet wording 'slip ring or cable loop' is to be corrected in the next artwork round |
 | D4 | Base actuator: the concept gives no type for the base DOF; the cross-section does not draw or label a base actuator | Both | NOT VERIFIABLE FROM CURRENT ARTWORK |
 | D5 | Cross-section subtitle rendering errors | Cross-section | RESOLVED (cross-section regenerated 2026-10-31) |
 | D6 | Shoulder label: the cross-section labels the shoulder 'Pitch' in the front view, section 2 and the subtitle, while the concept says yaw / rotation | Both | OPEN; fix requested in the next artwork round |
@@ -151,7 +151,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 - [ ] Draw the kinematic sketch with the base rotation axis, three axes per arm and coordinate frames; estimate workspace and the benefit of base rotation (evidence C)
 - [ ] Calculate the moment load on the rotary bearing for the extended-arm case with a stated mass and payload (evidence C)
 - [ ] Estimate base rotation inertia and the torque and speed needed for a stated rotation time (evidence C)
-- [ ] Compare a slip ring with a limited-rotation cable loop for this concept, listing signals and power carried (evidence C)
+- [ ] List the signals and power the slip ring carries and its life and noise limits (evidence C)
 - [ ] Derive static torque at the arm joints for a stated payload and pose, then compare with S/M/L data once supplied (evidence C)
 - [ ] State the free tabletop radius needed for a 360° sweep (evidence C)
 - [ ] Record intern-generated cost assumptions separately from printed targets; no quotation or procurement
@@ -160,7 +160,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 | Item | Value |
 |---|---|
-| README revision | 0.3.0 |
+| README revision | 0.3.1 |
 | Concept sheet | `docs/images/KMECH-CONCEPT-DA-05.png` |
 | Cross-section sheet | `docs/images/KMECH-CROSS-SECTION-DA-05.png` |
 | Manifest | `docs/images/ARTWORK_MANIFEST.json` |
@@ -204,7 +204,7 @@ This README and the two artwork sheets exist today. The files and folders below 
 
 ## 16. Open Decisions
 
-1. Whether the baseline uses continuous rotation with a slip ring or limited rotation with a cable loop (D3); the owner decides.
+1. Concept sheet wording to be corrected next round (D3): the baseline is continuous rotation with a slip ring.
 2. Shoulder axis label on the cross-section (D6) and duplicate wrist label (D7), to be fixed in the next artwork round.
 3. Whether grippers are powered in the baseline configuration (currently optional).
 4. Payload, reach and weight targets remain `UNKNOWN` in the requirements register until resolved.

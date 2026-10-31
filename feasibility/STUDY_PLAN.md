@@ -74,9 +74,9 @@ D-003 remains in effect throughout this study. Passing a checkpoint does not rel
 | DA-01 | Fixed Tabletop Dual-Arm | Fixed base, two 3-DOF arms | Low |
 | DA-02 | Humanoid Torso Dual-Arm | Torso, two 4-DOF arms | Medium |
 | DA-03 | Mobile Dual-Arm | Mobile base, two 3-DOF arms | High |
-| DA-04 | Humanoid Mobile Dual-Arm | Humanoid torso with head on a differential-drive base (2 DOF), two 4-DOF arms; 5-DOF arms are a named future upgrade (PROPOSED redefinition, owner approval pending) | High |
+| DA-04 | Humanoid Mobile Dual-Arm | Humanoid torso with head on a differential-drive base (2 DOF), two 4-DOF arms; 10 actuators (8 arm + 2 base), head pan excluded from the baseline (approved by the owner 2026-10-31) | High |
 | DA-05 | Rotating Platform Dual-Arm | Rotating base, two 3-DOF arms | Low |
-| DA-06 | Vision-Integrated Dual-Arm | Fixed tabletop base, two 4-DOF arms, adjustable-height mast with top, left and right cameras (PROPOSED redefinition, owner approval pending) | High |
+| DA-06 | Vision-Integrated Dual-Arm | Fixed tabletop base, two 4-DOF arms, adjustable-height mast with top, left and right cameras; 8 actuators (approved by the owner 2026-10-31) | High |
 
 ### 4.2 Quadruped and legged
 

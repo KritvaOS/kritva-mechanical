@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-03 |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -125,7 +125,7 @@ Routes as labelled on the cross-section sheet ('cable routing through leg') and 
 | ID | Discrepancy | Sheets | Status |
 |---|---|---|---|
 | D1 | Leg count and DOF: 6 legs with 2 DOF each (concept) vs a four-legged robot with 3 DOF per leg (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); the cross-section now shows a hexapod with 2 DOF per leg |
-| D2 | Joint definition: 'Coxa + Femur/Tibia' is listed as 2 DOF; the cross-section labels coxa 1 DOF and femur/tibia 1 DOF, so whether femur and tibia are one joint is not stated | Both | OPEN — OWNER REVIEW |
+| D2 | Joint definition: 'Coxa + Femur/Tibia' is listed as 2 DOF; the cross-section labels coxa 1 DOF and femur/tibia 1 DOF, so whether femur and tibia are one joint is not stated. Coxa names a joint; femur and tibia normally name links, so the two actuated joints and their axes must be defined before any kinematic work | Both | OPEN — OWNER REVIEW (the 2026-10-31 independent audit also requires this) |
 | D3 | Body size: 400 × 280 × 220 mm (concept) vs 1000 × 420 × 520 mm (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); both print 400 × 280 × 220 mm, overall 520 × 480 mm |
 | D4 | Titles and extras: 'Modular / Expandable', payload bay, advanced sensors and 'Kritva Nexus' on the cross-section | Cross-section | RESOLVED (cross-section regenerated 2026-10-31); removed |
 | D5 | Weight and payload appear on the concept sheet only | Concept | NOT VERIFIABLE FROM CURRENT ARTWORK |
@@ -150,7 +150,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 | Item | Value |
 |---|---|
-| README revision | 0.3.0 |
+| README revision | 0.3.1 |
 | Concept sheet | `docs/images/KMECH-CONCEPT-QR-06.png` |
 | Cross-section sheet | `docs/images/KMECH-CROSS-SECTION-QR-06.png` |
 | Manifest | `docs/images/ARTWORK_MANIFEST.json` |

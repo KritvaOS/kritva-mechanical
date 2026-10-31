@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-01 |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -16,7 +16,7 @@
 
 ## 1. Purpose and Scope
 
-It is the largest and heaviest dual-arm concept in the study. It also supersedes the earlier one-line study-plan definition of DA-04 (two 5-DOF arms), which is a reconciliation the owner must approve.
+It is the largest and heaviest dual-arm concept in the study. It supersedes the earlier one-line study-plan definition of DA-04 (two 5-DOF arms); the owner approved the 4-DOF definition as the study baseline on 2026-10-31.
 
 - Concept ID: DA-04
 - Concept name: Humanoid Mobile Dual-Arm
@@ -45,11 +45,11 @@ Both sheets are concept artwork (evidence type C, PROPOSED, maturity L0 as propo
 | Arms | 2 (left and right, symmetric) | Concept and Cross-section |
 | DOF per arm | 4 (shoulder yaw, shoulder pitch, elbow pitch, wrist pitch) | Concept and Cross-section |
 | Arm DOF | 8 | Concept and Cross-section |
-| Base DOF | 2 (differential drive, independent left and right wheel motors) | Concept and Cross-section |
+| Base DOF | 2 (differential drive, one drive channel per side) | Concept and Cross-section |
 | Total DOF / actuators | 10 (8 arm + 2 base); grippers not counted | Concept and Cross-section |
 | Gripper | 2-finger; optional servo or BLDC; may be passive | Concept and Cross-section |
 | Head / sensors | Head with an RGB-D or stereo camera on a camera mount; the cross-section shows a 1 DOF pan not counted in the 10 actuators | Concept and Cross-section |
-| Future path | Upgrade path to 5-DOF arms and an advanced mobile base named as a design feature | Concept |
+| Future path | Upgrade path to 5-DOF arms and an advanced mobile base is printed on the concept sheet as a design feature; it is not part of the study baseline | Concept |
 
 ## 4. CONCEPT_TARGET
 
@@ -79,7 +79,7 @@ Subsystem-level description from the sheets. Materials and mechanisms are option
 
 | Element | What the artwork shows | Status |
 |---|---|---|
-| Mobile base | Differential-drive chassis with four drive wheels (left pair and right pair), one drive motor per wheel, 2 DOF in total; battery in the base | Illustrative |
+| Mobile base | Differential-drive chassis with four drive wheels (left pair and right pair), two driven channels (one per side, each driving a wheel pair), 2 DOF in total; battery in the base | Illustrative |
 | Wheel drive | BLDC motor with encoder per side, optional gearbox, wheel hub and rubber tyre | Illustrative |
 | Torso | Humanoid upper body; electronics bay with Kritva Edge and power distribution; torso frame in aluminium or carbon; cable routing through the torso | Illustrative |
 | Shoulders | Two joints per shoulder: yaw or rotation, then pitch; 600 mm shoulder spacing on the concept sheet | Illustrative |
@@ -98,10 +98,10 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Shoulder pitch (each arm) | Pitch | 1 | BLDC/PMSM with gearbox | Baseline |
 | Elbow (each arm) | Pitch | 1 | BLDC/PMSM with gearbox | Baseline |
 | Wrist (each arm) | Pitch | 1 | BLDC/PMSM with gearbox | Baseline |
-| Left wheel | Drive (rotation) | 1 | BLDC with encoder (cross-section labels DC BLDC), optional gearbox | Baseline |
-| Right wheel | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
+| Left wheel pair | Drive (rotation) | 1 | BLDC with encoder (cross-section labels DC BLDC), optional gearbox | Baseline |
+| Right wheel pair | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Optional servo or BLDC, as shown | Optional |
-| Head pan | Pan about the vertical axis | 0 (not counted in the 10 actuators) | Not stated | Optional; see D8 |
+| Head pan | Pan about the vertical axis | 0 (not counted in the 10 actuators) | Not stated | Excluded from the baseline unless approved; see D8 |
 
 Count: 8 arm actuators (4 DOF × 2 arms) plus 2 base actuators = 10, as both sheets state. Gripper actuation is optional and not counted; its type and count are TBD. The head is not counted as a DOF on either sheet. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
 
@@ -113,7 +113,7 @@ Block-level placement and interfaces as shown on the sheets; there is no wiring 
 |---|---|---|
 | Kritva Edge (compute and control) | Board in the torso electronics enclosure | Illustrative; board dimensions TBD |
 | Power distribution board | 24 V in with 5 V and 12 V rails | Illustrative; electrical requirements TBD |
-| Motor drivers | Arm motor drivers (left and right) in the torso; base motor drivers (left and right wheels) in the base | Illustrative; driver selection TBD |
+| Motor drivers | Arm motor drivers (left and right) in the torso; base drivers (left-side and right-side drive) in the base | Illustrative; driver selection TBD |
 | Battery | 24 V Li-ion pack in the base | Illustrative; capacity, protection and charging TBD |
 | I/O interfaces | Ethernet, USB and GPIO are labelled in the torso section | Illustrative; interface list TBD |
 | Sensors | Head camera (RGB-D or stereo) and an IMU on the torso (cross-section); camera, IMU and LiDAR space mentioned on the concept sheet | Optional; sensor selection TBD |
@@ -130,7 +130,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 
 ## 9. Risks and Unknowns
 
-1. Overall size is the concept sheet's 1200 mm × 1200 mm; the head pan question (D8) and study-plan definition (D4) are open, so size- and count-dependent estimates stay UNKNOWN until the owner decides.
+1. Overall size is the concept sheet's 1200 mm × 1200 mm; the head pan (D8) is excluded from the baseline and the cross-section label is to be corrected, so the baseline count is 10.
 2. Stability and tipping: 25 – 35 kg (est.) with arms reaching 450 mm each side on the base is not calculated; the concept's tall 1200 mm profile raises the tipping risk and the cross-section's 650 mm profile would change it.
 3. Actuator sizing: shoulder torque at 0.5 – 1.0 kg (est.) payload and 450 mm reach is much higher than for DA-01 to DA-03; no calculation exists.
 4. Battery sizing, runtime, protection and charging are not specified. No battery safety assessment is made in this study.
@@ -144,11 +144,11 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 | D1 | Principal dimensions: width 1200 mm vs 800 mm, height 1200 mm vs 650 mm, base 500 mm × 600 mm vs 400 mm × 450 mm | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets print 1200 / 1200 / 500 × 600 |
 | D2 | Torso width 400 mm appeared on the concept sheet only | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets print 400 mm |
 | D3 | Sensor arrangement: head (concept) vs three-camera mast with vision compute (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); cross-section now shows a head camera |
-| D4 | Study-plan definition: STUDY_PLAN.md described DA-04 as two 5-DOF arms; both sheets show 4 DOF per arm. STUDY_PLAN.md now carries the artwork definition as a PROPOSED redefinition | Study plan | OPEN — OWNER REVIEW |
-| D5 | Wheel arrangement: two-DOF differential drive versus four wheels drawn | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets show four drive wheels as a left pair and a right pair, 2 DOF in total |
+| D4 | Study-plan definition: STUDY_PLAN.md described DA-04 as two 5-DOF arms; both sheets show 4 DOF per arm. STUDY_PLAN.md now carries the 4-DOF definition as the baseline | Study plan | RESOLVED (owner decision 2026-10-31): redefinition approved |
+| D5 | Wheel arrangement: two-DOF differential drive versus four wheels drawn | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets show four drive wheels as a left pair and a right pair, 2 DOF in total; one drive channel per side drives each pair (owner decision 2026-10-31) |
 | D6 | Torso mount labelled 'Rotary/Fixed' | Cross-section | RESOLVED (cross-section regenerated 2026-10-31); the label is no longer on the cross-section |
 | D7 | Reach versus width: 450 mm reach each side did not fit an 800 mm width | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets print 1200 mm |
-| D8 | Head pan: the cross-section shows a 1 DOF pan; the concept counts no head DOF and the actuator total is 10 (8 arm + 2 base) | Both | OPEN — OWNER REVIEW |
+| D8 | Head pan: the cross-section shows a 1 DOF pan; the concept counts no head DOF and the actuator total is 10 (8 arm + 2 base) | Both | OPEN; owner decision 2026-10-31: the baseline stays 10 and the head pan is excluded unless approved, so the cross-section label '1 Pan DOF' is to be removed or marked optional in the next artwork round |
 
 The two sheets now agree on every printed dimension and count: width 1200 mm, height 1200 mm, base 500 mm × 600 mm, torso 400 mm, shoulder to shoulder 600 mm, reach 450 mm, 4 DOF per arm, 2 base DOF, 10 actuators. Review status: concept sheet `REVIEWED`, cross-section `REVIEWED_WITH_ISSUES` (D8) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
 
@@ -168,7 +168,7 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 | Item | Value |
 |---|---|
-| README revision | 0.3.0 |
+| README revision | 0.3.1 |
 | Concept sheet | `docs/images/KMECH-CONCEPT-DA-04.png` |
 | Cross-section sheet | `docs/images/KMECH-CROSS-SECTION-DA-04.png` |
 | Manifest | `docs/images/ARTWORK_MANIFEST.json` |
@@ -212,8 +212,7 @@ This README and the two artwork sheets exist today. The files and folders below 
 
 ## 16. Open Decisions
 
-1. Whether the owner approves redefining DA-04 from two 5-DOF arms to 4-DOF arms on a humanoid mobile base (D4); STUDY_PLAN.md carries it as PROPOSED.
-2. Whether the head pan is part of the baseline and counted (D8).
+1. Cross-section head label to be corrected next round (D8); the 10-actuator baseline excludes the head pan.
 3. Whether grippers are powered in the baseline configuration (currently optional).
 4. Payload, reach, weight and runtime targets remain `UNKNOWN` in the requirements register until resolved.
 5. Joint to S/M/L actuator mapping is not started.

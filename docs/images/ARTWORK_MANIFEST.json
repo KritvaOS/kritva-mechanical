@@ -1,5 +1,5 @@
 {
-  "manifest_version": "1.1.0",
+  "manifest_version": "1.2.0",
   "scope": "kritva-mechanical feasibility concept artwork",
   "status_values": [
     "PENDING_REVIEW",
@@ -93,12 +93,10 @@
       "evidence_type": "C",
       "maturity": "L0",
       "adoption": "PROPOSED",
-      "status": "REVIEWED_WITH_ISSUES",
+      "status": "REVIEWED",
       "status_note": "Status set by Claude audit round 6 (2026-10-31); owner confirmation pending. REVIEWED is not design approval.",
       "readme": "feasibility/concepts/DA-02/README.md",
-      "known_issues": [
-        "D6 head pan counted in 9 actuators; concept counts it optional (owner)"
-      ],
+      "known_issues": [],
       "reviewed_on": "2026-10-31",
       "reviewed_by": "Claude (drafting aid); owner confirmation pending"
     },
@@ -188,7 +186,7 @@
       "status_note": "Status set by Claude audit round 6 (2026-10-31); owner confirmation pending. REVIEWED is not design approval.",
       "readme": "feasibility/concepts/DA-04/README.md",
       "known_issues": [
-        "D8 head pan 1 DOF not counted in 10 actuators (owner)"
+        "D8 head pan label '1 Pan DOF' to be removed or marked optional; head pan is excluded from the 10-actuator baseline (owner decision)"
       ],
       "reviewed_on": "2026-10-31",
       "reviewed_by": "Claude (drafting aid); owner confirmation pending"
@@ -212,7 +210,7 @@
       "readme": "feasibility/concepts/DA-05/README.md",
       "known_issues": [
         "D2 wrist label rotation / pitch",
-        "D3 slip ring or cable loop wording"
+        "D3 'slip ring or cable loop' wording to be corrected; slip ring is selected (owner decision)"
       ],
       "reviewed_on": "2026-10-31",
       "reviewed_by": "Claude (drafting aid); owner confirmation pending"
