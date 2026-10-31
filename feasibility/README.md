@@ -31,7 +31,7 @@ The study evaluates 12 concepts over four weeks. All specifications not supporte
 | [REQUIREMENTS_REGISTER.md](REQUIREMENTS_REGISTER.md) | Study-level requirements | PROPOSED |
 | [RISK_REGISTER.md](RISK_REGISTER.md) | Study-level risk tracking | OPEN |
 | [templates/](templates/) | Reusable concept and review templates | PROPOSED |
-| [concepts/](concepts/) | Twelve concept-specific feasibility assessments | NOT STARTED (folders and README stubs only) |
+| [concepts/](concepts/) | Twelve concept-specific feasibility assessments | Artwork-based concept READMEs (v0.3.0) drafted; feasibility assessments NOT STARTED |
 | [interns/](interns/) | Per-intern weekly status | NOT STARTED |
 | [reviews/](reviews/) | Checkpoint and comparative review records | NOT STARTED (templates only) |
 
@@ -88,6 +88,10 @@ The study evaluates 12 concepts over four weeks. All specifications not supporte
 
 The structure is the target organization for the study. A listed file or folder is not evidence that its contents are complete or approved. There is no `cad/` folder while HOLD D-003 is active.
 
+### Concept artwork
+
+Each concept has a concept sheet and a cross-section sheet (24 PNG files) in [`../docs/images/`](../docs/images/). They are illustrative concept artwork (evidence C, maturity L0, PROPOSED); printed numbers are `CONCEPT_TARGET`, not requirements. Start from [`../docs/images/ARTWORK_INDEX.md`](../docs/images/ARTWORK_INDEX.md) for review status, known issues and pending owner decisions, and from your concept README for the discrepancy table (section 10). Do not edit or replace artwork files; send artwork issues to the owner.
+
 ## 4. Concept Index
 
 | ID | Concept | Complexity |
@@ -95,9 +99,9 @@ The structure is the target organization for the study. A listed file or folder 
 | DA-01 | Fixed Tabletop Dual-Arm | Low |
 | DA-02 | Humanoid Torso Dual-Arm | Medium |
 | DA-03 | Mobile Dual-Arm | High |
-| DA-04 | Advanced Dual-Arm | High |
+| DA-04 | Humanoid Mobile Dual-Arm (proposed redefinition) | High |
 | DA-05 | Rotating Platform Dual-Arm | Low |
-| DA-06 | Humanoid Upper-Body | High |
+| DA-06 | Vision-Integrated Dual-Arm (proposed redefinition) | High |
 | QR-01 | Compact Quadruped | Low |
 | QR-02 | Standard Quadruped | Medium |
 | QR-03 | Low-Profile Quadruped | Medium |

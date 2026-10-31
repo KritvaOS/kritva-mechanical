@@ -178,6 +178,14 @@ Calculation evidence is classified as **C**. Software evidence is **S**, simulat
 - Use consistent units and terminology across concepts.
 - Do not create new naming schemes or change established identifiers without owner direction.
 
+### 8.1 Concept artwork
+
+- Each concept has two PNG sheets in `docs/images/`: `KMECH-CONCEPT-<ID>.png` and `KMECH-CROSS-SECTION-<ID>.png`. They replace the earlier `.svg` sketches. `docs/images/ARTWORK_MANIFEST.json` records each sheet's hash, review status and known issues, and `docs/images/ARTWORK_INDEX.md` lists them.
+- The sheets are illustrative concept artwork (evidence type C, maturity L0, PROPOSED). They are not CAD, not to scale, and not engineering evidence.
+- A number printed on a sheet is `CONCEPT_TARGET`, with the source sheet named. It is not a requirement. If the concept sheet and its cross-section disagree, record the value as `DISCREPANCY — OWNER REVIEW` and use neither as an input without owner direction.
+- Do not edit a sheet. A corrected sheet replaces the file and updates the manifest hash.
+- What cannot be read or verified from a sheet is `NOT VERIFIABLE FROM CURRENT ARTWORK`.
+
 ## 9. Prohibited Activities Under HOLD D-003
 
 Until an explicit owner decision changes the hold, interns must not:
