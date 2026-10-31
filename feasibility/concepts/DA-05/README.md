@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-03 |
-| Version | 0.3.1 |
+| Version | 0.3.2 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -78,7 +78,7 @@ Subsystem-level description from the sheets. Materials and mechanisms are option
 | Element | What the artwork shows | Status |
 |---|---|---|
 | Base plate | Fixed mounting plate, aluminium or steel, for tabletop mounting | Illustrative |
-| Rotating base | Base housing with a rotary bearing (thrust and radial) and a slip ring for power and signals; the base rotation actuator is not drawn on the current cross-section; one DOF, 360° | Illustrative; see D4 |
+| Rotating base | Base housing with a rotary bearing (thrust and radial) and a slip ring for power and signals; the cross-section labels a base rotation actuator (BLDC + gearbox) and the rotating base (BLDC + harmonic); one DOF, 360° | Illustrative; see D4 |
 | Torso / electronics enclosure | Central enclosure for Kritva Edge, power distribution, I/O and drivers, mounted on the rotating base | Illustrative |
 | Arms | Aluminium or 3D-printed links, three joints per arm; cables through the links | Illustrative |
 | Joint assemblies | Joint housing (aluminium or CNC) with a BLDC/PMSM motor, a harmonic or planetary gearbox, an output shaft and an absolute or incremental encoder | Illustrative |
@@ -92,7 +92,7 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Joint or actuator | Intended motion or axis | DOF | Proposed technology (as shown) | Baseline or optional |
 |---|---|---|---|---|
 | Base rotation | Rotation about the vertical axis, 360° continuous | 1 | Actuator not labelled on the current cross-section; concept sheet gives no type | Baseline |
-| Shoulder (each arm) | Yaw / rotation (concept sheet); labelled pitch on the cross-section, see D6 | 1 | BLDC/PMSM with gearbox | Baseline |
+| Shoulder (each arm) | Yaw / rotation (concept sheet and cross-section) | 1 | BLDC/PMSM with gearbox | Baseline |
 | Elbow (each arm) | Pitch (flexion / extension) | 1 | BLDC/PMSM with gearbox | Baseline |
 | Wrist (each arm) | Pitch (concept sheet label: rotation / pitch; see D2) | 1 | BLDC/PMSM with gearbox | Baseline |
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Optional servo or BLDC, as shown | Optional |
@@ -118,8 +118,8 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 
 - Cables pass through the base via a slip ring carrying power and signals.
 - Cables run from the torso to both arms and through the arm links to the wrist and gripper.
-- The concept sheet allows a slip ring or a cable loop for the rotating base; the owner selected the slip ring on 2026-10-31.
-- Concern to investigate: a cable loop limits rotation and conflicts with continuous 360° rotation (D3); a slip ring adds signal-integrity, cost and life questions.
+- Both sheets now show the slip ring only; the owner selected the slip ring on 2026-10-31 and the cable loop is dropped.
+- Concern to investigate: continuous 360° rotation needs the slip ring (D3 resolved); the slip ring adds signal-integrity, cost and life questions.
 
 ## 9. Risks and Unknowns
 
@@ -136,13 +136,13 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 |---|---|---|---|
 | D1 | No dimension or DOF disagrees between the two sheets; width, base size, height, 6 arm DOF and 1 base DOF match | Both | NONE FOUND |
 | D2 | Wrist terminology: the concept labels the wrist rotation / pitch while its specification and the cross-section state wrist pitch; one DOF per wrist is counted on both | Both | OPEN |
-| D3 | Base cabling: the concept allows a slip ring or a cable loop; the cross-section shows a slip ring only; both call the rotation 360° continuous, which a cable loop does not allow | Both | OPEN; owner decision 2026-10-31: the slip ring is the selected implementation and the cable loop is dropped; the concept sheet wording 'slip ring or cable loop' is to be corrected in the next artwork round |
+| D3 | Base cabling: the concept allowed a slip ring or a cable loop; the cross-section shows a slip ring only | Both | RESOLVED (owner decision 2026-10-31 and concept sheet regenerated 2026-10-31); both sheets now name the slip ring only |
 | D4 | Base actuator: the concept gives no type for the base DOF; the cross-section does not draw or label a base actuator | Both | NOT VERIFIABLE FROM CURRENT ARTWORK |
 | D5 | Cross-section subtitle rendering errors | Cross-section | RESOLVED (cross-section regenerated 2026-10-31) |
-| D6 | Shoulder label: the cross-section labels the shoulder 'Pitch' in the front view, section 2 and the subtitle, while the concept says yaw / rotation | Both | OPEN; fix requested in the next artwork round |
-| D7 | Wrist label printed twice on the front view of the cross-section | Cross-section | OPEN; fix requested in the next artwork round |
+| D6 | Shoulder label: the earlier cross-section labelled the shoulder "Pitch" while the concept says yaw / rotation | Both | RESOLVED (cross-section regenerated 2026-10-31); it now reads "Shoulder Yaw Joint" |
+| D7 | Wrist label printed twice on the front view of the earlier cross-section | Cross-section | RESOLVED (cross-section regenerated 2026-10-31); the wrist is labelled once |
 
-The two sheets agree on width 800 mm, height 400 mm, base 300 mm × 250 mm, reach 350 mm, 3 DOF per arm, 1 rotating base DOF, 7 actuators. Review status: concept sheet `REVIEWED_WITH_ISSUES` (D2, D3), cross-section `REVIEWED_WITH_ISSUES` (D6, D7) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
+The two sheets agree on width 800 mm, height 400 mm, base 300 mm × 250 mm, reach 350 mm (concept sheet), 3 DOF per arm, 1 rotating base DOF, 7 actuators. Review status: concept sheet `REVIEWED_WITH_ISSUES` (D2), cross-section `REVIEWED` in `docs/images/ARTWORK_MANIFEST.json` (Claude audit round 7; owner confirmation pending). REVIEWED is not design approval.
 
 ## 11. Feasibility Activity and Evidence
 
@@ -204,8 +204,8 @@ This README and the two artwork sheets exist today. The files and folders below 
 
 ## 16. Open Decisions
 
-1. Concept sheet wording to be corrected next round (D3): the baseline is continuous rotation with a slip ring.
-2. Shoulder axis label on the cross-section (D6) and duplicate wrist label (D7), to be fixed in the next artwork round.
+1. D2 wrist label ("rotation / pitch" on the concept sheet, pitch on the cross-section) remains an owner decision; the other DA-05 artwork items are resolved.
+2. LiDAR (concept sheet only) remains an owner decision across DA-03 and DA-05.
 3. Whether grippers are powered in the baseline configuration (currently optional).
 4. Payload, reach and weight targets remain `UNKNOWN` in the requirements register until resolved.
 5. Joint to S/M/L actuator mapping is not started.

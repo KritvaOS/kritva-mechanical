@@ -8,7 +8,7 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-03 |
-| Version | 0.3.1 |
+| Version | 0.3.2 |
 | Last Updated | 2026-10-31 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/REQUIREMENTS_REGISTER.md`, `docs/images/ARTWORK_MANIFEST.json`, `REQUIREMENTS.md`, `ARCHITECTURE.md` |
@@ -16,7 +16,7 @@
 
 ## 1. Purpose and Scope
 
-QR-06 is the six-legged concept: a hexapod with two DOF per leg (named coxa and femur/tibia on the concept sheet), 12 actuators, and a low centre of gravity for statically stable walking and multi-leg coordination. This README records the printed values of both sheets and decides neither. It does not approve any value.
+QR-06 is the six-legged concept: a hexapod with two DOF per leg (owner decision 2026-10-31: Hip Yaw and Knee Pitch; the concept sheet still prints coxa and femur/tibia), 12 actuators, and a low centre of gravity for statically stable walking and multi-leg coordination. This README records the printed values of both sheets and decides neither. It does not approve any value.
 
 - Concept ID: QR-06
 - Concept name: Hexapod
@@ -43,7 +43,7 @@ Both sheets are concept artwork (evidence type C, PROPOSED, maturity L0 as propo
 |---|---|---|
 | Robot type | Hexapod legged robot, six legs, rigid central body | Concept and Cross-section |
 | Legs | 6 (left and right pairs at front, middle and rear) | Concept and Cross-section |
-| DOF per leg | 2 (coxa; femur/tibia) | Concept and Cross-section |
+| DOF per leg | 2 (Hip Yaw, Knee Pitch; owner decision 2026-10-31) | Cross-section; concept sheet prints coxa + femur/tibia |
 | Total leg DOF / actuators | 12 (6 × 2) | Concept and Cross-section |
 | Feet | High-friction rubber pad (concept); interchangeable rubber or TPU with 6-axis optional force sensor (cross-section) | Concept and Cross-section |
 | Sensors and compute | Concept: space for battery, controllers and sensors. Cross-section: Kritva Edge and an optional top sensor module (RGB-D camera and IMU), height adjustable | Concept and Cross-section |
@@ -77,9 +77,9 @@ Subsystem-level description from the sheets. Materials and mechanisms are option
 |---|---|---|
 | Body | Compact rigid central body with modular mounting, electronics bay for Kritva Edge, power distribution and sensors; top sensor puck shown on the concept render | Illustrative |
 | Legs | Six lightweight interchangeable leg assemblies of two joints each, arranged in left and right pairs at front, middle and rear | Illustrative; see D1 |
-| Joint assemblies | BLDC/PMSM actuator housings compatible with Kritva S/M/L architecture (concept); the cross-section shows coxa and femur/tibia joints with BLDC and gearbox | Illustrative |
+| Joint assemblies | BLDC/PMSM actuator housings compatible with Kritva S/M/L architecture (concept); the cross-section shows Hip Yaw and Knee Pitch joints with BLDC and gearbox | Illustrative |
 | Feet | High-friction rubber pad (concept) | Illustrative |
-| Body mounting interface | 4 × M5 holes and 2 × Ø5 mm dowels labelled 'indicative concept' on the cross-section only | Illustrative; see D6 |
+| Body mounting interface | Not shown on the regenerated cross-section (the earlier sheet showed 4 × M5 holes and 2 × Ø5 mm dowels as "indicative concept") | Illustrative; D6 resolved |
 | Sensor module | Optional top sensor module on a height-adjustable mount | Optional |
 
 ## 6. Joint and Actuator Mapping
@@ -88,10 +88,10 @@ Mapping as printed on the concept sheet. Motor model, torque, speed, gear ratio 
 
 | Joint or actuator | Intended motion or axis | DOF | Proposed technology (as shown) | Baseline or optional |
 |---|---|---|---|---|
-| Coxa (each leg) | Hip joint of the leg; axis not stated on the sheet | 1 | BLDC/PMSM, Kritva S/M/L compatible | Baseline |
-| Femur/Tibia (each leg) | Leg bend joint; whether the label means one combined joint or femur and tibia joints is unclear (see D2) | 1 | BLDC/PMSM, Kritva S/M/L compatible | Baseline |
+| Hip Yaw (each leg) | Hip joint of the leg, yaw axis (owner decision 2026-10-31); concept sheet name: coxa | 1 | BLDC/PMSM, Kritva S/M/L compatible | Baseline |
+| Knee Pitch (each leg) | Leg bend joint, pitch axis (owner decision 2026-10-31); concept sheet name: femur/tibia | 1 | BLDC/PMSM, Kritva S/M/L compatible | Baseline |
 
-Count: 2 DOF × 6 legs = 12 actuators; both sheets state 12. The labels 'Coxa' and 'Femur/Tibia' name two joints at 1 DOF each on the cross-section; whether femur and tibia are one combined joint is not stated (D2). The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L.
+Count: 2 DOF × 6 legs = 12 actuators; both sheets state 12. The owner decided on 2026-10-31 that the two actuated joints are Hip Yaw and Knee Pitch, one DOF each (D2 resolved); the cross-section uses these names and the concept sheet still prints coxa and femur/tibia. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L.
 
 ## 7. Electronics and Power
 
@@ -113,8 +113,8 @@ Routes as labelled on the cross-section sheet ('cable routing through leg') and 
 
 ## 9. Risks and Unknowns
 
-1. The body mounting interface (D6) is not on the concept sheet; its effect on six-leg packaging is UNKNOWN until the owner decides.
-2. Leg joint definition is ambiguous (D2); kinematics, workspace and gait planning cannot start until it is clarified.
+1. The slip ring labelled "at body interface" on the cross-section (D8) is not on the concept sheet; its effect on six-leg packaging is UNKNOWN until the owner decides.
+2. Kinematics, workspace and gait planning can start from Hip Yaw and Knee Pitch; the joint axis directions and limits are still not stated on either sheet.
 3. Two-DOF planar legs cannot move laterally; turning and sideways motion of a hexapod with 2-DOF legs depend on the hip axis, which is UNKNOWN.
 4. Twelve actuators at 3 – 5 kg (est.) leave little mass per leg; actuator sizing and S/M/L compatibility are unassessed.
 5. Packaging: six hip interfaces on a 400 mm × 280 mm body leave little room for battery and electronics; not assessed.
@@ -125,20 +125,21 @@ Routes as labelled on the cross-section sheet ('cable routing through leg') and 
 | ID | Discrepancy | Sheets | Status |
 |---|---|---|---|
 | D1 | Leg count and DOF: 6 legs with 2 DOF each (concept) vs a four-legged robot with 3 DOF per leg (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); the cross-section now shows a hexapod with 2 DOF per leg |
-| D2 | Joint definition: 'Coxa + Femur/Tibia' is listed as 2 DOF; the cross-section labels coxa 1 DOF and femur/tibia 1 DOF, so whether femur and tibia are one joint is not stated. Coxa names a joint; femur and tibia normally name links, so the two actuated joints and their axes must be defined before any kinematic work | Both | OPEN — OWNER REVIEW (the 2026-10-31 independent audit also requires this) |
+| D2 | Joint definition: the concept sheet lists "Coxa + Femur/Tibia" as 2 DOF | Both | RESOLVED (owner decision 2026-10-31): the two actuated joints are Hip Yaw and Knee Pitch, one DOF each; the cross-section uses these names; the concept sheet still prints coxa + femur/tibia and is to be aligned when next regenerated |
 | D3 | Body size: 400 × 280 × 220 mm (concept) vs 1000 × 420 × 520 mm (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); both print 400 × 280 × 220 mm, overall 520 × 480 mm |
 | D4 | Titles and extras: 'Modular / Expandable', payload bay, advanced sensors and 'Kritva Nexus' on the cross-section | Cross-section | RESOLVED (cross-section regenerated 2026-10-31); removed |
 | D5 | Weight and payload appear on the concept sheet only | Concept | NOT VERIFIABLE FROM CURRENT ARTWORK |
-| D6 | Body mounting interface (4 × M5 holes, 2 × Ø5 mm dowels) is 'indicative concept' on the cross-section and is not on the concept sheet | Cross-section | OPEN — OWNER REVIEW |
-| D7 | Cross-section subtitle prints the body size as '400 × 280 × 280 × 220 mm' (duplicated 280) | Cross-section | OPEN; fix requested in the next artwork round |
+| D6 | Body mounting interface (4 × M5 holes, 2 × Ø5 mm dowels) was "indicative concept" on the earlier cross-section and was not on the concept sheet | Cross-section | RESOLVED (cross-section regenerated 2026-10-31); the interface is not shown on the current cross-section |
+| D7 | Cross-section subtitle printed the body size as "400 × 280 × 280 × 220 mm" (duplicated 280) | Cross-section | RESOLVED (cross-section regenerated 2026-10-31); it now reads 400 × 280 × 220 mm (W × L × H) |
+| D8 | The regenerated cross-section labels a "Slip Ring (at Body Interface)" in section 6; the concept sheet and this README name no slip ring | Cross-section | OPEN — OWNER REVIEW; NOT VERIFIABLE FROM CURRENT ARTWORK |
 
-The two sheets now agree on six legs, 2 DOF per leg, 12 actuators, body 400 × 280 × 220 mm and overall 520 × 480 mm. Review status: concept sheet `REVIEWED_WITH_ISSUES` (D2), cross-section `REVIEWED_WITH_ISSUES` (D6, D7) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
+The two sheets agree on six legs, 2 DOF per leg, 12 actuators, body 400 × 280 × 220 mm and overall 520 × 480 mm (width × height on the cross-section). The title now reads "Hexapod". Review status: concept sheet `REVIEWED_WITH_ISSUES` (D2 wording), cross-section `REVIEWED_WITH_ISSUES` (D8) in `docs/images/ARTWORK_MANIFEST.json` (Claude audit round 7; owner confirmation pending). REVIEWED is not design approval.
 
 ## 11. Feasibility Activity and Evidence
 
 What the assigned intern investigates, using paper methods only (calculations, comparison tables, sketches and cited datasheets):
 
-- [ ] Clarify the leg joint definition and axes with the owner (D2), then draw the hexapod leg kinematic sketch with frames (evidence C)
+- [ ] Draw the hexapod leg kinematic sketch with frames for Hip Yaw and Knee Pitch (D2 resolved; evidence C)
 - [ ] Draw tripod-gait support polygons and estimate static stability margin for the six-leg arrangement (evidence C)
 - [ ] Estimate static joint torque for a stated body mass in tripod stance (evidence C)
 - [ ] Estimate mass by subsystem with assumptions listed, separately from the printed 3 – 5 kg (evidence C)
@@ -194,9 +195,9 @@ This README and the two artwork sheets exist today. The files and folders below 
 
 ## 16. Open Decisions
 
-1. The leg joint definition: coxa and femur/tibia as two joints (D2); the owner decides.
-2. Whether the body mounting interface is kept as indicative concept (D6).
-3. Subtitle typo (D7), to be fixed in the next artwork round.
+1. Joint axis directions and limits for Hip Yaw and Knee Pitch (names decided 2026-10-31).
+2. Whether the slip ring at the body interface (D8) is kept; it is on the cross-section only.
+3. The concept sheet wording (coxa + femur/tibia) to be aligned with Hip Yaw and Knee Pitch when next regenerated.
 4. Weight and payload targets remain `UNKNOWN` in the requirements register until resolved.
 5. Joint to S/M/L actuator mapping is not started.
 
