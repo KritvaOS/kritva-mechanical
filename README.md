@@ -1,249 +1,667 @@
-# kritva-mechanical
+# Kritva Pro Skills
 
-> Robot-level mechanical design, planning and verification for KritvaOS: frame, torso, arms, hands, legs, feet and the assemblies that join them to the existing Kritva actuators.
+**Private repository. Confidential. Do not share, fork, or copy content into public repositories.**
 
-| Property | Value |
-|---|---|
-| Project | KritvaOS |
-| Repository | `KritvaOS/kritva-mechanical` |
-| Repository Type | Mechanical |
-| Visibility Class | Not yet decided (no visibility decision recorded for this repository) |
-| GitHub Setting | UNVERIFIED (not read; agents cannot read GitHub settings) |
-| Lifecycle Status | PLANNING |
-| Repository Owner | Dinesh (program owner) |
-| Security Owner | Dinesh (program Security Owner, kritva-program D-032); hardware safety gates apply, see section 13 |
-| Architecture | Not yet defined |
-| Milestones | [planning/MILESTONE.md](planning/MILESTONE.md) (PROPOSED, working planning baseline) |
-| Tasks | [planning/TASKS.md](planning/TASKS.md) (PROPOSED, `ROB-MECH` prefix unregistered) |
-| Acceptance Criteria | [planning/ACCEPTANCE_CRITERIA.md](planning/ACCEPTANCE_CRITERIA.md) (PROPOSED, version 0.1.0) |
-| Status Reporting | Generator drafted, no report committed yet (see section 10); workstream not registered in kritva-program |
-| License | [LICENSE](LICENSE) (Apache License 2.0) |
+This repository contains Kritva's premium Claude skills, plugins, and supporting material. It is the authoring workspace for premium knowledge and the private plugin marketplace that licensed customers install from.
 
-**Current state in one line:** this repository contains planning documents only. No CAD, drawing, BOM, calculation, fixture, firmware or physical hardware exists here, and nothing in it authorises procurement, fabrication, assembly or physical testing.
+> **Status:** Initial development. Structure, manifests, and release workflows may change.
+> Claude plugin and marketplace manifest formats may change over time. Verify against
+> the current official documentation (https://docs.claude.com) before building release tooling around them.
+
+---
+
+## Table of Contents
+
+1. [Purpose and Scope](#1-purpose-and-scope)
+2. [How This Repo Relates to the Public Project](#2-how-this-repo-relates-to-the-public-project)
+3. [Repository Structure](#3-repository-structure)
+4. [Local Workspace Setup](#4-local-workspace-setup)
+5. [Authoring Skills](#5-authoring-skills)
+6. [Tracking Component Compatibility](#6-tracking-component-compatibility)
+7. [Building Plugins](#7-building-plugins)
+8. [Testing and Evals](#8-testing-and-evals)
+9. [Workflow: Responding to Upstream Changes](#9-workflow-responding-to-upstream-changes)
+10. [Branching, Commits, and Pull Requests](#10-branching-commits-and-pull-requests)
+11. [Releases and Versioning](#11-releases-and-versioning)
+12. [Customer Access and Distribution](#12-customer-access-and-distribution)
+13. [Working with Claude Code](#13-working-with-claude-code)
+14. [Security and Confidentiality](#14-security-and-confidentiality)
+15. [Decision Records](#15-decision-records)
+
+---
 
 ## 1. Purpose and Scope
 
-`kritva-mechanical` owns the mechanical design of the complete Kritva robot above the actuator level:
+### What lives here
 
-- the robot frame and structural assemblies, torso, arms, hands, legs and feet;
-- robot-level CAD, drawings, bill of materials, mass properties and load cases;
-- the robot-side mounting interfaces for actuators, including clearances, routing and service access;
-- assembly, inspection and mechanical verification procedures for robot-level hardware;
-- the mechanical planning set: milestones, tasks, acceptance criteria, sanity and regression plans, review checklist and commit procedure.
+- Premium skills that go beyond the free `kritva-dev` skill in the public repo
+- Claude Code plugins bundling skills, slash commands, agents, and MCP configuration
+- The private plugin marketplace manifest
+- Evals that verify premium skill quality
+- Build and release tooling
+- Internal ADRs for the pro product
 
-It does **not** own:
+### What does NOT live here
 
-- actuator designs. Those stay in `kritva-actuator` (shared requirements, interfaces, integration), `kritva-actuator-s`, `kritva-actuator-m` and `kritva-actuator-l` (variant mechanics) and `kritva-actuator-embedded` (electronics and firmware);
-- program governance: decisions, the approved task baseline, task weights, the approval ledger, gates and consolidated status. Those belong to `kritva-program`;
-- electrical power distribution, compute, sensing or software. No separate repository exists for them yet, and this repository does not absorb them.
+| Content | Where it belongs |
+|---|---|
+| Public architecture, interfaces, free skill | `kritvaos-community` and component repos (public) |
+| Hosted MCP server code, billing, license keys | `kritva-cloud` (private) |
+| Hardware designs, FPGA work, tuned parameters | `kritva-hardware` (private) |
+| Pricing, customers, contracts, partner details | `kritva-business` (private) |
+| Secrets and credentials | Secrets manager only. Never in any repo |
 
-Responsibilities may be split into further repositories later if independent teams, release cycles or access rules justify it. Until then the aim is the smallest number of repositories that keeps ownership clear.
+### Value principle
 
-## 2. Position in the KritvaOS Ecosystem
+Skills are text and can be copied once a customer has them. Skills here should **teach Claude how to use Kritva and the hosted Kritva services well**. The hardest-to-copy value stays in hosted services (`kritva-cloud`).
+
+---
+
+## 2. How This Repo Relates to the Public Project
+
+This repo **mirrors** the public component structure but **does not contain** the public repositories.
 
 ```text
-kritva-program            governance, baseline, gates, consolidated status
-      ^   status facts (schema 2.0)            | approvals, task IDs, weights
-      |                                         v
-kritva-mechanical  <--- interface contracts --->  kritva-actuator (parent)
- (robot structure)                                  |- kritva-actuator-s / -m / -l  (variant mechanics)
-                                                    '- kritva-actuator-embedded     (electronics, firmware)
+Public (open source)                 Private (this repo)
+─────────────────────                ─────────────────────────────
+kritvaos-community   ──────────────▶ cross-component/
+kritva-core          ──────────────▶ components/kritva-core/
+kritva-motion        ──────────────▶ components/kritva-motion/
+kritva-sense         ──────────────▶ components/kritva-sense/
+kritva-skill         ──────────────▶ components/kritva-skill/
+kritva-mind          ──────────────▶ components/kritva-mind/
 ```
 
-This repository consumes actuator geometry, mass, load and operating-limit data from the actuator repositories and produces the robot-side mounting and structure that carries them. It reports implementation facts to [kritva-program](https://github.com/KritvaOS/kritva-program), which decides what counts as accepted progress. In kritva-program the relevant workstream is `MECHANICAL` (currently with no repository registered and `hold: true`); the five actuator workstreams `ACT_INT`, `ACT_EMB`, `ACT_S`, `ACT_M` and `ACT_L` roll up to it or to related workstreams.
+### Rules
 
-Naming used in this repository, kept apart on purpose:
+1. **Public repos are read-only from this repo's perspective.** Read their source and docs; never modify them from a pro-skills session.
+2. **This repo is never added as a submodule of any public repo.**
+3. **No submodules here by default.** Public repos are cloned beside this one (see [Section 4](#4-local-workspace-setup)). If a future ADR introduces submodules, it must document the reasons.
+4. **Private content never flows into public repos.** If something here should become public, it is moved deliberately through a reviewed pull request in the public repo, with an ADR noting the decision.
 
-| Name | Owner | Meaning |
+---
+
+## 3. Repository Structure
+
+```text
+kritva-pro-skills/
+├── README.md                          # This file
+├── CLAUDE.md                          # Rules for Claude Code in this repo
+├── CHANGELOG.md                       # Customer-facing version history
+├── LICENSE-COMMERCIAL.md              # Commercial license terms
+├── compatibility.json                 # Skill ↔ component version mapping
+├── .gitignore
+│
+├── .claude-plugin/
+│   └── marketplace.json               # Private marketplace manifest
+│
+├── components/                        # AUTHORING: premium knowledge per component
+│   ├── kritva-core/
+│   │   ├── COMPONENT.md               # Summary, public repo link, supported versions
+│   │   ├── skills/
+│   │   │   ├── core-scheduler-tuning/
+│   │   │   │   ├── SKILL.md
+│   │   │   │   ├── reference/
+│   │   │   │   └── scripts/
+│   │   │   └── core-runtime-debugging/
+│   │   │       └── SKILL.md
+│   │   └── reference/                 # Shared private notes on Core internals
+│   ├── kritva-motion/
+│   │   ├── COMPONENT.md
+│   │   └── skills/
+│   │       └── motion-controller-tuning/SKILL.md
+│   ├── kritva-sense/
+│   │   ├── COMPONENT.md
+│   │   └── skills/
+│   │       └── sense-pipeline-optimization/SKILL.md
+│   ├── kritva-skill/
+│   └── kritva-mind/
+│
+├── cross-component/                   # AUTHORING: skills spanning several components
+│   ├── skills/
+│   │   ├── kritva-safety-review/
+│   │   │   ├── SKILL.md
+│   │   │   └── checklists/
+│   │   └── kritva-system-integration/
+│   │       └── SKILL.md
+│   ├── commands/                      # Slash command sources
+│   └── agents/                        # Subagent sources
+│
+├── plugin-definitions/                # Which skills go into which plugin
+│   ├── kritva-pro-dev.json
+│   ├── kritva-hardware-profiles.json
+│   └── kritva-enterprise.json
+│
+├── plugins/                           # BUILD OUTPUT: what customers install
+│   ├── kritva-pro-dev/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/
+│   │   ├── commands/
+│   │   ├── agents/
+│   │   └── .mcp.json                  # Points to hosted Kritva MCP server
+│   ├── kritva-hardware-profiles/
+│   └── kritva-enterprise/
+│
+├── tests/
+│   ├── evals/                         # Test prompts + expected behavior, per skill
+│   │   ├── core-scheduler-tuning/
+│   │   │   ├── cases.yaml
+│   │   │   └── README.md
+│   │   └── kritva-safety-review/
+│   └── fixtures/                      # Sample configs, logs, code for evals
+│
+├── docs/
+│   ├── authoring-guide.md             # Skill writing standards
+│   ├── release-checklist.md
+│   ├── tiers.md                       # Which plugin maps to which offering
+│   └── decisions/                     # Internal ADRs for the pro product
+│
+└── scripts/
+    ├── validate.sh                    # Validate manifests and SKILL.md frontmatter
+    ├── build-plugins.sh               # Assemble plugins/ from sources
+    ├── check-compatibility.sh         # Flag skills affected by upstream changes
+    └── release.sh                     # Version bump, changelog, tag
+```
+
+### Authoring vs. build output
+
+| Folder | Role | Edited by hand? |
 |---|---|---|
-| P0 to P8 | kritva-program | Frozen program phases. This repository never redefines them. |
-| A0, A1, A2 | kritva-actuator | The actuator family's own milestone lifecycle. Not robot hardware versions. |
-| ROB-A0, ROB-A1 and so on | this repository (PROPOSED) | Robot hardware baselines: a named, frozen robot configuration. |
-| ROB-M0 to ROB-M5 | this repository (PROPOSED) | Robot mechanical milestones, accepted as working planning baselines and adjustable as work proceeds. |
+| `components/`, `cross-component/` | Source of truth for all premium content | **Yes** |
+| `plugin-definitions/` | Maps sources to plugins | **Yes** |
+| `plugins/` | Assembled output customers install | **No.** Regenerated by `build-plugins.sh` |
 
-The `ROB-` namespace is PROPOSED. It needs registration with kritva-program before any task using it can earn program credit.
+Never edit files in `plugins/` directly. Changes will be overwritten on the next build.
 
-## 3. Architecture
+---
 
-Not yet defined. No robot-level architecture document exists. The first architecture work (frame, torso, limb and joint layout, interface definitions and mass budget) is planned under milestone ROB-M1 and is not started. A skeleton or sketch will be linked here with its status when it exists, and will not be described as an approved architecture.
+## 4. Local Workspace Setup
 
-## 4. Documents to Read First
+Clone public and private repos **side by side** in one parent folder:
 
-| Document | Label, status | What it answers |
-|---|---|---|
-| [LICENSE](LICENSE) | AUTHORITATIVE for licensing; status: in place | Under what terms the content may be used |
-| [planning/MILESTONE.md](planning/MILESTONE.md) | AUTHORITATIVE for milestone definitions (role); status: PROPOSED | What the robot mechanical milestones are and how they may change |
-| [planning/TASKS.md](planning/TASKS.md) | AUTHORITATIVE for local task records (role); status: PROPOSED | Which tasks exist, in what order, with which dependencies |
-| [planning/ACCEPTANCE_CRITERIA.md](planning/ACCEPTANCE_CRITERIA.md) | AUTHORITATIVE for acceptance criteria (role); status: PROPOSED | What measurable evidence makes a task or milestone acceptable |
-| [verification/SANITY_PLAN.md](verification/SANITY_PLAN.md) | AUTHORITATIVE for fast checks (role); status: PROPOSED, nothing implemented | Which fast checks run on every pull request |
-| [verification/REGRESSION_PLAN.md](verification/REGRESSION_PLAN.md) | AUTHORITATIVE for regression checks (role); status: PROPOSED, nothing implemented | Which checks protect accepted designs from regressions |
-| [planning/REGISTRATION_PROPOSAL.md](planning/REGISTRATION_PROPOSAL.md) | PROPOSAL; status: PROPOSED, owner decision pending | How this repository would be registered in kritva-program |
-| [planning/REVIEW_CHECKLIST.md](planning/REVIEW_CHECKLIST.md) | AUTHORITATIVE for review (role); status: PROPOSED | What a reviewer checks before approving |
-| [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md) | AUTHORITATIVE for branch and commit sequence once adopted; status: PROPOSED | The branch, commit and pull request sequence |
-| [planning/CHANGELOG.md](planning/CHANGELOG.md) | EVIDENCE, append only; status: PROPOSED | How the plan itself has changed and why |
-| [reviews/2026-10-28-external-review-chatgpt.md](reviews/2026-10-28-external-review-chatgpt.md) | EVIDENCE of an advisory external review; status: DRAFT, dispositions pending | What the external reviewer found and how each finding maps to the plan |
-| [feasibility/README.md](feasibility/README.md) | EVIDENCE of a proposed paper-only comparative feasibility study (6 dual-arm and 6 legged concepts, tasks ROB-MECH-043 to 052); status: PROPOSED, nothing assessed yet; concept artwork indexed in [docs/images/ARTWORK_INDEX.md](docs/images/ARTWORK_INDEX.md) | What the study covers, who owns which concept, and its checkpoints |
-| [Program acceptance standard](https://github.com/KritvaOS/kritva-program/blob/main/v2/planning/ACCEPTANCE_STANDARD.md) | PROPOSED standard in kritva-program (current link; the program record controls) | Task definition of done, test gates, commit format, tags, required files |
-| [Program agent instructions](https://github.com/KritvaOS/kritva-program/blob/main/AGENTS.md) | AUTHORITATIVE for kritva-program agents (current link) | What agents must not change without an owner decision |
+```text
+~/kritva/
+├── kritvaos-community/     (public, with submodules)
+├── kritva-pro-skills/      (private, this repo)
+├── kritva-cloud/           (private)
+└── kritva-hardware/        (private)
+```
 
-All of these documents are drafts written on 2026-10-28 and none has been reviewed yet. The roles shown are intended roles, not approvals.
+```bash
+mkdir -p ~/kritva && cd ~/kritva
+git clone --recurse-submodules https://github.com/KritvaOS/kritvaos-community.git
+git clone git@github.com:KritvaOS/kritva-pro-skills.git
+```
 
-## 5. Repository Structure and File Responsibilities
+Public component source is then available at:
 
-The files named in the first four rows exist today (the planning and verification folders hold the drafts listed in section 4). Every other path is a target layout; a folder is created only when it holds a real file, so none is scaffolded in advance.
+```text
+../kritvaos-community/kritva-core
+../kritvaos-community/kritva-motion
+...
+```
 
-| Path | Responsibility | Label, status | Edit by hand? |
-|---|---|---|---|
-| `README.md` | Navigation page for this repository | REFERENCE; status: DRAFT | Yes |
-| `LICENSE` | Apache License 2.0 text | AUTHORITATIVE; in place | No |
-| [AGENTS.md](AGENTS.md) | Instructions for agents: authority, hold, what not to change, validation, commit rules | AUTHORITATIVE for agents once adopted; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision for changes |
-| [SECURITY.md](SECURITY.md) | Private reporting route for vulnerabilities and safety concerns | AUTHORITATIVE once the owner confirms the route; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to pick a task, change, check and submit | REFERENCE; IMPLEMENTED as a draft (PROPOSED) | Yes |
-| [.github/CODEOWNERS](.github/CODEOWNERS) | Code owner for every path | AUTHORITATIVE once adopted (login confirmed by the owner); IMPLEMENTED as a draft (PROPOSED); not verified as enforced | Yes, owner decision |
-| [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md) | Pull request checklist | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
-| [planning/](planning/) | Milestones, task register, acceptance criteria, review checklist, commit procedure, changelog. Layout follows the ChatGPT planning session; the program standard places `ACCEPTANCE_CRITERIA.md` at the repository root, a deviation the owner chose on 2026-10-28 and recorded in the changelog | MIXED; IMPLEMENTED as drafts (PROPOSED) | Yes |
-| [verification/](verification/) | Sanity plan and regression plan (plans only; no check is implemented). Later test procedures | MIXED; plans IMPLEMENTED as drafts (PROPOSED), checks NOT YET IMPLEMENTED | Yes |
-| [reviews/](reviews/) | Recorded external and independent reviews with finding dispositions | EVIDENCE; IMPLEMENTED (one advisory review recorded) | Append only |
-| [feasibility/](feasibility/) | Paper-only feasibility study: study plan, intern assignments, design guidelines, evaluation criteria, registers, templates, 12 concept READMEs (artwork-based, v0.3.0) and checkpoint review records. No CAD, BOM, quote or procurement | MIXED; IMPLEMENTED as drafts (PROPOSED), assessments NOT YET STARTED | Yes (interns edit only their concept folders) |
-| `requirements/` | Robot-level mechanical requirements and load cases | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
-| `architecture/` | Frame, torso, limb and joint architecture, interface control | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
-| `cad/` | Native CAD sources and neutral exports | INPUT; NOT YET IMPLEMENTED, on hold (section 13) | Via CAD tool |
-| `drawings/` | Released drawings | EVIDENCE once released; NOT YET IMPLEMENTED | Append only |
-| `bom/` | Bill of materials | INPUT; NOT YET IMPLEMENTED, on hold (section 13) | Yes |
-| `assembly/` | Assembly and inspection procedures | AUTHORITATIVE once approved; NOT YET IMPLEMENTED | Yes |
-| `results/` | Immutable, revision-specific verification evidence | EVIDENCE; NOT YET IMPLEMENTED | Append only |
-| [scripts/status/](scripts/status/) | Status generator and checker (`gen_status.py`), the vendored program schema 2.0 and its [provenance](scripts/status/PROVENANCE.md) | INPUT; IMPLEMENTED as a draft (PROPOSED) | Only by re-copying the schema from kritva-program |
-| `status/` | `status.json` generated from the task register | GENERATED; NOT YET GENERATED (the generator exists; no report is committed) | No |
-| [scripts/security/](scripts/security/) | Vendored program commit-format checker with its [provenance](scripts/security/PROVENANCE.md) | INPUT; IMPLEMENTED as a draft (PROPOSED); not yet run in CI | Only by re-copying from kritva-program |
-| [tests/](tests/) | Unit tests for the commit-format checker | INPUT; IMPLEMENTED as a draft (PROPOSED); run locally only | Yes |
-| [.github/workflows/](.github/workflows/) | `secret-scan` and `commit-message-check` workflows | INPUT; IMPLEMENTED as drafts (PROPOSED); no CI run recorded yet | Yes, owner decision |
-| [.gitleaks.toml](.gitleaks.toml) | Secret-scan configuration, no allowlist | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes, owner decision |
-| [.gitignore](.gitignore) | Keeps Python caches out of Git | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
-| [Makefile](Makefile) | The eight standard gate targets plus `make test-tools`; every standard gate is NOT_IMPLEMENTED and fails | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
-| [scripts/gate.sh](scripts/gate.sh) | Prints `NOT_IMPLEMENTED` and exits 3 for each standard gate | INPUT; IMPLEMENTED as a draft (PROPOSED) | Yes |
-| Other `scripts/` | Generators, including the status generator | INPUT; NOT YET IMPLEMENTED | Yes |
-| `releases/` | Immutable released hardware configurations | EVIDENCE; NOT YET IMPLEMENTED | Append only |
+Keep the public checkout up to date before authoring:
 
-All required program files now exist as drafts. The `secret-scan` and `commit-message-check` workflows exist as drafts that have not yet run. The governance files `AGENTS.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/CODEOWNERS` and `.github/PULL_REQUEST_TEMPLATE.md` exist as unreviewed drafts, and nothing shows that `CODEOWNERS` is enforced on GitHub (program acceptance standard section 7).
+```bash
+cd ~/kritva/kritvaos-community
+git pull && git submodule update --init --recursive
+```
 
-## 6. Toolchain, Getting Started and Development Workflow
+---
 
-No toolchain beyond Git and Python 3 is defined. The only commands are the Makefile targets below. The eight standard gates exist but none is implemented, so each prints `NOT_IMPLEMENTED` and fails; none is ever a pass.
+## 5. Authoring Skills
 
-| Tool | Purpose | Version | Check |
-|---|---|---|---|
-| Git | Version control | Not yet defined | `git --version` |
-| CAD system | Robot-level modelling | Not yet defined (to be chosen under ROB-M1) | Not yet defined |
+### Where a new skill goes
 
-| Command | Effect | Needs | Preview |
-|---|---|---|---|
-| `python3 ../kritva-program/scripts/docs/check_readme.py README.md` | check (read only); requires a sibling clone of kritva-program | Local clone only | Not needed |
-| `python3 scripts/status/gen_status.py` | prints the status report for `HEAD` (read only) | Git, Python 3 | Not needed |
-| `python3 scripts/status/gen_status.py --write` | writes `status/status.json` from `HEAD` (changes the working tree) | Git, Python 3 | Run without `--write` first |
-| `python3 scripts/status/gen_status.py --check` | verifies `status/status.json`: schema, source commit, regeneration, staleness (read only) | Git, Python 3, full history | Not needed |
-| `make help` | prints the targets (read only) | make | Not needed |
-| `make check` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make lint` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make test-unit` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make test-integration` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make test-regression` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make test` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make docs-check` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make acceptance` | standard gate: NOT_IMPLEMENTED, fails | make | Not needed |
-| `make test-tools` | runs the unit tests of the commit-format checker and the gates (read only); not a standard gate and not evidence that any design check passed | make, Python 3 | Not needed |
+| Skill is about… | Location |
+|---|---|
+| One component only | `components/<component>/skills/<skill-name>/` |
+| Several components, safety, or system integration | `cross-component/skills/<skill-name>/` |
 
-The program's standard make targets are listed above and none is implemented. `scripts/gate.sh` exits with code 3 (`NOT_IMPLEMENTED`); GNU make itself reports any failed recipe as exit status 2 and prints `Error 3`, so run `sh scripts/gate.sh <target>` when the exact code 3 is needed. An unimplemented target is never reported as a pass.
+### Skill folder layout
 
-Working practice today: edit Markdown on a branch, run the README check above and `make test-tools`, and open a pull request. Do not commit CAD or binary design files until the hold in section 13 allows it and a storage and revision convention is approved.
+```text
+<skill-name>/
+├── SKILL.md         # Short, focused instructions (required)
+├── reference/       # Deep-dive docs Claude loads only when needed
+├── templates/       # Starter files, config examples
+├── scripts/         # Helper scripts the skill can run
+└── checklists/      # Review checklists
+```
 
-## 7. Dependencies and Interfaces
+### `SKILL.md` template
 
-| Dependency | Direction | Kind | Contract | State |
-|---|---|---|---|---|
-| `kritva-program` | upstream | governance | Status schema 2.0, task IDs, baseline, gates, commit standard | ESTABLISHED for the program; this repository is not yet registered, so UNVERIFIED here |
-| `kritva-actuator` | upstream | design | Actuator mounting interface, dimensions, loads, mass properties, operating limits | PLANNED (no robot-side interface document exists) |
-| `kritva-actuator-s`, `-m`, `-l` | upstream | design | Variant geometry, sizing results and mounting datums | PLANNED; sizing inputs in those repositories are reported by an external audit as still preliminary (not verified here) |
-| `kritva-actuator-embedded` | upstream | design | Controller and board envelope, connectors, wiring routes | PLANNED |
-| Electrical, power and compute design | upstream | design | Harness routing, battery and compute envelopes | UNVERIFIED (no owning repository identified) |
+```markdown
+---
+name: core-scheduler-tuning
+description: Use when tuning Kritva Core scheduling, diagnosing latency or
+  jitter, configuring task priorities, or reviewing real-time performance
+  of Kritva Core v0.3 and later.
+---
 
-No interface here is versioned or approved. The first deliverable of the interface work is a robot-to-actuator interface control document, planned under ROB-M0 and ROB-M1.
+# Kritva Core Scheduler Tuning
 
-## 8. Roadmap
+## When to use
+...
 
-| Item | Document | Status and meaning of dates |
-|---|---|---|
-| Roadmap | Not yet defined | No dates exist. Any date added later is labelled PROPOSED until the owner approves it. |
-| Milestones | [planning/MILESTONE.md](planning/MILESTONE.md) (PROPOSED) | Working sequence ROB-M0 Requirements, ROB-M1 Architecture, ROB-M2 Detailed design, ROB-M3 Fabrication readiness, ROB-M4 Assembly and inspection, ROB-M5 Mechanical verification. Accepted as planning baselines by the owner (2026-10-28 working session); adjustable. Not program baseline entries. |
+## Workflow
+1. ...
+2. ...
 
-Accepting a milestone for planning does not mean its tasks are done, its evidence exists, or any gate has passed.
+## Safety boundaries
+- Recommendations are for development and testing. Never suggest placing
+  AI tooling inside the real-time control loop.
+- Changes to timing parameters must be validated on target hardware.
 
-## 9. Tasks and Acceptance Criteria
+## Reference files
+- `reference/scheduler-internals.md` — read when diagnosing priority inversion
+- `scripts/analyze_latency.py` — run on exported trace logs
+```
 
-Tasks live in a single canonical register, [planning/TASKS.md](planning/TASKS.md), with one stable ID each (`ROB-MECH-001` to `ROB-MECH-052` are drafted). The proposed ID family is `ROB-MECH-NNN`, which needs approval and registration in kritva-program before it earns credit. Existing actuator task IDs (`ACT-INT`, `ACT-EMB`, `ACT-S`, `ACT-M`, `ACT-L`) are preserved and are not renumbered or reused here.
+### Authoring standards
 
-Acceptance criteria live in [planning/ACCEPTANCE_CRITERIA.md](planning/ACCEPTANCE_CRITERIA.md), written to the program template. Work is not accepted because a file exists, a commit was made, a pull request merged or a local test passed. A task is done only when it meets the program definition of done: stable ID, testable criteria, merged through the required review, required checks passed on the exact closing commit, reviews recorded against that commit, documentation updated and evidence pointing at immutable references.
+1. **`description` drives activation.** Write it as "Use when…" with the words developers actually type.
+2. **Keep `SKILL.md` short.** Move depth into `reference/` and point to it.
+3. **State the component versions** the skill applies to.
+4. **Include safety boundaries** in every skill touching Core, Motion, or hardware.
+5. **Every skill has evals** in `tests/evals/<skill-name>/` before release.
+6. **Register the skill** in `compatibility.json` and at least one `plugin-definitions/*.json`.
 
-## 10. Status Reporting and Program Integration
+Full standards: [`docs/authoring-guide.md`](docs/authoring-guide.md).
 
-Four things are kept apart and never merged into one flag or percentage:
+### `COMPONENT.md` template
 
-- **Execution:** what this repository reports about its own implementation state.
-- **Evidence:** the exact commit, result and scope behind each claim.
-- **Acceptance:** decided by the program's acceptance authority, not by this repository's report.
-- **Release readiness:** the result of the applicable gates.
+```markdown
+# kritva-core (Pro)
 
-Mechanism: `status/status.json` (schema 2.0) is generated by `scripts/status/gen_status.py` from the task register at a Git commit, validated against the vendored program schema, and checked by the unit tests in CI once the file is committed. It would then be registered as a source in kritva-program and consolidated there. Today the generator exists but no report is committed, the workstream ID `ROB_MECH` in the generator is only proposed, the repository is not registered, and the `MECHANICAL` workstream in kritva-program has no repository. Until registered, this repository's progress is UNVERIFIED in the program view, which is the accurate state.
+- **Public repo:** https://github.com/KritvaOS/kritva-core
+- **Local source:** ../kritvaos-community/kritva-core
+- **Supported versions:** v0.3.x
+- **Premium skills:** core-scheduler-tuning, core-runtime-debugging
+- **Maintainer:** <name>
 
-This repository sends facts only. It never claims program approval or credit, never edits the program baseline or task weights, and does not add hardware-version or phase fields to the status file unless the approved schema allows them. Progress percentages and task counts are not written in this README; see the program's generated status view.
+## Notes
+Private context about this component that skills draw on.
+```
 
-## 11. Build, Test, Regression and Validation
+---
 
-| Check | Command | Effect | Runs in CI? | Expected |
-|---|---|---|---|---|
-| README structure | `python3 ../kritva-program/scripts/docs/check_readme.py README.md` | check | no | PASS means structure only; not accuracy |
-| Sanity checks | Not yet defined | n/a | no | NOT YET IMPLEMENTED |
-| Regression checks | Not yet defined | n/a | no | NOT YET IMPLEMENTED |
+## 6. Tracking Component Compatibility
 
-Plans are drafted in [verification/SANITY_PLAN.md](verification/SANITY_PLAN.md) and [verification/REGRESSION_PLAN.md](verification/REGRESSION_PLAN.md) (PROPOSED). A check that is not implemented is listed as not implemented, never as passing. Software checks, calculations and simulation never stand in for physical verification.
+`compatibility.json` links every premium skill to the public component versions it was written and tested against.
 
-## 12. Git Workflow and Review
+```json
+{
+  "kritva-core": {
+    "repo": "https://github.com/KritvaOS/kritva-core",
+    "tested_versions": ["v0.3.x"],
+    "last_reviewed": "2026-10-05",
+    "skills": ["core-scheduler-tuning", "core-runtime-debugging"]
+  },
+  "kritva-motion": {
+    "repo": "https://github.com/KritvaOS/kritva-motion",
+    "tested_versions": ["v0.2.x"],
+    "last_reviewed": "2026-10-05",
+    "skills": ["motion-controller-tuning"]
+  },
+  "cross-component": {
+    "requires": {
+      "kritva-core": "v0.3.x",
+      "kritva-motion": "v0.2.x"
+    },
+    "skills": ["kritva-safety-review", "kritva-system-integration"]
+  }
+}
+```
 
-No commit or pull request rule is verified as enforced in this repository yet: the `secret-scan` and `commit-message-check` workflows and `CODEOWNERS` exist as drafts with no recorded CI run, and nobody has verified branch protection or required checks.
+### Rules
 
-Proposed convention, to be adopted formally through the owner and recorded in [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md): the kritva-program commit standard (decision D-053; see section 4 of the program acceptance standard). In short, `type(scope): summary` with exactly one `Task:` or `Tasks:` footer, or `Tasks: None (reason)` on a docs or chore commit that implements no task; work on a branch and open a pull request; merge with a merge commit; never push to `main`; no AI-session trailers or links in commit messages or pull request text. Until adopted, this is advisory reference, not a second mandatory format.
+- Every skill appears in exactly one entry.
+- `tested_versions` is updated **only after evals pass** against that version.
+- `scripts/check-compatibility.sh` compares `tested_versions` with the latest public release tags and lists skills needing review.
 
-## 13. Safety and Security
+---
 
-Software checks, analytical calculations and simulation validate only the stated model, inputs and software properties. They do not prove physical safety, component suitability, design acceptance or readiness for human use.
+## 7. Building Plugins
 
-Open-gate summary (a summary of what this repository must respect, not the gate authority; the controlling records are in kritva-program):
+### Plugin definitions
 
-| Gate | Controls | Authority and status | Evidence needed to close | Prohibited while open |
-|---|---|---|---|---|
-| Mechanical HOLD (D-003) | Mechanical CAD, actuators, BOM, quotes, procurement, fabrication, prototype, design freeze | kritva-program decision, Accepted. Lifted by D-052 only for `ACT_S`, `ACT_M`, `ACT_L`, `ACT_EMB`, `ACT_INT`; the `MECHANICAL` workstream still carries `hold: true` | An owner decision reopening robot mechanical work | CAD, BOM, quotes, procurement, fabrication, assembly and prototype work for the robot scope |
-| P6 LAB & ROBOT entry | Entry to the lab and robot phase | kritva-program gate register; requires an explicit decision reopening mechanical work | The reopening decision and the P6 criteria, still pending | Treating any planning acceptance as entry to P6 |
-| Actuator release gates (A, B, C) | Actuator design release, bench validation, safety and release acceptance | Owned by `kritva-actuator`; state not verified here (an external audit reports none passed) | Per the actuator repository's own records | Using actuator results as robot-level evidence |
+Each file in `plugin-definitions/` lists what goes into one plugin:
 
-Lifting a hold or passing one gate does not approve a design, waive another gate or authorise physical operation. Closing a child-repository input does not close a parent gate. Planning-document work in this repository is not CAD, BOM, procurement, fabrication or prototype work, and is treated as permitted under the hold; if the owner reads the hold differently, this section is corrected.
+```json
+{
+  "name": "kritva-pro-dev",
+  "version": "0.1.0",
+  "description": "Advanced Kritva development, performance tuning, and safety review",
+  "skills": [
+    "components/kritva-core/skills/core-scheduler-tuning",
+    "components/kritva-core/skills/core-runtime-debugging",
+    "components/kritva-motion/skills/motion-controller-tuning",
+    "cross-component/skills/kritva-safety-review"
+  ],
+  "commands": [
+    "cross-component/commands/kritva-perf-audit.md",
+    "cross-component/commands/kritva-safety-check.md"
+  ],
+  "agents": [
+    "cross-component/agents/kritva-reviewer.md"
+  ],
+  "mcp": true
+}
+```
 
-Evidence is stated by type: software test, calculation, simulation, bench measurement or independently accepted physical test. Each statement names the tested revision, procedure, result and scope. Software and model evidence is never offered as physical test evidence. Required human safety reviews stay mandatory for safety-gated work.
+### Build
 
-Security: [SECURITY.md](SECURITY.md) is a draft; the owner must confirm the vulnerability-reporting route. Never post details of an unfixed vulnerability in a public issue or pull request. Never commit credentials, tokens, keys, production or personal data.
+```bash
+./scripts/validate.sh        # Check frontmatter, manifests, references
+./scripts/build-plugins.sh   # Regenerate plugins/ from definitions
+```
 
-## 14. Release and Versioning
+The build script:
 
-Nothing is released. Planned: annotated SemVer tags (`vMAJOR.MINOR.PATCH`) created only after an approved merge and required checks, with the tag message naming the completion record and exact commit; a milestone closes only through an approved `COMPLETION_RECORD.md`, never through a merge, a passing run or a tag. Robot hardware baselines (`ROB-A0` and so on) are immutable configurations recorded under `releases/` once released. Document versions and release versions are separate. Known limitations: no release process, tag policy or completion record exists yet for this repository.
+1. Clears each `plugins/<name>/` folder.
+2. Copies listed skills, commands, and agents.
+3. Writes `.claude-plugin/plugin.json` with name, version, and description.
+4. Adds `.mcp.json` when `"mcp": true`.
+5. Updates `.claude-plugin/marketplace.json`.
 
-## 15. Ownership and Escalation
+### Marketplace manifest (generated)
 
-Repository and security owner: Dinesh. Code ownership is drafted in [.github/CODEOWNERS](.github/CODEOWNERS) (owner login confirmed by the owner; enforcement not verified). With a single owner, a pull request author cannot self-approve under the program's usual ruleset; the program's approach is that the owner merges using the bypass or a second reviewer is added. Raise a blocker by opening an issue or commenting on the pull request and naming the owner. Do not invent evidence, test results, hardware behaviour or approvals, and do not claim a check passed unless it was run.
+```json
+{
+  "name": "kritva-pro",
+  "owner": { "name": "KritvaOS" },
+  "plugins": [
+    {
+      "name": "kritva-pro-dev",
+      "source": "./plugins/kritva-pro-dev",
+      "description": "Advanced Kritva development, performance tuning, and safety review"
+    },
+    {
+      "name": "kritva-hardware-profiles",
+      "source": "./plugins/kritva-hardware-profiles",
+      "description": "Certified hardware and FPGA integration guidance"
+    }
+  ]
+}
+```
 
-## 16. Related Repositories and References
+### MCP configuration
 
-- [kritva-program](https://github.com/KritvaOS/kritva-program): plan, baseline, decisions, gates and consolidated status.
-- [kritva-actuator](https://github.com/KritvaOS/kritva-actuator): parent actuator repository, with `kritva-actuator-s`, `kritva-actuator-m`, `kritva-actuator-l` and `kritva-actuator-embedded` as children.
-- [kritva-core](https://github.com/KritvaOS/kritva-core) and [kritvaos-community](https://github.com/KritvaOS/kritvaos-community): software repositories this robot will eventually run.
+`.mcp.json` in a plugin points to the hosted Kritva MCP server. It must **never** contain an API key. Customers supply their own license key through an environment variable, for example `KRITVA_API_KEY`.
 
-## 17. License
+---
 
-Apache License 2.0. See [LICENSE](LICENSE).
+## 8. Testing and Evals
+
+Customers pay for consistent results. Every skill has evals.
+
+### Eval case format (`tests/evals/<skill>/cases.yaml`)
+
+```yaml
+skill: core-scheduler-tuning
+component_version: v0.3.x
+cases:
+  - id: latency-spike-diagnosis
+    prompt: >
+      My Kritva Core control task shows periodic 4 ms latency spikes.
+      Here is the trace log. What is causing it?
+    fixtures:
+      - fixtures/core/trace-latency-spike.log
+    must_include:
+      - identifies priority inversion or blocking as a likely cause
+      - recommends validating changes on target hardware
+    must_not_include:
+      - suggests running an LLM inside the control loop
+```
+
+### When to run evals
+
+- Before every release
+- After editing any skill
+- After a new public component release (see [Section 9](#9-workflow-responding-to-upstream-changes))
+- After a new Claude model becomes available
+
+Record results in the pull request description.
+
+---
+
+## 9. Workflow: Responding to Upstream Changes
+
+When a public component releases a new version (for example, `kritva-core v0.4.0`):
+
+```text
+1. Update local public checkout
+        │
+        ▼
+2. Run check-compatibility.sh → list affected skills
+        │
+        ▼
+3. Review changelog and diff of the component
+        │
+        ▼
+4. Update affected skills (branch: compat/kritva-core-v0.4)
+        │
+        ▼
+5. Update evals and fixtures, run all affected evals
+        │
+        ▼
+6. Update compatibility.json (tested_versions, last_reviewed)
+        │
+        ▼
+7. Pull request → review → merge
+        │
+        ▼
+8. Build plugins, update CHANGELOG.md, release
+```
+
+```bash
+cd ~/kritva/kritvaos-community && git pull && git submodule update --init --recursive
+cd ~/kritva/kritva-pro-skills
+git checkout main && git pull
+git checkout -b compat/kritva-core-v0.4
+./scripts/check-compatibility.sh
+```
+
+---
+
+## 10. Branching, Commits, and Pull Requests
+
+### Branches
+
+| Prefix | Use |
+|---|---|
+| `skill/` | New skill or major skill rewrite |
+| `update/` | Improvements to existing skills |
+| `compat/` | Upstream compatibility updates |
+| `plugin/` | Plugin definition changes |
+| `release/` | Release preparation |
+| `chore/` | Tooling, scripts, docs |
+
+`main` is protected. All changes go through pull requests with at least one reviewer.
+
+### Commit messages
+
+```text
+Add core-scheduler-tuning skill
+Update motion-controller-tuning for kritva-motion v0.3
+Add kritva-safety-review to kritva-pro-dev plugin
+Release kritva-pro-dev v0.2.0
+```
+
+### Pull request checklist
+
+- [ ] `validate.sh` passes
+- [ ] Evals added or updated, and passing (results in PR description)
+- [ ] `compatibility.json` updated if versions changed
+- [ ] Plugin definitions updated if skills were added or removed
+- [ ] `plugins/` regenerated with `build-plugins.sh` (not hand-edited)
+- [ ] No secrets, API keys, or customer data
+- [ ] No private content copied into or referenced from public repos
+
+---
+
+## 11. Releases and Versioning
+
+### Versioning
+
+- Each **plugin** uses semantic versioning (`vMAJOR.MINOR.PATCH`).
+  - **MAJOR:** removed skills, breaking changes, dropped component versions
+  - **MINOR:** new skills, new supported component versions
+  - **PATCH:** fixes and wording improvements
+- Repository tags use the format `<plugin-name>-vX.Y.Z`, for example `kritva-pro-dev-v0.2.0`.
+
+### Release steps
+
+```bash
+git checkout main && git pull
+git checkout -b release/kritva-pro-dev-v0.2.0
+./scripts/validate.sh
+./scripts/build-plugins.sh
+# Run all evals for skills in this plugin
+./scripts/release.sh kritva-pro-dev 0.2.0   # bumps version, updates CHANGELOG, tags
+git push -u origin release/kritva-pro-dev-v0.2.0
+# Open PR → merge → push tag
+```
+
+### `CHANGELOG.md` entry format
+
+```markdown
+## kritva-pro-dev v0.2.0 — 2026-10-20
+
+### Added
+- core-runtime-debugging skill
+
+### Changed
+- core-scheduler-tuning now supports kritva-core v0.4.x
+
+### Compatibility
+- kritva-core v0.3.x, v0.4.x
+- kritva-motion v0.2.x
+```
+
+Full checklist: [`docs/release-checklist.md`](docs/release-checklist.md).
+
+---
+
+## 12. Customer Access and Distribution
+
+### Distribution model
+
+Customers install plugins from this repository as a private marketplace. **Repository access is the access control.**
+
+### Granting access
+
+- Create one GitHub team per customer organization, for example `customer-acme`.
+- Give the team **read-only** access to this repository.
+- Record access changes in `kritva-business` (not here).
+
+### Revoking access
+
+- Remove the customer team's access when a subscription ends.
+- Customers keep whatever they already installed. Ongoing value comes from updates and hosted services.
+
+### Never
+
+- Grant write access to customers
+- Store customer names, contracts, or contact details in this repo
+- Put customer-specific skills in shared plugins. Use a separate private repo per customer if needed
+
+> Distribution details depend on how Claude handles private plugin marketplaces at the time of release.
+> Check the current official documentation before onboarding customers.
+
+---
+
+## 13. Working with Claude Code
+
+### Where to start a session
+
+Open Claude Code in `~/kritva/kritva-pro-skills/`. Use a **separate session** for public repos so private files can't slip into public commits.
+
+### Example requests
+
+```text
+Read the v0.4.0 changelog in ../kritvaos-community/kritva-core, run
+scripts/check-compatibility.sh, and list which skills in
+components/kritva-core/ need updates and why.
+```
+
+```text
+Create a new skill components/kritva-motion/skills/motion-trajectory-debugging
+using the template in this README. Add eval cases in tests/evals/, register
+it in compatibility.json and plugin-definitions/kritva-pro-dev.json.
+Show me the diff before committing.
+```
+
+```text
+Prepare release kritva-pro-dev v0.2.0: validate, build plugins, update
+CHANGELOG.md, and create a release branch. Do not push the tag yet.
+```
+
+### Rules for Claude Code (also in `CLAUDE.md`)
+
+1. This is a **private** repository. Never copy its content into any public repo.
+2. Public source at `../kritvaos-community/` is **read-only**. Never modify it from this session.
+3. Author skills in `components/` or `cross-component/`. Never hand-edit `plugins/`.
+4. Every new or changed skill needs evals and a `compatibility.json` update.
+5. Always run `validate.sh` and show the diff before committing.
+6. Never push directly to `main` or push release tags without explicit approval.
+7. Never commit secrets, API keys, license keys, or customer information.
+8. Skills must never recommend placing AI tooling inside the real-time control loop.
+
+---
+
+## 14. Security and Confidentiality
+
+### Repository settings
+
+- Visibility: **Private**
+- Forking: **Disabled**
+- Branch protection on `main`: required reviews, required status checks
+- Secret scanning and push protection: **Enabled**
+- Two-factor authentication required for all organization members
+
+### `.gitignore` minimum
+
+```gitignore
+.env
+.env.*
+*.pem
+*.key
+secrets/
+customer-data/
+*.log
+!tests/fixtures/**/*.log
+```
+
+### Test fixtures
+
+- Use synthetic or fully anonymized data only.
+- Never include real customer logs, robot data, or configurations.
+
+### If something leaks
+
+1. Rotate any exposed credentials immediately.
+2. Remove the content and rewrite history if needed (coordinate before force-pushing).
+3. Record the incident and follow-up actions in `kritva-business`.
+
+---
+
+## 15. Decision Records
+
+Internal decisions about the pro product are recorded as ADRs in `docs/decisions/`, using the same format as the public project.
+
+Suggested first ADRs:
+
+| ADR | Topic |
+|---|---|
+| `0001-repo-structure.md` | Authoring vs. build output separation |
+| `0002-no-submodules.md` | Public repos cloned side by side instead of as submodules |
+| `0003-distribution-model.md` | Private marketplace with repo-based access control |
+| `0004-hosted-value.md` | Core value delivered through hosted services, skills as guides |
+| `0005-eval-requirements.md` | Eval coverage required before release |
+
+---
+
+*Confidential — KritvaOS. Internal use only.*
