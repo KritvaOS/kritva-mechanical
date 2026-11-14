@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+<title>DA-04 - Humanoid Mobile Dual-Arm - conceptual Week 2 sketch</title>
+<defs><style>
+.bg{fill:#fff} .body{fill:#e8f0fa;stroke:#234a70;stroke-width:3} .base{fill:#d8d8d8;stroke:#444;stroke-width:3}
+.link{fill:none;stroke:#333;stroke-width:16;stroke-linecap:round;stroke-linejoin:round} .joint{fill:#f4bd4f;stroke:#563f13;stroke-width:3}
+.optional{fill:none;stroke:#1b7c55;stroke-width:4;stroke-dasharray:10 7} .optionalbox{fill:#edfff5;stroke:#1b7c55;stroke-width:2;stroke-dasharray:8 6}
+.wheel{fill:#555;stroke:#111;stroke-width:3} .txt{font: bold 18px Arial;fill:#142536} .small{font:14px Arial;fill:#263746} .calltxt{font:bold 16px Arial;fill:#9c3d18}
+</style></defs>
+<rect class="bg" width="1100" height="560"/>
+<text x="550" y="30" text-anchor="middle" style="font:bold 23px Arial;fill:#17324d">DA-04 - Humanoid Mobile Dual-Arm - conceptual Week 2 sketch</text>
+<text x="550" y="52" text-anchor="middle" style="font:14px Arial;fill:#555">SCHEMATIC ONLY — NOT TO SCALE — NOT CAD — NOT A MANUFACTURING DRAWING</text>
+
+        <rect x="420" y="185" width="260" height="170" rx="14" class="body"/>
+        <rect x="455" y="85" width="190" height="90" rx="10" class="body"/>
+        <rect x="360" y="355" width="380" height="70" rx="10" class="base"/>
+        <path d="M430 220 L325 180 L235 105 L145 90" class="link"/><path d="M670 220 L775 180 L865 105 L955 90" class="link"/>
+        <circle cx="430" cy="220" r="15" class="joint"/><circle cx="325" cy="180" r="12" class="joint"/><circle cx="235" cy="105" r="12" class="joint"/><circle cx="670" cy="220" r="15" class="joint"/><circle cx="775" cy="180" r="12" class="joint"/><circle cx="865" cy="105" r="12" class="joint"/>
+        <circle cx="430" cy="270" r="10" class="joint"/><circle cx="670" cy="270" r="10" class="joint"/>
+        <circle cx="440" cy="430" r="30" class="wheel"/><circle cx="660" cy="430" r="30" class="wheel"/>
+        <text x="550" y="250" text-anchor="middle" class="txt">Humanoid torso</text><text x="550" y="275" text-anchor="middle" class="small">8 arm DOF: yaw, pitch, elbow, wrist per side</text><text x="550" y="300" text-anchor="middle" class="small">Fixed head; no pan</text>
+        <text x="550" y="396" text-anchor="middle" class="small">Differential drive: 2 channels / 4 wheels shown</text>
+        <text x="550" y="480" text-anchor="middle" class="calltxt">10 baseline actuators = 8 arm + 2 base; grippers optional</text>
+
+<text x="20" y="540" style="font:12px Arial;fill:#555">Joint symbols and link routing are conceptual; axis directions, dimensions, ranges, clearances and interfaces require source confirmation.</text>
+</svg>

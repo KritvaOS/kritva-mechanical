@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+<title>QR-02 - Standard Quadruped - conceptual Week 2 sketch</title>
+<defs><style>
+.bg{fill:#fff} .body{fill:#e8f0fa;stroke:#234a70;stroke-width:3} .base{fill:#d8d8d8;stroke:#444;stroke-width:3}
+.link{fill:none;stroke:#333;stroke-width:16;stroke-linecap:round;stroke-linejoin:round} .joint{fill:#f4bd4f;stroke:#563f13;stroke-width:3}
+.optional{fill:none;stroke:#1b7c55;stroke-width:4;stroke-dasharray:10 7} .optionalbox{fill:#edfff5;stroke:#1b7c55;stroke-width:2;stroke-dasharray:8 6}
+.wheel{fill:#555;stroke:#111;stroke-width:3} .txt{font: bold 18px Arial;fill:#142536} .small{font:14px Arial;fill:#263746} .calltxt{font:bold 16px Arial;fill:#9c3d18}
+</style></defs>
+<rect class="bg" width="1100" height="560"/>
+<text x="550" y="30" text-anchor="middle" style="font:bold 23px Arial;fill:#17324d">QR-02 - Standard Quadruped - conceptual Week 2 sketch</text>
+<text x="550" y="52" text-anchor="middle" style="font:14px Arial;fill:#555">SCHEMATIC ONLY — NOT TO SCALE — NOT CAD — NOT A MANUFACTURING DRAWING</text>
+
+        <rect x="390" y="190" width="320" height="150" rx="18" class="body"/>
+        <path d="M420 220 L300 140 L240 75 M680 220 L800 140 L860 75 M420 310 L300 390 L240 455 M680 310 L800 390 L860 455" class="link"/>
+        <circle cx="420" cy="220" r="15" class="joint"/><circle cx="300" cy="140" r="13" class="joint"/><circle cx="240" cy="75" r="13" class="joint"/>
+        <circle cx="680" cy="220" r="15" class="joint"/><circle cx="800" cy="140" r="13" class="joint"/><circle cx="860" cy="75" r="13" class="joint"/>
+        <circle cx="420" cy="310" r="15" class="joint"/><circle cx="300" cy="390" r="13" class="joint"/><circle cx="240" cy="455" r="13" class="joint"/>
+        <circle cx="680" cy="310" r="15" class="joint"/><circle cx="800" cy="390" r="13" class="joint"/><circle cx="860" cy="455" r="13" class="joint"/>
+        <rect x="500" y="130" width="100" height="50" rx="8" class="optionalbox"/><text x="550" y="160" text-anchor="middle" class="small">Optional sensor</text>
+        <text x="550" y="255" text-anchor="middle" class="txt">Central body / electronics</text><text x="550" y="280" text-anchor="middle" class="small">4 legs × 3 joints = 12 baseline DOF</text>
+        <text x="150" y="55" class="small">Front-left</text><text x="875" y="55" class="small">Front-right</text><text x="145" y="485" class="small">Rear-left</text><text x="875" y="485" class="small">Rear-right</text>
+        <text x="550" y="510" text-anchor="middle" class="calltxt">Foot sensors / dampers optional; leg ranges and dimensions TBD</text>
+
+<text x="20" y="540" style="font:12px Arial;fill:#555">Joint symbols and link routing are conceptual; axis directions, dimensions, ranges, clearances and interfaces require source confirmation.</text>
+</svg>

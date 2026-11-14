@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+<title>DA-01 - Fixed Tabletop Dual-Arm - conceptual Week 2 sketch</title>
+<defs><style>
+.bg{fill:#fff} .body{fill:#e8f0fa;stroke:#234a70;stroke-width:3} .base{fill:#d8d8d8;stroke:#444;stroke-width:3}
+.link{fill:none;stroke:#333;stroke-width:16;stroke-linecap:round;stroke-linejoin:round} .joint{fill:#f4bd4f;stroke:#563f13;stroke-width:3}
+.optional{fill:none;stroke:#1b7c55;stroke-width:4;stroke-dasharray:10 7} .optionalbox{fill:#edfff5;stroke:#1b7c55;stroke-width:2;stroke-dasharray:8 6}
+.wheel{fill:#555;stroke:#111;stroke-width:3} .txt{font: bold 18px Arial;fill:#142536} .small{font:14px Arial;fill:#263746} .calltxt{font:bold 16px Arial;fill:#9c3d18}
+</style></defs>
+<rect class="bg" width="1100" height="560"/>
+<text x="550" y="30" text-anchor="middle" style="font:bold 23px Arial;fill:#17324d">DA-01 - Fixed Tabletop Dual-Arm - conceptual Week 2 sketch</text>
+<text x="550" y="52" text-anchor="middle" style="font:14px Arial;fill:#555">SCHEMATIC ONLY — NOT TO SCALE — NOT CAD — NOT A MANUFACTURING DRAWING</text>
+
+        <rect x="430" y="220" width="240" height="110" rx="12" class="body"/>
+        <rect x="475" y="345" width="150" height="28" class="base"/>
+        <path d="M450 250 L340 210 L250 130 L145 105" class="link"/>
+        <path d="M650 250 L760 210 L850 130 L955 105" class="link"/>
+        <circle cx="450" cy="250" r="16" class="joint"/><circle cx="340" cy="210" r="13" class="joint"/><circle cx="250" cy="130" r="13" class="joint"/>
+        <circle cx="650" cy="250" r="16" class="joint"/><circle cx="760" cy="210" r="13" class="joint"/><circle cx="850" cy="130" r="13" class="joint"/>
+        <path d="M145 105 l-25 -10 M145 105 l-22 18 M955 105 l25 -10 M955 105 l22 18" class="call"/>
+        <text x="540" y="278" text-anchor="middle" class="txt">Central body / enclosure</text><text x="540" y="300" text-anchor="middle" class="small">Kritva Edge / PDB / drivers (space only)</text>
+        <text x="330" y="190" class="small">Shoulder - elbow - wrist</text><text x="685" y="190" class="small">Shoulder - elbow - wrist</text>
+        <path d="M540 220 L540 105" class="optional"/><rect x="510" y="75" width="60" height="30" class="optionalbox"/><text x="580" y="92" class="small">Optional mast</text>
+        <text x="150" y="78" class="small">Optional gripper</text><text x="850" y="78" class="small">Optional gripper</text>
+        <text x="520" y="405" class="small">Fixed tabletop support</text>
+        <text x="540" y="458" text-anchor="middle" class="calltxt">Wrist axis: rotation / pitch - OWNER REVIEW</text>
+
+<text x="20" y="540" style="font:12px Arial;fill:#555">Joint symbols and link routing are conceptual; axis directions, dimensions, ranges, clearances and interfaces require source confirmation.</text>
+</svg>

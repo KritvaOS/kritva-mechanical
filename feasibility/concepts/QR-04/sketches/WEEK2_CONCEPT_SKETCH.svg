@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+<title>QR-04 - Agile Long-Leg Quadruped - conceptual Week 2 sketch</title>
+<defs><style>
+.bg{fill:#fff} .body{fill:#e8f0fa;stroke:#234a70;stroke-width:3} .base{fill:#d8d8d8;stroke:#444;stroke-width:3}
+.link{fill:none;stroke:#333;stroke-width:16;stroke-linecap:round;stroke-linejoin:round} .joint{fill:#f4bd4f;stroke:#563f13;stroke-width:3}
+.optional{fill:none;stroke:#1b7c55;stroke-width:4;stroke-dasharray:10 7} .optionalbox{fill:#edfff5;stroke:#1b7c55;stroke-width:2;stroke-dasharray:8 6}
+.wheel{fill:#555;stroke:#111;stroke-width:3} .txt{font: bold 18px Arial;fill:#142536} .small{font:14px Arial;fill:#263746} .calltxt{font:bold 16px Arial;fill:#9c3d18}
+</style></defs>
+<rect class="bg" width="1100" height="560"/>
+<text x="550" y="30" text-anchor="middle" style="font:bold 23px Arial;fill:#17324d">QR-04 - Agile Long-Leg Quadruped - conceptual Week 2 sketch</text>
+<text x="550" y="52" text-anchor="middle" style="font:14px Arial;fill:#555">SCHEMATIC ONLY — NOT TO SCALE — NOT CAD — NOT A MANUFACTURING DRAWING</text>
+
+        <rect x="390" y="190" width="320" height="150" rx="18" class="body"/>
+        <path d="M420 220 L300 125 L230 50 M680 220 L800 125 L870 50 M420 310 L300 405 L230 480 M680 310 L800 405 L870 480" class="link"/>
+        <circle cx="420" cy="220" r="15" class="joint"/><circle cx="300" cy="125" r="13" class="joint"/><circle cx="230" cy="50" r="13" class="joint"/>
+        <circle cx="680" cy="220" r="15" class="joint"/><circle cx="800" cy="125" r="13" class="joint"/><circle cx="870" cy="50" r="13" class="joint"/>
+        <circle cx="420" cy="310" r="15" class="joint"/><circle cx="300" cy="405" r="13" class="joint"/><circle cx="230" cy="480" r="13" class="joint"/>
+        <circle cx="680" cy="310" r="15" class="joint"/><circle cx="800" cy="405" r="13" class="joint"/><circle cx="870" cy="480" r="13" class="joint"/>
+        <rect x="495" y="120" width="110" height="48" rx="8" class="optionalbox"/><text x="550" y="148" text-anchor="middle" class="small">Adjustable sensor</text>
+        <text x="550" y="255" text-anchor="middle" class="txt">Central body</text><text x="550" y="280" text-anchor="middle" class="small">4 legs × 3 joints = 12 baseline DOF</text>
+        <rect x="430" y="365" width="240" height="36" class="optionalbox"/><text x="550" y="388" text-anchor="middle" class="small">Indicative 4 × M5 / 2 × Ø5 mount - OWNER REVIEW</text>
+        <text x="550" y="510" text-anchor="middle" class="calltxt">Long-leg geometry; no ankle/foot actuator in baseline</text>
+
+<text x="20" y="540" style="font:12px Arial;fill:#555">Joint symbols and link routing are conceptual; axis directions, dimensions, ranges, clearances and interfaces require source confirmation.</text>
+</svg>

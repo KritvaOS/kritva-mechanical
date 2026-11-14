@@ -138,17 +138,21 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 
 After the regeneration the two sheets agree on width 700 mm, height 400 mm, base 300 mm × 250 mm, reach 350 mm, 3 DOF per arm, 6 actuators, a fixed base and the joint sequence. Review status: concept sheet `REVIEWED_WITH_ISSUES` (D4), cross-section `REVIEWED_WITH_ISSUES` (D3) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
 
-## 11. Feasibility Activity and Evidence
+## 11. Feasibility Activity
 
-What the assigned intern investigates, using paper methods only (calculations, comparison tables, sketches and cited datasheets):
+Week 1 reference-study work and Week 2 architecture work are documented in the linked concept files. Week 2 scope is preliminary mechanical configuration, dimensions, joint layout, interfaces and mass assumptions.
 
-- [ ] Fix the shoulder axis and the arm pose behind each printed reach and width, then draw a kinematic sketch with joint axes and a coordinate frame (evidence C)
-- [ ] Estimate the arm workspace and the overlap of the two workspaces by calculation (evidence C)
-- [ ] Derive static torque at shoulder, elbow and wrist for a stated payload and arm pose, then compare with S/M/L data once the owner supplies it (evidence C)
-- [ ] Check tabletop stability and base loading for the extended-arm case (evidence C)
-- [ ] Estimate mass by subsystem with stated assumptions, separately from the printed 5 – 8 kg (evidence C)
-- [ ] List the cable path through each joint with bend and twist concerns (evidence C)
-- [ ] Record intern-generated cost assumptions separately from printed targets; no quotation or procurement
+- Architecture and configuration: `ARCHITECTURE.md`.
+- Preliminary mechanical assessment, load paths, workspace/stability/stiffness/serviceability questions: `MECHANICAL_ANALYSIS.md`.
+- Per-joint torque/speed/ROM/duty/S/M/L fields: `ACTUATOR_ANALYSIS.md`; all unavailable values remain `TBD` pending Week 3 inputs.
+- Interface inventory and conceptual Kritva platform space provisions: `INTERFACES.md`.
+- Published weight target isolated from unsupported subsystem mass contributions: `MASS_BUDGET.md`.
+- Conceptual sketch: `sketches/WEEK2_CONCEPT_SKETCH.svg` (not to scale; not CAD).
+- DOF and calculation readiness: `calculations/WEEK2_ARCHITECTURE_CHECKS.md`.
+- Source traceability: `references/SOURCE_REGISTER.md`.
+- Open questions and qualitative risks: `OPEN_QUESTIONS.md`.
+
+No torque/speed, structural strength, stability, S/M/L compatibility, mass breakdown or cost result is claimed unless a traceable calculation is added. No simulation, bench or physical evidence is claimed. Mechanical HOLD D-003 remains active.
 
 ## 12. Revision and Traceability
 
@@ -162,48 +166,61 @@ What the assigned intern investigates, using paper methods only (calculations, c
 
 ## 13. Folder Contents
 
-This README and the two artwork sheets exist today. The files and folders below are created by the assigned intern as work progresses, using `feasibility/templates/`. There is no `cad/` folder while HOLD D-003 is active.
+| File / folder | Purpose | Week 2 status |
+|---|---|---|
+| `README.md` | Existing concept overview and study tracking | Sections 11 and 13–16 proposed for update |
+| `REQUIREMENTS.md` | Concept requirements, assumptions and unknowns | Retain Week 1 register; update only if traceable |
+| `ARCHITECTURE.md` | Configuration, dimension schedule, joints, DOF and assemblies | Updated for Week 2 |
+| `MECHANICAL_ANALYSIS.md` | Load paths, workspace, stability, stiffness, serviceability | Preliminary qualitative assessment; calculations incomplete |
+| `ACTUATOR_ANALYSIS.md` | Every joint's torque/speed/ROM/duty/S-M-L status | Joint instances listed; unavailable values marked TBD |
+| `INTERFACES.md` | Mechanical, compute, power, sensors, communication and cable provisions | Concept-level inventory; detailed interfaces TBD |
+| `MASS_BUDGET.md` | Mass assumptions and subsystem budget | Target transcribed; component contributions TBD |
+| `COST_MODEL.md` | Preliminary cost categories | Week 3 activity; no prices/quotes |
+| `OPEN_QUESTIONS.md` | Decisions, unknowns, dependencies and risks | Updated for Week 2 |
+| `calculations/` | Calculation notes | `WEEK2_ARCHITECTURE_CHECKS.md`; no unsupported loads calculated |
+| `references/` | Source register | `SOURCE_REGISTER.md` |
+| `reviews/` | Concept-level review record | `WEEK2_CONCEPT_REVIEW.md`; not reviewed |
+| `sketches/` | Paper sketches only | `WEEK2_CONCEPT_SKETCH.svg`; not CAD |
 
-- `REQUIREMENTS.md`
-- `ARCHITECTURE.md`
-- `MECHANICAL_ANALYSIS.md`
-- `ACTUATOR_ANALYSIS.md`
-- `INTERFACES.md`
-- `MASS_BUDGET.md`
-- `COST_MODEL.md`
-- `OPEN_QUESTIONS.md`
-- `calculations/`
-- `references/`
-- `reviews/`
-- `sketches/`
+No `cad/` directory is permitted under HOLD D-003.
 
 ## 14. Current Assessment
 
-- Overall status: NOT STARTED (README expanded from the artwork on 2026-10-31; no feasibility assessment has been performed)
-- Requirements completeness: TBD
-- Architecture assessment: TBD
-- Engineering assessment: TBD
-- Actuator compatibility: TBD
-- Cost assessment: TBD
-- Major risks: TBD
-- Evidence gaps: TBD
+**Week 2 state: IN_PROGRESS / NOT_REVIEWED.** The concept's mechanical configuration, available dimensions, joint instances, major assemblies, conceptual interfaces, published mass target and initial mechanical concerns are documented in the linked files. Every artwork quantity remains `CONCEPT_TARGET`; every unsupported joint range, torque, speed, mass contribution, interface dimension and centre-of-mass value remains TBD/UNKNOWN.
+
+Concept-specific configuration: Two symmetric 3-DOF arms mounted on opposite sides of a fixed central base/torso enclosure and base plate. The central enclosure contains the conceptual compute, power-distribution and left/right motor-driver blocks. There is no mobile base. Two-finger parallel grippers are optional and may be passive or powered; powered-gripper motion is not part of the six-actuator baseline. The cross-section shows an optional adjustable camera mast; its inclusion in the baseline is not authorized.
+
+Open artwork / owner decisions: Confirm wrist axis: rotation, pitch, or another explicitly defined axis/frame.
+
+The preliminary mechanical assessment is qualitative. No strength, stiffness, stability, gait, workspace, collision, actuator compatibility or budget compliance has been proven.
 
 ## 15. Checkpoint Progress
 
-| Checkpoint | Status | Review reference |
+| Week 2 item | Status | Evidence |
 |---|---|---|
-| CP2 | TBD | `reviews/` |
-| CP3 | TBD | `reviews/` |
-| CP4 | TBD | `reviews/` |
+| Mechanical configuration | IMPLEMENTED IN OVERLAY; review pending | `ARCHITECTURE.md` |
+| Available dimensions with units and source labels | IMPLEMENTED IN OVERLAY; owner review pending | `ARCHITECTURE.md` section 2 |
+| DOF and joint instance mapping | IMPLEMENTED IN OVERLAY; ROM/frames TBD where absent | `ARCHITECTURE.md`, `ACTUATOR_ANALYSIS.md` |
+| Major assemblies and conceptual interfaces | IMPLEMENTED IN OVERLAY; not released | `ARCHITECTURE.md`, `INTERFACES.md` |
+| Preliminary mechanical assessment | IMPLEMENTED QUALITATIVELY; calculations incomplete | `MECHANICAL_ANALYSIS.md` |
+| Mass assumptions | IMPLEMENTED AS TRACEABILITY / UNKNOWN REGISTER; no component mass estimate | `MASS_BUDGET.md` |
+| Sketch | IMPLEMENTED IN OVERLAY; schematic only | `sketches/WEEK2_CONCEPT_SKETCH.svg` |
+| CP2 contribution | DRAFTED for INTERN-01 concept only | `feasibility/interns/INTERN-01/CP2_CONTRIBUTION.md` |
+| Week 3 torque/speed, structure, stability, mass and cost calculations | NOT STARTED / TBD | Requires source inputs and Week 3 work |
+| Owner/reviewer acceptance | NOT RUN | Requires review against exact repository commit |
 
 ## 16. Open Decisions
 
-1. Whether the torso width of 300 mm on the cross-section is kept (D3); the owner decides.
-2. Whether the camera mast is height adjustable (D5).
-3. Wrist label rotation / pitch versus pitch (D4).
-4. Whether grippers are powered in the baseline configuration (currently optional).
-5. Payload, reach and mass targets remain `UNKNOWN` in the requirements register until resolved.
-6. Joint to S/M/L actuator mapping is not started.
+See `OPEN_QUESTIONS.md` for the full concept-specific decision and dependency register. Key unresolved items:
+
+- **OWNER_DECISION:** Confirm wrist axis: rotation, pitch, or another explicitly defined axis/frame.
+- **OWNER_DECISION:** Confirm whether cross-section-only 300 mm torso width and adjustable mast belong to the study baseline.
+- **TBD:** Define the pose, datum and measurement method for 350 mm reach per side, 700 mm total reach and 700 mm overall width.
+- **UNKNOWN:** Arm link lengths, joint offsets, axis frames, joint limits/ranges, payload location, speed and duty cycle.
+- **UNKNOWN:** Tabletop support condition, friction, fastener/fixture assumptions and allowed overturning/sliding margin.
+- **OWNER_DECISION:** Confirm passive versus powered grippers and the intended optional sensor/mast configuration.
+
+All joint ROM, coordinate frames, torque, speed, duty cycle, actuator S/M/L mapping, interface datums/tolerances, subsystem masses, centre of mass, component costs and any unreported geometry remain TBD/UNKNOWN. These are not silently replaced with assumed values. D-003 remains active.
 
 ## 17. HOLD D-003
 
