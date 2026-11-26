@@ -8,12 +8,12 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary architecture assessment; subject to owner review |
 | Related Documents | `README.md`, `REQUIREMENTS.md`, `MECHANICAL_ANALYSIS.md`, `ACTUATOR_ANALYSIS.md` |
 
-Conventions used below: **[Sheet]** = printed on the concept or cross-section artwork (CONCEPT_TARGET or illustrative, unapproved); **[Assumed]** = intern assumption, not printed; **TBD** = not given by any source. The artwork is concept art (evidence C, maturity L0), not CAD and not to scale. REVIEWED status of the sheets is not design approval.
+Conventions used below: **[Sheet]** = printed on the concept or cross-section artwork (CONCEPT_TARGET or illustrative, unapproved); **[Assumed]** = intern assumption, not printed; **TBD** = not given by any source. The artwork is concept art (evidence C, maturity L0), not CAD and not to scale. REVIEWED status of the sheets is not design approval. In this document "printed" means printed on the concept artwork sheets; 3D-printed parts are always written "3D-printed".
 
 ## 1. Configuration
 
@@ -30,8 +30,8 @@ Indicative envelope (all CONCEPT_TARGET, both sheets agree after the 2026-10-31 
 |---|---|
 | Overall height | 550 mm |
 | Overall width, arm to arm | 800 mm |
-| Shoulder-to-shoulder spacing | 600 mm (concept sheet only; D5 not verifiable) |
-| Torso W × D | 300 mm × 250 mm |
+| Shoulder-to-shoulder spacing | 600 mm (concept sheet only; D5 not verifiable; results that depend on it are valid only for the D5 case) |
+| Torso W × D | 300 mm × 250 mm (300 mm is the torso width; torso height is a separate 300 mm intern assumption, MASS_BUDGET M2) |
 | Base W × D | 300 mm × 250 mm |
 | Arm reach, each side | 350 mm (shoulder to gripper) |
 | Target weight | 8 – 12 kg (est., no stated basis) |
@@ -44,7 +44,7 @@ Indicative envelope (all CONCEPT_TARGET, both sheets agree after the 2026-10-31 
 | Joints / arms | Position the gripper in front of the torso | Two arms, left and right, symmetric. Per arm: shoulder yaw, shoulder pitch, elbow pitch, wrist pitch. Links in aluminium (CNC machined or 3D printed), composite options named on the concept sheet **[Sheet]** | Illustrative |
 | Joint assemblies | Drive and sense each joint | Housing (aluminium or CNC), BLDC/PMSM motor, harmonic or planetary gearbox, output shaft with absolute or incremental encoder, timing belt where used; modular joints with common mounting interfaces **[Sheet]** | Illustrative; motor, ratio and S/M/L assignment TBD |
 | End effector | Grasp objects | Two-finger parallel linkage on a gripper mount; optional servo or BLDC; optional force sensor; rubber or TPU finger pads **[Sheet]** | Illustrative; actuation type and count TBD |
-| Head | Camera and sensor mount | Optional one-axis pan head (BLDC and gearbox) carrying an RGB-D or stereo camera on a neck mount in aluminium or CNC **[Sheet]** | Optional; open decision D6 follow-up (fit or not) |
+| Head | Camera and sensor mount | Optional one-axis pan head (BLDC and gearbox) carrying an RGB-D or stereo camera on a neck mount in aluminium or CNC **[Sheet]** | Optional; fitting is an open owner decision (OQ-007, CREQ-004); the D6 count was resolved 2026-10-31 |
 | Base / torso | Fixed foundation and electronics enclosure | 300 mm × 250 mm base plate and torso; Kritva Edge, power distribution and driver stacks inside the torso **[Sheet]** | Illustrative; packaging not assessed |
 | Mounting and interfaces | Mount arms, head and electronics; carry loads to base | Arms on shoulder mounts at the torso; common joint mounting interfaces; no fastener, bearing or load-path detail on the sheets | TBD |
 
@@ -58,9 +58,9 @@ Indicative envelope (all CONCEPT_TARGET, both sheets agree after the 2026-10-31 
 | Wrist | 2 (1 per arm) | 2 | Pitch; range TBD | Baseline; no wrist yaw or roll, so orientation authority is limited |
 | Gripper | 2 (1 per arm) | 0 (counted separately) | Parallel two-finger open and close | Optional servo or BLDC, may be passive; count TBD |
 | Head pan | 1 (optional) | 1 | Pan about the vertical axis; range TBD | Optional; one-axis only |
-| **Total** | 8 baseline arm actuators | **8 DOF** (9 with head pan fitted) | | D6 resolved 2026-10-31: baseline 8, 9 when head is fitted |
+| **Total** | 8 baseline arm actuators | **8 DOF** (9 with head pan fitted) | | D6 resolved 2026-10-31: baseline 8, 9 when head is fitted; whether the head is fitted stays open (OQ-007) |
 
-Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
+Joint names and DOF are as labelled on the sheets. Axis directions (vertical yaw, horizontal parallel pitch axes) are ASSUMED, not read from the sheets and not inferred from rendered motor orientation (`MECHANICAL_ANALYSIS.md` S1).
 
 ## 4. Interfaces and Packaging
 
@@ -82,7 +82,7 @@ Joint axes are taken from the sheet labels, not inferred from rendered motor ori
 **Unknowns**
 - Joint ranges, workspace, arm overlap and singularities.
 - Shoulder-to-shoulder spacing (D5): 600 mm appears on the concept sheet only; head and torso packaging stay UNKNOWN until the owner decides.
-- Whether the head pan is fitted, and whether grippers are powered (README open decisions).
+- Whether the head pan is fitted (D6 count resolved 2026-10-31; fitting open, OQ-007), and whether grippers are powered (README open decisions).
 - Joint to S/M/L actuator mapping (not started).
 - Mass by subsystem; the printed 8 – 12 kg has no stated basis.
 - Load path from shoulders through torso to base plate; fastening of the base plate to a surface.
@@ -90,7 +90,7 @@ Joint axes are taken from the sheet labels, not inferred from rendered motor ori
 
 **Architecture risks**
 1. *Torso packaging.* Kritva Edge, two driver stacks, power distribution and an optional fan in 300 mm × 250 mm is not checked. Highest packaging risk.
-2. *Shoulder arrangement.* Two serial shoulder axes per side add mass at the shoulder, raise the load on the shoulder pitch joint (about 2.6 N·m holding in the preliminary estimate, ACTUATOR_ANALYSIS) and make the workspace and singularities dependent on the unknown axis offset.
+2. *Shoulder arrangement.* Two serial shoulder axes per side add mass at the shoulder, raise the load on the shoulder pitch joint (2.64 N·m holding in the preliminary estimate, ACTUATOR_ANALYSIS) and make the workspace and singularities dependent on the unknown axis offset.
 3. *Cable routing.* Four joints per arm with two at the shoulder make bend, twist and pinch more severe than DA-01; the head pan adds a rotating cable path. Eight arm joints plus the head are routed through a small torso.
 4. *Stability and base loading.* 8 – 12 kg on a fixed 300 mm × 250 mm base plate with arms extended to 350 mm is not calculated; tipping margin and base fixing are open.
 5. *Limited wrist.* A single wrist pitch limits end-effector orientation; the pick-and-place capability printed on the sheet is not verified against this.

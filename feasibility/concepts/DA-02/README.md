@@ -124,7 +124,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 
 ## 9. Risks and Unknowns
 
-1. Open items D5 and D6 (shoulder spacing, head DOF counting) leave head and torso packaging UNKNOWN until the owner decides.
+1. Open item D5 (shoulder spacing) and the open decision on whether the head is fitted (the D6 count is resolved: 8 baseline, 9 when fitted, 2026-10-31) leave head and torso packaging UNKNOWN until the owner decides.
 2. Torso packaging: space for Kritva Edge, drivers, power distribution and an optional fan inside a 300 mm × 250 mm torso is not assessed.
 3. Four-DOF shoulder arrangement: how the yaw and pitch axes intersect or offset, and the resulting workspace and singularities, are UNKNOWN.
 4. Stability and base loading with 8 – 12 kg (est.) mass on a fixed base plate: not calculated.

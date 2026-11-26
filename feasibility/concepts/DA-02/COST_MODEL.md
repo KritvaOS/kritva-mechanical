@@ -8,8 +8,8 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary cost assessment; subject to owner review |
 | Related Documents | `README.md`, `ARCHITECTURE.md`, `MASS_BUDGET.md`, `ACTUATOR_ANALYSIS.md`, `feasibility/EVALUATION_CRITERIA.md` |
 
@@ -40,6 +40,17 @@ This version lists the hardware categories and their scope only. No cost values 
 |---|---|---:|---|---|---|
 | Gripper actuation | 2 servos or small actuators, only if grippers are powered | UNKNOWN | UNKNOWN | `README.md` Section 16 open decision 2 | Not estimated |
 | Head | Pan module (1); RGB-D or stereo camera (1); neck and head mount (1) | UNKNOWN | UNKNOWN | `README.md` Section 16 open decision 1 | Not estimated |
+
+### 2.2 Actuator count by option
+
+Counts only; no cost values. Baseline is 8 arm actuators (D6, resolved 2026-10-31). The head adds 1 pan actuator. Powered grippers would add 2 actuators (one per arm); a passive gripper adds none. Whether the head is fitted and whether grippers are powered are open owner decisions (`README.md` Section 16).
+
+| Option | Arm actuators | Head | Gripper actuators | Total actuators |
+|---|---:|---:|---:|---:|
+| Baseline: no head, passive grippers | 8 | 0 | 0 | 8 |
+| Head fitted, passive grippers | 8 | 1 | 0 | 9 |
+| No head, powered grippers | 8 | 0 | 2 | 10 |
+| Head fitted, powered grippers | 8 | 1 | 2 | 11 |
 
 ## 3. Boundary and Exclusions
 

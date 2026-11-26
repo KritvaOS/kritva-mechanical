@@ -122,7 +122,7 @@ No input from `kritva-actuator` has been supplied for DA-02 yet. All S/M/L data 
 
 ## 5. Findings and Open Items
 
-- **Torque/speed feasibility:** Not assessable. The preliminary estimates show shoulder pitch as the most demanding joint (≈ 2.6 N·m holding, ≈ 3.4 N·m peak at 0.2 kg), roughly 3× the elbow and 12× the wrist. Feasibility cannot be stated until S/M/L torque and speed data exist.
+- **Torque/speed feasibility:** Not assessable. The preliminary estimates show shoulder pitch as the most demanding joint (≈ 2.64 N·m holding, ≈ 3.4 N·m peak at 0.2 kg), roughly 3× the elbow and 12× the wrist. Feasibility cannot be stated until S/M/L torque and speed data exist.
 - **S/M/L mapping rationale:** NOT STARTED. The large spread between joints (about 0.2 to 5 N·m with planning factor) suggests one size may not suit all four joints, but this is an observation, not a mapping.
 - **Margin interpretation:** TBD. Margin is only meaningful as (actuator rating ÷ required torque from Section 2.1) once ratings are supplied. The 1.5× factor is a planning placeholder.
 - **Missing inputs and risks:**

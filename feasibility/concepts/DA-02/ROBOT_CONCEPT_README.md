@@ -72,7 +72,7 @@ There is no `cad/` folder while HOLD D-003 is active.
 - Requirements completeness: INCOMPLETE. No `REQUIREMENTS.md` yet; payload, reach and mass remain UNKNOWN in the requirements register until the owner resolves them.
 - Architecture assessment: Preliminary draft complete (`ARCHITECTURE.md`); torso packaging, shoulder axis arrangement and cable routing are not yet assessed in detail.
 - Engineering assessment: Preliminary estimates only (`MECHANICAL_ANALYSIS.md`):
-  - Shoulder pitch is the dominant load, about 2.6 N·m holding per arm with 0.2 kg payload.
+  - Shoulder pitch is the dominant load, 2.64 N·m holding per arm with 0.2 kg payload.
   - Link bending is negligible; joint compliance will govern stiffness.
   - Free-standing stability with arms extended has thin margins (about 1.3 – 1.7 against a 20 N assumed disturbance), so base fixing should be assumed.
   - Table-level picking reaches only about 58 – 85 mm beyond the base front edge.
