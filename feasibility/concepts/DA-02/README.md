@@ -99,7 +99,7 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Optional servo or BLDC, as shown | Optional |
 | Head pan | Pan about the vertical axis | 1 (optional; baseline is 8 arm actuators, 9 when the head pan is fitted) | BLDC with gearbox (cross-section) | Optional; see D6 |
 
-Count: 8 baseline arm actuators (4 DOF × 2 arms); the concept sheet adds 1 optional actuator for the head. The sheet does not give a gripper actuator count; gripper actuation is optional and its type and count are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
+Count: 8 baseline arm actuators (4 DOF × 2 arms); the concept sheet adds 1 optional actuator for the head. The sheet does not give a gripper actuator count; gripper actuation is optional and its type and count are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint names and DOF are as labelled on the sheets; joint axis directions are assumed, not printed, and are not inferred from rendered motor orientation.
 
 ## 7. Electronics and Power
 
@@ -124,7 +124,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 
 ## 9. Risks and Unknowns
 
-1. Open item D5 (shoulder spacing) and the open decision on whether the head is fitted (the D6 count is resolved: 8 baseline, 9 when fitted, 2026-10-31) leave head and torso packaging UNKNOWN until the owner decides.
+1. Open items D5 and D6 (shoulder spacing, head DOF counting) leave head and torso packaging UNKNOWN until the owner decides.
 2. Torso packaging: space for Kritva Edge, drivers, power distribution and an optional fan inside a 300 mm × 250 mm torso is not assessed.
 3. Four-DOF shoulder arrangement: how the yaw and pitch axes intersect or offset, and the resulting workspace and singularities, are UNKNOWN.
 4. Stability and base loading with 8 – 12 kg (est.) mass on a fixed base plate: not calculated.

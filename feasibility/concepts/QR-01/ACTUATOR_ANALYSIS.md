@@ -8,8 +8,8 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary paper analysis; subject to owner review |
 | Related Documents | `README.md`, `REQUIREMENTS.md`, `ARCHITECTURE.md`, `feasibility/DESIGN_GUIDELINES.md` |
 
@@ -63,7 +63,7 @@ Output-shaft torque, one leg. Static = bounding load case. Peak = 2 × static (A
 - Swing leg held horizontal: hip ≈ 0.64 N·m (leg weight), knee ≈ 0.07 N·m.
 - Sensitivity: every +0.1 kg on each of the 8 modules adds 0.8 kg (about 11%) and raises the joint torques by about the same share. If the modules were 0.5 kg (about 0.2 kg heavier on average), the mass rises about 1.4 kg and the torques about 20%.
 
-### 2.3 Hand calculation (CALC-QR01-01 summary)
+### 2.3 Hand calculation (CALC-QR01-01 summary; CALC-QR01-01 is to be filed)
 
 - **Geometry (§1):** foot below the hip at h = 220 mm: knee height y = (L2² − L1² − h²) ÷ (2h) = (22,500 − 16,900 − 48,400) ÷ 440 = −97.3 mm; knee offset x = √(130² − 97.3²) = 86 mm. Foot forward 60 mm: hip–foot distance D = √(60² + 220²) = 228.0 mm; hip angle α = acos[(130² + 228.0² − 150²) ÷ (2 × 130 × 228.0)] = 38.5°; thigh angle from vertical = 15.3° − 38.5° = −23.2°; knee x = −51 mm; knee–foot horizontal distance = 60 + 51 = **111 mm**.
 - **Knee (§1):** T = F × 0.111 = 34.6 × 0.111 ≈ **3.85 N·m**; standing 4-leg: 17.3 × 0.086 ≈ **1.49 N·m**.

@@ -8,12 +8,12 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary estimate; subject to owner review |
 | Related Documents | `README.md`, `ARCHITECTURE.md`, `MECHANICAL_ANALYSIS.md`, `ACTUATOR_ANALYSIS.md` |
 
-Every mass below is an **ESTIMATE** from intern assumptions (evidence C). None comes from a datasheet, CAD or weighing. The printed 12 – 18 kg is a CONCEPT_TARGET with no stated basis and is kept separate.
+Every mass below is an **ESTIMATE** from intern assumptions (evidence C). None comes from a datasheet, CAD or weighing. The printed 12 – 18 kg is a CONCEPT_TARGET with no stated basis and is kept separate. In this document "printed" means printed on the concept artwork sheets; 3D-printed parts are always written "3D-printed".
 
 ## 1. Scope and Basis
 
@@ -42,7 +42,7 @@ Every mass below is an **ESTIMATE** from intern assumptions (evidence C). None c
 
 ## 2. Component Mass Breakdown
 
-Per-row uncertainty is an intern band; low and high = value × (1 ∓ band).
+Per-row uncertainty is an intern band. Each row shows one mass value (ESTIMATE) and one range, computed as the row value × (1 ∓ band); there are no separate low and high columns.
 
 | Component category | Quantity | Mass value (kg) | Evidence label | Basis / source | Uncertainty |
 |---|---:|---:|---|---|---|
@@ -59,10 +59,10 @@ Per-row uncertainty is an intern band; low and high = value × (1 ∓ band).
 | **Edge / controllers** | 1 Edge + 8 drivers | ESTIMATE: 0.65 | ESTIMATE | M10 | ±40% (0.39 – 0.91) |
 | **Power system: distribution and protection** | 1 | ESTIMATE: 0.25 | ESTIMATE | M11 | ±50% (0.13 – 0.38) |
 | **Sensors and cabling** | IMU + harness | ESTIMATE: 0.72 | ESTIMATE | M11; camera and LiDAR optional | ±40% (0.43 – 1.01) |
-| **Other / allowance** | – | ESTIMATE: 0.50 | ESTIMATE | M12; no contingency | ±50% (0.25 – 0.75) |
-| **Baseline subtotal** | | **ESTIMATE: 15.7** | ESTIMATE | 15.72 kg | 9.2 – 22.2 (linear sum of bands) |
+| **Fasteners and miscellaneous** | – | ESTIMATE: 0.50 | ESTIMATE | M12; fasteners, connectors and labels only. No contingency is included in the rows; the 15% planning allowance is applied separately in Section 4 | ±50% (0.25 – 0.75) |
+| **Baseline subtotal** | | **ESTIMATE: 15.72** | ESTIMATE | Sum of the rows above (15.72 kg) | 9.2 – 22.2 (linear sum of bands) |
 | Optional camera and LiDAR | 1 + 1 | ESTIMATE: 0.40 | ESTIMATE / UNKNOWN | Camera 0.15, LiDAR 0.25 (LiDAR is an open decision D4) | ±50% |
-| **Subtotal with camera and LiDAR** | | **ESTIMATE: 16.1** | ESTIMATE | 15.72 + 0.40 | 9.4 – 22.8 |
+| **Subtotal with camera and LiDAR** | | **ESTIMATE: 16.12** | ESTIMATE | 15.72 + 0.40 | 9.4 – 22.8 |
 
 Alternative not selected: a steel base frame would add several kilograms. Arm mass beyond the shoulder yaw axis is about 0.95 kg per arm (links 0.25, elbow 0.35, wrist 0.20, gripper 0.15), as used in `ACTUATOR_ANALYSIS.md`.
 
@@ -77,7 +77,7 @@ Alternative not selected: a steel base frame would add several kilograms. Arm ma
 
 ## 4. Summary
 
-- Estimated subtotal: **≈ 15.7 kg** baseline; ≈ 16.1 kg with camera and LiDAR. With a 15% planning allowance (an intern assumption): ≈ 18.1 kg and ≈ 18.5 kg. Range about 9.2 – 22.2 kg.
+- Estimated subtotal: **15.72 kg** baseline; 16.12 kg with camera and LiDAR. With a 15% planning allowance (an intern assumption): ≈ 18.1 kg and ≈ 18.5 kg. Range about 9.2 – 22.2 kg.
 - Excluded items: payload, charger, tooling, packaging, dock.
 - Confidence and limitations: LOW. Structure is about 41%, wheel drive 17%, arm actuators 13% and battery 11% of the baseline. No actuator, battery or wheel data exist. The estimate sits inside the printed 12 – 18 kg, but the band straddles both ends.
 - Mass-sensitive risks:

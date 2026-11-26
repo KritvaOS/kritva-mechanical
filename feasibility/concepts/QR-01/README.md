@@ -90,7 +90,7 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Hip (each leg) | Flexion / extension | 1 | BLDC/PMSM with gearbox | Baseline |
 | Knee (each leg) | Flexion / extension; pitch | 1 | BLDC/PMSM with gearbox | Baseline |
 
-Count: 2 DOF × 4 legs = 8 actuators; both sheets state 8. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
+Count: 2 DOF × 4 legs = 8 actuators; both sheets state 8. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint names and DOF are as labelled on the sheets; joint axis directions are assumed, not printed, and are not inferred from rendered motor orientation.
 
 ## 7. Electronics and Power
 

@@ -8,8 +8,8 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.4.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.4.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Feasibility study; subject to owner review |
 | Related Documents | `feasibility/STUDY_PLAN.md`, `REQUIREMENTS.md`, `ARCHITECTURE.md`, `MECHANICAL_ANALYSIS.md`, `ACTUATOR_ANALYSIS.md`, `MASS_BUDGET.md`, `COST_MODEL.md`, `OPEN_QUESTIONS.md`, `docs/images/ARTWORK_MANIFEST.json` |
 
@@ -45,7 +45,7 @@ Not yet created: `INTERFACES.md`, `calculations/` (CALC-QR01-01, -02, -03 are re
 - Architecture assessment: Preliminary draft complete; body packaging, battery placement (not drawn) and cooling (not drawn) not yet assessed.
 - Engineering assessment (estimates):
   - Worst static joint loads for a 7.1 kg robot (6.3 kg estimate plus 0.8 kg payload) on two feet: knee about 3.9 N·m, hip about 2.1 N·m; about 7.7 and 4.2 N·m with a 2× dynamic allowance.
-  - Estimated mass about 6.3 kg (range about 3.4 – 9.2 kg), well above the printed 2.5 – 4 kg; the printed target sits at the bottom of the estimate range.
+  - Estimated mass 6.26 kg (range about 3.4 – 9.2 kg), well above the printed 2.5 – 4 kg; the printed target lies mostly below the estimate range (it overlaps only between 3.4 and 4 kg).
   - A statically stable crawl gait needs a fore-aft body shift of about 41 mm for a 30 mm margin, because planar legs cannot shift the body sideways.
   - Static tipping angle is about 42°; foot friction is more likely to limit slopes (about 27° at friction 0.5).
 - Actuator compatibility: NOT ASSESSED. No `kritva-actuator` data supplied.

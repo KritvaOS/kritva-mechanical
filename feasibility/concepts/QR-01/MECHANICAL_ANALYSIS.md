@@ -8,12 +8,12 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary paper analysis; subject to owner review |
 | Related Documents | `README.md`, `REQUIREMENTS.md`, `ARCHITECTURE.md`, `ACTUATOR_ANALYSIS.md`, `MASS_BUDGET.md` |
 
-All results are **ESTIMATES** from paper calculations (evidence C) on intern assumptions. Nothing is approved. Printed values are CONCEPT_TARGET.
+All results are **ESTIMATES** from paper calculations (evidence C) on intern assumptions. Nothing is approved. Printed values are CONCEPT_TARGET. In this document "printed" means printed on the concept artwork sheets; 3D-printed parts are always written "3D-printed".
 
 ## 1. Analysis Scope
 
@@ -23,7 +23,7 @@ Analysis objective: Check on paper whether the QR-01 arrangement is plausible fo
 
 Evidence basis:
 - Sourced reference: `README.md` v0.3.0 (artwork, CONCEPT_TARGET, L0).
-- Calculated (C): CALC-QR01-03 (to be filed), using CALC-QR01-01 (`ACTUATOR_ANALYSIS.md`) and CALC-QR01-02 (`MASS_BUDGET.md`).
+- Calculated (C): CALC-QR01-03 (to be filed), using CALC-QR01-01 (`ACTUATOR_ANALYSIS.md`) and CALC-QR01-02 (`MASS_BUDGET.md`); all three are to be filed, and the section references below point into those documents.
 - ESTIMATE: every assumption below.
 
 ### 1.1 Assumptions used here
@@ -54,7 +54,7 @@ Evidence basis:
 
 ## 3. Joint and Mechanism Analysis
 
-Torques are per joint, worst case, from CALC-QR01-01; all are estimates.
+Torques are per joint, worst case, from CALC-QR01-01 (to be filed); all are estimates.
 
 | Joint / mechanism | Load case | Required motion | Calculation reference | Result |
 |---|---|---|---|---|
@@ -63,7 +63,7 @@ Torques are per joint, worst case, from CALC-QR01-01; all are estimates.
 | Foot pad and damper | Touchdown | Passive | none | Not analysed: TBD |
 | Hip mount and body chassis | LC2 | Static | CALC-QR01-03 §1 | ≈ 2.2 N·m per mount; chassis stiffness TBD |
 
-Torque, speed, range and loading values are derived or marked TBD. The elbow reference values are not used.
+Torque, speed, range and loading values are derived or marked TBD.
 
 ## 4. Dual-Arm Add-on Analysis
 
@@ -90,8 +90,8 @@ Not applicable. QR-01 has no arms or manipulators.
 
 ## 6. Mass, Serviceability and Safety
 
-- **Preliminary mass breakdown (from `MASS_BUDGET.md`, ESTIMATE):** about 6.3 kg baseline (actuators 2.6, body and hip mounts 1.2, battery 0.80, legs and feet 0.52, Edge and drivers 0.47, harness 0.32, other 0.25, power board 0.10); range about 3.4 – 9.2 kg. The printed 2.5 – 4 kg is at the bottom of this range.
-- **Service access and maintenance:** Not shown. Open points: battery access (not drawn), driver and Edge access, joint module replacement with cables inside links, foot pad replacement (printed as replaceable), cable wear at the hips.
+- **Preliminary mass breakdown (from `MASS_BUDGET.md`, ESTIMATE):** 6.26 kg baseline (actuators 2.6, body and hip mounts 1.2, battery 0.80, legs and feet 0.52, Edge and drivers 0.47, harness 0.32, fasteners and miscellaneous 0.25, power board 0.10); range about 3.4 – 9.2 kg. The printed 2.5 – 4 kg lies mostly below this range (it overlaps only between 3.4 and 4 kg).
+- **Service access and maintenance:** Not shown. Open points: battery access (not drawn), driver and Edge access, joint module replacement with cables inside links, foot pad replacement (shown on the concept sheet as replaceable), cable wear at the hips.
 - **Pinch/crush and structural hazards:**
   1. Pinch points at hip and knee joints and between leg and body.
   2. Falls and tipping of a 6 – 7 kg robot, especially when turning or on slopes.
@@ -105,7 +105,7 @@ Not applicable. QR-01 has no arms or manipulators.
 
 - **Findings:**
   1. Worst-case static joint loads are small to moderate (knee about 3.9 N·m, hip about 2.1 N·m, about 7.7 and 4.2 N·m with allowance). The mass and torque estimates feed each other.
-  2. The estimated mass (about 6.3 kg) is well above the printed 2.5 – 4 kg.
+  2. The estimated mass (6.26 kg) is well above the printed 2.5 – 4 kg.
   3. Link bending is negligible for aluminium; hip mounts, body torsion and joint compliance are the open structural items.
   4. Standing is stable (tipping about 42°) and friction limits slopes to about 27°.
   5. A crawl gait is statically possible only with a fore-aft body shift of about 41 mm (30 mm margin), since the legs cannot shift the body sideways.

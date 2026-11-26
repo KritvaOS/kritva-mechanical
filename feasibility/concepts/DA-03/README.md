@@ -100,7 +100,7 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Right wheel pair | Drive (rotation) | 1 | BLDC with encoder, optional gearbox | Baseline |
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Optional servo or BLDC, as shown | Optional |
 
-Count: 6 arm actuators (3 DOF × 2 arms) plus 2 base actuators = 8, as the concept sheet states. Gripper actuation is optional and not counted; its type and count are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint axes are taken from the sheet labels, not inferred from rendered motor orientation.
+Count: 6 arm actuators (3 DOF × 2 arms) plus 2 base actuators = 8, as the concept sheet states. Gripper actuation is optional and not counted; its type and count are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L. Joint names and DOF are as labelled on the sheets; joint axis directions are assumed, not printed, and are not inferred from rendered motor orientation.
 
 ## 7. Electronics and Power
 

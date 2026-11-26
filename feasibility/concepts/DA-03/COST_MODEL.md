@@ -8,8 +8,8 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary cost assessment; subject to owner review |
 | Related Documents | `README.md`, `ARCHITECTURE.md`, `MASS_BUDGET.md`, `ACTUATOR_ANALYSIS.md`, `feasibility/EVALUATION_CRITERIA.md` |
 
@@ -42,6 +42,15 @@ This version lists the hardware categories and their scope only. No cost values 
 | Camera | RGB-D or stereo camera on the mast (1) | UNKNOWN | UNKNOWN | `README.md` §5 | Not estimated |
 | LiDAR | 1 unit, only if added to the baseline (D4) | UNKNOWN | UNKNOWN | `README.md` §10 D4 | Not estimated |
 | Battery charger | Scope TBD; charging not specified | UNKNOWN | UNKNOWN | `README.md` §9 | Not estimated |
+
+### 2.2 Actuator count by option
+
+Counts only; no cost values. Baseline is 8 actuators: 6 arm joint modules and 2 wheel drive channels (`README.md` §10 D2). Powered grippers would add 2 actuators (one per arm); a passive gripper adds none. The camera, LiDAR and charger add no actuators. Whether grippers are powered is an open owner decision (`README.md` §16).
+
+| Option | Arm actuators | Wheel drive channels | Gripper actuators | Total actuators |
+|---|---:|---:|---:|---:|
+| Baseline: passive grippers | 6 | 2 | 0 | 8 |
+| Powered grippers | 6 | 2 | 2 | 10 |
 
 ## 3. Boundary and Exclusions
 

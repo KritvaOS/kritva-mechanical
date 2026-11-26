@@ -8,12 +8,12 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary estimate; subject to owner review |
 | Related Documents | `README.md`, `ARCHITECTURE.md`, `MECHANICAL_ANALYSIS.md`, `ACTUATOR_ANALYSIS.md` |
 
-Every mass below is an **ESTIMATE** from intern assumptions (evidence C). None comes from a datasheet, CAD or weighing. The printed 2.5 – 4 kg is a CONCEPT_TARGET (concept sheet only, D4) with no stated basis and is kept separate.
+Every mass below is an **ESTIMATE** from intern assumptions (evidence C). None comes from a datasheet, CAD or weighing. The printed 2.5 – 4 kg is a CONCEPT_TARGET (concept sheet only, D4) with no stated basis and is kept separate. In this document "printed" means printed on the concept artwork sheets; 3D-printed parts are always written "3D-printed".
 
 ## 1. Scope and Basis
 
@@ -40,7 +40,7 @@ Every mass below is an **ESTIMATE** from intern assumptions (evidence C). None c
 
 ## 2. Component Mass Breakdown
 
-Per-row uncertainty is an intern band; low and high = value × (1 ∓ band).
+Per-row uncertainty is an intern band. Each row shows one mass value (ESTIMATE) and one range, computed as the row value × (1 ∓ band); there are no separate low and high columns.
 
 | Component category | Quantity | Mass value (kg) | Evidence label | Basis / source | Uncertainty |
 |---|---:|---:|---|---|---|
@@ -54,10 +54,10 @@ Per-row uncertainty is an intern band; low and high = value × (1 ∓ band).
 | **Power system: distribution** | 1 | ESTIMATE: 0.10 | ESTIMATE | M6 | ±50% (0.05 – 0.15) |
 | **Power system: battery** | 1 | ESTIMATE: 0.80 | ESTIMATE | M7; capacity and placement UNKNOWN | ±50% (0.40 – 1.20) |
 | **Sensors and cabling** | IMU + harness | ESTIMATE: 0.32 | ESTIMATE | M8 | ±40% (0.19 – 0.45) |
-| **Other / allowance** | – | ESTIMATE: 0.25 | ESTIMATE | M9; no contingency | ±50% (0.13 – 0.38) |
-| **Baseline subtotal** | | **ESTIMATE: 6.3** | ESTIMATE | 6.26 kg | 3.4 – 9.2 (linear sum of bands) |
+| **Fasteners and miscellaneous** | – | ESTIMATE: 0.25 | ESTIMATE | M9; fasteners, connectors and labels only. No contingency is included in the rows; the 15% planning allowance is applied separately in Section 4 | ±50% (0.13 – 0.38) |
+| **Baseline subtotal** | | **ESTIMATE: 6.26** | ESTIMATE | Sum of the rows above (6.26 kg) | 3.4 – 9.2 (linear sum of bands) |
 | Optional top module (camera, mount, LiDAR) | 1 | ESTIMATE: 0.45 | ESTIMATE / UNKNOWN | M10 | ±50% |
-| **Subtotal with top module** | | **ESTIMATE: 6.7** | ESTIMATE | 6.26 + 0.45 | 3.6 – 9.8 |
+| **Subtotal with top module** | | **ESTIMATE: 6.71** | ESTIMATE | 6.26 + 0.45 | 3.6 – 9.8 |
 
 Share of the baseline: actuators about 42%, body and hip mounts about 19%, battery about 13%, legs and feet about 8%.
 
@@ -70,9 +70,9 @@ Share of the baseline: actuators about 42%, body and hip mounts about 19%, batte
 
 ## 4. Summary
 
-- Estimated subtotal: **≈ 6.3 kg** baseline; ≈ 6.7 kg with the top module. With a 15% planning allowance (an intern assumption): ≈ 7.2 kg and ≈ 7.7 kg. Range about 3.4 – 9.2 kg.
+- Estimated subtotal: **6.26 kg** baseline; 6.71 kg with the top module. With a 15% planning allowance (an intern assumption): ≈ 7.2 kg and ≈ 7.7 kg. Range about 3.4 – 9.2 kg.
 - Excluded items: payload, charger, tooling, packaging.
-- Confidence and limitations: LOW. No actuator, battery or structure data. The estimate is about 1.6 to 2.5 times the printed 2.5 – 4 kg, and the printed target sits at the bottom of the estimate range (3.4 kg), so it can only be met if the modules, battery and chassis are all at the light end.
+- Confidence and limitations: LOW. No actuator, battery or structure data. The estimate is about 1.6 to 2.5 times the printed 2.5 – 4 kg, and the printed target lies mostly below the estimate range (the range starts at 3.4 kg, so the printed 2.5 – 4 kg overlaps it only between 3.4 and 4 kg), so it can only be met if the modules, battery and chassis are all at the light end.
 - Mass-sensitive risks:
   1. Actuators are 42% of the mass and their size follows from torque, which follows from mass (`ACTUATOR_ANALYSIS.md` §2.2).
   2. Battery capacity is unstated and placement is not drawn.

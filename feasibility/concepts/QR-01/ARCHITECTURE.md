@@ -8,12 +8,12 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary architecture assessment; subject to owner review |
 | Related Documents | `README.md`, `REQUIREMENTS.md`, `MECHANICAL_ANALYSIS.md`, `ACTUATOR_ANALYSIS.md`, `MASS_BUDGET.md` |
 
-Tags: **[Sheet]** printed on the artwork (CONCEPT_TARGET or illustrative, unapproved); **[Assumed]** intern assumption; **TBD** not given. The artwork is concept art (evidence C, L0), not CAD.
+Tags: **[Sheet]** printed on the artwork (CONCEPT_TARGET or illustrative, unapproved); **[Assumed]** intern assumption; **TBD** not given. The artwork is concept art (evidence C, L0), not CAD. In this document "printed" means printed on the concept artwork sheets; 3D-printed parts are always written "3D-printed".
 
 ## 1. Configuration
 
@@ -51,7 +51,7 @@ Tags: **[Sheet]** printed on the artwork (CONCEPT_TARGET or illustrative, unappr
 | Foot pad | 4 | 0 | Passive | Optional force sensor and damper |
 | **Total** | 8 actuators | **8 DOF** | | D1 resolved: 2 DOF per leg, no abduction |
 
-Axis directions are taken from sheet labels. All four legs move in parallel planes, so the body cannot be shifted or stepped sideways relative to the feet.
+Axis directions are ASSUMED, not printed on the sheets; joint names and DOF are as labelled. All four legs move in parallel planes, so the body cannot be shifted or stepped sideways relative to the feet.
 
 ## 4. Interfaces and Packaging
 

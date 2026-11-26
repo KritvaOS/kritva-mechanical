@@ -8,8 +8,8 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary paper analysis; subject to owner review |
 | Related Documents | `README.md`, `REQUIREMENTS.md`, `ARCHITECTURE.md`, `feasibility/DESIGN_GUIDELINES.md` |
 
@@ -76,7 +76,7 @@ Output-shaft torque, one arm or one drive channel (at the wheel). Static = gravi
 - Transit with arms not stowed (A13): elbow ≈ 1.6 N·m, wrist ≈ 0.41 N·m, yaw bearing moment ≈ 5.3 N·m. Stowing the arms in transit is preferred.
 - Wheel scrub sensitivity: with lateral friction 0.8 the turning torque rises to about 4.0 N·m per channel.
 
-### 2.3 Hand calculation (CALC-DA03-01 summary)
+### 2.3 Hand calculation (CALC-DA03-01 summary; CALC-DA03-01 is to be filed)
 
 - **§1 Elbow:** Σ m·d = 0.10(0.050) + 0.20(0.100) + 0.15(0.140) + 0.20(0.175) = 0.0810 kg·m; T = 0.0810 × 9.81 = **0.795 N·m**; inertia I ≈ 0.0113 kg·m², I·α = 0.11 N·m.
 - **§2 Wrist:** Σ m·d = 0.15(0.040) + 0.20(0.075) = 0.0210 kg·m; T = **0.206 N·m**; I·α = 0.014 N·m.
@@ -110,7 +110,7 @@ No input from `kritva-actuator` has been supplied for DA-03.
 - **Missing inputs and risks:**
   1. Link, module and payload masses are assumed.
   2. Joint ranges, speeds, duty, wheel size, tyre, floor friction and gear ratio are not printed.
-  3. The upper arm is a fixed cantilever, so the yaw output bearing must carry about 2.6 N·m moment; this is a bearing question, not an actuator torque.
+  3. The upper arm is a fixed cantilever, so the yaw output bearing must carry about 2.64 N·m moment; this is a bearing question, not an actuator torque.
   4. Wheel torque depends on turning strategy (in place or arc) and friction; paired wheels scrub.
   5. Battery capacity, discharge limit, protection and charging are UNKNOWN; peak current at 24 V is not assessed.
   6. Gearbox type, efficiency and backdrive (arm droop, base roll-away on slopes) are not assessed.

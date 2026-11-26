@@ -8,8 +8,8 @@
 | Status | PROPOSED |
 | Owner | Dinesh |
 | Assigned Intern | INTERN-02 |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-25 |
+| Version | 0.2.1 |
+| Last Updated | 2026-11-26 |
 | Authority | Preliminary cost assessment; subject to owner review |
 | Related Documents | `README.md`, `ARCHITECTURE.md`, `MASS_BUDGET.md`, `ACTUATOR_ANALYSIS.md`, `feasibility/EVALUATION_CRITERIA.md` |
 
@@ -42,6 +42,10 @@ This version lists the hardware categories and their scope only. No cost values 
 | LiDAR | 1 unit, only if added to the baseline (D6) | UNKNOWN | UNKNOWN | `README.md` §10 D6 | Not estimated |
 | Foot sensing and damping | Foot force sensors and elastomer dampers (4 each) | UNKNOWN | UNKNOWN | `README.md` §5 | Not estimated |
 | Battery charger | Scope TBD; charging not specified | UNKNOWN | UNKNOWN | `README.md` §7 | Not estimated |
+
+### 2.2 Actuator count by option
+
+Counts only; no cost values. The baseline is 8 actuators (hip and knee on each of 4 legs, `README.md` §10 D1). None of the optional items below adds an actuator: the top sensor module, LiDAR, foot sensing and damping, and charger are sensors, passive parts or accessories. The total is 8 in every option.
 
 ## 3. Boundary and Exclusions
 
