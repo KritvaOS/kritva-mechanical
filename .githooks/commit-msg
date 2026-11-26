@@ -1,0 +1,50 @@
+#!/bin/sh
+# commit-msg: reject a commit message that breaks the program commit format (D-053).
+# Runs scripts/security/check_commit_format.py with the task IDs in planning/TASKS.md, the same
+# check the commit-message-check workflow runs. Enable with "make hooks-install".
+# Skipped: merge commits (the checker skips them) and fixup!/squash!/amend! commits, which are
+# meant to be squashed before the pull request. Skip once with: git commit --no-verify
+# (CI still checks every push). Exit codes: 0 ok; 1 message rejected; 2 the hook cannot run.
+set -eu
+
+msg_file="${1:-}"
+[ -n "$msg_file" ] || { echo "usage: commit-msg <message-file> (git passes this)" >&2; exit 2; }
+
+root=$(cd "$(dirname "$0")/.." && pwd)
+check="$root/scripts/security/check_commit_format.py"
+tasks="$root/planning/TASKS.md"
+
+command -v python3 >/dev/null 2>&1 || { echo "[commit-msg] python3 not found; cannot check the message." >&2; exit 2; }
+[ -f "$check" ] && [ -f "$tasks" ] || { echo "[commit-msg] missing $check or $tasks." >&2; exit 2; }
+
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
+# Drop git's comment lines and the verbose-diff section, as git does with its default cleanup.
+sed '/^# -* >8 -*$/,$d' "$msg_file" | grep -v '^#' > "$tmp/msg" || true
+
+case "$(head -n 1 "$tmp/msg")" in
+  "fixup! "*|"squash! "*|"amend! "*) exit 0 ;;
+esac
+
+grep -o 'ROB-MECH-[0-9]\{3\}' "$tasks" | sort -u > "$tmp/ids" || true
+[ -s "$tmp/ids" ] || { echo "[commit-msg] no task IDs found in planning/TASKS.md." >&2; exit 2; }
+
+if python3 "$check" --file "$tmp/msg" --registry "$tmp/ids"; then
+  exit 0
+fi
+
+cat >&2 <<'MSG'
+
+[commit-msg] Commit not created. Required format (AGENTS.md, planning/GIT_COMMIT_STEP.md):
+
+  type(scope): summary          types: feat fix docs refactor test build ci chore perf revert security
+                                summary at most 90 characters
+  <blank line>
+  Task: ROB-MECH-NNN            exactly one footer; the ID must be in planning/TASKS.md
+                                or: Tasks: None (reason)   on docs or chore commits only
+
+No Claude-Session trailers or session links (Co-Authored-By is allowed).
+Your text is kept in .git/COMMIT_EDITMSG: fix it and run git commit -e -F .git/COMMIT_EDITMSG
+MSG
+exit 1

@@ -14,6 +14,7 @@ Thank you for helping. This repository is planning-first: the robot mechanical h
 2. Make one focused change. Never renumber or reuse task, criterion or check IDs.
 3. If the change alters a milestone, task, criterion, check, review rule or the README's scope, add a [planning/CHANGELOG.md](planning/CHANGELOG.md) entry in the same pull request. The changelog is append only.
 4. Run the checks listed in [AGENTS.md](AGENTS.md) and state what you ran in the pull request. Do not claim a check you did not run.
+   Run `make hooks-install` once per clone: a commit message that breaks the format below is then rejected when you commit, and `git push` runs `make preflight` (commit-format check of your branch plus the unit tests). Run `git fetch origin` first. Preflight does not run secret-scan, link checks or `check_readme.py`; say so in the pull request.
 5. Commit with the format in [planning/GIT_COMMIT_STEP.md](planning/GIT_COMMIT_STEP.md): `type(scope): summary` and one `Task:` footer, for example:
 
 ```
