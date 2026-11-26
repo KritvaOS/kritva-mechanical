@@ -15,6 +15,7 @@
 
 .PHONY: help check lint test-unit test-integration test-regression test docs-check acceptance test-tools
 .PHONY: preflight preflight-commits hooks-install preflight-hook-on preflight-hook-off
+.PHONY: git_sync
 
 help:
 > @echo "Standard gates (all NOT_IMPLEMENTED today, each fails):"
@@ -24,6 +25,7 @@ help:
 > @echo "  make test-tools         unit tests for the vendored commit-format checker and these gates"
 > @echo "  make preflight          run before a push: commit-format check of this branch, then the unit tests"
 > @echo "  make hooks-install      git hooks for this clone: a bad commit message is rejected at commit time"
+> @echo "  make git_sync           switch to main, fast-forward from origin, prune, delete merged local branches"
 
 check:
 > @sh scripts/gate.sh check
@@ -98,3 +100,12 @@ preflight-hook-on:
 preflight-hook-off:
 > git config kritva.preflightOnPush false
 > @echo "[hooks] pre-push preflight is OFF for this clone. The commit-msg hook and CI still check messages."
+
+# Git helper, as in kritva-sense: after a pull request is merged, go back to an up-to-date main.
+# It stops if main cannot be fast-forwarded and only deletes local branches that are fully merged
+# (git branch -d, never -D). Uncommitted changes can make "git switch main" fail; commit or stash first.
+git_sync:
+> @git switch main
+> @git pull --ff-only --prune
+> @git branch --format='%(refname:short)' | grep -vx main | xargs -r git branch -d
+> @git log --oneline -3
