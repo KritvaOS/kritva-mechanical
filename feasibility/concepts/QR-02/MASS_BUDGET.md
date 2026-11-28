@@ -1,18 +1,31 @@
-# QR-02 — Mass Budget (Week 3 estimate)
+# QR-02 — Mass Budget Evidence Record (Week 3/4)
 
-**Version 0.4.0 | 2026-11-28 | INTERN-01 | HOLD D-003 active**
+**Status: INCOMPLETE — system mass is UNKNOWN; no component-mass estimate is supported by the available sources.** HOLD D-003 remains active.
 
-Printed target: 4–7 kg (est.) — CONCEPT_TARGET.
+## Published target (not a derived mass)
 
-| Subsystem | Low | Nom | High | Notes |
-|---|---:|---:|---:|---|
-| Body / chassis | 0.6 | 1.0 | 1.5 | Carbon or Al structure |
-| 12 × joint modules | 2.0 | 3.0 | 4.5 | Dominant; pending S/M/L |
-| 8 × leg links | 0.4 | 0.7 | 1.1 | |
-| Feet / contact | 0.2 | 0.3 | 0.5 | |
-| Compute / drivers / power | 0.4 | 0.6 | 1.0 | |
-| Sensors (optional) | 0.0 | 0.2 | 0.5 | OWNER_DECISION; included in the sensor-inclusive planning total below |
-| Harness / fasteners / covers | 0.3 | 0.5 | 0.8 | |
-| **Planning total (includes optional sensors)** | **3.9** | **6.3** | **9.9** | Includes sensor allowance; not an approved hardware baseline |
+The source concept README prints a robot mass target of 4–6 kg (est.). It is an unapproved CONCEPT_TARGET copied from illustrative artwork, not an independently calculated estimate, measured mass, or basis for allocating component masses. See [README.md, section 4](README.md#4-concept_target), [ARCHITECTURE.md](ARCHITECTURE.md), and [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-04.
 
-The sensor-excluded subtotal is 3.9 / 6.1 / 9.4 kg low / nominal / high. Therefore 6.3 kg is the nominal sensor-inclusive planning mass used for the conservative joint-load screen; 6.1 kg is the nominal subtotal before the optional 0.2 kg sensor allowance. Battery is not included; CoM remains UNKNOWN.
+## Traceable subsystem breakdown
+
+| Subsystem | Source-backed configuration | Mass contribution | Evidence needed before calculating |
+|---|---|---|---|
+| central body/chassis | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| four three-joint legs | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| four feet | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| compute, drivers and power | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| battery space is mentioned but capacity is TBD | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| optional camera/IMU/sensors | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| harness and fasteners | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| System total / low–nominal–high range | No source-backed component values are available | UNKNOWN — no subtotal computed; unknowns are not treated as zero | Verified component list, mass source per line, and mass/CoM datum |
+
+The family-level actuator specification provides provisional torque bands and proposed roles; it does not provide variant-specific actuator masses. The concept artwork does not provide thicknesses, link sections, enclosure geometry, board models, battery selection or component masses. Therefore no subsystem mass, CoM, or total can be derived from this record. The printed target is not used as a measured load input.
+
+## Required evidence
+
+- Controlled component list and selected actuator variants, with revisioned mass data.
+- Dimensioned, approved geometry plus selected material and density source for fabricated parts.
+- Exact board, battery, sensor, gripper, fastener and harness part data.
+- Confirmation of what the printed target includes (payload, battery, sensors, cables and optional modules).
+
+References: README.md section 4; ARCHITECTURE.md sections 2–3 and 8; calculations/WEEK2_ARCHITECTURE_CHECKS.md; [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07. Until those inputs exist, the mass result remains UNKNOWN.

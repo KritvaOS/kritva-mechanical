@@ -1,19 +1,18 @@
-# INTERN-01 — Four-Concept Comparison Matrix (Week 3/4 draft)
+# INTERN-01 — Evidence and Scoring Status (Week 3/4)
 
 | Property | Value |
 |---|---|
-| Document ID | KMECH-CMP-INTERN-01 |
-| Status | PROPOSED — paper comparison; not CP4 acceptance |
-| Version | 0.3.0 |
-| Last Updated | 2026-11-28 |
-| Assigned Intern | INTERN-01 |
+| Status | INCOMPLETE — no criterion scores or concept ranking published |
+| Version | 0.4.0 |
+| Last updated | 2026-11-28 |
+| Scope | Four assigned concepts only; not CP4 acceptance |
 | HOLD | D-003 active |
 
-Evidence level: ESTIMATE / C (paper calculation) where files exist. Scores remain provisional. The four concepts here do not complete the 12-concept comparison.
+## Proposed evaluation weights
 
-## 1. Weighted criteria (from EVALUATION_CRITERIA.md)
+These are proposed, not approved, study weights from feasibility/EVALUATION_CRITERIA.md section 2. They do not by themselves justify a score.
 
-| ID | Criterion | Weight |
+| ID | Criterion | Proposed weight |
 |---|---|---:|
 | EC-01 | Mechanical feasibility | 20% |
 | EC-02 | Actuator availability and compatibility | 15% |
@@ -23,43 +22,22 @@ Evidence level: ESTIMATE / C (paper calculation) where files exist. Scores remai
 | EC-06 | Modularity and upgrade potential | 10% |
 | EC-07 | Mechanical safety | 5% |
 
-## 2. Scorecard (INTERN-01 concepts only)
+## Evidence status — all concepts
 
-| Criterion | DA-01 | QR-02 | DA-04 | QR-04 | Evidence / rationale |
-|---|---:|---:|---:|---:|---|
-| EC-01 Mechanical feasibility | 4 | 3 | 3 | 2 | DA-01 fixed base; QR-04 long-leg packaging risk. Assumption-based, not validated. |
-| EC-02 Actuator compatibility | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | Proposed family torque ranges allow screening only; variant compatibility evidence is not available. |
-| EC-03 Hardware cost | 4 | 2 | 1 | 1 | Nominal estimates INR 1.41 / 2.15 / 2.40 / 2.32 lakh; no quotes. See cost-ceiling sensitivities below. |
-| EC-04 Fabrication simplicity | 4 | 3 | 2 | 2 | Fixed tabletop is conceptually simpler; mobile and long-leg configurations add interfaces/alignment. Qualitative. |
-| EC-05 Demo value | 3 | 4 | 5 | 4 | Provisional qualitative judgment; owner/program review needed. |
-| EC-06 Modularity | 3 | 3 | 3 | 4 | QR-04 cross-section indicates potential interface, but mounting details remain OWNER_DECISION. |
-| EC-07 Mechanical safety | 3 | 3 | 2 | 2 | Qualitative only; no stability, gait or safety validation. |
+| Criterion | Weight | DA-01 | QR-02 | DA-04 | QR-04 | Why no score is assigned |
+|---|---:|---|---|---|---|---|
+| EC-01 Mechanical feasibility | 20% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | Load, geometry, mass and stability evidence is incomplete; concept descriptions alone do not support a 0–5 result |
+| EC-02 Actuator availability / compatibility | 15% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | The family spec is provisional; S/L values are placeholders, M is not frozen, and per-joint requirements are TBD |
+| EC-03 Hardware cost | 20% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | No traceable, concept-specific priced BOM or supplier evidence; unpriced items are not zero |
+| EC-04 Fabrication simplicity | 10% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | Materials, geometry, tolerances, quantity and process capability are not selected or evidenced |
+| EC-05 Kritva platform demonstration value | 20% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | No owner-approved demonstration requirements or evidence-based rationale per concept |
+| EC-06 Modularity and upgrade potential | 10% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | Interfaces are conceptual; no reviewed compatibility or serviceability evidence |
+| EC-07 Mechanical safety | 5% | NOT SCORED | NOT SCORED | NOT SCORED | NOT SCORED | No stability, hazard, structural or safeguard assessment supports a score |
 
-## 3. Scored weight and partial ranking
+Evidence references: each concept's REQUIREMENTS.md, ACTUATOR_ANALYSIS.md, MECHANICAL_ANALYSIS.md where present, MASS_BUDGET.md, COST_MODEL.md and OPEN_QUESTIONS.md; common rules in EVALUATION_CRITERIA.md sections 3–6. The concept records explicitly leave the required inputs UNKNOWN/TBD.
 
-- Scored weight: 85% (EC-02 remains NOT SCORED); weight not scored: 15%.
-- Per EVALUATION_CRITERIA.md, missing weights are not renormalized. These are partial weighted contributions on the full 100% scale, not complete scores or a final ranking.
-- The table gives a partial order among these four assigned concepts only; it must not be presented as a full 12-concept comparison or final recommendation.
-- Calculation: sum(score × criterion weight) / 100; the unscored 15% remains visible.
+## Result boundary
 
-| Partial rank | Concept | Partial weighted contribution (out of 5) | Scored weight |
-|---:|---|---:|---:|
-| 1 | DA-01 | 3.05 | 85% |
-| 2 | QR-02 | 2.55 | 85% |
-| 3 | DA-04 | 2.40 | 85% |
-| 4 | QR-04 | 2.10 | 85% |
+Scored weight: 0%. Weight not scored: 100%. The EVALUATION_CRITERIA.md rule for UNKNOWN evidence is NOT SCORED; missing weights must not be renormalized. The prior numeric partial ordering is withdrawn because it depended on unsupported cost inputs and scores without the required criterion-level evidence records. No weighted contribution, partial ranking, shortlist or recommendation is published. This is not a full comparison of all 12 concepts.
 
-## 4. Cost-ceiling sensitivity (derived ESTIMATE; INR)
-
-These break-even actuator prices hold each existing nominal non-actuator category total fixed. They are estimates derived from the current cost models, not quotes, availability data or an instruction to buy components.
-
-| Concept | Actuator count | Current nominal per-module estimate | Max per-module estimate at ceiling | Current concept nominal | Difference to ceiling |
-|---|---:|---:|---:|---:|---:|
-| DA-01 | 6 | 12,500 | 22,333 | 1,41,000 | 59,000 below |
-| QR-02 | 12 | 12,500 | 11,250 | 2,15,000 | 15,000 above |
-| DA-04 | 10 | 14,000 | 10,000 | 2,40,000 | 40,000 above |
-| QR-04 | 12 | 13,333 | 10,667 | 2,32,000 | 32,000 above |
-
-## 5. Recommendation boundary
-
-No final concept recommendation is made here. The partial ordering above is only a four-concept, 85%-weighted input while EC-02 is unscored. The official CP4 review requires all 12 concepts, owner-approved evidence/weights and the missing actuator data. No procurement or design selection is implied.
+EC-03's comparison ceiling is ₹2,00,000 under the proposed evaluation method. A ceiling alone does not establish cost, affordability or a pass. See each COST_MODEL.md; no totals are computable until prices, quantities and cost scope are sourced.

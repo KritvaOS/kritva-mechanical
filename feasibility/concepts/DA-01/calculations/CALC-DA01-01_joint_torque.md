@@ -1,69 +1,30 @@
-# CALC-DA01-01 — DA-01 Joint Torque Screening
+# DA-01 — Joint-Load Evidence Check
 
 | Property | Value |
 |---|---|
-| Calculation ID | CALC-DA01-01 |
-| Concept | DA-01 Fixed Tabletop Dual-Arm |
-| Status | PROPOSED / ESTIMATE |
+| Status | INCOMPLETE — no numeric joint torque is defensible from the available baseline inputs |
 | Date | 2026-11-28 |
-| Evidence type | C — paper calculation only |
-| Related | ACTUATOR_ANALYSIS.md, ARCHITECTURE.md v0.3.x |
+| Evidence | C — source review and symbolic relations only |
+| HOLD | D-003 active |
 
-HOLD D-003 remains active. No CAD, simulation, bench or physical evidence is claimed. All results are estimates, not requirements or actuator selections.
+## Source inputs and limits
 
-## 1. Baseline axes and scope
+The concept README prints 350 mm shoulder-to-gripper reach and 0.1–0.2 kg per-arm payload, both as CONCEPT_TARGETs; the payload is marked “est.” with no method. The three-DOF baseline is labeled shoulder yaw, elbow and wrist. The source does not provide joint frames, dimensions/offsets, representative pose, link/gripper masses, centre of mass, speed, acceleration or duty. See [README.md](../README.md), [ARCHITECTURE.md](../ARCHITECTURE.md) and [SOURCE_REGISTER.md](../references/SOURCE_REGISTER.md), SRC-01–SRC-04.
 
-ARCHITECTURE.md lists three axes per arm: shoulder yaw, elbow and wrist (six baseline channels total). The Week 3 actuator table also introduced a shoulder-pitch calculation, yielding four axis labels. This file keeps that pitch result as a conditional sensitivity only; it is not mapped to the baseline until the owner resolves the discrepancy. Wrist rotation versus pitch also remains unresolved.
+## Joint-load disposition
 
-## 2. Inputs and assumptions
+- Shoulder yaw: in an ideal vertical-axis static model, gravity has no moment component about the yaw axis. This does not establish dynamic yaw torque; inertia, friction, cable/external loads and axis alignment remain UNKNOWN.
+- Elbow and wrist: a numeric gravity moment requires sourced link/payload perpendicular distances and component masses. They are absent, so no number is reported.
+- Payload-only relation for a defined pitch axis: τp = mp g r⊥. The concept baseline does not define a pitch axis or r⊥ for a load case. Therefore the printed payload and reach are not combined into a torque estimate for this baseline.
 
-| Input | Value | Classification / source |
-|---|---:|---|
-| Gravity | 9.81 m/s² | Standard calculation constant |
-| Reach | 0.350 m | CONCEPT_TARGET; artwork; datum/pose undefined |
-| Link split | 0.175 m upper arm / 0.100 m forearm / 0.075 m wrist-to-tip | ASSUMED; totals 0.350 m |
-| Upper-arm link | 0.12 kg at 0.0875 m from shoulder | ESTIMATE |
-| Elbow module | 0.30 kg at 0.175 m from shoulder | ESTIMATE |
-| Forearm link | 0.08 kg at 0.225 m from shoulder; 0.050 m from elbow | ESTIMATE |
-| Wrist module | 0.20 kg at 0.275 m from shoulder; 0.100 m from elbow | ESTIMATE; aligned to the 0.20–0.45 kg joint-module range |
-| Gripper + mount | 0.12 kg at 0.310 m from shoulder; 0.135 m from elbow; 0.040 m beyond wrist | ESTIMATE |
-| Payload | 0.20 kg at 0.350 m from shoulder; 0.175 m from elbow; 0.075 m beyond wrist | CONCEPT_TARGET upper end |
-| Angular acceleration | 10 rad/s² | ASSUMED planning input; no trajectory |
-| Speed | 1.57 rad/s ≈ 15.0 rpm | ASSUMED, not a speed requirement |
-| Planning factor | 1.5× | ASSUMED; not a validated safety factor |
+No assumed arm mass, link split, angular acceleration, speed, multiplier or actuator rating is used. The printed payload/reach remain target data, not verified load inputs.
 
-Loads are treated as point masses at their stated centres. Link self-inertia, friction, cable drag, gearbox losses, dynamic contact and thermal limits are not independently modelled.
+## Remaining evidence needed
 
-## 3. Static gravity calculation
+Controlled joint axes and frames, dimensioned links, component masses/CoM, payload placement, representative poses, operating motion/duty, friction/cable loading and output-side actuator data. See ACTUATOR_ANALYSIS.md, MASS_BUDGET.md and OPEN_QUESTIONS.md.
 
-For a joint axis and pose, τ_g = Σ (r_i × m_i g) · e_axis. For the conditional shoulder-pitch case with a fully extended horizontal arm:
+## References
 
-| Element | m (kg) | r (m) | m·g·r (N·m) |
-|---|---:|---:|---:|
-| Payload | 0.20 | 0.350 | 0.6867 |
-| Gripper + mount | 0.12 | 0.310 | 0.3649 |
-| Wrist module | 0.20 | 0.275 | 0.5396 |
-| Forearm link | 0.08 | 0.225 | 0.1766 |
-| Elbow module | 0.30 | 0.175 | 0.5150 |
-| Upper-arm link | 0.12 | 0.0875 | 0.1030 |
-| **Sum** | | | **2.3858 ≈ 2.39** |
-
-This replaces the prior 2.15 N·m working value; the updated terms sum to 2.3858 N·m. The axis is not part of the current three-axis baseline in ARCHITECTURE.md.
-
-## 4. Baseline elbow and wrist branches
-
-- Elbow pitch: τ_g = 9.81 × (0.20×0.175 + 0.12×0.135 + 0.20×0.100 + 0.08×0.050) = 0.738 N·m. Point-mass inertia is I = Σmr² = 0.010512 kg·m², so Iα = 0.105 N·m; raw planning sum is 0.843 N·m and 1.5× is 1.264 N·m.
-- Wrist-pitch branch only: τ_g = 9.81 × (0.20×0.075 + 0.12×0.040) = 0.194 N·m. I = 0.001317 kg·m², Iα = 0.013 N·m; raw sum is 0.207 N·m and 1.5× is 0.311 N·m.
-- Wrist-rotation branch: ideal static gravity torque about the forearm axis is approximately zero; dynamic torque needs the actual axis, mass distribution and motion. Keep dynamic demand TBD.
-- Shoulder yaw: ideal static gravity torque about a vertical axis is approximately zero. Under the straight-arm horizontal pose, the point-mass estimate I = 0.065313 kg·m² gives Iα ≈ 0.653 N·m; 1.5× ≈ 0.980 N·m. Orientation, cable drag and acceleration are assumed, so this is an ESTIMATE only.
-
-## 5. Conditional shoulder-pitch sensitivity (not baseline)
-
-For the updated point-mass model, I = Σmr² = 0.065313 kg·m² and Iα = 0.653 N·m. Static 2.386 plus inertial 0.653 gives a raw planning sum of 3.039 N·m; 1.5× gives 4.558 N·m. These figures apply only if an owner-approved shoulder-pitch axis and pose are added to the baseline. Do not use them as a requirement for the six-channel concept.
-
-## 6. Limits and next inputs
-
-- Exact link dimensions, joint frames, ROM, duty cycle, speed profile and payload basis are UNKNOWN.
-- Wrist-axis direction and the shoulder-axis mismatch need owner resolution before joint mapping.
-- S/M/L compatibility is torque-screening only against proposed family ranges; variant-specific output data are not established.
-- Replace assumptions only with traceable inputs and update the parent actuator analysis together.
+- [Concept README](../README.md), sections 4, 6 and 9; [ARCHITECTURE.md](../ARCHITECTURE.md), sections 2–3 and 8.
+- [Source register](../references/SOURCE_REGISTER.md), SRC-01–SRC-07.
+- [DESIGN_GUIDELINES.md](../../../DESIGN_GUIDELINES.md), FREQ-006/007/012.

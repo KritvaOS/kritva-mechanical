@@ -1,54 +1,30 @@
-# DA-01 — Mass Budget (Week 3/4 estimate)
+# DA-01 — Mass Budget Evidence Record (Week 3/4)
 
-| Property | Value |
-|---|---|
-| Document ID | KMECH-MASS-DA-01 |
-| Status | PROPOSED — paper estimate; owner review required |
-| Version | 0.4.0 |
-| Last Updated | 2026-11-28 |
-| Assigned Intern | INTERN-01 |
+**Status: INCOMPLETE — system mass is UNKNOWN; no component-mass estimate is supported by the available sources.** HOLD D-003 remains active.
 
-HOLD D-003 remains active. No material selection, process selection or final BOM is authorized.
+## Published target (not a derived mass)
 
-## 1. Artwork target (not a derived total)
+The source concept README prints a robot mass target of 5–8 kg (est.). It is an unapproved CONCEPT_TARGET copied from illustrative artwork, not an independently calculated estimate, measured mass, or basis for allocating component masses. See [README.md, section 4](README.md#4-concept_target), [ARCHITECTURE.md](ARCHITECTURE.md), and [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-04.
 
-Printed target: 5–8 kg (est.) — CONCEPT_TARGET. The subsystem sum is not forced to equal this range.
+## Traceable subsystem breakdown
 
-## 2. Subsystem mass ranges (ESTIMATE)
+| Subsystem | Source-backed configuration | Mass contribution | Evidence needed before calculating |
+|---|---|---|---|
+| base plate and central enclosure | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| two three-joint arm assemblies | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| two optional grippers | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| compute, power distribution and motor drivers | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| optional camera mast/sensors | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| harness, fasteners and covers | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| System total / low–nominal–high range | No source-backed component values are available | UNKNOWN — no subtotal computed; unknowns are not treated as zero | Verified component list, mass source per line, and mass/CoM datum |
 
-The base-plate dimensions are 300 × 250 mm with an assumed aluminium density of 2,700 kg/m³. For a solid plate, 6 / 8 / 10 mm thickness gives 1.22 / 1.62 / 2.03 kg. Material, cut-outs and thickness remain unapproved; this is a geometry-based planning estimate, not a material selection. The enclosure allowance is separately estimated because its geometry is not defined.
+The family-level actuator specification provides provisional torque bands and proposed roles; it does not provide variant-specific actuator masses. The concept artwork does not provide thicknesses, link sections, enclosure geometry, board models, battery selection or component masses. Therefore no subsystem mass, CoM, or total can be derived from this record. The printed target is not used as a measured load input.
 
-| Subsystem | Low (kg) | Nominal (kg) | High (kg) | Notes / method |
-|---|---:|---:|---:|---|
-| Base plate | 1.22 | 1.62 | 2.03 | ASSUMED solid 300 × 250 mm aluminium plate; 6 / 8 / 10 mm, density 2,700 kg/m³ |
-| Central enclosure | 0.15 | 0.30 | 0.60 | ESTIMATE allowance; no geometry or material selected |
-| 2 × upper-arm links | 0.20 | 0.30 | 0.45 | A4 scaled ×2 |
-| 2 × forearm links | 0.12 | 0.20 | 0.30 | A6 scaled ×2 |
-| 6 × joint modules (motor + gear + housing) | 1.20 | 1.80 | 2.70 | 0.20–0.45 kg each; pending S/M/L variant data |
-| 2 × grippers (passive baseline) | 0.15 | 0.25 | 0.40 | ESTIMATE; powered grippers excluded |
-| Compute + drivers + power distribution | 0.30 | 0.50 | 0.80 | Kritva platform boards + harness provision |
-| Sensors / mast (optional) | 0.00 | 0.15 | 0.40 | Excluded from baseline subtotal; OWNER_DECISION |
-| Fasteners, bearings, covers, harness | 0.25 | 0.40 | 0.70 | Allowance |
-| **Baseline subtotal (optional sensors/mast excluded)** | **3.6** | **5.4** | **8.0** | Includes central-enclosure allowance; rounded to 0.1 kg |
-| Battery (if required) | 0.00 | 0.40 | 1.00 | Separate from subtotal; tabletop may be externally powered; UNKNOWN |
+## Required evidence
 
-The torque calculation now uses a 0.20 kg wrist module, at the lower edge of the stated 0.20–0.45 kg joint-module range. Individual modules are estimates, not measured values.
+- Controlled component list and selected actuator variants, with revisioned mass data.
+- Dimensioned, approved geometry plus selected material and density source for fabricated parts.
+- Exact board, battery, sensor, gripper, fastener and harness part data.
+- Confirmation of what the printed target includes (payload, battery, sensors, cables and optional modules).
 
-## 3. Comparison with printed target
-
-The nominal baseline is 5.37 kg (≈5.4 kg), inside the 5–8 kg CONCEPT_TARGET. The low estimate, 3.59 kg, is below the printed lower bound; the high estimate, 7.98 kg, is at the upper edge before optional sensors/mast or battery. The previous 4.7 kg nominal was below 5 kg, not in the lower half of the target band. These estimates remain low-confidence and do not prove the target will be met.
-
-## 4. Centre of mass
-
-UNKNOWN. No datum or component coordinates are defined. A first-order estimate places the CoM near the geometric centre of the base/torso once the arms are folded; extended-arm CoM shifts outward and raises tipping risk (see MECHANICAL_ANALYSIS).
-
-## 5. Required inputs to improve confidence
-
-- Source-controlled actuator module masses and revisioned S/M/L data.
-- Selected material, plate cut-outs, enclosure geometry and wall thicknesses (OWNER_DECISION / TBD).
-- Exact link lengths and joint offsets.
-- Decision on powered vs passive grippers and optional mast/sensors.
-
-## 6. Status
-
-Week 3/4 mass framework updated with a plate-geometry cross-check and an explicit enclosure allowance. Total remains an ESTIMATE; no claim is made that the robot will meet the printed 5–8 kg target.
+References: README.md section 4; ARCHITECTURE.md sections 2–3 and 8; calculations/WEEK2_ARCHITECTURE_CHECKS.md; [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07. Until those inputs exist, the mass result remains UNKNOWN.

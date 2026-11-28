@@ -1,40 +1,40 @@
-# DA-01 — Suggested README updates (sections 11, 13–16)
+# DA-01 — Proposed README updates (sections 11, 13–16)
 
-Copy or merge into the concept README under the intern-owned sections. Preserve existing sections 1–10, artwork references and version history. This proposal does not change the concept baseline or release HOLD D-003.
+Draft only; merge into the concept README only after owner review. This update records evidence status and does not change the source artwork, establish requirements, or release HOLD D-003.
 
-## 11. Feasibility Activity (Week 3/4 update)
+## 11. Feasibility Activity (Week 3/4)
 
-Week 3/4 engineering assessment is in progress at paper level; Task 044 acceptance remains pending owner/reviewer review.
+The Week 3/4 contribution is a source-traceability and calculation-gap record, not a complete feasibility result.
 
-- Joint torque and speed screens: ACTUATOR_ANALYSIS.md and calculations/CALC-DA01-01_joint_torque.md.
-- Mass subsystem ranges and target comparison: MASS_BUDGET.md.
-- Category cost estimate versus the INR 2 L planning ceiling: COST_MODEL.md; no quotes.
-- Qualitative stability, structure and serviceability: MECHANICAL_ANALYSIS.md.
-- Open decisions and risks: OPEN_QUESTIONS.md.
-- Requirements and common FREQ traceability: REQUIREMENTS.md and the common feasibility/REQUIREMENTS_REGISTER.md, including FREQ-002, FREQ-004–008, FREQ-012–013, FREQ-015, FREQ-019–020, FREQ-026–028 and FREQ-032–034.
-- Week 2 configuration, paper-only scope and HOLD D-003 guardrails remain documented in WEEK2_README_SECTIONS.md and the linked architecture/review records.
+- Per-joint loads and speeds: NOT DERIVED; calculations/CALC-DA01-01_joint_torque.md records why the source baseline lacks enough inputs for a numeric torque.
+- Published mass target transcribed; subsystem masses and CoM UNKNOWN: MASS_BUDGET.md.
+- Cost ceiling source and unpriced BOM scope recorded; no price totals or affordability claim: COST_MODEL.md.
+- Qualitative configuration/load-path notes only; no stability margin or clamp recommendation: MECHANICAL_ANALYSIS.md.
+- Open inputs and source decision references: OPEN_QUESTIONS.md.
+- Week 2 source and HOLD guardrails: WEEK2_README_SECTIONS.md and calculations/WEEK2_ARCHITECTURE_CHECKS.md.
+- Common requirements traceability: REQUIREMENTS.md and feasibility/REQUIREMENTS_REGISTER.md (FREQ-002, FREQ-004–008, FREQ-012–013, FREQ-015, FREQ-019–020, FREQ-026–028 and FREQ-032–034).
 
-All numeric results are ESTIMATE / ASSUMED unless explicitly marked otherwise. S/M/L mapping remains blocked on controlled variant data. No simulation, bench or physical evidence is claimed; CAD, BOM, quotations, procurement, fabrication, assembly and physical testing remain NOT STARTED under HOLD D-003.
+Printed targets remain CONCEPT_TARGET. Unsupported component masses, costs, geometry and motion inputs remain UNKNOWN/TBD. No CAD, BOM, quote, simulation, bench or physical evidence is claimed.
 
-## 13. Folder Contents (current)
+## 13. Folder Contents
 
-| File / folder | Purpose | Current status |
+| File / folder | Purpose | Evidence status |
 |---|---|---|
-| README.md | Existing concept overview and study tracking | Preserve existing sections; review proposed updates |
-| REQUIREMENTS.md | Concept targets, common FREQ references and requirement gaps | INCOMPLETE; owner review pending |
-| ARCHITECTURE.md | Configuration, dimensions, joints, DOF and assemblies | Proposed concept record |
-| MECHANICAL_ANALYSIS.md | Load paths, workspace, stability, stiffness and serviceability | Qualitative; stability margin TBD |
-| ACTUATOR_ANALYSIS.md | Per-joint torque/speed and S/M/L screening status | ESTIMATE; axis/maturity gaps remain |
-| INTERFACES.md | Mechanical, compute, power, sensor, communication and cable provisions | Concept-level; detailed interfaces TBD |
-| MASS_BUDGET.md | Artwork target and subsystem mass estimates | ESTIMATE; plate/enclosure assumptions explicit |
-| COST_MODEL.md | Preliminary cost categories and ceiling sensitivity | ESTIMATE; no quotes |
-| OPEN_QUESTIONS.md | Decisions, unknowns, dependencies and risks | Open |
-| WEEK2_README_SECTIONS.md | Week 2 scope, guardrails, traceability and original section proposal | Retained for context |
-| README_SECTIONS_11_13_16.md | Week 3/4 suggested README updates | Draft only; not merged into the concept README |
+| README.md | Existing concept overview, artwork transcription and open items | Source record; targets remain unapproved |
+| REQUIREMENTS.md | Targets and common FREQ references | INCOMPLETE; no approved concept baseline |
+| ARCHITECTURE.md | Configuration, joint count and dimensions | Concept-level; unspecified geometry remains TBD |
+| MECHANICAL_ANALYSIS.md | Load path and stability evidence status | Qualitative; no margin or recommendation |
+| ACTUATOR_ANALYSIS.md | Joint inventory, sourced family roles and missing requirements | Per-joint sizing TBD |
+| INTERFACES.md | Compute, power, sensors, communication and cable provisions | Concept-level; detailed interfaces TBD |
+| MASS_BUDGET.md | Printed target and subsystem evidence gaps | Total/component masses UNKNOWN |
+| COST_MODEL.md | Quote-ready category scope and cost source | Prices/total UNKNOWN; EC-03 not scored |
+| OPEN_QUESTIONS.md | Owner decisions and evidence needed | Open |
+| WEEK2_README_SECTIONS.md | Week 2 scope and guardrails | Retained |
+| README_SECTIONS_11_13_16.md | This proposed update | Draft only |
 | calculations/ | Calculation notes | CALC-DA01-01_joint_torque.md and WEEK2_ARCHITECTURE_CHECKS.md |
 | references/ | Source register | SOURCE_REGISTER.md |
-| reviews/ | Concept review record | WEEK2_CONCEPT_REVIEW.md; not reviewed |
-| sketches/ | Paper sketches only | WEEK2_CONCEPT_SKETCH.svg and WEEK3_CONCEPT_MOCKUP.svg; not CAD |
+| reviews/ | Concept review record | WEEK2_CONCEPT_REVIEW.md; review status unchanged |
+| sketches/ | Concept mockups | WEEK2_CONCEPT_SKETCH.svg and WEEK3_CONCEPT_MOCKUP.svg; not to scale or CAD |
 
 No cad/ directory is permitted under HOLD D-003.
 
@@ -42,20 +42,20 @@ No cad/ directory is permitted under HOLD D-003.
 
 | Aspect | Status |
 |---|---|
-| Configuration & DOF | Documented; shoulder-axis and wrist-axis questions remain |
-| Torque / speed estimates | Paper estimates only; Task 044 review pending |
-| Mass ranges | ESTIMATE; nominal 5.4 kg is within the printed 5–8 kg target, but confidence is low |
-| Cost vs ceiling | Nominal estimate INR 1.41 L; no quotes or procurement approval |
-| S/M/L mapping | BLOCKED on controlled variant data and owner review |
-| Stability | Qualitative only; CoM, support and margin TBD |
-| Comparative status | Partial four-concept input only; no final recommendation before CP4 |
+| Configuration and DOF | Transcribed from concept README/artwork; axis questions remain |
+| Torque and speed | TBD; only a conditional payload-only calculation is documented |
+| Mass and CoM | Printed target only; subsystem values and total UNKNOWN |
+| Cost vs ceiling | No priced BOM; EC-03 NOT SCORED |
+| S/M/L mapping | NOT SCORED; family roles are proposals, not assignment |
+| Stability | UNKNOWN; no CoM/support inputs or clamp recommendation |
+| Comparative status | NOT SCORED; no ranking or recommendation |
 
 ## 15. Checkpoint Progress
 
-- CP2 contribution: previously supplied for the INTERN-01 concept; review state is separate.
-- CP3 contribution: see feasibility/interns/INTERN-01/CP3_CONTRIBUTION.md (partial four-concept input).
-- CP4: not started; full 12-concept review and owner decisions required.
+- CP2 source and architecture record: see CP2_CONTRIBUTION.md; global review remains separate.
+- CP3 contribution: see feasibility/interns/INTERN-01/CP3_CONTRIBUTION.md; evidence gaps remain explicit.
+- CP4: not started; all 12 concepts and required reviews remain outstanding.
 
 ## 16. Open Decisions
 
-See OPEN_QUESTIONS.md. Critical items include the DA-01 shoulder-axis count and wrist-axis direction, torso/mast scope, gripper actuation, and controlled actuator data. Existing decision identifiers and approval dates are not revised in this proposal pending confirmation against the decision record.
+See OPEN_QUESTIONS.md. Do not revise decision IDs or approval dates without the controlling decision record. HOLD D-003 remains active.

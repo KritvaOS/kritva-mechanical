@@ -1,32 +1,34 @@
-# CALC-QR04-01 — QR-04 Leg Torque Sensitivity Screen
+# CALC-QR04-01 — Conditional Single-Leg Load Relation
 
 | Property | Value |
 |---|---|
-| Calculation ID | CALC-QR04-01 |
-| Concept | QR-04 Agile Long-Leg Quadruped |
-| Status | PROPOSED / ESTIMATE |
+| Status | PROPOSED — conditional calculation only |
 | Date | 2026-11-28 |
-| Evidence type | C — paper calculation only |
-| Related | ACTUATOR_ANALYSIS.md, MASS_BUDGET.md |
+| Evidence | C — arithmetic from printed concept targets; not validation |
+| HOLD | D-003 active |
 
-HOLD D-003 remains active. This is a static, assumption-based sensitivity screen; no dynamic gait, impact, simulation, bench or physical evidence is claimed.
+This note separates source-transcribed targets from derived quantities. Printed “est.” values remain CONCEPT_TARGETs; they are not verified mass, payload or performance inputs. No missing mass, geometry, pose or motion value is substituted. See references/SOURCE_REGISTER.md for source revisions and limits.
+## Source inputs
 
-## 1. Inputs and method
+| Input | Value | Source / status |
+|---|---:|---|
+| Printed robot mass target | 5–7 kg (est.) | README.md section 4; CONCEPT_TARGET, no derivation or verified system mass |
+| Leg/joint count | Four legs; three DOF per leg; 12 baseline actuators | README.md sections 2 and 6; concept target |
+| Gravity | 9.81 m/s² | Standard-gravity approximation used for arithmetic |
+| Leg lengths, joint offsets and pose | UNKNOWN | Not specified in README.md or ARCHITECTURE.md |
 
-F_single = 7.5 kg × 9.81 m/s² ÷ 1 leg = 73.58 N. The 7.5 kg value is the QR-04 nominal mass budget. Assigning full robot weight to one leg is a conservative static load-sharing case, not a validated gait or stance requirement. Leg length is 0.280 m with 0.140/0.140 m segments (ASSUMED, not released dimensions). Use τ = F × d⊥.
+## Conservative static load-sharing scenario
 
-The prior static estimates at 6.5 kg imply effective moment arms of hip yaw 23.5 mm, hip flexion 86.2 mm and knee 47.0 mm. The same moment arms are retained while force is scaled to 7.5 kg. A ±20% sensitivity is an explicit conservative screening assumption around those back-solved values, not a statistically supported or validated worst-case bound. The 1.5× multiplier is static-only and is not a validated safety factor.
+As a deliberately conservative static boundary, assign the entire printed target mass to one supporting leg (load fraction λ = 1). If the actual robot mass were within the printed 5–7 kg range, this scenario gives Fleg = λ m g = 1 × (5–7) × 9.81 = 49.05–68.67 N. This is conditional on an unverified artwork target; it is not an operating requirement, validated worst-case gait load or measured mass.
 
-## 2. One-leg static sensitivity
+For each joint, τj = Fleg d⊥,j. The perpendicular moment arm d⊥,j is UNKNOWN because the source does not define leg segment lengths, joint frames, pose or coordinates. Therefore no numeric joint torque or S/M/L comparison is supported. Hip-yaw demand depends on its axis, pose and perpendicular moment arm; no back-solved moment arm or arbitrary ±20% sensitivity is used. The one-leg full-weight assumption is conservative as a load-share scenario only, not proof of the largest dynamic hip-yaw torque.
 
-| Joint | Implied d⊥ (mm) | ±20% d⊥ band (mm) | Static band (N·m) | 1.5× static-only screen (N·m) |
-|---|---:|---:|---:|---:|
-| Hip abduction / yaw | 23.5 | 18.8–28.2 | 1.38–2.08 | 2.08–3.12 |
-| Hip flexion | 86.2 | 68.9–103.4 | 5.08–7.62 | 7.62–11.42 |
-| Knee flexion | 47.0 | 37.6–56.4 | 2.77–4.15 | 4.15–6.23 |
+## Not calculated
 
-Moment-arm values are rounded consistently to one decimal millimetre; torque values are rounded to two decimals. The 1.5× column multiplies static sensitivity only and must not be called a dynamic peak. Replace back-solved moment arms with an approved pose/coordinate model when available.
+Payload location, gait, ground reaction, impact, acceleration, speed, duty and actuator variant data are UNKNOWN. No 1.5× multiplier is applied: the source set provides no approved factor or load case.
 
-## 3. Limits
+## References
 
-Load sharing, stance geometry, joint axes, ROM, speed, gait, impact, friction, sensor mass/location, mounting interface allowables and duty are UNKNOWN/OWNER_DECISION. No S/M/L assignment, hardware selection or safety conclusion follows from this calculation.
+- [Concept README](../README.md), sections 4, 6 and 9; [ARCHITECTURE.md](../ARCHITECTURE.md), sections 2–3 and 8.
+- [Source register](../references/SOURCE_REGISTER.md), SRC-01–SRC-07.
+- [DESIGN_GUIDELINES.md](../../../DESIGN_GUIDELINES.md), FREQ-006/007/012 and FREQ-031.

@@ -1,27 +1,18 @@
-# INTERN-01 — Week 3/4 Cross-Concept Comparison Note
+# INTERN-01 — Week 3/4 Source-Backed Comparison Note
 
-**Status:** PROPOSED partial comparison | 2026-11-28 | HOLD D-003 active
+**Status:** INCOMPLETE fact record; no ranking or recommendation | 2026-11-28 | HOLD D-003 active
 
-This note compares only the four INTERN-01 concepts using the current paper estimates. The torque row is the largest 1.5× planning-screen value in each concept’s current calculation file; calculation bases differ and none is a continuous actuator rating or a validated peak.
+Values below are transcribed from the assigned concept READMEs and remain CONCEPT_TARGETs, not approved or verified requirements. See each README section 4 and references/SOURCE_REGISTER.md.
 
-| Metric | DA-01 | QR-02 | DA-04 | QR-04 |
-|---|---|---|---|---|
-| Actuator count | 6 | 12 | 10 | 12 |
-| Largest 1.5× joint planning screen (N·m; basis differs; not a continuous rating) | ≈1.26 elbow baseline; conditional shoulder-pitch case ≈4.56 is not baseline | ≈8.34 hip flexion | ≈5.63 shoulder pitch | ≈11.42 hip flexion |
-| Nominal mass (kg) | ≈5.4 | 6.3 incl. optional sensors; 6.1 excl. | 11.8 | 7.5 |
-| Nominal cost estimate (INR) | 1.41 L | 2.15 L | 2.40 L | 2.32 L |
-| vs INR 2 L planning ceiling | Inside estimate | 0.15 L over | 0.40 L over | 0.32 L over |
-| Complexity / risk drivers | Wrist-axis ambiguity; support/CoM TBD | Optional sensors; gait and load sharing TBD | Battery, drive and tipping conditions TBD | Long-leg moments; mounting interface OWNER_DECISION |
+| Concept | Baseline actuator channels | Printed mass target | Printed payload target | Joint-load evidence | Cost evidence |
+|---|---:|---|---|---|---|
+| DA-01 | 6; up to 2 optional gripper actuators | 5–8 kg (est.) | 0.1–0.2 kg per arm (est.) | No numeric per-joint load; the source baseline has shoulder yaw, elbow and wrist but no joint geometry/mass model | UNKNOWN; no priced BOM |
+| QR-02 | 12 | 4–6 kg (est.) | 0.5–1.0 kg (est.) | Conditional single-leg force scenario only; no joint moment arms or torques | UNKNOWN; no priced BOM |
+| DA-04 | 10 (8 arm + 2 drive channels) | 25–35 kg (est.) | 0.5–1.0 kg per arm (est.) | Conditional payload-only shoulder-pitch term and symbolic wheel relation; no complete joint or drive requirement | UNKNOWN; no priced BOM |
+| QR-04 | 12 | 5–7 kg (est.) | 0.5–1.0 kg (est.) | Conditional single-leg force scenario only; no joint moment arms or torques | UNKNOWN; no priced BOM |
 
-## Partial ranking within the four assigned concepts
+The mass and payload figures are copied from artwork records; their printed “est.” notation has no underlying method. They are not used as actual component masses. The conditional calculations are explicitly labeled in the concept CALC files and cannot be compared as actuator demands.
 
-EC-02 (15%) remains NOT SCORED, so only 85% of the criteria contribute. The values below are not renormalized; this is a partial ordering from the scored contribution table in COMPARISON_MATRIX.md, not a full score, all-12 ranking or final recommendation.
+## Comparative status
 
-| Partial rank | Concept | Partial weighted contribution (out of 5) | Scored weight |
-|---:|---|---:|---:|
-| 1 | DA-01 | 3.05 | 85% |
-| 2 | QR-02 | 2.55 | 85% |
-| 3 | DA-04 | 2.40 | 85% |
-| 4 | QR-04 | 2.10 | 85% |
-
-The remaining eight concepts, owner decisions and actuator evidence are required before CP4 scoring or a final recommendation.
+No 0–5 scores are assigned. The current evidence does not satisfy the criterion-level source, uncertainty, rationale and assumption requirements in feasibility/EVALUATION_CRITERIA.md. In particular, mass totals and price totals are UNKNOWN, per-joint loads are incomplete, and no owner-approved demonstration or safety basis is recorded. All seven criteria remain NOT SCORED in COMPARISON_MATRIX.md; scored weight is 0% and no ranking is published.

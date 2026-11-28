@@ -1,60 +1,29 @@
-# DA-01 — Mechanical Assessment (Week 3 update)
+# DA-01 — Mechanical Evidence Status (Week 3/4)
 
-| Property | Value |
-|---|---|
-| Document ID | KMECH-MECH-DA-01 |
-| Status | PROPOSED — Week 3 paper assessment |
-| Version | 0.3.0 |
-| Last Updated | 2026-11-27 |
-| Assigned Intern | INTERN-01 |
+**Status:** INCOMPLETE — qualitative configuration review only. HOLD D-003 active.
 
-**HOLD D-003 active.**
+## Source-backed configuration
 
-## 1. Configuration recap
+Two 3-DOF arms on a fixed tabletop base are transcribed from the concept README/artwork. Printed dimensions (including the 300 × 250 mm base and 350 mm shoulder-to-gripper reach) are CONCEPT_TARGETs; the drawings are not to scale and do not define joint frames, pose, material thickness or support conditions. See README.md sections 2, 4, 6 and 9; ARCHITECTURE.md sections 2–3.
 
-Fixed tabletop dual-arm, 3 DOF per arm, 6 actuators baseline. Central enclosure houses compute and drivers. Optional mast and powered grippers excluded from baseline.
+## Load path and missing stability inputs
 
-## 2. Load path (unchanged from Week 2)
+Qualitative load path: payload/gripper → wrist → forearm → elbow → upper arm → shoulder → central body/base → tabletop support. This is a configuration description, not a verified load case.
 
-Payload → gripper → wrist → forearm → elbow → upper arm → shoulder → central torso/base plate → tabletop support.
+No sourced component masses, CoM coordinates, material sections, fastener details, friction coefficient, fixture/clamp design, joint pose or allowable overturning margin are available. The printed mass/payload targets do not fill those gaps. Stability and tipping moment are therefore UNKNOWN; no tipping margin, likelihood, clamp recommendation or safety factor is reported.
 
-## 3. Stability / tipping (first-order ESTIMATE)
+## Structural and workspace status
 
-Assumptions for a first-order check:
+Link sections, material grades, wall thicknesses, joint offsets, ROM, cable drag and stiffness data are absent. Workspace, collision, stress and deflection remain qualitative/TBD. The source README records a reach/overall-width pose ambiguity; no geometry is inferred to resolve it.
 
-- Robot mass nominal 5.4 kg (from MASS_BUDGET).
-- CoM roughly at geometric centre of base when arms folded.
-- Base footprint 300 × 250 mm.
-- Worst case: both arms extended horizontally to one side with 0.2 kg payload each.
+## Evidence status
 
-A quantitative overturning moment is **INCOMPLETE**: the prior note used a 2.15 N·m shoulder term that did not match the listed calculation inputs (2.39 N·m static, about 3.04 N·m including the stated inertial estimate), and shoulder pitch is not in the current three-axis-per-arm baseline. The restoring-moment range also lacks an approved CoM and support condition. Do not report a tipping margin or factor of safety from those figures.
+| Topic | Status | Source / next input |
+|---|---|---|
+| Configuration and DOF | Transcribed CONCEPT_TARGET | README.md / ARCHITECTURE.md |
+| Joint loads and speed | TBD; no numeric per-joint load is defensible from current baseline inputs | ACTUATOR_ANALYSIS.md and CALC-DA01-01 |
+| Mass and CoM | UNKNOWN | MASS_BUDGET.md; source-controlled component masses/geometry needed |
+| Table support and stability | UNKNOWN | OPEN_QUESTIONS.md; support condition, mass distribution and pose needed |
+| Cost | UNKNOWN | COST_MODEL.md; priced BOM required |
 
-**Conclusion (qualitative only):** Evaluate positive tabletop attachment as a design consideration. A quantified clamp/friction recommendation and stability margin remain TBD until the axis, arm pose, CoM and support interface are defined.
-
-## 4. Structural notes
-
-- Link cross-sections and wall thicknesses are not selected.
-- Shoulder support stiffness is the critical structural item for reach accuracy and vibration.
-- No stress or deflection numbers are claimed; geometry and material data are still missing.
-
-## 5. Workspace / collision
-
-- Printed reach 350 mm per side; total left-to-right 700 mm matches overall width, implying the arms meet near the centreline when fully extended.
-- Self-collision and table collision envelopes remain TBD pending joint limits and exact kinematics.
-
-## 6. Serviceability
-
-Central enclosure access, cable routing through three joints per arm, and thermal path for drivers remain conceptual concerns. No service interval or tool clearance is defined.
-
-## 7. Week 3 status
-
-| Topic | Status |
-|---|---|
-| Configuration | Documented |
-| Load path | Documented |
-| First-order tipping | ESTIMATE produced; clamping recommended |
-| Stress / deflection | BLOCKED on geometry & material |
-| Workspace | Qualitative only |
-| Serviceability | Qualitative only |
-
-See `OPEN_QUESTIONS.md` and `ACTUATOR_ANALYSIS.md` for residual unknowns.
+References: references/SOURCE_REGISTER.md SRC-01–SRC-06; calculations/WEEK2_ARCHITECTURE_CHECKS.md. No simulation, bench or physical evidence is claimed.

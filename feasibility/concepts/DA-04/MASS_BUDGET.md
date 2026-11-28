@@ -1,17 +1,31 @@
-# DA-04 — Mass Budget (Week 3 estimate)
+# DA-04 — Mass Budget Evidence Record (Week 3/4)
 
-**Version 0.3.0 | 2026-11-27 | INTERN-01 | HOLD D-003**
+**Status: INCOMPLETE — system mass is UNKNOWN; no component-mass estimate is supported by the available sources.** HOLD D-003 remains active.
 
-| Subsystem | Low | Nom | High | Notes |
-|---|---:|---:|---:|---|
-| Mobile base + differential drive | 2.5 | 3.5 | 5.0 | Chassis + 2 wheel modules |
-| Torso / head structure | 1.2 | 1.8 | 2.5 | |
-| 8 × arm joint modules | 1.6 | 2.4 | 3.6 | |
-| Arm links (2 arms) | 0.5 | 0.8 | 1.2 | |
-| Grippers | 0.2 | 0.3 | 0.5 | |
-| Compute / drivers / power | 0.5 | 0.8 | 1.3 | |
-| Battery (mobile) | 0.8 | 1.5 | 2.5 | Required for untethered; size TBD |
-| Sensors / harness / misc | 0.4 | 0.7 | 1.2 | |
-| **Total** | **7.7** | **11.8** | **17.8** | |
+## Published target (not a derived mass)
 
-Printed mass target (if any) is still CONCEPT_TARGET / TBD. Nominal ≈ 12 kg used for drive calculations above.
+The source concept README prints a robot mass target of 25–35 kg (est.). It is an unapproved CONCEPT_TARGET copied from illustrative artwork, not an independently calculated estimate, measured mass, or basis for allocating component masses. See [README.md, section 4](README.md#4-concept_target), [ARCHITECTURE.md](ARCHITECTURE.md), and [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-04.
+
+## Traceable subsystem breakdown
+
+| Subsystem | Source-backed configuration | Mass contribution | Evidence needed before calculating |
+|---|---|---|---|
+| differential-drive base and four wheels | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| torso and fixed head | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| two four-joint arm assemblies | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| two base drive channels | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| optional grippers and sensors | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| battery not shown in source artwork | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| compute, power, harness and covers | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| System total / low–nominal–high range | No source-backed component values are available | UNKNOWN — no subtotal computed; unknowns are not treated as zero | Verified component list, mass source per line, and mass/CoM datum |
+
+The family-level actuator specification provides provisional torque bands and proposed roles; it does not provide variant-specific actuator masses. The concept artwork does not provide thicknesses, link sections, enclosure geometry, board models, battery selection or component masses. Therefore no subsystem mass, CoM, or total can be derived from this record. The printed target is not used as a measured load input.
+
+## Required evidence
+
+- Controlled component list and selected actuator variants, with revisioned mass data.
+- Dimensioned, approved geometry plus selected material and density source for fabricated parts.
+- Exact board, battery, sensor, gripper, fastener and harness part data.
+- Confirmation of what the printed target includes (payload, battery, sensors, cables and optional modules).
+
+References: README.md section 4; ARCHITECTURE.md sections 2–3 and 8; calculations/WEEK2_ARCHITECTURE_CHECKS.md; [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07. Until those inputs exist, the mass result remains UNKNOWN.

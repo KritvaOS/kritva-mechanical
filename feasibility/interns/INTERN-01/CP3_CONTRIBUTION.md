@@ -2,43 +2,43 @@
 
 | Property | Value |
 |---|---|
-| Status | PROPOSED — contribution only; not CP3 review acceptance |
-| Version | 0.2.0 |
-| Last Updated | 2026-11-27 |
+| Status | PROPOSED — evidence-gap handoff; not CP3 acceptance |
+| Version | 0.3.0 |
+| Last updated | 2026-11-28 |
 | Concepts | DA-01, QR-02, DA-04, QR-04 |
 | HOLD | D-003 active |
 
-This is a partial INTERN-01 evidence handoff for four assigned concepts. It is not a CP3 review of all 12 concepts and does not mark `ROB-MECH-044` complete. The task register and acceptance status are intentionally unchanged pending owner/reviewer action.
+This contribution records source-backed concept targets, conditional arithmetic and missing evidence for four assigned concepts. It does not mark ROB-MECH-044 complete, change the task register or constitute a 12-concept review.
 
-## 1. Evidence added or reconciled
+## 1. Evidence prepared
 
-- Added `REQUIREMENTS.md` for each assigned concept. Each records artwork targets and common requirement references, and is explicitly **INCOMPLETE** because no owner-approved concept-specific baseline exists.
-- Added four accessible, not-to-scale SVG packaging mockups under each concept's `sketches/`. They are labeled paper-only/non-CAD and show unresolved owner decisions.
-- Reconciled the DA-01 calculation arithmetic: listed shoulder-pitch terms sum to 2.332 N·m static; the point-mass inertia estimate gives 2.970 N·m raw with the stated acceleration. Shoulder pitch is not part of the current 3-DOF baseline, so it remains a conditional sensitivity only. Elbow/wrist branches and the wrist-axis ambiguity are explicit.
-- Added a traceable DA-04 arm/base drive calculation; the base-drive static screen is 0.610 N·m per wheel at the stated 1.5× multiplier, replacing an earlier unexplained 0.8–1.2 N·m range.
-- Reworked QR-02 and QR-04 leg screens to show their moment-arm assumptions, sensitivity and static-only boundary. Dynamic gait/impact remain UNKNOWN.
-- Corrected QR-02 budget totals to 3.9 / 6.3 / 9.9 kg low/nominal/high and labeled them sensor-inclusive; the sensor-excluded nominal is 6.1 kg. Re-ran QR-02 and QR-04 static torque screens using budget nominal masses of 6.3 kg and 7.5 kg.
-- Added break-even actuator unit-price sensitivities at the INR 2,00,000 planning ceiling. These use existing category estimates only; there are no supplier quotes.
-- Added source-controlled parent family-spec reference for torque-only screening. The referenced document labels S/L data placeholders and the M baseline not frozen; no exact S/M/L compatibility is claimed.
-- Aligned WEEK3_COMPARISON_NOTE.md and COMPARISON_MATRIX.md on the same partial ordering: DA-01 (3.05), QR-02 (2.55), DA-04 (2.40), QR-04 (2.10), from 85% scored weight. EC-02 remains NOT SCORED; weights are not renormalized, and this is not a final recommendation.
+- Added one REQUIREMENTS.md per assigned concept. Each transcribes artwork targets as CONCEPT_TARGET and leaves unsupported values UNKNOWN/TBD.
+- Four not-to-scale SVG concept mockups remain attached to this contribution. Their labels are source-transcribed targets; the sketches are not CAD or manufacturing dimensions.
+- Replaced unsupported subsystem mass ranges with source-backed target records and UNKNOWN component masses/total. No system mass is forced to match artwork.
+- Replaced unsupported cost bands and break-even prices with quote-ready scopes. Cost totals remain NOT COMPUTABLE; EC-03 is NOT SCORED.
+- Replaced assumed link masses, moment arms, accelerations, wheel radii, slope values and multipliers with formulas and explicitly conditional scenarios. DA-04 contains one conditional payload-only horizontal shoulder-pitch term derived from printed payload/reach targets; DA-01 has no numeric torque because the baseline axes/geometry are insufficient. QR-02/QR-04 contain conditional one-leg force scenarios from printed mass targets. These are not total joint requirements or actuator ratings.
+- Added source-register entries for concept READMEs/artwork, architecture, the common traceability/scoring rules and the pinned provisional actuator family specification. S/M/L roles and bands are cited as proposals only; no concept-to-family assignment is made.
+- Updated the comparison note and matrix to report only source-backed target facts and evidence status. All criteria remain NOT SCORED; no weighted ranking or recommendation is published.
 
-## 2. Task 044 acceptance-criteria evidence map (review pending)
+## 2. Task 044 evidence map — review pending
 
 | Criterion | Current evidence | Remaining gap / status |
 |---|---|---|
-| AC-044-01 — required concept files or explicit gaps | Required `REQUIREMENTS.md` files are now present; each marks missing approved requirements as INCOMPLETE and lists the next inputs. | **INCOMPLETE pending review**; no owner-approved requirements baseline. |
-| AC-044-02 — torque/speed formulas, inputs, units and assumptions per joint | Calculation notes now show formulas, units, assumptions and static/inertial screens for assigned concepts. | **INCOMPLETE**: DA-01 axis mismatch and wrist branch unresolved; QR-02/QR-04 moment arms back-solved; speeds/duty and dynamic requirements remain TBD. |
-| AC-044-03 — S/M/L compatibility per joint | Proposed family bands are referenced and compared as a torque-only screen. | **BLOCKED** for compatibility: S/L variant values are placeholders, M is not frozen, and speed/thermal/envelope/duty inputs are missing. EC-02 stays NOT SCORED. |
-| AC-044-04 — numbers labeled, evidence type C, no unsupported validation claims | Added labels, formulas and explicit paper-only limitations. | **INCOMPLETE pending independent review**; no simulation, bench or physical evidence is claimed. |
+| AC-044-01 — required concept files or explicit gaps | Concept requirements records, source registers and open-input lists are present | INCOMPLETE; no owner-approved concept requirements baseline |
+| AC-044-02 — torque/speed formulas, inputs, units and assumptions per joint | Equations and the exact source inputs available are recorded; conditional examples are separated from requirements | INCOMPLETE; joint geometry, component masses, pose, speed and duty are missing for complete per-joint calculations |
+| AC-044-03 — S/M/L compatibility per joint | Pinned family spec roles and proposed ranges are cited | BLOCKED; S/L values are placeholders, M is not frozen, per-joint demands and variant data are not available |
+| AC-044-04 — numbers labeled, evidence type C, no unsupported validation claims | Source targets, conditional calculations and unknowns are distinguished | INCOMPLETE pending independent review; no simulation, bench or physical evidence |
 
-## 3. Open owner/reviewer decisions
+## 3. Comparison and scoring boundary
 
-1. Resolve DA-01's shoulder yaw / shoulder-pitch axis count and wrist rotation/pitch definition.
-2. Supply controlled, revisioned S/M/L variant output data and maturity; confirm operating speed/duty and thermal assumptions.
-3. Define DA-04's wheel geometry, mass distribution, battery scope and mobile operating conditions.
-4. Define QR-02/QR-04 joint poses and dynamic gait/load cases; decide QR-04's mounting/sensor details.
-5. Review all estimates and their source/confidence labels before any task acceptance.
+feasibility/EVALUATION_CRITERIA.md requires NOT SCORED when evidence is UNKNOWN and prohibits filling missing evidence with assumed scores. The prior score table and numeric partial ordering are withdrawn because costs and several criterion scores did not have the required source/rationale. Current scored weight is 0%; unscored weight is 100%. No ranking or shortlist is submitted.
 
-## 4. Downstream task boundary
+## 4. Open inputs
 
-The 12-concept CP2/CP3/CP4 tasks remain open: the other eight concepts, cross-intern evidence, owner decisions and formal review are outside this four-concept contribution. Do not mark those tasks complete or change HOLD D-003 based on this draft.
+1. Provide controlled actuator variant output, mass, speed-under-load, thermal and interface data.
+2. Define concept-specific component geometry/masses and joint axes, frames, poses, motion and duty.
+3. Define representative load-sharing, ground-contact and dynamic cases for both quadrupeds.
+4. Select BOM items and obtain dated prices/quotes with quantities, tax/shipping treatment and budget inclusions.
+5. Resolve source-artwork/decision-log questions and obtain owner/reviewer acceptance.
+
+The remaining eight concepts, cross-intern evidence and formal CP3/CP4 reviews remain outside this four-concept contribution. Do not change task states or HOLD D-003 based on this draft.

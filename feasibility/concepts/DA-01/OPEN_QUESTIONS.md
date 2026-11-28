@@ -1,39 +1,26 @@
-# DA-01 — Open Questions and Decisions (Week 3)
+# DA-01 — Open Questions and Evidence Needed
 
-**Status:** PROPOSED | Version 0.3.0 | 2026-11-27 | INTERN-01
+**Status:** PROPOSED | 2026-11-28 | HOLD D-003 active
 
-## 1. Owner decisions required
+## Open items listed in the source README
 
-| ID | Question | Impact if unresolved | Status |
-|---|---|---|---|
-| D3 | Confirm or reject 300 mm torso width printed only on cross-section | Affects packaging and CoM | OWNER_DECISION |
-| D4 | Confirm wrist axis: rotation, pitch, or explicit frame definition | Blocks ROM, cable routing, torque direction | OWNER_DECISION |
-| D5 | Confirm whether adjustable camera mast is in baseline | Affects mass, cost, cable routing | OWNER_DECISION |
-| — | Passive vs powered grippers in baseline | Adds actuator channels and cost | OWNER_DECISION |
-
-## 2. Technical unknowns blocking higher confidence
-
-| ID | Unknown | Needed for |
+| Source label | Open item | Current source status |
 |---|---|---|
-| U-01 | Exact link lengths, joint offsets, axis frames | Kinematics, workspace, precise torque |
-| U-02 | Joint ROM limits | Workspace, collision, duty |
-| U-03 | Source-controlled S/M/L mass, torque, speed, price, envelope | EC-02 scoring, final cost, packaging |
-| U-04 | Material grades, wall thicknesses, fastener classes | Stress, deflection, mass confidence |
-| U-05 | Tabletop support condition (clamp, friction, allowable tip margin) | Stability claim |
-| U-06 | Cable drag / friction contribution to joint torque | Continuous rating margin |
+| D3 | The 300 mm torso width is printed on the cross-section only | OPEN — OWNER REVIEW |
+| D4 | Wrist terminology differs between rotation/pitch labels; one DOF is counted | OPEN |
+| D5 | Adjustable camera mast appears on the cross-section but not the concept sheet | NOT VERIFIABLE FROM CURRENT ARTWORK |
 
-## 3. Risks (qualitative ESTIMATE)
+D3–D5 are labels used in the source README; they are not verified here against the decision log. This file does not confirm approval status or dates. D5 is a source discrepancy, not a recorded owner approval.
 
-| Risk | Likelihood | Impact | Mitigation direction |
-|---|---|---|---|
-| Wrist axis ambiguity leads to rework | Med | Med | Owner decision before detailed kinematics |
-| Actuator cost higher than low-end estimate | Med | High | Early S/M/L data request |
-| Tabletop tipping under dual-arm extension | Low–Med | Med | Specify positive clamping in next revision |
-| Printed mass target not met | Low | Low | Target is CONCEPT_TARGET only |
+## Missing evidence
 
-## 4. Calculation and evidence status
+| Input | Current status | Evidence needed |
+|---|---|---|
+| Link lengths, joint offsets, axes and representative poses | UNKNOWN | Dimensioned geometry and owner-defined pose |
+| Arm, joint, gripper and electronics masses/CoM | UNKNOWN | Selected parts or geometry/material calculation with source |
+| Continuous/peak torque, speed and duty | TBD | Complete per-joint load and motion inputs; controlled actuator data |
+| Table support, friction and allowable tip/sliding condition | UNKNOWN | Defined support/interface and owner acceptance criteria |
+| Material, sections, tolerances and interface allowables | UNKNOWN | Approved design inputs and source data |
+| Component prices and total cost | UNKNOWN | Component-level BOM with dated price evidence/quotes |
 
-- CALC-DA01-01 joint torque: drafted, ESTIMATE.
-- Mass and cost ranges: drafted, ESTIMATE.
-- Full multi-body dynamic model: NOT STARTED (requires U-01).
-- S/M/L comparison table: BLOCKED on U-03.
+No likelihood or impact rating is assigned without a documented risk basis. See ACTUATOR_ANALYSIS.md, MASS_BUDGET.md, COST_MODEL.md and CALC-DA01-01.

@@ -1,40 +1,37 @@
-# QR-02 — Joint and Actuator Requirements (Week 3/4 update)
+# QR-02 — Joint and Actuator Evidence Status
 
 | Property | Value |
 |---|---|
-| Document ID | KMECH-ACT-QR-02 |
-| Status | PROPOSED — paper estimate; owner review required |
-| Assigned Intern | INTERN-01 |
-| Version | 0.5.0 |
-| Last Updated | 2026-11-28 |
-| Evidence type | C — paper calculation only |
+| Status | INCOMPLETE — per-joint requirements are TBD |
+| Version | 0.6.0 |
+| Last updated | 2026-11-28 |
+| Evidence | Concept-art transcription and conditional paper calculations only |
+| HOLD | D-003 active |
 
-HOLD D-003 remains active. No gait, impact, simulation, bench or physical evidence is claimed; no actuator is selected.
+## Baseline joint/channel inventory
 
-## 1. Configuration and assumptions
+four legs, three DOF per leg. Baseline count: 12 baseline leg actuators: four legs with three DOF each. The inventory below follows README.md and ARCHITECTURE.md; it is not a torque, speed or actuator assignment.
 
-Standard quadruped: four legs × three DOF per leg = 12 baseline channels (CONCEPT_TARGET). The static screen uses the 6.3 kg sensor-inclusive nominal planning mass from MASS_BUDGET.md, with the entire weight assigned to one leg: F = 6.3 × 9.81 = 61.80 N. This one-leg whole-weight case is intentionally conservative relative to multi-leg static sharing; it is not a validated gait or stance requirement. The sensor-excluded nominal mass is 6.1 kg. Leg length is 220 mm with 110/110 mm segment split, representative speed is 2 rad/s (19.1 rpm), and the planning multiplier is 1.5×; these are ASSUMED, not approved requirements.
+| Joint/channel | Count | Motion as source-labelled | Torque requirement | Speed / ROM / duty |
+|---|---:|---|---|---|
+| Hip abduction/adduction | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
+| Hip/thigh flexion/extension | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
+| Knee flexion/extension | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
 
-## 2. Per-joint static screen, one leg
+The calculation file gives a conditional one-leg full-weight force scenario from the printed mass target. Joint torques remain unknown because moment arms and pose are absent.
 
-| Joint | Static torque (N·m) | 1.5× static-only screen (N·m) | Speed input | Torque-only family screen |
+## Family roles and ranges (proposal only; not a mapping)
+
+| Variant | Proposed continuous output torque | Proposed peak output torque | Proposed speed | Intended role (proposal) |
 |---|---:|---:|---|---|
-| Hip abduction / yaw | 1.10–1.65 (back-solved moment-arm sensitivity) | 1.65–2.47 | 2 rad/s ASSUMED | S is the smallest proposed band to examine; not assigned |
-| Hip flexion | 4.33–5.56; nominal 4.94 | 6.49–8.34 | 2 rad/s ASSUMED | Static high end exceeds proposed S continuous max 5; 1.5× static-only screen is higher; M is not assigned |
-| Knee flexion | 1.92–2.89 (back-solved moment-arm sensitivity) | 2.89–4.33 | 2 rad/s ASSUMED | S torque band is a screening candidate only; not assigned |
+| Kritva-S | 2–5 N·m | 5–10 N·m | up to about 60 RPM | Small joints/light mechanisms, e.g. wrist or neck |
+| Kritva-M | 10 N·m | 20–25 N·m (stretch) | 45 RPM | Elbow and reference joint; baseline remains unfrozen |
+| Kritva-L | 25–40 N·m | 50–80 N·m | about 20–40 RPM | Higher-load joints, e.g. hip or knee, subject to mass/power/thermal feasibility |
 
-See calculations/CALC-QR02-01_leg_torque.md for formulas, scaled budget mass and the limitations on back-solved moment arms. The hip-yaw +20% moment-arm case is a conservative sensitivity only, not a validated worst case. The 1.5× column is not a dynamic peak.
+Source: the pinned Kritva actuator family specification, 2026-10-15 revision, references/SOURCE_REGISTER.md SRC-07. The spec explicitly says S/L values are placeholders and the M reference is not frozen. It gives proposed roles, not a product selection or validated performance. S is the proposal for small joints/wrist/neck, M for elbow/reference, and L for higher-load hip/knee; these roles are not assignments to this concept.
 
-## 3. Proposed family-band screen (not assignment)
+## Required inputs before per-joint sizing
 
-| Family band | Proposed continuous torque | Proposed peak torque | Source headline speed | Maturity caveat |
-|---|---:|---:|---:|---|
-| Kritva-S | 2–5 N·m | 5–10 N·m | up to ~60 rpm | S values are placeholders |
-| Kritva-M | 10 N·m | 20–25 N·m | 45 rpm | M reference is not frozen |
-| Kritva-L | 25–40 N·m | 50–80 N·m | ~20–40 rpm | L values are placeholders |
+Exact joint frames/axes, dimensions and offsets, component masses and centres of mass, payload location, representative pose, motion profile, speed, duty, friction/cable loads, output-side variant data, and thermal/envelope limits. For legged concepts add support phase, load share, foot-ground forces and gait/impact cases. Missing values remain UNKNOWN/TBD; no assumed multiplier, back-solved moment arm, torque rating or speed is introduced.
 
-The parent family specification is proposal-level only. Headline speed is not demonstrated at required joint load; dynamic gait, thermal duty, packaging and exact variant output curves remain unavailable. See references/SOURCE_REGISTER.md SRC-11. No exact S/M/L compatibility or model selection is claimed.
-
-## 4. Open inputs
-
-Exact joint axes, pose, ROM, trajectory, duty, support polygon, ground reaction and impact, payload, battery and S/M/L variant-specific output data remain UNKNOWN/TBD. Optional sensors and force feet remain OWNER_DECISION. HOLD D-003 remains active.
+References: [README.md](README.md) sections 4 and 6; [ARCHITECTURE.md](ARCHITECTURE.md); [calculation note](calculations/CALC-QR02-01_leg_torque.md); [SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07; [DESIGN_GUIDELINES.md](../../DESIGN_GUIDELINES.md) FREQ-006/007/012.

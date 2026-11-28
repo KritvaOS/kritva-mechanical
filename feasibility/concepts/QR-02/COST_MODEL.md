@@ -1,20 +1,22 @@
-# QR-02 — Cost Model (Week 3)
+# QR-02 — Cost Evidence Record (Week 3/4)
 
-**Version 0.3.0 | 2026-11-27 | INTERN-01 | HOLD D-003 active**
+**Status: UNKNOWN — no traceable concept BOM prices are available.** HOLD D-003 remains active. No supplier quotes, procurement or purchase approval are present.
 
-Planning ceiling: INR 2,00,000.
+## Planning ceiling
 
-| Category | Low | Nom | High | Notes |
-|---|---:|---:|---:|---|
-| 12 × actuator modules | 90,000 | 1,50,000 | 2,40,000 | Dominant |
-| Structure / links / body | 10,000 | 18,000 | 30,000 | |
-| Feet / contact / sensors | 4,000 | 10,000 | 25,000 | Optional sensors higher |
-| Compute / drivers / power | 12,000 | 22,000 | 40,000 | |
-| Harness / fasteners / fab | 8,000 | 15,000 | 30,000 | |
-| **Baseline total** | **1,24,000** | **2,15,000** | **3,65,000** | |
+The study comparison ceiling is ₹2,00,000 per feasibility criterion EC-03; it is not a procurement budget. Source: [EVALUATION_CRITERIA.md, EC-03](../../EVALUATION_CRITERIA.md) and [REQUIREMENTS_REGISTER.md, FREQ-032–034](../../REQUIREMENTS_REGISTER.md).
 
-Nominal already sits near or slightly above the INR 2 L ceiling. Actuator cost is the decisive lever; smaller S-class actuators or shared driver architectures would be required to stay comfortably inside the budget. No quotations obtained.
+## Quote-ready scope; no prices inferred
 
-## Planning-ceiling sensitivity (derived ESTIMATE)
+| Cost line | Source-backed scope / quantity | Unit price | Extended price | Missing evidence |
+|---|---|---|---|---|
+| Actuator channels | 12 baseline leg actuators: four legs with three DOF each; README.md / ARCHITECTURE.md | UNKNOWN | UNKNOWN | Exact variant and part number, dated supplier source or quote, quantity break, taxes and shipping |
+| Structure and joints | central body/chassis; four three-joint legs; four feet | UNKNOWN | UNKNOWN | Released geometry, materials, process, quantity and supplier quote |
+| Compute, drivers and power | Conceptual provisions only; board/component models not selected | UNKNOWN | UNKNOWN | Controlled part numbers, quantities and dated prices |
+| Sensors, battery and optional modules | Optional or undefined in source artwork | UNKNOWN | UNKNOWN | Owner decision, part selection and price source |
+| Assembly, fabrication, test, logistics and taxes | Scope and quantities not defined | UNKNOWN | UNKNOWN | Cost inclusions, process/quantity basis and dated estimate or quote |
+| **Total / comparison to ceiling** | Unpriced lines remain visible | **NOT COMPUTABLE** | **NOT COMPUTABLE** | Do not treat missing prices as zero |
 
-At the INR 2,00,000 planning ceiling, holding the existing INR 65,000 nominal non-actuator categories fixed leaves INR 1,35,000 for 12 modules, or **INR 11,250 per module**. The current nominal actuator estimate is INR 1,50,000 / 12 = **INR 12,500 per module**—INR 1,250 per module (INR 15,000 total) above that threshold. These are derived from planning estimates, not vendor prices or quotes; low/high category uncertainty remains.
+No low/nominal/high cost bands or affordability statement are made. EC-03 must remain NOT SCORED until the components, quantities, budget inclusions and traceable prices are established. The pinned actuator-family specification does not identify priced robot actuator variants. The actuator repository's A0 sourcing document concerns a separate prototype scope and mixes listings with estimates; it is not used as a price for these concept assemblies (see SOURCE_REGISTER.md SRC-07–SRC-08).
+
+To resume costing, record each BOM line with part number, source URL/document, source date, currency, quantity, quote/listing/estimate status, taxes, shipping, lead time and limitations. See EVALUATION_CRITERIA.md EC-03 and REQUIREMENTS_REGISTER.md FREQ-032–034.

@@ -1,19 +1,15 @@
-# DA-04 — Open Questions and Decisions (Week 3)
+# DA-04 — Open Questions and Evidence Needed
 
-**Status:** PROPOSED | Version 0.3.0 | 2026-11-27 | INTERN-01
+**Status:** PROPOSED | 2026-11-28 | HOLD D-003 active
 
-## Owner decisions / baseline confirmations
-- 10-actuator baseline (no head pan) already approved 2026-10-31 — preserved.
-- Battery sizing and inclusion under D-003 interpretation for mobile concepts.
-- Maximum slope, speed and acceleration requirements (currently ASSUMED).
+| Open input / owner decision | Current status | Why it matters / evidence needed |
+|---|---|---|
+| Confirm the current 4-DOF-per-arm and 2-drive-channel baseline against the decision record | Source README records a decision claim; decision log not located in tracked tree | Do not restate approval as verified until the record is found |
+| Wheel radius, track, wheel loading, tyre/friction and operating case | UNKNOWN | Required for traction and drive torque calculation |
+| Arm link lengths, joint offsets, payload centre and representative pose | UNKNOWN | Required for per-joint arm torque and workspace |
+| Battery, sensor and optional gripper baseline | OWNER_DECISION / UNKNOWN | Changes mass, CoM, power and cost scope |
+| Component masses and CoM | UNKNOWN | Source-controlled parts or released geometry required |
+| Material/process, interfaces, tolerances and structural allowables | UNKNOWN | Required before stress/deflection or manufacturing claims |
+| Component prices, taxes, shipping, labour and test scope | UNKNOWN | Priced BOM and explicit budget scope required |
 
-## Key unknowns
-- Exact wheel radius, wheelbase, track, mass distribution.
-- Arm–base interaction tipping under simultaneous manipulation and drive.
-- Source-controlled S/M/L data for both arm and drive actuators.
-- Power architecture (tethered vs battery duration).
-
-## Risks (ESTIMATE)
-- Nominal cost already above INR 2 L ceiling.
-- Higher system mass increases drive torque and energy demand.
-- Tip-over risk when arms are extended while base is moving or on slope.
+No numeric mass, cost, drive-load or stability result is retained without source inputs. See README.md, ARCHITECTURE.md, ACTUATOR_ANALYSIS.md, MASS_BUDGET.md and COST_MODEL.md.

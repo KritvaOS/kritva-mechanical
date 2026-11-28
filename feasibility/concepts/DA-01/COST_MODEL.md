@@ -1,52 +1,22 @@
-# DA-01 — Preliminary Cost Model (Week 3)
+# DA-01 — Cost Evidence Record (Week 3/4)
 
-| Property | Value |
-|---|---|
-| Document ID | KMECH-COST-DA-01 |
-| Status | PROPOSED — Week 3 category-level ESTIMATE |
-| Version | 0.3.0 |
-| Last Updated | 2026-11-27 |
-| Assigned Intern | INTERN-01 |
+**Status: UNKNOWN — no traceable concept BOM prices are available.** HOLD D-003 remains active. No supplier quotes, procurement or purchase approval are present.
 
-**HOLD D-003 active.** No supplier quotations, procurement or final BOM are authorised. All figures are category-level planning estimates in INR and are tagged ESTIMATE.
+## Planning ceiling
 
-## 1. Planning ceiling
+The study comparison ceiling is ₹2,00,000 per feasibility criterion EC-03; it is not a procurement budget. Source: [EVALUATION_CRITERIA.md, EC-03](../../EVALUATION_CRITERIA.md) and [REQUIREMENTS_REGISTER.md, FREQ-032–034](../../REQUIREMENTS_REGISTER.md).
 
-Study-level hardware ceiling: **INR 2,00,000**. This is a comparison constraint, not an approved procurement budget.
+## Quote-ready scope; no prices inferred
 
-## 2. Category cost ranges (ESTIMATE, INR)
+| Cost line | Source-backed scope / quantity | Unit price | Extended price | Missing evidence |
+|---|---|---|---|---|
+| Actuator channels | 6 baseline arm actuators; up to 2 optional gripper actuators; README.md / ARCHITECTURE.md | UNKNOWN | UNKNOWN | Exact variant and part number, dated supplier source or quote, quantity break, taxes and shipping |
+| Structure and joints | base plate and central enclosure; two three-joint arm assemblies; two optional grippers | UNKNOWN | UNKNOWN | Released geometry, materials, process, quantity and supplier quote |
+| Compute, drivers and power | Conceptual provisions only; board/component models not selected | UNKNOWN | UNKNOWN | Controlled part numbers, quantities and dated prices |
+| Sensors, battery and optional modules | Optional or undefined in source artwork | UNKNOWN | UNKNOWN | Owner decision, part selection and price source |
+| Assembly, fabrication, test, logistics and taxes | Scope and quantities not defined | UNKNOWN | UNKNOWN | Cost inclusions, process/quantity basis and dated estimate or quote |
+| **Total / comparison to ceiling** | Unpriced lines remain visible | **NOT COMPUTABLE** | **NOT COMPUTABLE** | Do not treat missing prices as zero |
 
-Ranges reflect typical Indian academic / small-batch robotics component pricing at the 2026 planning horizon and the scale of DA-01. Confidence is Low until source-controlled prices and quantities exist.
+No low/nominal/high cost bands or affordability statement are made. EC-03 must remain NOT SCORED until the components, quantities, budget inclusions and traceable prices are established. The pinned actuator-family specification does not identify priced robot actuator variants. The actuator repository's A0 sourcing document concerns a separate prototype scope and mixes listings with estimates; it is not used as a price for these concept assemblies (see SOURCE_REGISTER.md SRC-07–SRC-08).
 
-| Category | Qty basis | Low (INR) | Nominal (INR) | High (INR) | Notes |
-|---|---|---:|---:|---:|---|
-| Actuator modules (motor + gearbox + encoder) | 6 | 45,000 | 75,000 | 1,20,000 | Dominant cost driver; S/M/L data pending |
-| Structural (base, links, enclosures) | 1 set | 8,000 | 15,000 | 25,000 | Al plate + CNC / printed links |
-| Bearings, shafts, fasteners | lot | 3,000 | 6,000 | 12,000 | |
-| Grippers (passive or simple servo) | 2 | 2,000 | 5,000 | 12,000 | Optional powered version higher |
-| Compute / motor drivers / power dist. | 1 set | 12,000 | 20,000 | 35,000 | Kritva platform boards |
-| Sensors / mast / cameras (optional) | 0–1 | 0 | 8,000 | 20,000 | Excluded from baseline |
-| Harness, connectors, covers, misc. | lot | 4,000 | 8,000 | 15,000 | |
-| Fabrication / finishing / assembly labour (in-house) | 1 | 5,000 | 12,000 | 25,000 | No external quote |
-| **Baseline subtotal (no optional sensors)** | | **79,000** | **1,41,000** | **2,44,000** | |
-
-## 3. Affordability observation
-
-- Nominal baseline ≈ INR 1.41 L sits inside the INR 2 L ceiling with ≈ 30 % margin.
-- High-end actuator pricing or addition of optional sensors / powered grippers can push the total above the ceiling.
-- Actuator modules are the single largest lever; S/M/L selection and source pricing will dominate the final comparison.
-
-## 4. Exclusions
-
-- No supplier quotations.
-- No import duties, taxes, shipping or contingency reserve quantified.
-- No software / NRE / test equipment.
-- Battery cost excluded (tabletop may be externally powered).
-
-## 5. Status
-
-Category-level ESTIMATE produced for Week 3. Ready for comparison once actuator source data and the other eleven concept cost models are available. No claim of affordability or design release is made.
-
-## 6. Planning-ceiling sensitivity (derived ESTIMATE)
-
-At the INR 2,00,000 planning ceiling, holding the existing INR 66,000 nominal non-actuator categories fixed leaves INR 1,34,000 for six modules, or **INR 22,333 per module**. The existing nominal actuator estimate is INR 75,000 / 6 = **INR 12,500 per module**, leaving INR 59,000 nominal total headroom. These are arithmetic sensitivities from category estimates, not supplier prices, quotes or procurement advice; high-case subtotal remains above the ceiling.
+To resume costing, record each BOM line with part number, source URL/document, source date, currency, quantity, quote/listing/estimate status, taxes, shipping, lead time and limitations. See EVALUATION_CRITERIA.md EC-03 and REQUIREMENTS_REGISTER.md FREQ-032–034.
