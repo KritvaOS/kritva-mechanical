@@ -22,12 +22,12 @@ Payload → gripper → wrist → forearm → elbow → upper arm → shoulder �
 
 Assumptions for a first-order check:
 
-- Robot mass nominal 4.7 kg (from MASS_BUDGET).
+- Robot mass nominal 5.4 kg (from MASS_BUDGET).
 - CoM roughly at geometric centre of base when arms folded.
 - Base footprint 300 × 250 mm.
 - Worst case: both arms extended horizontally to one side with 0.2 kg payload each.
 
-A quantitative overturning moment is **INCOMPLETE**: the prior note used a 2.15 N·m shoulder term that did not match the listed calculation inputs (2.33 N·m static, about 2.97 N·m including the stated inertial estimate), and shoulder pitch is not in the current three-axis-per-arm baseline. The restoring-moment range also lacks an approved CoM and support condition. Do not report a tipping margin or factor of safety from those figures.
+A quantitative overturning moment is **INCOMPLETE**: the prior note used a 2.15 N·m shoulder term that did not match the listed calculation inputs (2.39 N·m static, about 3.04 N·m including the stated inertial estimate), and shoulder pitch is not in the current three-axis-per-arm baseline. The restoring-moment range also lacks an approved CoM and support condition. Do not report a tipping margin or factor of safety from those figures.
 
 **Conclusion (qualitative only):** Evaluate positive tabletop attachment as a design consideration. A quantified clamp/friction recommendation and stability margin remain TBD until the axis, arm pose, CoM and support interface are defined.
 

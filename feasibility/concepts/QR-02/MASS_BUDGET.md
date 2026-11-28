@@ -1,8 +1,8 @@
 # QR-02 — Mass Budget (Week 3 estimate)
 
-**Version 0.3.0 | 2026-11-27 | INTERN-01 | HOLD D-003 active**
+**Version 0.4.0 | 2026-11-28 | INTERN-01 | HOLD D-003 active**
 
-Printed target: **4–7 kg (est.)** — CONCEPT_TARGET.
+Printed target: 4–7 kg (est.) — CONCEPT_TARGET.
 
 | Subsystem | Low | Nom | High | Notes |
 |---|---:|---:|---:|---|
@@ -11,8 +11,8 @@ Printed target: **4–7 kg (est.)** — CONCEPT_TARGET.
 | 8 × leg links | 0.4 | 0.7 | 1.1 | |
 | Feet / contact | 0.2 | 0.3 | 0.5 | |
 | Compute / drivers / power | 0.4 | 0.6 | 1.0 | |
-| Sensors (optional) | 0.0 | 0.2 | 0.5 | OWNER_DECISION |
+| Sensors (optional) | 0.0 | 0.2 | 0.5 | OWNER_DECISION; included in the sensor-inclusive planning total below |
 | Harness / fasteners / covers | 0.3 | 0.5 | 0.8 | |
-| **Baseline total** | **3.9** | **6.3** | **9.9** | |
+| **Planning total (includes optional sensors)** | **3.9** | **6.3** | **9.9** | Includes sensor allowance; not an approved hardware baseline |
 
-The line items sum to 3.9 / 6.3 / 9.9 kg low / nominal / high. Nominal is inside the printed 4–7 kg (est.) band; high exceeds it. Battery not included (may be external or small LiPo). CoM still UNKNOWN.
+The sensor-excluded subtotal is 3.9 / 6.1 / 9.4 kg low / nominal / high. Therefore 6.3 kg is the nominal sensor-inclusive planning mass used for the conservative joint-load screen; 6.1 kg is the nominal subtotal before the optional 0.2 kg sensor allowance. Battery is not included; CoM remains UNKNOWN.

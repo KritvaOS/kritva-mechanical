@@ -5,27 +5,27 @@
 | Calculation ID | CALC-QR04-01 |
 | Concept | QR-04 Agile Long-Leg Quadruped |
 | Status | PROPOSED / ESTIMATE |
-| Date | 2026-11-27 |
+| Date | 2026-11-28 |
 | Evidence type | C — paper calculation only |
-| Related | `ACTUATOR_ANALYSIS.md`, `MASS_BUDGET.md` |
+| Related | ACTUATOR_ANALYSIS.md, MASS_BUDGET.md |
 
-**HOLD D-003 remains active.** This is a static, assumption-based sensitivity screen; no dynamic gait, impact, simulation, bench or physical evidence is claimed.
+HOLD D-003 remains active. This is a static, assumption-based sensitivity screen; no dynamic gait, impact, simulation, bench or physical evidence is claimed.
 
 ## 1. Inputs and method
 
-`F_single = 6.5 kg × 9.81 m/s² = 63.77 N ≈ 64 N` (6.5 kg ASSUMED). Leg length is 0.280 m with 0.140/0.140 m segments (ASSUMED, not released dimensions). `τ = F × d⊥`.
+F_single = 7.5 kg × 9.81 m/s² ÷ 1 leg = 73.58 N. The 7.5 kg value is the QR-04 nominal mass budget. Assigning full robot weight to one leg is a conservative static load-sharing case, not a validated gait or stance requirement. Leg length is 0.280 m with 0.140/0.140 m segments (ASSUMED, not released dimensions). Use τ = F × d⊥.
 
-The prior static estimates imply effective moment arms `d⊥ = τ/F`: hip yaw `1.5/63.77 = 23.5 mm`; hip flexion `5.5/63.77 = 86.2 mm`; knee `3.0/63.77 = 47.0 mm`. These are back-solved from the previous estimates, not independently derived from a pose. A ±20% sensitivity is an explicit planning assumption, not a statistical confidence interval. The 1.5× multiplier is a static-only planning screen, not a validated safety factor.
+The prior static estimates at 6.5 kg imply effective moment arms of hip yaw 23.5 mm, hip flexion 86.2 mm and knee 47.0 mm. The same moment arms are retained while force is scaled to 7.5 kg. A ±20% sensitivity is an explicit conservative screening assumption around those back-solved values, not a statistically supported or validated worst-case bound. The 1.5× multiplier is static-only and is not a validated safety factor.
 
 ## 2. One-leg static sensitivity
 
 | Joint | Implied d⊥ (mm) | ±20% d⊥ band (mm) | Static band (N·m) | 1.5× static-only screen (N·m) |
 |---|---:|---:|---:|---:|
-| Hip abduction / yaw | 23.5 | 18.8–28.1 | 1.20–1.80 | 1.80–2.70 |
-| Hip flexion | 86.2 | 68.9–103.4 | 4.40–6.60 | 6.60–9.90 |
-| Knee flexion | 47.0 | 37.6–56.4 | 2.40–3.60 | 3.60–5.40 |
+| Hip abduction / yaw | 23.5 | 18.8–28.2 | 1.38–2.08 | 2.08–3.12 |
+| Hip flexion | 86.2 | 68.9–103.4 | 5.08–7.62 | 7.62–11.42 |
+| Knee flexion | 47.0 | 37.6–56.4 | 2.77–4.15 | 4.15–6.23 |
 
-The 1.5× column multiplies the static sensitivity only. It must not be called a peak or dynamic gait requirement. Replace the back-solved moment arms with an approved pose/coordinate model when available.
+Moment-arm values are rounded consistently to one decimal millimetre; torque values are rounded to two decimals. The 1.5× column multiplies static sensitivity only and must not be called a dynamic peak. Replace back-solved moment arms with an approved pose/coordinate model when available.
 
 ## 3. Limits
 

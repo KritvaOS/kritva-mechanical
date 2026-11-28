@@ -1,23 +1,27 @@
-# INTERN-01 — Week 3 Cross-Concept Comparison Note
+# INTERN-01 — Week 3/4 Cross-Concept Comparison Note
 
-**Status:** PROPOSED | 2026-11-27 | HOLD D-003 active
+**Status:** PROPOSED partial comparison | 2026-11-28 | HOLD D-003 active
 
-Quick comparison of the four assigned concepts under the explicit assumptions used in the Week-3 analysis files. All numbers are ESTIMATE.
+This note compares only the four INTERN-01 concepts using the current paper estimates. The torque row is the largest 1.5× planning-screen value in each concept’s current calculation file; calculation bases differ and none is a continuous actuator rating or a validated peak.
 
 | Metric | DA-01 | QR-02 | DA-04 | QR-04 |
 |---|---|---|---|---|
 | Actuator count | 6 | 12 | 10 | 12 |
-| Highest continuous joint demand (after 1.5×) | ≈ 3.2 N·m (shoulder) | ≈ 8.3 N·m (hip) | ≈ 6.9 N·m (shoulder) | ≈ 12 N·m (hip) |
-| Nominal mass (kg) | 4.7 | 6.1 | 11.8 | 7.5 |
-| Nominal cost (INR) | 1.41 L | 2.15 L | 2.40 L | 2.32 L |
-| vs INR 2 L ceiling | Inside | Marginal / over | Over | Over |
-| Complexity / risk drivers | Wrist axis ambiguity; tabletop clamping | Optional sensors; gait loads | Battery + drive; tipping under arm load | Long-leg moments; mounting interface |
+| Largest 1.5× joint planning screen (N·m; basis differs; not a continuous rating) | ≈1.26 elbow baseline; conditional shoulder-pitch case ≈4.56 is not baseline | ≈8.34 hip flexion | ≈5.63 shoulder pitch | ≈11.42 hip flexion |
+| Nominal mass (kg) | ≈5.4 | 6.3 incl. optional sensors; 6.1 excl. | 11.8 | 7.5 |
+| Nominal cost estimate (INR) | 1.41 L | 2.15 L | 2.40 L | 2.32 L |
+| vs INR 2 L planning ceiling | Inside estimate | 0.15 L over | 0.40 L over | 0.32 L over |
+| Complexity / risk drivers | Wrist-axis ambiguity; support/CoM TBD | Optional sensors; gait and load sharing TBD | Battery, drive and tipping conditions TBD | Long-leg moments; mounting interface OWNER_DECISION |
 
-**Preliminary ranking by current paper evidence (not a final recommendation):**
+## Partial ranking within the four assigned concepts
 
-1. DA-01 — lowest demand, lowest cost, simplest packaging.
-2. QR-02 — moderate demand, cost near ceiling.
-3. QR-04 — higher moments, cost over ceiling.
-4. DA-04 — highest system cost and mass under current assumptions.
+EC-02 (15%) remains NOT SCORED, so only 85% of the criteria contribute. The values below are not renormalized; this is a partial ordering from the scored contribution table in COMPARISON_MATRIX.md, not a full score, all-12 ranking or final recommendation.
 
-Final comparative scoring, risk weighting and recommendation are Week-4 / CP4 work and require the remaining eight concepts plus owner decisions on actuator data and open artwork items.
+| Partial rank | Concept | Partial weighted contribution (out of 5) | Scored weight |
+|---:|---|---:|---:|
+| 1 | DA-01 | 3.05 | 85% |
+| 2 | QR-02 | 2.55 | 85% |
+| 3 | DA-04 | 2.40 | 85% |
+| 4 | QR-04 | 2.10 | 85% |
+
+The remaining eight concepts, owner decisions and actuator evidence are required before CP4 scoring or a final recommendation.

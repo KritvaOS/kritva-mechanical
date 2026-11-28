@@ -17,9 +17,10 @@ This is a partial INTERN-01 evidence handoff for four assigned concepts. It is n
 - Reconciled the DA-01 calculation arithmetic: listed shoulder-pitch terms sum to 2.332 N·m static; the point-mass inertia estimate gives 2.970 N·m raw with the stated acceleration. Shoulder pitch is not part of the current 3-DOF baseline, so it remains a conditional sensitivity only. Elbow/wrist branches and the wrist-axis ambiguity are explicit.
 - Added a traceable DA-04 arm/base drive calculation; the base-drive static screen is 0.610 N·m per wheel at the stated 1.5× multiplier, replacing an earlier unexplained 0.8–1.2 N·m range.
 - Reworked QR-02 and QR-04 leg screens to show their moment-arm assumptions, sensitivity and static-only boundary. Dynamic gait/impact remain UNKNOWN.
-- Corrected the QR-02 mass-budget sums to 3.9 / 6.3 / 9.9 kg low/nominal/high.
+- Corrected QR-02 budget totals to 3.9 / 6.3 / 9.9 kg low/nominal/high and labeled them sensor-inclusive; the sensor-excluded nominal is 6.1 kg. Re-ran QR-02 and QR-04 static torque screens using budget nominal masses of 6.3 kg and 7.5 kg.
 - Added break-even actuator unit-price sensitivities at the INR 2,00,000 planning ceiling. These use existing category estimates only; there are no supplier quotes.
 - Added source-controlled parent family-spec reference for torque-only screening. The referenced document labels S/L data placeholders and the M baseline not frozen; no exact S/M/L compatibility is claimed.
+- Aligned WEEK3_COMPARISON_NOTE.md and COMPARISON_MATRIX.md on the same partial ordering: DA-01 (3.05), QR-02 (2.55), DA-04 (2.40), QR-04 (2.10), from 85% scored weight. EC-02 remains NOT SCORED; weights are not renormalized, and this is not a final recommendation.
 
 ## 2. Task 044 acceptance-criteria evidence map (review pending)
 
