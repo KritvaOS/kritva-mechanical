@@ -1,18 +1,15 @@
-# DA-01 — Source Register (Week 3/4)
+# DA-01 — Week 3 source register
 
-**Status:** PROPOSED — paper-only traceability record; HOLD D-003 active.
+**Status:** PROPOSED / ESTIMATE; paper-level sources and calculations only.
 
-| Ref | Source | Numeric or decision use | Limitation |
-|---|---|---|---|
-| SRC-01 | [../README.md](../README.md) sections 2, 4, 6 and 9 | Printed concept targets, assembly count, baseline channels, payload/mass ranges and documented unknowns | Targets are CONCEPT_TARGET; artwork is not to scale and printed estimates have no derivation |
-| SRC-02 | [../ARCHITECTURE.md](../ARCHITECTURE.md) sections 2–3 and 8–9 | Configuration, joint/channel count, dimensions and explicit unknowns | Concept-level; no released geometry, mass breakdown or operating loads |
-| SRC-03 | [concept artwork](../../../../docs/images/KMECH-CONCEPT-DA-01.png) and [cross-section](../../../../docs/images/KMECH-CROSS-SECTION-DA-01.png) | Original concept artwork referred to by README | Illustrative, not scale-calibrated or engineering evidence |
-| SRC-04 | [../calculations/WEEK2_ARCHITECTURE_CHECKS.md](../calculations/WEEK2_ARCHITECTURE_CHECKS.md) | Prior check on dimensions and mass-data availability | Confirms unsupported geometry and subsystem mass remain TBD/UNKNOWN |
-| SRC-05 | [DESIGN_GUIDELINES.md](../../../DESIGN_GUIDELINES.md) and [REQUIREMENTS_REGISTER.md](../../../REQUIREMENTS_REGISTER.md) | Traceability rules; distinguish sourced values, assumptions and calculations | Proposed study guidance; does not approve product requirements |
-| SRC-06 | [EVALUATION_CRITERIA.md](../../../EVALUATION_CRITERIA.md), sections 3–6 and EC-03 | Scoring evidence rules and ₹2,00,000 comparison ceiling | Proposed study methodology; unknown evidence must remain NOT SCORED |
-| SRC-07 | [Kritva actuator family spec, pinned revision](<https://github.com/KritvaOS/kritva-actuator/blob/31bfc20aed0479a3bce64cf8945e86b1fa6f2fa6/docs/architecture/ACTUATOR_FAMILY_SPEC.md>) | Provisional S/M/L torque bands and intended roles | S/L values are placeholders; M reference is not frozen; no variant mass, price or compatibility evidence |
-| SRC-08 | [Actuator prototype sourcing and cost draft, pinned revision](<https://github.com/KritvaOS/kritva-actuator/blob/31bfc20aed0479a3bce64cf8945e86b1fa6f2fa6/docs/architecture/COMPONENTS_SOURCING_AND_COST.md>) | Checked as a possible cost-source reference | Separate A0 prototype scope; listings/estimates are not prices for these robot assemblies and are not used here |
+**Reference backbone:** The full dated bibliography, source confidence notes, calculations and exact product-page links are in [WEEK3_SOURCE_REGISTER.md](../../../interns/INTERN-01/WEEK3_SOURCE_REGISTER.md). The estimate arithmetic is consolidated in [WEEK3_ESTIMATE_METHOD.md](../../../interns/INTERN-01/WEEK3_ESTIMATE_METHOD.md). D-003 paper-only boundary remains active. No product is selected and no external quote is claimed.
 
-## Source handling
+| Ref | Source | Use and limitation |
+|---|---|---|
+| P01 | feasibility/concepts/DA-01/README.md | 350 mm reach, 0.1–0.2 kg payload, 300×250 mm base and 5–8 kg CONCEPT_TARGET. |
+| P02 | docs/images/KMECH-CONCEPT-DA-01.png and docs/images/KMECH-CROSS-SECTION-DA-01.png | Illustrative configuration and cross-section only; not to scale or dimensioned CAD. |
+| S01–S02 | HEBI T-series and Makiina product sources | Actuator mass/speed/torque references; Makiina price is a product-page listing, not a landed quote. |
+| S07–S10 | 6061 density, tube section, material-price and machining-rate references | Analyst mass and cost scenarios; not a structural selection or shop quotation. |
+| S14–S20 | Pi 5, currency rate, PSU, camera, gripper and MG995 listings | Component cost/mass anchors; camera/gripper are explicit options. |
 
-Only values explicitly printed in SRC-01/SRC-02 are copied as CONCEPT_TARGET. No component mass, cost, material property, link length, moment arm, speed or acceleration is inferred from an unscaled drawing. Conditional calculations identify their exact target inputs, equations and scenario limits in the relevant CALC file. Missing inputs remain UNKNOWN/TBD.
+Concept README and artwork remain the controlling source for printed targets. Artwork is illustrative, not engineering evidence. The central source register distinguishes product specs from vendor-listing prices, analyst assumptions and third-party comparisons.

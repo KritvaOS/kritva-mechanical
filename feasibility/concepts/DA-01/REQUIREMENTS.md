@@ -1,40 +1,51 @@
-# DA-01 — Concept Targets and Requirement Gaps
+# DA-01 — Concept targets and evidence requirements
 
 | Property | Value |
 |---|---|
 | Document ID | KMECH-REQ-DA-01 |
-| Status | PROPOSED — INCOMPLETE; owner review required |
+| Repository | KritvaOS/kritva-mechanical |
+| Document Type | Concept requirements working record |
+| Status | PROPOSED — owner review pending |
+| Assigned Intern | INTERN-01 |
 | Version | 0.2.0 |
 | Last Updated | 2026-11-28 |
-| Authority | No approved concept-specific requirement baseline exists |
-| Evidence scope | Paper-only source transcription and gap record |
+| Authority | No accepted concept-specific requirement baseline is recorded here |
+| Related Documents | README.md, ARCHITECTURE.md, ACTUATOR_ANALYSIS.md, OPEN_QUESTIONS.md, ../../REQUIREMENTS_REGISTER.md |
 
-HOLD D-003 remains active. This file transcribes targets; it does not create requirements, select hardware or authorize implementation.
+**HOLD D-003 remains active.** This record transcribes printed concept targets and maps proposed study requirements. It does not create approved product requirements, select hardware, or authorize implementation. No new CREQ identifiers are assigned.
 
-## 1. Concept-target transcription (not approved requirements)
+## 1. Scope
 
-700 mm overall width; 400 mm overall height; 300 × 250 mm base; 350 mm shoulder-to-gripper reach per side; 3 DOF per arm; 6 baseline actuators; printed mass 5–8 kg (est.) and payload 0.1–0.2 kg per arm.
+Concept: Fixed Tabletop Dual-Arm. This record supports paper feasibility only. Artwork values below are CONCEPT_TARGETs, not accepted requirements.
 
-Source: [concept README](README.md#4-concept_target), [architecture record](ARCHITECTURE.md), original concept artwork/cross-section and references/SOURCE_REGISTER.md SRC-01–SRC-04. Artwork values, including any printed “est.” mass/payload, are CONCEPT_TARGET only; they are not independently derived estimates or verified operating inputs.
+## 2. Concept-target transcription
 
-## 2. Common study requirements referenced
+700 mm overall width; 400 mm height; 300×250 mm base; 350 mm reach per arm; 3 DOF per arm; six baseline joint actuators; 5–8 kg mass target; 0.1–0.2 kg payload per arm; 24 V concept direction. All are artwork targets, not approved requirements.
 
-Applicable common register references: FREQ-002, FREQ-004 to FREQ-008, FREQ-012, FREQ-013, FREQ-015, FREQ-019, FREQ-020, FREQ-026 to FREQ-028, FREQ-032 to FREQ-034.
+Source: README.md, concept artwork and cross-section, with figure-level references in references/SOURCE_REGISTER.md. Rendered artwork is illustrative, not dimensioned CAD.
 
-These IDs are references to the common proposed register, not claims of completion or approval.
+## 3. Applicable study requirements
 
-## 3. Evidence status and gaps
+These IDs reference the common proposed register and are not redefined or claimed accepted here: Elbow 1.33 Nm, shoulder yaw 1.03 Nm, wrist pitch 0.31 Nm, and conditional shoulder pitch 4.77 Nm at 1.5×..
 
-| Topic | Status | Basis / next evidence |
+## 4. Evidence and scenario inputs
+
+- Current evidence is paper review and formula-based estimates only; the calculations name every assumed geometry, mass, payload and acceleration input.
+- The proposed family role mapping is S for wrist/neck, M for elbow/reference, and L for hip/knee. The family spec labels S/L torque values as placeholders and M as a reference; it does not qualify a specific actuator variant.
+- Materials, dimensions, assembly masses, prices and seller specifications are separated in the central source register. Structure estimates use published density and section geometry, but do not establish strength, deflection, fatigue, tolerance or safety margins.
+- CAD, final BOM, quotations, procurement, fabrication, assembly and physical testing remain prohibited under HOLD D-003.
+
+## 5. Requirement evidence register
+
+| Topic | Current evidence | Boundary and review action |
 |---|---|---|
-| Operating and demonstration requirements | UNKNOWN | Owner must define use case, duty and acceptance needs; do not infer from artwork |
-| Per-joint torque, speed, ROM and duty | INCOMPLETE / TBD | No complete, source-backed geometry and component-mass model; see ACTUATOR_ANALYSIS.md and calculations/ |
-| S/M/L compatibility | NOT SCORED / BLOCKED | Family-level roles/bands are provisional; S/L placeholders and M reference not frozen; no variant-level output data |
-| Subsystem mass and CoM | UNKNOWN | No component masses, selected materials or released geometry; see MASS_BUDGET.md |
-| Component cost and affordability | UNKNOWN | No priced, source-controlled BOM; see COST_MODEL.md; EC-03 not scored |
-| Materials, strength and safety limits | UNKNOWN | No approved material grade, geometry, allowable or safety factor |
-| Concept-specific requirements baseline | INCOMPLETE | Owner review required before assigning concept-specific requirements or acceptance claims |
+| Operating/demo use | Artwork targets and task objectives | No owner-accepted operating envelope is present in this working record; review the explicitly modeled scenarios before adopting acceptance criteria. |
+| Per-joint demand | Makiina10Nm clears the four modeled branches; HEBI T5-4 4Nm does not clear the conditional shoulder-pitch branch. | Torque is a paper screen; the calculation does not convert a static or assumed-acceleration case into a continuous product requirement. |
+| Actuator compatibility | Product references and proposed family roles in ACTUATOR_ANALYSIS.md | Compare torque, speed, mass, voltage and listing status; no module is selected or qualified. |
+| Material and structure | Mass takeoff in MASS_BUDGET.md; density and tube data cited | Thickness/sections are estimate inputs; no structural rating or material purchase is implied. |
+| Mass and cost | Low/nominal/high mass and component-price scenario in MASS_BUDGET.md and COST_MODEL.md | Seller listings and planning allowances are not quotations; the ₹2 lakh study ceiling is not a procurement budget. |
+| Concept requirement baseline | Owner review pending | Do not assign new concept requirement IDs or acceptance claims in this paper update. |
 
-## 4. Constraints
+## 6. HOLD D-003
 
-All unsupported quantities remain UNKNOWN/TBD. Calculated values must show formula, exact source inputs, conditional assumptions and limits. No assumed subsystem mass or price may be propagated as fact. CAD, BOM, supplier quotes, procurement, fabrication, assembly and physical testing remain NOT STARTED under HOLD D-003.
+This is a paper requirements and evidence record. It does not authorize CAD, BOM release, quotations, procurement, fabrication, assembly or physical testing.

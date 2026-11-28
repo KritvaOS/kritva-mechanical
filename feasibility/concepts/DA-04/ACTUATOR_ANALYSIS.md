@@ -1,39 +1,26 @@
-# DA-04 — Joint and Actuator Evidence Status
+# DA-04 — Actuator screen
 
-| Property | Value |
-|---|---|
-| Status | INCOMPLETE — per-joint requirements are TBD |
-| Version | 0.6.0 |
-| Last updated | 2026-11-28 |
-| Evidence | Concept-art transcription and conditional paper calculations only |
-| HOLD | D-003 active |
+**Status:** PROPOSED / ESTIMATE; no actuator selected. D-003 remains active. See [CALC-DA04-01_arm_drive_screen.md](calculations/CALC-DA04-01_arm_drive_screen.md).
 
-## Baseline joint/channel inventory
+## Arm load screen
 
-two arms, four DOF per arm; differential-drive base with two channels. Baseline count: 10 baseline actuators: 8 arm joints and 2 drive channels. The inventory below follows README.md and ARCHITECTURE.md; it is not a torque, speed or actuator assignment.
+The proposed family spec assigns S to wrist/neck, M to elbow/reference and L to hip/knee. It does not provide a validated arm-shoulder role assignment. Treat S as a wrist reference and M as an elbow/reference only; shoulder is evaluated against the measured product references rather than inventing a category.
 
-| Joint/channel | Count | Motion as source-labelled | Torque requirement | Speed / ROM / duty |
-|---|---:|---|---|---|
-| Shoulder yaw | 2 | yaw/rotation | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Shoulder pitch | 2 | pitch | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Elbow | 2 | pitch | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Wrist | 2 | pitch | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Drive channels | 2 | left and right differential-drive channel | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
+| Joint | Largest 1.5× screen Nm | 0.5 kg case Nm | 1.0 kg case Nm |
+|---|---:|---:|---:|
+| Shoulder pitch | 14.64 | 9.81 | 14.64 |
+| Elbow pitch | 5.32 | 3.28 | 5.32 |
+| Wrist pitch | 1.28 | 0.68 | 1.28 |
+| Shoulder yaw | 4.28 | 2.76 | 4.28 |
 
-The separate CALC-DA04-01 file computes only a conditional payload contribution at shoulder pitch and gives the symbolic wheel relation; neither is a total actuator requirement.
+Makiina’s 10 Nm rated continuous module at 24 V clears the 0.5 kg shoulder case but does not clear the 1.0 kg 14.64 Nm screen. CubeMars AK10-9 V3.0 (18 Nm rated, 0.940 kg, 48 V) clears the modeled torque case but requires a different power direction. HEBI T8-16 is 16 Nm continuous, 0.575 kg, 15 rpm; it clears the torque screen at the stated speed, but is a 48 V product and the source concept’s 24 V direction remains. These are paper comparisons, not selections.
 
-## Family roles and ranges (proposal only; not a mapping)
+## Base drive
 
-| Variant | Proposed continuous output torque | Proposed peak output torque | Proposed speed | Intended role (proposal) |
-|---|---:|---:|---|---|
-| Kritva-S | 2–5 N·m | 5–10 N·m | up to about 60 RPM | Small joints/light mechanisms, e.g. wrist or neck |
-| Kritva-M | 10 N·m | 20–25 N·m (stretch) | 45 RPM | Elbow and reference joint; baseline remains unfrozen |
-| Kritva-L | 25–40 N·m | 50–80 N·m | about 20–40 RPM | Higher-load joints, e.g. hip or knee, subject to mass/power/thermal feasibility |
+The Robokits listing reports a 24 V, 100 W, 25 rpm geared motor/driver, 2.050 kg and 280 kg·cm rated torque (27.46 Nm converted). The 1.5× wheel screen is 1.27–1.78 Nm per driven side for 25–35 kg, 50 mm radius, 5° slope and 0.5 m/s² acceleration. Speed at that radius is 0.131 m/s. Torque is ample in this simplified screen, while speed, braking, wheel traction, turning and thermal duty remain outside the claim. The quoted combo has a two-channel driver; two combos are conservatively priced, so the cost model may double-count driver electronics.
 
-Source: the pinned Kritva actuator family specification, 2026-10-15 revision, references/SOURCE_REGISTER.md SRC-07. The spec explicitly says S/L values are placeholders and the M reference is not frozen. It gives proposed roles, not a product selection or validated performance. S is the proposal for small joints/wrist/neck, M for elbow/reference, and L for higher-load hip/knee; these roles are not assignments to this concept.
+## Power and cost compatibility
 
-## Required inputs before per-joint sizing
+The battery listing is 22.2 V nominal and the drive/low-cost arm listings specify 24 V; direct compatibility or needed regulation is not established, and no converter price is included. The 10 Ah battery case is a planning scenario, not a runtime guarantee. The 40 Ah source lacks a current-matched BMS price, so it is not treated as a complete alternative. The concept artwork states 24 V direction. The eight-module economy scenario uses 24 V Makiina; two shoulder AK10-9 upgrades yield a ₹288,202 pre-landing subtotal, over the ₹2,00,000 study ceiling. The product is 48 V. A 40 Ah battery listing is not treated as a compatible system: the source does not identify a current-matched BMS and it is excluded from the complete configuration estimate.
 
-Exact joint frames/axes, dimensions and offsets, component masses and centres of mass, payload location, representative pose, motion profile, speed, duty, friction/cable loads, output-side variant data, and thermal/envelope limits. For legged concepts add support phase, load share, foot-ground forces and gait/impact cases. Missing values remain UNKNOWN/TBD; no assumed multiplier, back-solved moment arm, torque rating or speed is introduced.
-
-References: [README.md](README.md) sections 4 and 6; [ARCHITECTURE.md](ARCHITECTURE.md); [calculation note](calculations/CALC-DA04-01_arm_drive_screen.md); [SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07; [DESIGN_GUIDELINES.md](../../DESIGN_GUIDELINES.md) FREQ-006/007/012.
+No actuator family or drive motor is selected. Ratings, candidate prices, links and confidence are in [WEEK3_SOURCE_REGISTER.md](../../interns/INTERN-01/WEEK3_SOURCE_REGISTER.md).

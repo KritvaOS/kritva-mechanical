@@ -1,44 +1,47 @@
-# INTERN-01 — CP3 Contribution Draft (Week 3/4)
+# INTERN-01 — CP3 contribution draft (Week 3/4)
 
 | Property | Value |
 |---|---|
-| Status | PROPOSED — evidence-gap handoff; not CP3 acceptance |
+| Status | PROPOSED — four-concept evidence contribution; not CP3 acceptance |
 | Version | 0.3.0 |
-| Last updated | 2026-11-28 |
+| Last Updated | 2026-11-28 |
 | Concepts | DA-01, QR-02, DA-04, QR-04 |
 | HOLD | D-003 active |
 
-This contribution records source-backed concept targets, conditional arithmetic and missing evidence for four assigned concepts. It does not mark ROB-MECH-044 complete, change the task register or constitute a 12-concept review.
+This is an evidence handoff for four assigned concepts. It does not claim all-12 CP3 review or mark ROB-MECH-044 accepted. The package task map assigns ROB-MECH-044 to INTERN-01. Task acceptance and the repository task register remain separate from this estimate.
 
-## 1. Evidence prepared
+## 1. Evidence added or reconciled
 
-- Added one REQUIREMENTS.md per assigned concept. Each transcribes artwork targets as CONCEPT_TARGET and leaves unsupported values UNKNOWN/TBD.
-- Four not-to-scale SVG concept mockups remain attached to this contribution. Their labels are source-transcribed targets; the sketches are not CAD or manufacturing dimensions.
-- Replaced unsupported subsystem mass ranges with source-backed target records and UNKNOWN component masses/total. No system mass is forced to match artwork.
-- Replaced unsupported cost bands and break-even prices with quote-ready scopes. Cost totals remain NOT COMPUTABLE; EC-03 is NOT SCORED.
-- Replaced assumed link masses, moment arms, accelerations, wheel radii, slope values and multipliers with formulas and explicitly conditional scenarios. DA-04 contains one conditional payload-only horizontal shoulder-pitch term derived from printed payload/reach targets; DA-01 has no numeric torque because the baseline axes/geometry are insufficient. QR-02/QR-04 contain conditional one-leg force scenarios from printed mass targets. These are not total joint requirements or actuator ratings.
-- Added source-register entries for concept READMEs/artwork, architecture, the common traceability/scoring rules and the pinned provisional actuator family specification. S/M/L roles and bands are cited as proposals only; no concept-to-family assignment is made.
-- Updated the comparison note and matrix to report only source-backed target facts and evidence status. All criteria remain NOT SCORED; no weighted ranking or recommendation is published.
+- Replaced blanket placeholder fields in the four working requirement records with concept-target transcription, sourced scenarios, explicit calculation limits and review actions. No approved requirement or owner decision is invented.
+- Added dated, source-linked low/nominal/high mass budgets, cost scenarios and actuator screens for DA-01, QR-02, DA-04 and QR-04.
+- Re-ran DA-01 point-mass calculations using a sourced 0.240 kg wrist-module mass. Revised 1.5× screens are 1.33 Nm elbow, 0.31 Nm wrist pitch, 1.03 Nm shoulder-yaw inertia and 4.77 Nm conditional shoulder pitch.
+- Reconciled QR-02 at 6.30 kg sensor-excluded nominal mass and QR-04 at 7.43 kg exact / 7.50 kg rounded mass. QR-02’s optional camera is +0.102 kg; it is not counted in the mass baseline. QR-04 moment arms use 0.1 mm rounding throughout.
+- Re-ran DA-04 arm and wheel screens with explicit payload, link, acceleration, wheel-radius and slope assumptions. The highest 1.5× shoulder-pitch screen is 14.64 Nm at 1.0 kg payload.
+- Added candidate product data and role mapping: S wrist/neck, M elbow/reference, L hip/knee. The family source labels S/L figures as placeholders; every comparison states voltage, role or evidence limitations.
+- Added the source-backed cost ceiling from EVALUATION_CRITERIA.md EC-03 and FREQ-032, price bases, and alternative scenarios. No generic estimate is presented as a quote or procurement authorization. QR-02/QR-04 full L-role lower bounds use two 18 Nm AK10-9 modules per joint; their ideal torque addition is not mechanically validated; couplings, mounts and 48 V integration are excluded and the result exceeds the study ceiling.
+- Updated the comparison matrix and note to a matching partial order: DA-01 (3.45), DA-04 (2.85), QR-02 (2.80), QR-04 (2.40). All seven proposed criteria contribute 100% of the weights for these four concepts; this remains partial across 4 of 12 concepts, not a CP4 ranking or final recommendation.
+- Restored Week 2 architecture and D-003 traceability, plus explicit FREQ references in the DA-01 README overlay and concept requirement records.
+- Corrected the DA-01 folder inventory, its target/cost summary and neutral recommendation wording. The source README’s decision-date statement is not repeated as a newly verified approval or assigned an invented decision ID.
 
-## 2. Task 044 evidence map — review pending
+## 2. ROB-MECH-044 evidence map (review pending)
 
-| Criterion | Current evidence | Remaining gap / status |
+| Criterion | Evidence in this contribution | Review status |
 |---|---|---|
-| AC-044-01 — required concept files or explicit gaps | Concept requirements records, source registers and open-input lists are present | INCOMPLETE; no owner-approved concept requirements baseline |
-| AC-044-02 — torque/speed formulas, inputs, units and assumptions per joint | Equations and the exact source inputs available are recorded; conditional examples are separated from requirements | INCOMPLETE; joint geometry, component masses, pose, speed and duty are missing for complete per-joint calculations |
-| AC-044-03 — S/M/L compatibility per joint | Pinned family spec roles and proposed ranges are cited | BLOCKED; S/L values are placeholders, M is not frozen, per-joint demands and variant data are not available |
-| AC-044-04 — numbers labeled, evidence type C, no unsupported validation claims | Source targets, conditional calculations and unknowns are distinguished | INCOMPLETE pending independent review; no simulation, bench or physical evidence |
+| AC-044-01 — concept requirement records | Four REQUIREMENTS.md files transcribe concept targets, applicable FREQs and estimate branches. | Files present; owner review is still required before requirements are accepted. |
+| AC-044-02 — torque/speed formulas and inputs | Four calculation notes give formulas, units, source references, geometry/mass assumptions and static or inertial results. | Calculation screens are traceable; axis interpretation, pose and duty remain review constraints, not unfilled calculation rows. |
+| AC-044-03 — S/M/L comparison | Each concept compares load screens with proposed S/M/L roles and sourced product references. | Role/load mismatches are identified; no variant is qualified or selected. |
+| AC-044-04 — evidence labeling and claims | Paper/estimate status, sources, assumptions and non-validation limits are explicit. | Independent reviewer acceptance remains outstanding; no simulation, bench or physical result is claimed. |
 
-## 3. Comparison and scoring boundary
+## 3. Review actions
 
-feasibility/EVALUATION_CRITERIA.md requires NOT SCORED when evidence is UNKNOWN and prohibits filling missing evidence with assumed scores. The prior score table and numeric partial ordering are withdrawn because costs and several criterion scores did not have the required source/rationale. Current scored weight is 0%; unscored weight is 100%. No ranking or shortlist is submitted.
+1. Have the concept owner confirm DA-01 axis alternatives, optional camera/mast scope and powered-gripper scope before baseline revision.
+2. Review the sourced actuator variants, family roles, voltage differences, and load scenarios; do not infer continuous suitability from static torque alone.
+3. Review the quadruped one-leg conservative load assumption, exact moment-arm scenarios and sensor/battery branches before any gait requirement is adopted.
+4. Review DA-04’s battery/drive assumptions, mobile stability scenario and 24 V/48 V alternative.
+5. Independently check the cost arithmetic, references and provisional scores before recording task acceptance.
 
-## 4. Open inputs
+## 4. Week 2 and downstream boundary
 
-1. Provide controlled actuator variant output, mass, speed-under-load, thermal and interface data.
-2. Define concept-specific component geometry/masses and joint axes, frames, poses, motion and duty.
-3. Define representative load-sharing, ground-contact and dynamic cases for both quadrupeds.
-4. Select BOM items and obtain dated prices/quotes with quantities, tax/shipping treatment and budget inclusions.
-5. Resolve source-artwork/decision-log questions and obtain owner/reviewer acceptance.
+Week 2 architecture and HOLD D-003 references are retained in each concept’s WEEK2_README_SECTIONS.md, ARCHITECTURE.md, WEEK2_ARCHITECTURE_CHECKS.md and reviews/WEEK2_CONCEPT_REVIEW.md. FREQ traceability is linked through feasibility/REQUIREMENTS_REGISTER.md. No parent study baseline or task state is changed by this contribution.
 
-The remaining eight concepts, cross-intern evidence and formal CP3/CP4 reviews remain outside this four-concept contribution. Do not change task states or HOLD D-003 based on this draft.
+The other eight concepts and cross-intern evidence are outside this assignment. CP2/CP3/CP4 acceptance and the final concept recommendation remain open for the full study. No CAD, final BOM, procurement, fabrication, assembly or physical test is authorized.

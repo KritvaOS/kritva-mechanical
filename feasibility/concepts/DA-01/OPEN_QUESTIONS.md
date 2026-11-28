@@ -1,26 +1,24 @@
-# DA-01 — Open Questions and Evidence Needed
+# DA-01 — Bounded decision and review register
 
-**Status:** PROPOSED | 2026-11-28 | HOLD D-003 active
+**Status:** Paper-stage estimates prepared; D-003 HOLD active. The branches below make the current alternatives explicit; they do not request a design approval by implication.
 
-## Open items listed in the source README
+## Owner choices that change the model
 
-| Source label | Open item | Current source status |
+| Decision | Modeled alternatives | Consequence to the estimate |
 |---|---|---|
-| D3 | The 300 mm torso width is printed on the cross-section only | OPEN — OWNER REVIEW |
-| D4 | Wrist terminology differs between rotation/pitch labels; one DOF is counted | OPEN |
-| D5 | Adjustable camera mast appears on the cross-section but not the concept sheet | NOT VERIFIABLE FROM CURRENT ARTWORK |
+| Shoulder axis | Three-axis baseline (yaw, elbow, wrist) or add shoulder pitch | Three-axis baseline is the source-artwork interpretation. Pitch is separately screened at 4.77 Nm, 1.5×. |
+| Wrist axis | Pitch or forearm rotation | Pitch branch screens at 0.31 Nm; rotation branch screens at 0.002–0.012 Nm under the stated radial-offset assumption. Cable routing and ROM differ. |
+| Camera and mast | Included in current nominal or omitted | Current 6.33 kg / ₹112,773 case includes camera and mast; concept mockup shows the mounting as an option. |
+| Gripper | Two powered MG995 demonstration grippers or passive grippers | Mass/cost budget includes two light servo kits; grip force is not specified by the seller and no payload-force claim is made. |
 
-D3–D5 are labels used in the source README; they are not verified here against the decision log. This file does not confirm approval status or dates. D5 is a source discrepancy, not a recorded owner approval.
+## Review register
 
-## Missing evidence
+- The published 5–8 kg concept band is a target; current 4.53 / 6.33 / 8.74 kg low/nominal/high cases straddle it.
+- The 24 V Makiina 10 Nm listing clears all modeled torque branches; HEBI T5-4 4 Nm does not clear the conditional 4.77 Nm pitch case. No module is selected.
+- Central estimates use the published ₹2 lakh study ceiling, source links, and the listed currency conversion. Foreign shipping/customs are excluded rather than assigned invented rates.
+- Stability has only an optimistic whole-mass support-edge screen. No clamp or verified center of mass is modeled.
+- The source README statement about a 10-channel baseline is not restated as a new approval. No decision ID/date is asserted in this update because the referenced decision record is not in the reviewed package.
 
-| Input | Current status | Evidence needed |
-|---|---|---|
-| Link lengths, joint offsets, axes and representative poses | UNKNOWN | Dimensioned geometry and owner-defined pose |
-| Arm, joint, gripper and electronics masses/CoM | UNKNOWN | Selected parts or geometry/material calculation with source |
-| Continuous/peak torque, speed and duty | TBD | Complete per-joint load and motion inputs; controlled actuator data |
-| Table support, friction and allowable tip/sliding condition | UNKNOWN | Defined support/interface and owner acceptance criteria |
-| Material, sections, tolerances and interface allowables | UNKNOWN | Approved design inputs and source data |
-| Component prices and total cost | UNKNOWN | Component-level BOM with dated price evidence/quotes |
+## Evidence state
 
-No likelihood or impact rating is assigned without a documented risk basis. See ACTUATOR_ANALYSIS.md, MASS_BUDGET.md, COST_MODEL.md and CALC-DA01-01.
+The calculation, cost and mass screens are present in the linked concept files and the central source register. Independent review of assumptions and task acceptance remain separate from this analysis. CAD, BOM release, procurement, fabrication, assembly and physical tests remain prohibited by HOLD D-003.
