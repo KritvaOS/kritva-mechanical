@@ -1,28 +1,19 @@
-# DA-04 — Mechanical Evidence Status (Week 3/4)
+# DA-04 — Mechanical feasibility screen
 
-**Status:** INCOMPLETE — qualitative configuration review only. HOLD D-003 active.
+**Status:** PROPOSED / ESTIMATE; no structural verification. D-003 remains active.
 
-## Source-backed configuration
+## Load path and mass geometry
 
-The concept record describes a mobile humanoid with two four-DOF arms and a differential-drive base with two drive channels. Four wheels are shown; the source also prints a 25–35 kg (est.) target mass, a 0.5–1.0 kg (est.) per-arm payload and a 450 mm reach. These are CONCEPT_TARGETs, not measured or independently derived inputs. See README.md sections 2, 4, 6 and 9; ARCHITECTURE.md sections 2–3.
+The proposed path is payload → gripper/wrist → arm links → shoulder frame → torso → mobile base → wheels. At 2,700 kg/m³, a 500×600×4 mm 6061 plate is 3.24 kg; 3.40 m of 40×40×3 tube at 1.199 kg/m is 4.08 kg; estimated brackets add 1.00 kg. Two 400×600×1.5 mm torso panels are 1.94 kg plus a 0.50 kg frame allowance. A 0.900 m 20×20×2 arm tube is 0.350 kg bare plus 0.50 kg joints/mounts. These inputs produce a modeled mass rather than a selected construction.
 
-## Load paths and stability
+## Static tip sensitivity
 
-Qualitative arm load path: gripper/payload → wrist → elbow → shoulder → torso → mobile base/support. Drive loads pass through wheel/tyre, drive channel and base structure. No approved component masses, CoM, wheel radius, track, load distribution, friction, slope, acceleration or travel-speed inputs are available. The battery is not drawn in the source artwork.
+For a 30 kg robot centered over a 600 mm wheelbase, with the full mass COM assumed at the base center, the restoring moment at a wheel edge is 30×9.81×0.300 = 88.29 Nm. The 1.0 kg horizontal arm screen is 6.90 Nm gravity torque per arm at the shoulder; two symmetric arms produce a 13.81 Nm combined pitch moment in this simplified case, 16% of the upper-bound restoring moment. This calculation assumes the entire robot mass is centered and does not include drive acceleration, slope, unequal wheel support, COM shift or arm/base collision. It is not a tip-over pass or operational permission. At the 5° slope case, stability still requires actual COM and wheel-contact geometry.
 
-No tipping moment, drive torque, traction margin or stability result is calculated. Arm payload torque is limited to the conditional payload-only shoulder-pitch case in CALC-DA04-01; it is not a complete joint load. No operating slope or clamp/fixture recommendation is made.
+## Drive and serviceability
 
-## Structure and packaging
+The listing title gives 25 rpm and its description elsewhere says 35 rpm; using the lower 25 rpm yields 0.131 m/s at a 50 mm wheel radius. The modeled wheel torque is 1.27–1.78 Nm per driven side with 1.5× planning headroom; the listing reports 27.46 Nm after unit conversion. The torque excess does not settle speed, braking, traction or thermal fit. The base needs cable routing, emergency-stop access and battery restraint; these are design criteria, not verified layouts. A two-channel driver appears in each listing, so two combos are conservatively costed and may duplicate electronics.
 
-Material/process callouts on the artwork are illustrative options. No selected material, section, tolerance, wheel geometry, interface allowables, battery package or released dimensions exist for calculation. Stress, deflection, packaging, cable flex and collision remain UNKNOWN/TBD.
+## Evidence boundary
 
-## Evidence status
-
-| Topic | Status | Source / next input |
-|---|---|---|
-| Configuration and actuator count | Transcribed CONCEPT_TARGET | README.md / ARCHITECTURE.md |
-| Arm joint loads | TBD except conditional payload-only term | ACTUATOR_ANALYSIS.md and CALC-DA04-01 |
-| Base drive torque and stability | UNKNOWN | Wheel radius, contact/load distribution, friction, operating case and CoM required |
-| Mass and cost | UNKNOWN | MASS_BUDGET.md and COST_MODEL.md |
-
-References: references/SOURCE_REGISTER.md SRC-01–SRC-06; no dynamic, simulation, bench or physical evidence is claimed.
+The centered COM, 600 mm wheelbase, 30 kg nominal, 0.45 m reach, symmetric arm loading, 5° slope, wheel radius and acceleration are scenario inputs. No structural, tipping, traction, braking, collision, thermal or physical validation is claimed. The study remains paper-only.

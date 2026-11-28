@@ -1,29 +1,19 @@
-# QR-04 — Mechanical Evidence Status (Week 3/4)
+# QR-04 — Mechanical feasibility screen
 
-**Status:** INCOMPLETE — qualitative configuration review only. HOLD D-003 active.
+**Status:** PROPOSED / ESTIMATE; no structural verification. D-003 remains active.
 
-## Source-backed configuration
+## Load path and packaging
 
-The concept artwork/README describes four long-leg assemblies with three DOF per leg and a 450 × 280 × 320 mm body target. It prints a 5–7 kg (est.) mass target and a 0.5–1.0 kg (est.) payload target. These remain CONCEPT_TARGETs, not measured inputs. See README.md sections 2, 4, 6 and 9; ARCHITECTURE.md sections 2–3.
+Load path: body plate → hip yaw/pitch modules → 0.14 m upper and lower legs → knee/ankle modules → feet. The nominal body/link/mount allowance is 2.30 kg: two 450×280×2 mm panels weigh 1.36 kg at 2,700 kg/m³; 1.120 m of 20×20×2 tube weighs 0.436 kg bare; approximately 0.50 kg remains for joints, feet, brackets and fasteners. The 2 mm panel and tube material are scenario inputs, not approved selections. Optional camera is excluded from the 7.43 kg nominal.
 
-## Load and stability
+## Support/load-sharing screen
 
-For the same force and pose, torque changes with the perpendicular joint moment arm (τ = F d⊥). The concept source does not provide leg-segment lengths, joint offsets, a standing pose or a load-sharing model, so the longer-leg description alone does not support a numeric torque comparison with QR-02. CALC-QR04-01 reports only a conditional one-leg force scenario from the printed target range; no joint torque is calculated.
+At 7.43 kg, total weight is 72.89 N. Equal static four-foot sharing would be 18.22 N per foot. The leg torque calculation assigns the full 72.89 N to one leg, four times the equal-share average. At the reviewer’s 7.50 kg rounded case, the values are 73.58 N total and 18.39 N per foot under equal static sharing. This conservative comparison does not represent dynamic ground reaction or normal gait. Foot placement and stance polygon are not defined, so no tipping margin is claimed.
 
-Body CoM, support polygon, ground contact, friction, gait, impact, actuator mass and mounting loads remain UNKNOWN. The cross-section-only 4 × M5 / 2 × Ø5 interface is an indicative owner decision, not a rated structural interface. No stability margin or fastener capacity is claimed.
+## Serviceability and risk
 
-## Structure and sensor module
+The 280 mm leg and longer moment arms raise nominal hip-flexion demand to 6.28 Nm and the 1.5× upper pose scenario to 11.31 Nm at 7.43 kg. The under-ceiling 10 Nm case therefore does not cover the upper pose screen. The indicated 4×M5 / 2×Ø5 interface is retained as a layout indicator only; wall thickness, engagement, preload and allowable loads are not validated. The adjustable sensor module is an optional package, not a baseline mass or load path.
 
-Leg sections, material grade, joints, wall thickness and bearing/support details are not released. The adjustable sensor module is shown only on the cross-section; its inclusion, mass and location remain OWNER_DECISION. Deflection, strength, thermal and cable-flex checks are NOT COMPUTABLE from available inputs.
+## Evidence boundary
 
-## Evidence status
-
-| Topic | Status | Source / next input |
-|---|---|---|
-| Configuration and actuator count | Transcribed CONCEPT_TARGET | README.md / ARCHITECTURE.md |
-| Joint loads and speed | TBD; no moment arms or motion case | ACTUATOR_ANALYSIS.md / CALC-QR04-01 |
-| Mass and CoM | UNKNOWN | MASS_BUDGET.md; source-controlled masses and geometry required |
-| Mounting interface | OWNER_DECISION; no allowables | Cross-section review and approved interface spec required |
-| Cost | UNKNOWN | COST_MODEL.md; priced BOM required |
-
-References: references/SOURCE_REGISTER.md SRC-01–SRC-06. No gait validation, simulation, bench or physical evidence is claimed.
+Panel thickness, leg split, foot contact, one-leg weight assignment, ±20% moment-arm sensitivity and 1.5× multiplier are explicit assumptions. There is no buckling, fatigue, fastener, impact, gait, traction or tipping verification. The worst static screen is not used as an actuator continuous rating.

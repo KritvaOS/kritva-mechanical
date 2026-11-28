@@ -1,37 +1,25 @@
-# DA-01 — Joint and Actuator Evidence Status
+# DA-01 — Actuator screen
 
-| Property | Value |
-|---|---|
-| Status | INCOMPLETE — per-joint requirements are TBD |
-| Version | 0.6.0 |
-| Last updated | 2026-11-28 |
-| Evidence | Concept-art transcription and conditional paper calculations only |
-| HOLD | D-003 active |
+**Status:** PROPOSED / ESTIMATE; no actuator selected. D-003 remains active. This analysis uses the re-run results in [CALC-DA01-01_joint_torque.md](calculations/CALC-DA01-01_joint_torque.md).
 
-## Baseline joint/channel inventory
+## Intended role versus calculated load
 
-two arms, three DOF per arm. Baseline count: 6 baseline arm actuators; up to 2 optional gripper actuators. The inventory below follows README.md and ARCHITECTURE.md; it is not a torque, speed or actuator assignment.
+The proposed family spec assigns S to wrist/neck and M to elbow/reference; its S/L torque bands are draft placeholders. The DA-01 baseline is interpreted as shoulder yaw, elbow and wrist per arm. Shoulder pitch and wrist pitch are retained as explicit alternative-axis branches.
 
-| Joint/channel | Count | Motion as source-labelled | Torque requirement | Speed / ROM / duty |
-|---|---:|---|---|---|
-| Shoulder yaw | 2 | shoulder yaw / rotation | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Elbow | 2 | flexion/extension; cross-section labels pitch, axis convention to confirm | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Wrist | 2 | rotation/pitch ambiguity | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
+| Axis branch | 1.5× screen Nm | Proposed role | Paper screen |
+|---|---:|---|---|
+| Wrist pitch / rotation alternative | 0.31 / 0.01 | S | Low calculated torque; radial inertia estimate is geometry-sensitive. |
+| Elbow pitch | 1.33 | M | Clears available S and M torque references numerically; role sizing should use M, not infer S from torque alone. |
+| Shoulder yaw | 1.03 | Not defined by source family role | Inertial-only paper estimate. |
+| Conditional shoulder pitch | 4.77 | M sensitivity | HEBI T5-4 4 Nm does not clear this branch; Makiina 10 Nm does. |
 
-CALC-DA01-01 records why no numeric joint torque is defensible for the source baseline; it does not add an unshown pitch axis or assumed geometry.
+## Sourced product comparison
 
-## Family roles and ranges (proposal only; not a mapping)
+| Product reference | Rated continuous torque | Speed | Mass | Published price | Interpretation |
+|---|---:|---:|---:|---:|---|
+| Makiina medium | 10 Nm | up to 75 rpm | 0.240 kg | USD 90 | Clears the modeled torque branches at 24 V; preliminary lab data and foreign landed cost not established. |
+| HEBI T5-4 | 4 Nm | 32 rpm | 0.450 kg | Not listed | Clears the elbow/wrist screen but not conditional 4.77 Nm shoulder-pitch screen. |
+| CubeMars AK70-10 | 8.3 Nm | Product listing | 0.621 kg | USD 398.90–498.90 | Less than 10 Nm; not a match for the M 10 Nm reference. |
+| CubeMars AK10-9 V3.0 | 18 Nm | Product listing | 0.940 kg | USD 698.90–798.90 | Clears conditional torque screen but is 48 V, against the artwork’s 24 V direction. |
 
-| Variant | Proposed continuous output torque | Proposed peak output torque | Proposed speed | Intended role (proposal) |
-|---|---:|---:|---|---|
-| Kritva-S | 2–5 N·m | 5–10 N·m | up to about 60 RPM | Small joints/light mechanisms, e.g. wrist or neck |
-| Kritva-M | 10 N·m | 20–25 N·m (stretch) | 45 RPM | Elbow and reference joint; baseline remains unfrozen |
-| Kritva-L | 25–40 N·m | 50–80 N·m | about 20–40 RPM | Higher-load joints, e.g. hip or knee, subject to mass/power/thermal feasibility |
-
-Source: the pinned Kritva actuator family specification, 2026-10-15 revision, references/SOURCE_REGISTER.md SRC-07. The spec explicitly says S/L values are placeholders and the M reference is not frozen. It gives proposed roles, not a product selection or validated performance. S is the proposal for small joints/wrist/neck, M for elbow/reference, and L for higher-load hip/knee; these roles are not assignments to this concept.
-
-## Required inputs before per-joint sizing
-
-Exact joint frames/axes, dimensions and offsets, component masses and centres of mass, payload location, representative pose, motion profile, speed, duty, friction/cable loads, output-side variant data, and thermal/envelope limits. For legged concepts add support phase, load share, foot-ground forces and gait/impact cases. Missing values remain UNKNOWN/TBD; no assumed multiplier, back-solved moment arm, torque rating or speed is introduced.
-
-References: [README.md](README.md) sections 4 and 6; [ARCHITECTURE.md](ARCHITECTURE.md); [calculation note](calculations/CALC-DA01-01_joint_torque.md); [SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07; [DESIGN_GUIDELINES.md](../../DESIGN_GUIDELINES.md) FREQ-006/007/012.
+At the assumed 15 rpm comparison speed, the listed Makiina and HEBI T5-4 speeds are above the screen; no acceleration or thermal-duty compatibility is established. This is a comparison, not a chosen actuator set. Full source details and prices are in [WEEK3_SOURCE_REGISTER.md](../../interns/INTERN-01/WEEK3_SOURCE_REGISTER.md).

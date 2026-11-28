@@ -1,37 +1,24 @@
-# QR-04 — Joint and Actuator Evidence Status
+# QR-04 — Actuator screen
 
-| Property | Value |
-|---|---|
-| Status | INCOMPLETE — per-joint requirements are TBD |
-| Version | 0.6.0 |
-| Last updated | 2026-11-28 |
-| Evidence | Concept-art transcription and conditional paper calculations only |
-| HOLD | D-003 active |
+**Status:** PROPOSED / ESTIMATE; no actuator selected. D-003 remains active. See [CALC-QR04-01_leg_torque_screen.md](calculations/CALC-QR04-01_leg_torque_screen.md).
 
-## Baseline joint/channel inventory
+## Role and load screen
 
-four long-leg assemblies, three DOF per leg. Baseline count: 12 baseline leg actuators: four legs with three DOF each. The inventory below follows README.md and ARCHITECTURE.md; it is not a torque, speed or actuator assignment.
+The proposed family spec assigns S to wrist/neck, M to elbow/reference and L to hip/knee. S/L torque bands are draft placeholders. All three QR-04 joint classes fall under the proposed L role. Exact budget mass is 7.43 kg; a separate 7.50 kg rounded case is retained for the review comparison.
 
-| Joint/channel | Count | Motion as source-labelled | Torque requirement | Speed / ROM / duty |
-|---|---:|---|---|---|
-| Hip abduction/adduction | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Hip/thigh flexion/extension | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-| Knee flexion/extension | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
-
-The calculation file gives a conditional one-leg full-weight force scenario from the printed mass target. Joint torques remain unknown because moment arms and pose are absent.
-
-## Family roles and ranges (proposal only; not a mapping)
-
-| Variant | Proposed continuous output torque | Proposed peak output torque | Proposed speed | Intended role (proposal) |
+| Joint class | 1.5× screen at 7.43 kg Nm | 1.5× screen at 7.50 kg Nm | Proposed role | 10 Nm Makiina load screen |
 |---|---:|---:|---|---|
-| Kritva-S | 2–5 N·m | 5–10 N·m | up to about 60 RPM | Small joints/light mechanisms, e.g. wrist or neck |
-| Kritva-M | 10 N·m | 20–25 N·m (stretch) | 45 RPM | Elbow and reference joint; baseline remains unfrozen |
-| Kritva-L | 25–40 N·m | 50–80 N·m | about 20–40 RPM | Higher-load joints, e.g. hip or knee, subject to mass/power/thermal feasibility |
+| Hip flexion | 7.54–11.31 | 7.61–11.42 | L | Clears nominal 9.42 Nm, not upper scenario. |
+| Hip abduction/yaw | 2.06–3.08 | 2.07–3.11 | L | Clears static screen, below role band. |
+| Knee flexion | 4.11–6.17 | 4.15–6.22 | L | Clears static screen, below role band. |
 
-Source: the pinned Kritva actuator family specification, 2026-10-15 revision, references/SOURCE_REGISTER.md SRC-07. The spec explicitly says S/L values are placeholders and the M reference is not frozen. It gives proposed roles, not a product selection or validated performance. S is the proposal for small joints/wrist/neck, M for elbow/reference, and L for higher-load hip/knee; these roles are not assignments to this concept.
+## Sourced references
 
-## Required inputs before per-joint sizing
+| Product reference | Rated continuous torque | Speed | Mass | Published price | Interpretation |
+|---|---:|---:|---:|---:|---|
+| Makiina medium | 10 Nm | up to 75 rpm | 0.240 kg | USD 90 | Under-ceiling scenario; misses upper hip-flexion screen. |
+| HEBI T8-16 | 16 Nm | 15 rpm | 0.575 kg | Not listed | Clears the paper torque screen but is below proposed L torque band and below the 19.1 rpm comparison speed. |
+| CubeMars AK10-9 V3.0 | 18 Nm | Product listing | 0.940 kg | USD 698.90–798.90 | Clears paper torque screen but is 48 V and below L band. |
+| T25-40 third-party profile | 40 Nm reported | 23 rpm reported | 1.50 kg reported | USD 4,500 reported | Flowntro states HEBI has not confirmed the profile; sensitivity only. |
 
-Exact joint frames/axes, dimensions and offsets, component masses and centres of mass, payload location, representative pose, motion profile, speed, duty, friction/cable loads, output-side variant data, and thermal/envelope limits. For legged concepts add support phase, load share, foot-ground forces and gait/impact cases. Missing values remain UNKNOWN/TBD; no assumed multiplier, back-solved moment arm, torque rating or speed is introduced.
-
-References: [README.md](README.md) sections 4 and 6; [ARCHITECTURE.md](ARCHITECTURE.md); [calculation note](calculations/CALC-QR04-01_leg_torque_screen.md); [SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07; [DESIGN_GUIDELINES.md](../../DESIGN_GUIDELINES.md) FREQ-006/007/012.
+The calculations use one-leg full weight at each joint moment arm, including hip yaw, as a conservative static load-share case. The hip-yaw offset is a sensitivity, not measured geometry. Gait, ground reaction, impact, thermal duty, and dynamic stabilization are not modeled. None of the comparison products is selected. Full source details and confidence are in [WEEK3_SOURCE_REGISTER.md](../../interns/INTERN-01/WEEK3_SOURCE_REGISTER.md).

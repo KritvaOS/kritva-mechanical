@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650" role="img" aria-labelledby="title desc">
-<title id="title">QR-04 Week 3 conceptual packaging mockup</title><desc id="desc">Not-to-scale schematic of the agile long-leg quadruped. The adjustable sensor module and indicative body mounting interface remain owner decisions.</desc>
+<title id="title">QR-04 Week 3 conceptual packaging mockup</title><desc id="desc">Not-to-scale paper schematic of the agile long-leg quadruped. The sensor module and mounting pattern are concept options, not approved interfaces.</desc>
 <defs><style>.bg{fill:#f7fafc}.ink{fill:#183247;font:700 22px Arial}.sub{fill:#3d566c;font:14px Arial}.link{stroke:#294b65;stroke-width:17;stroke-linecap:round;fill:none}.joint{fill:#f2b84b;stroke:#573f16;stroke-width:3}.body{fill:#dce8f2;stroke:#244a69;stroke-width:3}.box{fill:#fff;stroke:#87a1b5;stroke-width:2}.warn{fill:#fff1e8;stroke:#c76a37;stroke-width:2}.dash{fill:none;stroke:#45866b;stroke-width:4;stroke-dasharray:9 7}.label{fill:#183247;font:700 16px Arial}.small{fill:#334f64;font:14px Arial}.footer{fill:#8b3d20;font:700 16px Arial}</style></defs>
 <rect class="bg" width="1100" height="650"/><text class="ink" x="40" y="42">QR-04 · Agile Long-Leg Quadruped</text><text class="sub" x="40" y="70">INTERN-01 · concept targets only · not to scale · paper mockup, not CAD</text>
 <rect class="box" x="40" y="100" width="300" height="76" rx="10"/><text class="label" x="58" y="130">Body target</text><text class="small" x="58" y="154">450 × 280 × 320 mm</text>
@@ -7,6 +7,6 @@
 <rect class="body" x="360" y="275" width="380" height="120" rx="22"/><text class="label" x="480" y="340">Body / electronics bay</text>
 <path class="link" d="M395 370 L330 455 L290 545 M455 385 L435 465 L420 545 M645 385 L665 465 L680 545 M705 370 L770 455 L810 545"/><circle class="joint" cx="395" cy="370" r="16"/><circle class="joint" cx="330" cy="455" r="14"/><circle class="joint" cx="455" cy="385" r="16"/><circle class="joint" cx="435" cy="465" r="14"/><circle class="joint" cx="645" cy="385" r="16"/><circle class="joint" cx="665" cy="465" r="14"/><circle class="joint" cx="705" cy="370" r="16"/><circle class="joint" cx="770" cy="455" r="14"/>
 <path class="dash" d="M550 275 L550 205"/><rect class="dash" x="495" y="165" width="110" height="42" rx="8"/><text class="small" x="625" y="190">Adjustable sensor: owner decision</text>
-<rect class="warn" x="40" y="520" width="390" height="72" rx="10"/><text class="footer" x="58" y="550">Indicative mounting only</text><text class="small" x="58" y="575">4 × M5 + 2 × Ø5 dowels: owner decision</text>
-<text class="small" x="510" y="580">Long-leg links are schematic only; no joint pose or clearance is defined.</text>
+<rect class="warn" x="40" y="520" width="390" height="72" rx="10"/><text class="footer" x="58" y="550">7.43 kg nominal · ₹170,584 incl. camera</text><text class="small" x="58" y="575">11.31 Nm 1.5× upper hip-flexion screen</text>
+<text class="small" x="510" y="580">Full weight on one leg is conservative; 10 Nm does not meet proposed L role.</text>
 </svg>

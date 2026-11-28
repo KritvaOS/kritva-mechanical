@@ -1,6 +1,6 @@
-# QR-02 — Architecture and Mechanical Configuration (Week 2)
+# QR-02 â Architecture and Mechanical Configuration (Week 2)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status:** PROPOSED â paper feasibility study; subject to owner review.
 
 **HOLD:** Mechanical HOLD D-003 remains active.
 
@@ -32,8 +32,8 @@ The source artwork is illustrative, PROPOSED, maturity L0 and not to scale. The 
 | Body height (H) | 250 mm | Concept sheet and cross-section | CONCEPT_TARGET |
 | Overall length with leg extension | 520 mm | Concept sheet | CONCEPT_TARGET; sheet-specific / not independently cross-checked |
 | Overall width with leg extension | 480 mm | Concept sheet and cross-section | CONCEPT_TARGET |
-| Target robot weight | 4–6 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
-| Target payload | 0.5–1.0 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
+| Target robot weight | 4â6 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
+| Target payload | 0.5â1.0 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
 | Supply voltage | 24 V DC | Concept sheet and cross-section | CONCEPT_TARGET; investigation direction only |
 | Power rails | 24 V input; 5 V and 12 V rails | Cross-section | CONCEPT_TARGET; electrical specification TBD |
 
@@ -43,18 +43,18 @@ All artwork values remain `CONCEPT_TARGET`. They are not approved product requir
 
 | Joint instance | Intended motion / label | DOF | ROM / angle limits | Actuator technology shown | Week 2 disposition |
 |---|---|---|---|---|---|
-| Front-left hip abduction/adduction | Abduction / adduction | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Front-right hip abduction/adduction | Abduction / adduction | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Rear-left hip abduction/adduction | Abduction / adduction | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Rear-right hip abduction/adduction | Abduction / adduction | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Front-left hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Front-right hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Rear-left hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Rear-right hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Front-left knee | Flexion / extension | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Front-right knee | Flexion / extension | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Rear-left knee | Flexion / extension | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Rear-right knee | Flexion / extension | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Front-left hip abduction/adduction | Abduction / adduction | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Front-right hip abduction/adduction | Abduction / adduction | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Rear-left hip abduction/adduction | Abduction / adduction | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Rear-right hip abduction/adduction | Abduction / adduction | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Front-left hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Front-right hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Rear-left hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Rear-right hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Front-left knee | Flexion / extension | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Front-right knee | Flexion / extension | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Rear-left knee | Flexion / extension | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Rear-right knee | Flexion / extension | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
 
 **DOF / actuator count check:** 12 baseline joint/channel rows are documented. DOF arithmetic is concept-level only; it does not prove actuator performance, independent-control suitability, torque capacity, speed, thermal capability or S/M/L compatibility.
 
@@ -72,7 +72,7 @@ Joint range, zero position, axis unit vectors, coordinate frames, hard stops, al
 | End effectors / feet | Optional top RGB-D or stereo camera module; concept sheet also labels IMU/cameras optional. Cross-section includes an optional foot force sensor and elastomer damper. Replaceable rubber/TPU feet; spike or custom feet are options. Do not include optional sensor/foot actuator channels in the 12-joint baseline. | Optional elements remain owner decision / TBD |
 | Kritva platform space | Conceptual space only for relevant Kritva Edge compute/control, power distribution/protection, motor drivers, sensors and communication. | Board dimensions, connectors, thermal and cable limits TBD |
 
-**Qualitative load path / preliminary mechanical considerations:** Primary load path: body/chassis → hip module → thigh/link → knee module → lower-leg link → foot pad → ground. Evaluate four-leg support geometry, stance and lifted-leg cases, foot placement, support polygon, ground contact/traction/impact, body/ground clearance, leg workspace and joint range, link/joint stiffness and service access. A static margin or gait claim cannot be made because centre of mass, leg lengths, joint limits, contact/friction and stride are not specified.
+**Qualitative load path / preliminary mechanical considerations:** Primary load path: body/chassis â hip module â thigh/link â knee module â lower-leg link â foot pad â ground. Evaluate four-leg support geometry, stance and lifted-leg cases, foot placement, support polygon, ground contact/traction/impact, body/ground clearance, leg workspace and joint range, link/joint stiffness and service access. A static margin or gait claim cannot be made because centre of mass, leg lengths, joint limits, contact/friction and stride are not specified.
 
 ## 5. Interface architecture
 
@@ -94,9 +94,9 @@ No cable harness design, connector selection, bend-radius value, routing dimensi
 
 ## 8. Mass assumption boundary
 
-4–6 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
+4â6 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
 
-Week 2 mass assumptions are documented in `MASS_BUDGET.md`. The published weight range has no supporting subsystem breakdown in the current concept material; do not distribute it among components or use it as verified mass. Centre of mass, mass moments and component masses remain `UNKNOWN` until traceable geometry/material/component sources are available.
+Week 3/4 component-level mass scenarios are now documented in `MASS_BUDGET.md`; these use cited component masses and stated assumptions, and remain paper estimates rather than a validated total. The concept-sheet mass range is still a target, not a measurement. Centre of mass, mass moments and final packaging require authoritative geometry or dimensioned CAD.
 
 ## 9. Preliminary architecture assessment
 
@@ -107,18 +107,18 @@ Week 2 mass assumptions are documented in `MASS_BUDGET.md`. The published weight
 - **Mass assumptions:** Published target isolated from independently derived subsystem mass.
 - **Mechanical assessment:** Qualitative only; structural/stability/clearance calculations carried to later analysis where inputs permit.
 - **Open questions:** See `OPEN_QUESTIONS.md`.
-- **Joint torque/speed and S/M/L:** Each joint listed in `ACTUATOR_ANALYSIS.md`; all values remain `TBD` pending Week 3 inputs.
+- **Joint torque/speed and S/M/L:** Sourced paper screens and role fit are documented in `ACTUATOR_ANALYSIS.md` and the linked calculation files. Exact ROM, axes, gear ratios and duty-cycle requirements remain unapproved where the source does not specify them.
 
 ## 10. CP2 status for this concept
 
 | CP2 criterion | Contribution status | Evidence |
 |---|---|---|
-| CP2-02 Mechanical configuration | DOCUMENTED — draft | This file; concept sketch |
-| CP2-03 DOF and joint configuration | DOCUMENTED — ranges/frames incomplete | Section 3; actuator matrix |
-| CP2-04 Available dimensions with units | DOCUMENTED — source targets only | Section 2 |
-| CP2-05 Major assemblies/interfaces | DOCUMENTED — conceptual | Sections 4–7; `INTERFACES.md` |
+| CP2-02 Mechanical configuration | DOCUMENTED â draft | This file; concept sketch |
+| CP2-03 DOF and joint configuration | DOCUMENTED â ranges/frames incomplete | Section 3; actuator matrix |
+| CP2-04 Available dimensions with units | DOCUMENTED â source targets only | Section 2 |
+| CP2-05 Major assemblies/interfaces | DOCUMENTED â conceptual | Sections 4â7; `INTERFACES.md` |
 | CP2-06 Unknown specifications | DOCUMENTED | `OPEN_QUESTIONS.md`, `MASS_BUDGET.md`, `ACTUATOR_ANALYSIS.md` |
-| CP2-07 Initial risks | DOCUMENTED — qualitative estimates | `OPEN_QUESTIONS.md` |
+| CP2-07 Initial risks | DOCUMENTED â qualitative estimates | `OPEN_QUESTIONS.md` |
 
 CP2-01 (all 12 concepts) and CP2-08 (team-wide assignment evidence) require the other two interns' contributions and reviewer consolidation. This file does not claim CP2 acceptance or task completion.
 
@@ -126,7 +126,7 @@ CP2-01 (all 12 concepts) and CP2-08 (team-wide assignment evidence) require the 
 
 - Existing concept record: `feasibility/concepts/QR-02/README.md`
 - Study plan: `feasibility/STUDY_PLAN.md` sections 4, 6, 8 and 9.1.
-- Design guidelines: `feasibility/DESIGN_GUIDELINES.md` sections 2–7.
+- Design guidelines: `feasibility/DESIGN_GUIDELINES.md` sections 2â7.
 - Requirements: `feasibility/REQUIREMENTS_REGISTER.md` FREQ-002 to FREQ-034.
 - Artwork index and manifest: `docs/images/ARTWORK_INDEX.md`; `docs/images/ARTWORK_MANIFEST.json`.
 - Concept-specific source register: `references/SOURCE_REGISTER.md`.

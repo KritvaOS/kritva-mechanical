@@ -1,38 +1,43 @@
-# INTERN-01 — Weekly Status (Week 3/4 evidence audit)
+# INTERN-01 — Weekly status (Week 3/4 update)
 
 | Property | Value |
 |---|---|
+| Intern | Amardeep Singh |
 | Assigned concepts | DA-01, QR-02, DA-04, QR-04 |
-| Reporting period | Week 3/4 follow-up |
-| Status | IN PROGRESS — paper-only evidence audit |
-| Last updated | 2026-11-28 |
+| Reporting period | Week 3/4 working update |
+| Status | PROPOSED contribution; paper feasibility only |
+| Last Updated | 2026-11-28 |
 | HOLD | D-003 active |
+| Task reference | ROB-MECH-044 |
 
-## 1. Work updated
+## 1. Work in this update
 
-| Deliverable | Current status | Evidence / limit |
+| Deliverable | Status | Evidence / limit |
 |---|---|---|
-| Concept requirements | Drafted; INCOMPLETE | Targets traced to concept READMEs/artwork; no approved requirements baseline |
-| Joint-load calculations | Conditional scenarios only; per-joint requirements TBD | Inputs are named and linked; DA-01 has no numeric result; missing masses, geometry, pose and motion are not substituted |
-| Mass records | UNKNOWN beyond printed concept targets | Previous unsourced subsystem ranges and totals withdrawn |
-| Cost records | UNKNOWN; total NOT COMPUTABLE | Previous unsourced cost bands and break-even figures withdrawn; no priced BOM or quotes |
-| S/M/L family context | Proposal-level references only | Pinned spec gives intended roles/bands; S/L are placeholders and M is not frozen; no mapping |
-| Comparative assessment | NOT SCORED | EVALUATION_CRITERIA evidence rules require scores to remain NOT SCORED where evidence is unknown; no ranking |
-| Mockups | Present; not to scale | Values are concept targets, not measurements/CAD |
+| Concept requirements records | Revised for review | Four files link concept targets, FREQ references, and bounded evidence scenarios; no owner-approved baseline is claimed. |
+| Torque and actuator screens | Recalculated | DA-01 wrist mass corrected; QR-02 6.30 kg sensor-excluded; QR-04 7.43 / 7.50 kg; DA-04 0.5 / 1.0 kg arm cases and wheel screen. |
+| Mass and cost | Source-linked estimates | Low/nominal/high masses and seller/manufacturer price scenarios; shipping/customs and structural validation are excluded where not evidenced. |
+| Concept mockups | Paper-only SVGs retained from the prior merged contribution | Four existing not-to-scale illustrations remain in the source tree; none is CAD or manufacturing output. |
+| Family-role comparison | Provisional screen | S wrist/neck, M elbow/reference, L hip/knee; S/L values remain proposed placeholders in the family source. |
+| Four-concept comparison | Updated, provisional | All seven proposed weights scored with evidence rationale; order is partial over four of twelve concepts. |
+| Week 2 and FREQ traceability | Restored in overlays | D-003, Week 2 architecture files and relevant common FREQ IDs are linked. |
 
-## 2. Task 044 evidence state
+## 2. ROB-MECH-044 evidence state
 
-This update contributes an evidence-gap record to ROB-MECH-044 and does not mark the task accepted or complete. AC-044-01 files exist but requirements remain incomplete; AC-044-02 per-joint calculations need source-backed geometry/mass/motion; AC-044-03 compatibility is blocked; AC-044-04 requires independent review. See CP3_CONTRIBUTION.md.
+The package task map assigns ROB-MECH-044 to INTERN-01. This contribution supplies evidence and does not mark the task accepted or complete. AC-044-01 records are present; AC-044-02 calculations are traceable within explicit pose and geometry scenarios; AC-044-03 compares candidate ratings to proposed family roles; AC-044-04 labels paper evidence and requires independent review. See CP3_CONTRIBUTION.md for the criterion map.
 
-## 3. Blocking inputs
+## 3. Concept-specific results
 
-- All concepts: source-controlled actuator variants, unit prices, masses, dimensions and operating limits.
-- DA-01/DA-04: link/joint geometry, mass distribution, representative poses and load cases.
-- DA-04: wheel radius, load distribution, friction and travel case.
-- QR-02/QR-04: leg segment lengths, joint frames, stance/load sharing and gait/contact cases.
-- Cost: selected component BOM, dated price sources/quotes and cost inclusions.
-- Review: decision record and owner confirmation for unresolved source-artwork questions.
+- DA-01 nominal mass/cost: 6.33 kg / ₹112,773. Conditional shoulder-pitch screen is 4.77 Nm at 1.5×; baseline elbow is 1.33 Nm.
+- QR-02 nominal mass/cost: 6.30 kg sensor-excluded / ₹166,503 including optional camera. The 8.34 Nm one-leg hip-flexion screen fits the 10 Nm load-only case but not the proposed L family role.
+- QR-04 nominal mass/cost: 7.43 kg sensor-excluded / ₹170,584 including optional camera. Hip-flexion 1.5× high screen is 11.31 Nm at 7.43 kg and 11.42 Nm at 7.50 kg.
+- DA-04 economy mass/cost: 20.59 kg / ₹175,052; 1.0 kg payload shoulder screen is 14.64 Nm and exceeds the 10 Nm economy module. Two 18 Nm shoulder modules increase cost to ₹288,202 and require 48 V.
 
-## 4. Next actions
+All costs are planning scenarios, not quotes; overseas freight/customs and 22.2-to-24 V conditioning are not included. Full L-role price lower bounds assume ideal torque addition from paired 18 Nm modules only for component pricing; coupling and load sharing are not mechanically validated. Results are not design selections or product qualification.
 
-Obtain the missing source-controlled inputs, then calculate per-joint loads and cost from those inputs, document uncertainty, and request independent review. No merge to main or release of HOLD D-003 is requested here.
+## 4. Review actions and downstream boundary
+
+- Review source links, arithmetic and concept assumptions before accepting ROB-MECH-044.
+- Confirm owner-level baseline choices and proposed family roles; any approved changes should update the source record and calculations.
+- The remaining eight concepts, cross-intern score review and CP4 are outside this four-concept contribution.
+- Retain HOLD D-003: CAD, final BOM, quotations, procurement, fabrication, assembly and physical testing remain prohibited by the study scope.

@@ -1,6 +1,6 @@
-# DA-04 — Architecture and Mechanical Configuration (Week 2)
+# DA-04 â Architecture and Mechanical Configuration (Week 2)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status:** PROPOSED â paper feasibility study; subject to owner review.
 
 **HOLD:** Mechanical HOLD D-003 remains active.
 
@@ -31,11 +31,11 @@ The source artwork is illustrative, PROPOSED, maturity L0 and not to scale. The 
 | Shoulder-to-shoulder spacing | 600 mm | Concept sheet | CONCEPT_TARGET |
 | Total reach, left-to-right | 1200 mm | Concept sheet | CONCEPT_TARGET; pose/datum not defined |
 | Torso width | 400 mm | Concept sheet and cross-section | CONCEPT_TARGET |
-| Base dimensions (W × L) | 500 × 600 mm | Concept sheet and cross-section | CONCEPT_TARGET |
+| Base dimensions (W Ã L) | 500 Ã 600 mm | Concept sheet and cross-section | CONCEPT_TARGET |
 | Overall height with head | 1200 mm | Concept sheet and cross-section | CONCEPT_TARGET |
 | Arm reach each side, shoulder-to-gripper | 450 mm | Concept sheet | CONCEPT_TARGET; pose/datum not defined |
-| Target payload each arm | 0.5–1.0 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
-| Target robot weight | 25–35 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
+| Target payload each arm | 0.5â1.0 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
+| Target robot weight | 25â35 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
 | Supply voltage | 24 V DC | Concept sheet and cross-section | CONCEPT_TARGET; investigation direction only |
 | Power rails | 24 V input; 5 V and 12 V rails | Cross-section | CONCEPT_TARGET; electrical specification TBD |
 | Battery | Not drawn or labelled; chemistry/capacity UNKNOWN | Neither sheet | NOT VERIFIABLE FROM CURRENT ARTWORK |
@@ -46,16 +46,16 @@ All artwork values remain `CONCEPT_TARGET`. They are not approved product requir
 
 | Joint instance | Intended motion / label | DOF | ROM / angle limits | Actuator technology shown | Week 2 disposition |
 |---|---|---|---|---|---|
-| Left shoulder yaw | Yaw / rotation | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Left shoulder pitch | Pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Left elbow | Pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Left wrist | Pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right shoulder yaw | Yaw / rotation | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right shoulder pitch | Pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right elbow | Pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right wrist | Pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Left wheel-pair drive | Drive rotation, one channel for left wheel pair | 1 | TBD — no approved range in source | BLDC with encoder; optional gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right wheel-pair drive | Drive rotation, one channel for right wheel pair | 1 | TBD — no approved range in source | BLDC with encoder; optional gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left shoulder yaw | Yaw / rotation | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left shoulder pitch | Pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left elbow | Pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left wrist | Pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right shoulder yaw | Yaw / rotation | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right shoulder pitch | Pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right elbow | Pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right wrist | Pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left wheel-pair drive | Drive rotation, one channel for left wheel pair | 1 | TBD â no approved range in source | BLDC with encoder; optional gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right wheel-pair drive | Drive rotation, one channel for right wheel pair | 1 | TBD â no approved range in source | BLDC with encoder; optional gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
 
 **DOF / actuator count check:** 10 baseline joint/channel rows are documented. DOF arithmetic is concept-level only; it does not prove actuator performance, independent-control suitability, torque capacity, speed, thermal capability or S/M/L compatibility.
 
@@ -73,7 +73,7 @@ Joint range, zero position, axis unit vectors, coordinate frames, hard stops, al
 | End effectors / feet | Optional two-finger grippers, each may be servo/BLDC powered or passive; optional force sensors. Fixed head with camera; head pan has 0 DOF and is explicitly excluded. Concept sheet mentions camera/IMU/LiDAR space, cross-section shows head camera and torso IMU. Battery is not drawn and battery sizing is not part of the study per README. | Optional elements remain owner decision / TBD |
 | Kritva platform space | Conceptual space only for relevant Kritva Edge compute/control, power distribution/protection, motor drivers, sensors and communication. | Board dimensions, connectors, thermal and cable limits TBD |
 
-**Qualitative load path / preliminary mechanical considerations:** Arm load path: payload/gripper → wrist → forearm → elbow → upper arm → shoulder → torso → base chassis → wheel contact patch/floor. Base drive load path: motor/gearbox → wheel hub → tyre/contact patch. Examine tall-body/arm-extension tipping, wheel reactions, base footprint, differential traction and turn envelope, arm-arm workspace/interference, stiffness of torso/shoulder mounts and cable passage across moving chassis. Printed target 25–35 kg and 1200 mm overall height are unverified concept targets, not a stability analysis.
+**Qualitative load path / preliminary mechanical considerations:** Arm load path: payload/gripper â wrist â forearm â elbow â upper arm â shoulder â torso â base chassis â wheel contact patch/floor. Base drive load path: motor/gearbox â wheel hub â tyre/contact patch. Examine tall-body/arm-extension tipping, wheel reactions, base footprint, differential traction and turn envelope, arm-arm workspace/interference, stiffness of torso/shoulder mounts and cable passage across moving chassis. Printed target 25â35 kg and 1200 mm overall height are unverified concept targets, not a stability analysis.
 
 ## 5. Interface architecture
 
@@ -95,9 +95,9 @@ No cable harness design, connector selection, bend-radius value, routing dimensi
 
 ## 8. Mass assumption boundary
 
-25–35 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
+25â35 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
 
-Week 2 mass assumptions are documented in `MASS_BUDGET.md`. The published weight range has no supporting subsystem breakdown in the current concept material; do not distribute it among components or use it as verified mass. Centre of mass, mass moments and component masses remain `UNKNOWN` until traceable geometry/material/component sources are available.
+Week 3/4 component-level mass scenarios are now documented in `MASS_BUDGET.md`; these use cited component masses and stated assumptions, and remain paper estimates rather than a validated total. The concept-sheet mass range is still a target, not a measurement. Centre of mass, mass moments and final packaging require authoritative geometry or dimensioned CAD.
 
 ## 9. Preliminary architecture assessment
 
@@ -108,18 +108,18 @@ Week 2 mass assumptions are documented in `MASS_BUDGET.md`. The published weight
 - **Mass assumptions:** Published target isolated from independently derived subsystem mass.
 - **Mechanical assessment:** Qualitative only; structural/stability/clearance calculations carried to later analysis where inputs permit.
 - **Open questions:** See `OPEN_QUESTIONS.md`.
-- **Joint torque/speed and S/M/L:** Each joint listed in `ACTUATOR_ANALYSIS.md`; all values remain `TBD` pending Week 3 inputs.
+- **Joint torque/speed and S/M/L:** Sourced paper screens and role fit are documented in `ACTUATOR_ANALYSIS.md` and the linked calculation files. Exact ROM, axes, gear ratios and duty-cycle requirements remain unapproved where the source does not specify them.
 
 ## 10. CP2 status for this concept
 
 | CP2 criterion | Contribution status | Evidence |
 |---|---|---|
-| CP2-02 Mechanical configuration | DOCUMENTED — draft | This file; concept sketch |
-| CP2-03 DOF and joint configuration | DOCUMENTED — ranges/frames incomplete | Section 3; actuator matrix |
-| CP2-04 Available dimensions with units | DOCUMENTED — source targets only | Section 2 |
-| CP2-05 Major assemblies/interfaces | DOCUMENTED — conceptual | Sections 4–7; `INTERFACES.md` |
+| CP2-02 Mechanical configuration | DOCUMENTED â draft | This file; concept sketch |
+| CP2-03 DOF and joint configuration | DOCUMENTED â ranges/frames incomplete | Section 3; actuator matrix |
+| CP2-04 Available dimensions with units | DOCUMENTED â source targets only | Section 2 |
+| CP2-05 Major assemblies/interfaces | DOCUMENTED â conceptual | Sections 4â7; `INTERFACES.md` |
 | CP2-06 Unknown specifications | DOCUMENTED | `OPEN_QUESTIONS.md`, `MASS_BUDGET.md`, `ACTUATOR_ANALYSIS.md` |
-| CP2-07 Initial risks | DOCUMENTED — qualitative estimates | `OPEN_QUESTIONS.md` |
+| CP2-07 Initial risks | DOCUMENTED â qualitative estimates | `OPEN_QUESTIONS.md` |
 
 CP2-01 (all 12 concepts) and CP2-08 (team-wide assignment evidence) require the other two interns' contributions and reviewer consolidation. This file does not claim CP2 acceptance or task completion.
 
@@ -127,7 +127,7 @@ CP2-01 (all 12 concepts) and CP2-08 (team-wide assignment evidence) require the 
 
 - Existing concept record: `feasibility/concepts/DA-04/README.md`
 - Study plan: `feasibility/STUDY_PLAN.md` sections 4, 6, 8 and 9.1.
-- Design guidelines: `feasibility/DESIGN_GUIDELINES.md` sections 2–7.
+- Design guidelines: `feasibility/DESIGN_GUIDELINES.md` sections 2â7.
 - Requirements: `feasibility/REQUIREMENTS_REGISTER.md` FREQ-002 to FREQ-034.
 - Artwork index and manifest: `docs/images/ARTWORK_INDEX.md`; `docs/images/ARTWORK_MANIFEST.json`.
 - Concept-specific source register: `references/SOURCE_REGISTER.md`.
