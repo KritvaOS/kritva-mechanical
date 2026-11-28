@@ -14,3 +14,7 @@ Planning ceiling: INR 2,00,000.
 | **Total** | **1,37,000** | **2,40,000** | **3,95,000** |
 
 Nominal already exceeds the INR 2 L ceiling. DA-04 is therefore a high-cost concept under current assumptions; significant actuator cost reduction or scope reduction would be required to fit the planning budget. No quotations obtained.
+
+## Planning-ceiling sensitivity (derived ESTIMATE)
+
+At the INR 2,00,000 planning ceiling, holding the existing INR 1,00,000 nominal non-actuator categories fixed leaves INR 1,00,000 for 10 modules, or **INR 10,000 per module**. The current nominal actuator estimate is INR 1,40,000 / 10 = **INR 14,000 per module**—INR 4,000 per module (INR 40,000 total) above that threshold. These are derived from planning estimates, not vendor prices or quotes; the nominal concept total remains above the planning ceiling.

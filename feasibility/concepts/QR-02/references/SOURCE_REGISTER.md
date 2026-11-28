@@ -20,7 +20,8 @@
 | SRC-08 | `feasibility/REQUIREMENTS_REGISTER.md` | FREQ-002..034 and U-001..U-012 | PROPOSED common study register; do not edit globally |
 | SRC-09 | `feasibility/INTERN_ASSIGNMENTS.md` | INTERN-01 allocation and responsibilities | PROPOSED assignment plan |
 | SRC-10 | `feasibility/RISK_REGISTER.md` | Global risk conventions and FRISK-001..007 | PROPOSED shared risk register; do not edit globally |
+| SRC-11 | [Kritva actuator family spec](https://github.com/KritvaOS/kritva-actuator/blob/31bfc20aed0479a3bce64cf8945e86b1fa6f2fa6/docs/architecture/ACTUATOR_FAMILY_SPEC.md) at commit `31bfc20aed0479a3bce64cf8945e86b1fa6f2fa6` | Torque-only family-band screening | PROPOSED; S/L figures are placeholders; M reference is not frozen; not variant test data or owner approval |
 
 ## Source handling
 
-Use only the exact numeric content present in the current concept README/artwork. Any copied dimension or target is marked `CONCEPT_TARGET`; a printed `(est.)` is not upgraded to an independently derived estimate. No actuator repository value has been included here because a current owner/revision/source commit for the actuator interface has not been established.
+Use only the exact numeric content present in the current concept README/artwork. Any copied dimension or target is marked `CONCEPT_TARGET`; a printed `(est.)` is not upgraded to an independently derived estimate. SRC-11 is cited only for proposed family torque bands. It does not establish variant-specific compatibility, speed under load, mass, envelope, thermal performance or price; no actuator is selected.

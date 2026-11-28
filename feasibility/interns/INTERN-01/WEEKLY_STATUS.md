@@ -1,52 +1,45 @@
-# INTERN-01 — Weekly Feasibility Status (Week 3 update)
+# INTERN-01 — Weekly Status (Week 3/4 update)
 
 | Property | Value |
 |---|---|
-| Document ID | KMECH-WEEKLY-INTERN-01 |
-| Status | PROPOSED — Week 3 working update |
-| Version | 0.2.0 |
+| Intern | Amardeep Singh |
+| Assigned concepts | DA-01, QR-02, DA-04, QR-04 |
+| Reporting period | Week 3/4 working update |
+| Status | IN PROGRESS — paper feasibility only |
 | Last Updated | 2026-11-27 |
-| Assigned Intern | INTERN-01 (Amardeep) |
-| HOLD | D-003 remains active |
+| HOLD | D-003 active |
 
-## 1. Reporting period
+## 1. Work added in this update
 
-- Week: 3 (torque / actuator / mass / cost modelling)
-- Concepts: DA-01, QR-02, DA-04, QR-04
-- Task linkage: contributes to ROB-MECH-044 / Week-3 engineering assessment (registration pending)
+| Deliverable | Status | Evidence / limit |
+|---|---|---|
+| Concept requirement records | Drafted; INCOMPLETE | Four `REQUIREMENTS.md` files map common FREQs and artwork targets; owner-approved concept-specific requirements are absent. |
+| Torque and speed screens | Expanded; ESTIMATE | DA-01, QR-02, DA-04 and QR-04 per-joint formulas/assumptions; dynamic requirements remain TBD and some moment arms are back-solved. |
+| Concept mockups | Added | Four not-to-scale, paper-only SVG packaging mockups; no CAD/manufacturing dimensions. |
+| Mass/cost updates | Reconciled | QR-02 mass totals corrected; ceiling break-even actuator unit costs derived from existing estimates, no quotes. |
+| S/M/L family screen | Added; NOT COMPATIBILITY | Parent family-spec source is revisioned; its S/L figures are placeholders and M reference is not frozen. |
+| Four-concept comparison | Updated; PARTIAL | 85% scored weight; 15% remains NOT SCORED. Partial contributions are not renormalized or ranked. Other eight concepts are absent. |
 
-## 2. Work completed this period
+## 2. Task 044 evidence state
 
-| Concept | Actuator torque estimates | Mass ranges | Cost ranges | Notes |
-|---|---|---|---|---|
-| DA-01 | Yes (CALC-DA01-01) | Yes | Yes | Lowest demand; nominal cost inside ceiling |
-| QR-02 | Yes | Yes | Yes | Nominal cost near/above ceiling |
-| DA-04 | Yes (arms + drive) | Yes | Yes | Nominal cost above ceiling |
-| QR-04 | Yes | Yes | Yes | Highest leg moments; cost above ceiling |
+This update contributes evidence to `ROB-MECH-044`; it does **not** mark the task accepted or complete. The repository task register was not changed. AC-044-01 files are present but requirement baselines remain incomplete; AC-044-02 formulas have unresolved geometry/axis inputs; AC-044-03 compatibility remains blocked by unapproved variant data; AC-044-04 needs independent review. See `CP3_CONTRIBUTION.md` for the criterion-by-criterion map.
 
-All estimates are tagged ASSUMED / ESTIMATE. No S/M/L assignment performed (blocked on actuator source data). No CAD, BOM, quotations or physical work.
+## 3. Key blockers and owner decisions
 
-## 3. Key observations (paper only)
+- DA-01: confirm three-axis baseline versus shoulder-pitch sensitivity; define wrist axis and approved pose.
+- All four: provide revisioned per-variant actuator output data, speed under load, thermal/duty limits and maturity; family-level torque bands are insufficient for compatibility.
+- QR-02/QR-04: define joint axes, pose, gait/dynamic load and support/load-sharing case.
+- DA-04: confirm battery scope, wheel radius/base geometry, mass distribution and operating slope/acceleration.
+- QR-04: confirm the indicated mounting and adjustable sensor options.
+- Reviewer: verify calculations, assumptions and confidence labels before accepting Task 044.
 
-1. **DA-01** is the most budget-friendly of the four under current assumptions; shoulder continuous demand ≈ 3.2 N·m after margin.
-2. **QR-02 / QR-04** and **DA-04** nominal cost models sit at or above the INR 2 L planning ceiling; actuator module cost is the dominant lever in every case.
-3. Longer legs on QR-04 raise hip/knee moments relative to QR-02; dynamic gait would raise them further.
-4. Mobile DA-04 adds battery and drive channels that further pressure both mass and cost.
+## 4. Downstream work boundary
 
-## 4. Open decisions still required from owner
+The remaining eight concepts and cross-intern comparative review are not in this assignment. CP2/CP3/CP4 and final recommendation remain incomplete; do not change their task states or HOLD D-003.
 
-- DA-01 wrist axis (D4) and torso/mast items (D3/D5).
-- QR-02 / QR-04 optional sensor and mounting-interface questions.
-- Actuator S/M/L source data pack (mass, torque, price, envelope) with controlled revision.
-- Confirmation whether battery is in-scope for mobile concepts under the current HOLD interpretation.
+## 5. Next actions
 
-## 5. Next actions (Week 4 direction)
-
-- Incorporate any owner decisions and actuator data.
-- Produce comparative scoring matrix across the four concepts (and later all 12).
-- Risk register updates and recommendation draft for CP4.
-- Keep all work on a feature branch and open a PR; never push to main.
-
-## 6. D-003 compliance
-
-Paper documentation and calculation only. No CAD, procurement, fabrication or physical testing. Intern confirmation of compliance: pending local integration and review.
+1. Obtain owner decisions and controlled actuator variant inputs.
+2. Recompute affected joint screens and update open requirements after those inputs arrive.
+3. Request independent review of Task 044 evidence.
+4. Merge contributions from the other interns before full 12-concept comparison or CP3/CP4 acceptance.

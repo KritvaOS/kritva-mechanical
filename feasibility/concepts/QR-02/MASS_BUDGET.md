@@ -13,6 +13,6 @@ Printed target: **4–7 kg (est.)** — CONCEPT_TARGET.
 | Compute / drivers / power | 0.4 | 0.6 | 1.0 | |
 | Sensors (optional) | 0.0 | 0.2 | 0.5 | OWNER_DECISION |
 | Harness / fasteners / covers | 0.3 | 0.5 | 0.8 | |
-| **Baseline total** | **3.9** | **6.1** | **9.4** | |
+| **Baseline total** | **3.9** | **6.3** | **9.9** | |
 
-Nominal sits inside the printed band; high end exceeds it if larger actuators are chosen. Battery not included (may be external or small LiPo). CoM still UNKNOWN.
+The line items sum to 3.9 / 6.3 / 9.9 kg low / nominal / high. Nominal is inside the printed 4–7 kg (est.) band; high exceeds it. Battery not included (may be external or small LiPo). CoM still UNKNOWN.

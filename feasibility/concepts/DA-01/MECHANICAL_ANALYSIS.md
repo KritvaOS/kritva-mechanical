@@ -27,9 +27,9 @@ Assumptions for a first-order check:
 - Base footprint 300 × 250 mm.
 - Worst case: both arms extended horizontally to one side with 0.2 kg payload each.
 
-Approximate overturning moment about the base edge ≈ 2 × (2.15 N·m shoulder contribution scaled) + payload lever. Restoring moment from robot weight about the same edge is on the order of 4–6 N·m for a 150 mm half-width.  
+A quantitative overturning moment is **INCOMPLETE**: the prior note used a 2.15 N·m shoulder term that did not match the listed calculation inputs (2.33 N·m static, about 2.97 N·m including the stated inertial estimate), and shoulder pitch is not in the current three-axis-per-arm baseline. The restoring-moment range also lacks an approved CoM and support condition. Do not report a tipping margin or factor of safety from those figures.
 
-**Conclusion (ESTIMATE):** Fixed tabletop mounting with positive clamping or sufficient friction is required; free-standing on a smooth surface is marginal under simultaneous full extension of both arms. Quantitative factor of safety remains TBD until CoM and support conditions are defined.
+**Conclusion (qualitative only):** Evaluate positive tabletop attachment as a design consideration. A quantified clamp/friction recommendation and stability margin remain TBD until the axis, arm pose, CoM and support interface are defined.
 
 ## 4. Structural notes
 

@@ -14,3 +14,7 @@ Planning ceiling: INR 2,00,000.
 | **Total** | **1,32,000** | **2,32,000** | **3,86,000** |
 
 Nominal exceeds the INR 2 L ceiling. Same observation as QR-02: actuator cost dominates and must be reduced (or S-class devices proven adequate) to fit the planning budget.
+
+## Planning-ceiling sensitivity (derived ESTIMATE)
+
+At the INR 2,00,000 planning ceiling, holding the existing INR 72,000 nominal non-actuator categories fixed leaves INR 1,28,000 for 12 modules, or **INR 10,667 per module** (rounded). The current nominal actuator estimate is INR 1,60,000 / 12 = **INR 13,333 per module**—about INR 2,667 per module (INR 32,000 total) above that threshold. These are derived from planning estimates, not vendor prices or quotes; no cost reduction or supplier availability is established.

@@ -46,3 +46,7 @@ Ranges reflect typical Indian academic / small-batch robotics component pricing 
 ## 5. Status
 
 Category-level ESTIMATE produced for Week 3. Ready for comparison once actuator source data and the other eleven concept cost models are available. No claim of affordability or design release is made.
+
+## 6. Planning-ceiling sensitivity (derived ESTIMATE)
+
+At the INR 2,00,000 planning ceiling, holding the existing INR 66,000 nominal non-actuator categories fixed leaves INR 1,34,000 for six modules, or **INR 22,333 per module**. The existing nominal actuator estimate is INR 75,000 / 6 = **INR 12,500 per module**, leaving INR 59,000 nominal total headroom. These are arithmetic sensitivities from category estimates, not supplier prices, quotes or procurement advice; high-case subtotal remains above the ceiling.
