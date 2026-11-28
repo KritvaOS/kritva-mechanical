@@ -1,101 +1,52 @@
-# INTERN-01 — Weekly Feasibility Status
+# INTERN-01 — Weekly Feasibility Status (Week 3 update)
 
 | Property | Value |
 |---|---|
 | Document ID | KMECH-WEEKLY-INTERN-01 |
-| Repository | `KritvaOS/kritva-mechanical` |
-| Document Type | Intern Weekly Status |
-| Status | PROPOSED — Week 2 working update; owner review pending |
-| Owner | Dinesh |
-| Assigned Intern | INTERN-01 |
-| Version | 0.1.0 (existing status record; update only through branch review) |
-| Authority | Weekly progress report; subject to owner review |
-| Related Documents | `feasibility/STUDY_PLAN.md`, `feasibility/INTERN_ASSIGNMENTS.md`, `feasibility/interns/INTERN-01/CP2_CONTRIBUTION.md` |
+| Status | PROPOSED — Week 3 working update |
+| Version | 0.2.0 |
+| Last Updated | 2026-11-27 |
+| Assigned Intern | INTERN-01 (Amardeep) |
+| HOLD | D-003 remains active |
 
-## 1. Reporting Period
+## 1. Reporting period
 
-- Intern: INTERN-01
-- Week: 2
-- Reporting dates: TBD
-- Branch: `feasibility/intern-01`
-- Commit references: TBD
-- Task linkage: `ROB-MECH-044` (local proposed task; registration/approval pending)
-- HOLD: D-003 remains active
+- Week: 3 (torque / actuator / mass / cost modelling)
+- Concepts: DA-01, QR-02, DA-04, QR-04
+- Task linkage: contributes to ROB-MECH-044 / Week-3 engineering assessment (registration pending)
 
-## 2. Concepts Worked
+## 2. Work completed this period
 
-Assigned concepts: DA-01, QR-02, DA-04, QR-04.
+| Concept | Actuator torque estimates | Mass ranges | Cost ranges | Notes |
+|---|---|---|---|---|
+| DA-01 | Yes (CALC-DA01-01) | Yes | Yes | Lowest demand; nominal cost inside ceiling |
+| QR-02 | Yes | Yes | Yes | Nominal cost near/above ceiling |
+| DA-04 | Yes (arms + drive) | Yes | Yes | Nominal cost above ceiling |
+| QR-04 | Yes | Yes | Yes | Highest leg moments; cost above ceiling |
 
-| Concept ID | Planned activity | Week 2 artefacts supplied in overlay | Status |
-|---|---|---|---|
-| DA-01 | Configuration, dimensions, joints, interfaces, mass assumptions and preliminary mechanical assessment | Architecture, mechanical analysis, per-joint matrix, interfaces, mass framework, sketch, source register | IMPLEMENTED IN OVERLAY; NOT_REVIEWED |
-| QR-02 | Same Week 2 scope; quadruped support/contact and gait geometry considerations | Architecture, mechanical analysis, 12 joint instances, interfaces, mass framework, sketch, source register | IMPLEMENTED IN OVERLAY; NOT_REVIEWED |
-| DA-04 | Same Week 2 scope; torso/base interfaces and differential-drive configuration | Architecture, mechanical analysis, 10 joint/channel instances, interfaces, mass framework, sketch, source register | IMPLEMENTED IN OVERLAY; NOT_REVIEWED |
-| QR-04 | Same Week 2 scope; long-leg geometry, support, indicative mounting and sensor decision | Architecture, mechanical analysis, 12 joint instances, interfaces, mass framework, sketch, source register | IMPLEMENTED IN OVERLAY; NOT_REVIEWED |
+All estimates are tagged ASSUMED / ESTIMATE. No S/M/L assignment performed (blocked on actuator source data). No CAD, BOM, quotations or physical work.
 
-## 3. Deliverables vs Plan
+## 3. Key observations (paper only)
 
-| Planned deliverable | Actual result / evidence | Status |
-|---|---|---|
-| Mechanical configuration | Four concept architectures expanded | IMPLEMENTED IN OVERLAY; review pending |
-| Preliminary dimensions | Source dimensions listed with units and source classification | IMPLEMENTED IN OVERLAY; owner review pending |
-| DOF and joint configurations | Joint instances enumerated; axis/range gaps preserved | IMPLEMENTED IN OVERLAY; incomplete where source lacks data |
-| Major assemblies and interfaces | Concept-level inventories created | IMPLEMENTED IN OVERLAY; not released interfaces |
-| Mass assumptions | Printed target weight ranges separated from unknown subsystem contributions | IMPLEMENTED IN OVERLAY; mass budget incomplete |
-| Preliminary mechanical assessment | Qualitative load paths, support/workspace/stiffness/serviceability questions recorded | IMPLEMENTED IN OVERLAY; calculations deferred |
-| CP2 contribution | Four of 12 concepts documented | PARTIAL; other interns and reviewer required |
-| CP2 architecture review | Not performed by INTERN-01 alone | NOT_RUN |
+1. **DA-01** is the most budget-friendly of the four under current assumptions; shoulder continuous demand ≈ 3.2 N·m after margin.
+2. **QR-02 / QR-04** and **DA-04** nominal cost models sit at or above the INR 2 L planning ceiling; actuator module cost is the dominant lever in every case.
+3. Longer legs on QR-04 raise hip/knee moments relative to QR-02; dynamic gait would raise them further.
+4. Mobile DA-04 adds battery and drive channels that further pressure both mass and cost.
 
-## 4. Blocked and Incomplete Items
+## 4. Open decisions still required from owner
 
-| Item | Status | Reason | Dependency / action |
-|---|---|---|---|
-| Joint range / coordinate frames | TBD | Artwork and README do not define every axis frame or ROM | Owner/source confirmation |
-| Torque / speed / S/M/L | BLOCKED for calculation | Requires link geometry, mass/load/motion and source-controlled actuator data | Week 3; actuator owner inputs |
-| Subsystem mass and centre of mass | INCOMPLETE | Only printed total weight target range available; no component mass breakdown | Obtain geometry/material/component mass sources |
-| Interface dimensions and tolerances | BLOCKED | No released robot-to-actuator interface data | Obtain actuator owner/revision and owner disposition |
-| CP2 all-12 architecture coverage | BLOCKED / PARTIAL | INTERN-02 and INTERN-03 deliverables not included in this assigned contribution | Await their four-concept records each |
-| CP2 review decision | NOT_RUN | Official cross-team review not completed | Authorized reviewer; record exact commit |
+- DA-01 wrist axis (D4) and torso/mast items (D3/D5).
+- QR-02 / QR-04 optional sensor and mounting-interface questions.
+- Actuator S/M/L source data pack (mass, torque, price, envelope) with controlled revision.
+- Confirmation whether battery is in-scope for mobile concepts under the current HOLD interpretation.
 
-## 5. Unknowns and Assumptions
+## 5. Next actions (Week 4 direction)
 
-- All source artwork dimensions / masses / payload / voltage remain `CONCEPT_TARGET`.
-- Printed weight ranges marked `(est.)` are not independent subsystem estimates.
-- DA-01 wrist axis and cross-section-only torso/mast details remain OWNER_DECISION.
-- QR-02 optional sensor/force-foot configuration remains OWNER_DECISION.
-- DA-04 fixed head/no pan and ten-actuator baseline are preserved; battery sizing is not part of study.
-- QR-04 indicative 4 × M5 / 2 × Ø5 mm mounting and adjustable sensor module remain OWNER_DECISION.
-- ROM, torque, speed, duty cycle, gear ratio, S/M/L, component masses, CoM, material grade and detailed interfaces remain TBD/UNKNOWN.
+- Incorporate any owner decisions and actuator data.
+- Produce comparative scoring matrix across the four concepts (and later all 12).
+- Risk register updates and recommendation draft for CP4.
+- Keep all work on a feature branch and open a PR; never push to main.
 
-## 6. Risks Raised
+## 6. D-003 compliance
 
-See each concept's `OPEN_QUESTIONS.md`. Global risk register is not edited. Related global risk categories include actuator capability, cost/inventory, calculation consistency, source maturity, D-003 scope creep and evidence overstatement.
-
-## 7. Next Actions
-
-| Action | Concept | Owner | Target |
-|---|---|---|---|
-| Resolve artwork / baseline decisions | DA-01, QR-02, QR-04 | Dinesh / owner | TBD |
-| Provide actuator source data and revision | All four | Actuator owner / Dinesh | Week 3 |
-| Define geometry, support and motion assumptions | All four | INTERN-01 with owner | Week 3 |
-| Perform torque/speed and S/M/L assessment per joint | All four | INTERN-01 | Week 3 |
-| Develop traceable subsystem mass estimates | All four | INTERN-01 | Week 3 |
-| Complete other intern architecture contributions and CP2 | Other eight concepts | INTERN-02 / INTERN-03 / reviewer | CP2 |
-
-## 8. Repository Evidence
-
-- Branch: `feasibility/intern-01` (not created by this overlay)
-- Commit references: TBD
-- Relevant file paths: see `CP2_CONTRIBUTION.md` and concept folders
-- Review / pull request references: TBD
-- Integration state: Files supplied as overlay; not copied into the user's local repository by this package
-
-## 9. D-003 Compliance
-
-The supplied work is paper-only documentation and conceptual sketching. No CAD, final BOM, quotation, procurement, fabrication, assembly, physical testing or hardware integration is included.
-
-- Intern confirmation: TBD
-- Date: TBD
-- Exceptions: NONE in this overlay; confirmation required after local integration
-
-Mechanical HOLD D-003 remains in effect. Any exception requires explicit owner review.
+Paper documentation and calculation only. No CAD, procurement, fabrication or physical testing. Intern confirmation of compliance: pending local integration and review.

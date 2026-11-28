@@ -1,81 +1,55 @@
-# DA-04 — Joint and Actuator Requirements (Week 2)
+# DA-04 — Joint and Actuator Requirements (Week 3 update)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+| Property | Value |
+|---|---|
+| Document ID | KMECH-ACT-DA-04 |
+| Status | PROPOSED — Week 3 paper calculation |
+| Version | 0.3.0 |
+| Last Updated | 2026-11-27 |
+| Assigned Intern | INTERN-01 |
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+**HOLD D-003 active.**
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+## 1. Configuration
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+Humanoid Mobile Dual-Arm: two 4-DOF arms (shoulder yaw/pitch, elbow, wrist) + differential-drive base (2 wheel channels) = **10 actuators** (owner-approved baseline; head pan excluded). Overall 1200 × 1200 mm envelope (CONCEPT_TARGET). Target mass and payload still CONCEPT_TARGET / TBD in register.
 
-## 1. Scope
+## 2. Planning assumptions (ASSUMED)
 
-Week 2 records every baseline joint/channel and makes missing actuator requirements explicit. Week 3 is scheduled for torque/speed calculations and actuator assessment. This file does not select or validate an actuator.
+| ID | Assumption | Value |
+|---|---|---|
+| A1 | Gravity | 9.81 m/s² |
+| A2 | Arm reach (shoulder–gripper) | 400 mm (scaled from artwork) |
+| A3 | Link split | 180 / 120 / 100 mm |
+| A4–A8 | Link & module masses | similar to DA-01 scaled +20 % |
+| A9 | Payload per arm | 0.2 kg |
+| A10 | Robot mass for drive calc | 12 kg (planning) |
+| A11 | Wheel radius | 50 mm (ASSUMED) |
+| A12 | Max slope | 5° (ASSUMED) |
+| A13 | Max accel | 0.5 m/s² |
+| A14 | Planning factor | 1.5× |
 
-Preserve:
-- BLDC/PMSM modular rotary actuator direction.
-- Option C mechanical direction.
-- S/M/L architecture; do not redefine size classes.
-- 24 V DC as investigation direction only, not a finalized system voltage.
-- Existing elbow reference (24 V, 10 N·m continuous, 20 N·m peak) is specific to that elbow discussion and must not be copied to any other joint.
+## 3. Arm joints (one arm, ESTIMATE)
 
-## 2. Per-joint requirements matrix
+| Joint | Continuous (N·m) | Peak (N·m) | After 1.5× |
+|---|---:|---:|---:|
+| Shoulder yaw | ≈ 0.8 | ≈ 1.4 | ≈ 2.1 |
+| Shoulder pitch | ≈ 3.4 | ≈ 4.6 | ≈ 6.9 |
+| Elbow | ≈ 1.1 | ≈ 1.5 | ≈ 2.3 |
+| Wrist | ≈ 0.25 | ≈ 0.35 | ≈ 0.5 |
 
-| Joint instance | Motion | Qty | ROM | Continuous torque | Peak torque | Output speed | Duty cycle | Gear ratio | Technology shown | S/M/L / evidence status |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Left shoulder yaw | Yaw / rotation | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Left shoulder pitch | Pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Left elbow | Pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Left wrist | Pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right shoulder yaw | Yaw / rotation | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right shoulder pitch | Pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right elbow | Pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right wrist | Pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Left wheel-pair drive | Drive rotation, one channel for left wheel pair | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC with encoder; optional gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right wheel-pair drive | Drive rotation, one channel for right wheel pair | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC with encoder; optional gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
+(Method identical to DA-01; longer reach and slightly higher module masses raise the numbers.)
 
-The quantity rows enumerate physical joint instances. `TBD` is intentional: the source does not give range, torque, speed, gear ratio or duty cycle for these joints. Every joint must receive a separate Week 3 derivation or remain explicitly `TBD`.
+## 4. Base drive channels (ESTIMATE)
 
-## 3. Required load and motion inputs
+Traction torque per wheel (level + 5° slope + accel):
 
-- Source-revision-controlled actuator geometry, mass, mounting interface, continuous/peak torque curves, speed limits, thermal/duty envelope and gearbox data from the actuator owner.
-- Concept-specific link dimensions, offsets, joint coordinate frames, centre-of-mass and inertia assumptions.
-- Payload/mass distribution and representative operating poses.
-- Motion profile: joint range, angular velocity, acceleration, duty cycle and expected transient events.
-- For legged concepts: support phase, ground reaction, foot placement, terrain/contact assumptions, gait/stride and impact/transient assumptions.
-- For DA-04 wheel channels: wheel radius, wheelbase/track, total mass, load distribution, slope, acceleration, floor friction and desired travel speed.
+```
+τ_wheel ≈ (m g sinθ + m a) × r_wheel / 2
+```
 
-## 4. Calculation methods to use when inputs exist
+≈ (12×9.81×0.087 + 12×0.5) × 0.05 / 2 ≈ 0.41 N·m continuous; peak higher with dynamic margin → ≈ 0.8–1.2 N·m after planning factor.
 
-State the engineering question, inputs, source revision, units and assumptions before calculation. Do not substitute assumed numbers.
+## 5. Status
 
-**Static gravity/load moment (joint axis projection):**
-
-\`tau_static = sum((r_i × F_i) · e_axis)\`
-
-where each moment arm vector `r_i` and force `F_i` is in SI units and `e_axis` is the defined unit vector of the joint axis. Inputs are presently `TBD`.
-
-**Dynamic joint demand (conceptual rigid-body form):**
-
-\`tau_required(q, qdot, qddot) = M(q) qddot + C(q,qdot) qdot + g(q) + tau_external + tau_friction\`
-
-This requires a defined kinematic model, mass/inertia parameters, motion profile and external loads; none is complete in Week 2.
-
-**Speed:**
-
-\`omega = delta_theta / delta_t\`
-
-or derive joint rates from a specified end-effector/foot trajectory and Jacobian. No trajectory, time interval or joint range is specified; required speed remains `TBD`.
-
-**Actuator comparison:** compare per-joint continuous and peak torque, output speed, range, duty/thermal limits, mass/envelope, mounting interface and documented margins against the source-revision-controlled S/M/L candidate data. Do not assign S/M/L from joint function or the elbow reference.
-
-## 5. Week 3 carry-forward
-
-For each row, populate results only when inputs are available. Include formula, substitutions, units, result, uncertainty/sensitivity, source commit/revision and limitations. If any input is missing, retain `TBD` or `BLOCKED` with a named dependency. S/M/L remains `TBD` until requirements are derived and data is source-controlled.
-
-## 6. Related requirements and unknowns
-
-- FREQ-009, FREQ-010, FREQ-011, FREQ-012, FREQ-013, FREQ-014.
-- FREQ-026 and FREQ-027 for dual-arm concepts; FREQ-029 and FREQ-031 for legged concepts.
-- U-007 (joint torque/speed) and U-008 (joint-to-actuator S/M/L mapping).
-- Existing global risk FRISK-001 (legged-joint torque capability) and FRISK-005 (actuator source maturity), where applicable.
+Week 3 estimates produced. S/M/L mapping blocked on actuator data. Wheel radius, exact mass and slope requirements remain ASSUMED / TBD. Battery not sized (study exclusion under current HOLD interpretation for mobile concepts).

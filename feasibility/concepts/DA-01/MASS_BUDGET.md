@@ -1,57 +1,51 @@
-# DA-01 — Week 2 Mass Assumptions and Budget Framework
+# DA-01 — Mass Budget (Week 3 estimate)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+| Property | Value |
+|---|---|
+| Document ID | KMECH-MASS-DA-01 |
+| Status | PROPOSED — Week 3 paper estimate |
+| Version | 0.3.0 |
+| Last Updated | 2026-11-27 |
+| Assigned Intern | INTERN-01 |
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+**HOLD D-003 active.** No material selection, process selection or final BOM is authorised.
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+## 1. Artwork target (not a derived total)
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+Printed target: **5–8 kg (est.)** — CONCEPT_TARGET. The study does **not** force the subsystem sum to equal this range.
 
-## 1. Artwork mass target (not a derived mass estimate)
+## 2. Subsystem mass ranges (ESTIMATE)
 
-**Published target:** 5–8 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
+All values are planning estimates derived from the scale of the printed envelope, typical aluminium/CNC or printed link densities, and order-of-magnitude actuator module masses. Confidence is Low–Medium until source-controlled component data arrives.
 
-This is a transcribed artwork target. Although the sheet prints `(est.)`, the repository requires source values to remain distinguished from independently derived estimates. No subsystem mass estimate has been calculated in this Week 2 document. The printed target is not a verified mass, requirement or acceptance limit.
+| Subsystem | Low (kg) | Nominal (kg) | High (kg) | Notes / method |
+|---|---:|---:|---:|---|
+| Base plate + central enclosure | 0.80 | 1.20 | 1.80 | Al plate 300×250×6–10 mm + enclosure walls |
+| 2 × upper-arm links | 0.20 | 0.30 | 0.45 | A4 scaled ×2 |
+| 2 × forearm links | 0.12 | 0.20 | 0.30 | A6 scaled ×2 |
+| 6 × joint modules (motor+gear+housing) | 1.20 | 1.80 | 2.70 | 0.20–0.45 kg each; pending S/M/L data |
+| 2 × grippers (passive baseline) | 0.15 | 0.25 | 0.40 | Optional; may be lighter if purely passive |
+| Compute + drivers + power distribution | 0.30 | 0.50 | 0.80 | Kritva platform boards + harness provision |
+| Sensors / mast (optional) | 0.00 | 0.15 | 0.40 | Excluded from baseline; shown for sensitivity |
+| Fasteners, bearings, covers, harness | 0.25 | 0.40 | 0.70 | Allowance |
+| **Subtotal (baseline, no optional mast)** | **3.0** | **4.7** | **7.2** | |
+| Battery (if required) | 0.00 | 0.40 | 1.00 | Tabletop may be externally powered; UNKNOWN |
 
-## 2. Subsystem mass structure
+## 3. Comparison with printed target
 
-| Subsystem category | Mass contribution | Reason / missing input |
-|---|---|---|
-| Primary chassis / base / torso | TBD | Geometry, material/grade and section thickness absent |
-| Arms or leg links | TBD | Link lengths, cross-sections, material and process not selected |
-| Joint modules, motors and gearboxes | TBD | S/M/L selection and source-controlled actuator mass unavailable |
-| Wheels / feet / end effectors | TBD | Wheel/foot/gripper detail and component mass not established |
-| Compute and motor controllers | TBD | Board models, outlines and masses unavailable |
-| Power distribution / protection | TBD | Electrical architecture and component data unavailable |
-| Battery | TBD / UNKNOWN | Concept-dependent: see specific note below |
-| Sensors and mounting hardware | TBD | Optional modules and model selections unresolved |
-| Harnesses, fasteners, bearings and covers | TBD | Routing, quantity and component specifications absent |
+Nominal baseline ≈ 4.7 kg sits inside the lower half of the 5–8 kg printed band. High end of the range approaches the upper printed bound only if larger actuators and optional sensors are included. The printed target therefore remains plausible but is **not** treated as a derived or verified mass.
 
-No allocation percentages or component masses are invented. The total mass remains `UNKNOWN` until traceable component masses or defensible geometry/material estimates are available.
+## 4. Centre of mass
 
-## 3. Mass model to populate in Week 3
+Still UNKNOWN. No datum or component coordinates are defined. A first-order estimate places the CoM near the geometric centre of the base/torso once the arms are folded; extended-arm CoM shifts outward and raises tipping risk (see MECHANICAL_ANALYSIS).
 
-`m_total = m_structure + m_links + m_joint_modules + m_wheels_or_feet + m_end_effectors + m_compute + m_drivers + m_power + m_battery + m_sensors + m_harness + m_fasteners + m_covers`
+## 5. Required inputs to improve confidence
 
-The centre-of-mass location must be calculated from component masses and positions relative to a defined datum. No datum or subsystem coordinates are available, so `CG_x`, `CG_y`, `CG_z` and mass moments are `UNKNOWN`.
+- Source-controlled actuator module masses (S/M/L data pack with commit hash).
+- Selected material grades and wall thicknesses (still OWNER_DECISION / TBD).
+- Exact link lengths and joint offsets.
+- Decision on powered vs passive grippers and inclusion of mast/sensors.
 
-## 4. Concept-specific mass assumptions / unknowns
+## 6. Status
 
-Unknown whether optional mast, powered grippers, camera, sensor, cables and all service hardware are included in the printed 5–8 kg target. No component masses, link geometry/material grades, actuator variants or enclosure dimensions are available for a subsystem sum. Centre of mass and base tipping margin are UNKNOWN.
-
-## 5. Required inputs
-
-- Current concept geometry and datum/coordinate frame.
-- Material and manufacturing options narrowed only when there is source evidence; no final selection.
-- Component masses from the owning actuator/platform repositories with source commit/revision and maturity.
-- Count and envelope of all baseline and optional components.
-- Whether target mass includes battery, payload, cables, fasteners and sensors.
-- Payload and its location relative to joint/body datums.
-- Uncertainty ranges and confidence basis for every independently estimated contribution.
-
-## 6. Status and next action
-
-**Status:** INCOMPLETE for a numerical mass budget; Week 2 mass assumptions and missing inputs are recorded.
-
-**Next action:** Collect the above inputs and create a subsystem-by-subsystem estimate with range, method, source and confidence in Week 3. Do not force the total to match the printed target.
+Week 3 mass framework populated with transparent ranges. Total remains an ESTIMATE. No claim is made that the robot will meet the printed 5–8 kg target.

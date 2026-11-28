@@ -1,34 +1,48 @@
-# DA-01 — Preliminary Cost Model Status
+# DA-01 — Preliminary Cost Model (Week 3)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+| Property | Value |
+|---|---|
+| Document ID | KMECH-COST-DA-01 |
+| Status | PROPOSED — Week 3 category-level ESTIMATE |
+| Version | 0.3.0 |
+| Last Updated | 2026-11-27 |
+| Assigned Intern | INTERN-01 |
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+**HOLD D-003 active.** No supplier quotations, procurement or final BOM are authorised. All figures are category-level planning estimates in INR and are tagged ESTIMATE.
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+## 1. Planning ceiling
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+Study-level hardware ceiling: **INR 2,00,000**. This is a comparison constraint, not an approved procurement budget.
 
-## 1. Week 2 scope
+## 2. Category cost ranges (ESTIMATE, INR)
 
-Cost modelling is scheduled for Week 3. This Week 2 file only identifies architecture-dependent cost categories and unresolved cost drivers; it does not quote, price, select vendors or prepare a BOM.
+Ranges reflect typical Indian academic / small-batch robotics component pricing at the 2026 planning horizon and the scale of DA-01. Confidence is Low until source-controlled prices and quantities exist.
 
-## 2. Cost categories
+| Category | Qty basis | Low (INR) | Nominal (INR) | High (INR) | Notes |
+|---|---|---:|---:|---:|---|
+| Actuator modules (motor + gearbox + encoder) | 6 | 45,000 | 75,000 | 1,20,000 | Dominant cost driver; S/M/L data pending |
+| Structural (base, links, enclosures) | 1 set | 8,000 | 15,000 | 25,000 | Al plate + CNC / printed links |
+| Bearings, shafts, fasteners | lot | 3,000 | 6,000 | 12,000 | |
+| Grippers (passive or simple servo) | 2 | 2,000 | 5,000 | 12,000 | Optional powered version higher |
+| Compute / motor drivers / power dist. | 1 set | 12,000 | 20,000 | 35,000 | Kritva platform boards |
+| Sensors / mast / cameras (optional) | 0–1 | 0 | 8,000 | 20,000 | Excluded from baseline |
+| Harness, connectors, covers, misc. | lot | 4,000 | 8,000 | 15,000 | |
+| Fabrication / finishing / assembly labour (in-house) | 1 | 5,000 | 12,000 | 25,000 | No external quote |
+| **Baseline subtotal (no optional sensors)** | | **79,000** | **1,41,000** | **2,44,000** | |
 
-| Category | Concept relevance | Current value | Status |
-|---|---|---:|---|
-| Actuator modules / gearboxes | 6 baseline joint/drive channels; actuator variant not assigned | UNKNOWN | Requires per-joint demand and verified inventory |
-| Structural chassis / links | Dual-arm structure | UNKNOWN | Material, geometry and process options only |
-| Bearings, shafts and joints | All joint modules | UNKNOWN | Component specifications not selected |
-| Feet / wheels / grippers | Concept-dependent end effectors | UNKNOWN | Configuration partly optional |
-| Compute / controls / drivers | Kritva platform provisions | UNKNOWN | Platform component models/prices not supplied |
-| Power / battery / protection | Concept-dependent; battery status in mass budget | UNKNOWN | No approved electrical design |
-| Sensors / mounts / harnesses | Optional and concept-specific | UNKNOWN | Sensor baseline and interfaces unresolved |
-| Fabrication / finishing / assembly | Concept-level only | UNKNOWN | No process selection or supplier quotation permitted |
+## 3. Affordability observation
 
-## 3. Budget treatment
+- Nominal baseline ≈ INR 1.41 L sits inside the INR 2 L ceiling with ≈ 30 % margin.
+- High-end actuator pricing or addition of optional sensors / powered grippers can push the total above the ceiling.
+- Actuator modules are the single largest lever; S/M/L selection and source pricing will dominate the final comparison.
 
-The study-level planning ceiling is INR 2,00,000. It is not an approved procurement budget and does not establish affordability. No component total is calculated in Week 2 because quantities, variants and verified prices are not available. Supplier quotations and procurement remain NOT STARTED under D-003.
+## 4. Exclusions
 
-## 4. Next action
+- No supplier quotations.
+- No import duties, taxes, shipping or contingency reserve quantified.
+- No software / NRE / test equipment.
+- Battery cost excluded (tabletop may be externally powered).
 
-In Week 3, create traceable category-level cost ranges only after architecture, quantities and actuator candidates are defined. Label every value `ESTIMATE` or `UNKNOWN`, state exclusions and confidence, and do not represent estimates as quotations.
+## 5. Status
+
+Category-level ESTIMATE produced for Week 3. Ready for comparison once actuator source data and the other eleven concept cost models are available. No claim of affordability or design release is made.

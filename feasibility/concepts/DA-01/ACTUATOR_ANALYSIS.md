@@ -1,77 +1,151 @@
-# DA-01 — Joint and Actuator Requirements (Week 2)
+# DA-01 — Joint and Actuator Requirements (Week 3 update)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+| Property | Value |
+|---|---|
+| Document ID | KMECH-ACT-DA-01 |
+| Repository | `KritvaOS/kritva-mechanical` |
+| Document Type | Joint and Actuator Feasibility Analysis |
+| Status | PROPOSED — Week 3 paper calculation; subject to owner review |
+| Owner | Dinesh |
+| Assigned Intern | INTERN-01 |
+| Version | 0.3.0 |
+| Last Updated | 2026-11-27 |
+| Authority | Preliminary paper analysis; subject to owner review |
+| Related Documents | `README.md`, `ARCHITECTURE.md`, `MECHANICAL_ANALYSIS.md`, `MASS_BUDGET.md`, `feasibility/DESIGN_GUIDELINES.md` |
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+**HOLD:** Mechanical HOLD D-003 remains active. No actuator selection, S/M/L assignment or procurement is authorised.
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+**Evidence boundary:** Paper calculation only. No CAD, simulation, bench or physical evidence is claimed.
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+**Numeric classification:** Artwork values are `CONCEPT_TARGET`. Planning numbers introduced by the intern are tagged `ASSUMED` or `ESTIMATE`. Missing quantities remain `TBD` / `UNKNOWN` / `OWNER_DECISION`.
 
-## 1. Scope
+## 1. Scope and preserved directions
 
-Week 2 records every baseline joint/channel and makes missing actuator requirements explicit. Week 3 is scheduled for torque/speed calculations and actuator assessment. This file does not select or validate an actuator.
+- Concept: Fixed Tabletop Dual-Arm (Low complexity)
+- Baseline actuator count: 6 (3 DOF × 2 arms). Optional powered grippers and optional mast are excluded from the baseline.
+- Motor direction: BLDC/PMSM modular rotary actuators (preserved).
+- Actuator architecture: S/M/L (no joint has been mapped yet).
+- Supply investigation direction: 24 V DC only (not a confirmed electrical interface).
+- Existing elbow reference (24 V, 10 N·m continuous, 20 N·m peak) is **not** copied to any joint.
+- Option C mechanical direction preserved.
 
-Preserve:
-- BLDC/PMSM modular rotary actuator direction.
-- Option C mechanical direction.
-- S/M/L architecture; do not redefine size classes.
-- 24 V DC as investigation direction only, not a finalized system voltage.
-- Existing elbow reference (24 V, 10 N·m continuous, 20 N·m peak) is specific to that elbow discussion and must not be copied to any other joint.
+## 2. CONCEPT_TARGET inputs (from artwork / README)
 
-## 2. Per-joint requirements matrix
+| Item | Value | Classification |
+|---|---|---|
+| Arm reach (shoulder to gripper) | 350 mm | CONCEPT_TARGET; pose/datum undefined |
+| Target payload (each arm) | 0.1–0.2 kg (est.) | CONCEPT_TARGET |
+| Target robot mass | 5–8 kg (est.) | CONCEPT_TARGET |
+| Overall width / height / base | 700 mm / 400 mm / 300×250 mm | CONCEPT_TARGET |
+| DOF per arm | 3 (shoulder yaw, elbow pitch, wrist pitch/rotation ambiguity) | CONCEPT_TARGET; wrist axis OWNER_DECISION (D4) |
 
-| Joint instance | Motion | Qty | ROM | Continuous torque | Peak torque | Output speed | Duty cycle | Gear ratio | Technology shown | S/M/L / evidence status |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Left shoulder | Yaw / rotation | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Left elbow | Flexion / extension; cross-section labels pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Left wrist | Rotation / pitch ambiguity; cross-section says pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right shoulder | Yaw / rotation | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right elbow | Flexion / extension; cross-section labels pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Right wrist | Rotation / pitch ambiguity; cross-section says pitch | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
+## 3. Intern planning assumptions (ASSUMED — replace when better data exists)
 
-The quantity rows enumerate physical joint instances. `TBD` is intentional: the source does not give range, torque, speed, gear ratio or duty cycle for these joints. Every joint must receive a separate Week 3 derivation or remain explicitly `TBD`.
+These values exist only so that the calculation method can be exercised. They are **not** requirements.
 
-## 3. Required load and motion inputs
+| ID | Assumption | Value | Rationale / source |
+|---|---|---|---|
+| A1 | Gravity | 9.81 m/s² | Standard |
+| A2 | Worst-case gravity pose | Arm fully extended horizontally (shoulder & elbow at 90° to gravity) | Conservative static case for tabletop pick-and-place |
+| A3 | Link length split of 350 mm reach | Upper arm (shoulder→elbow) 175 mm; forearm (elbow→wrist) 100 mm; wrist→gripper tip 75 mm | Equal-ish split of printed reach; no printed link lengths |
+| A4 | Upper-arm link mass (ex-joint), CoM mid-length | 0.12 kg at 87.5 mm from shoulder | ESTIMATE for aluminium/CNC or printed link at this scale |
+| A5 | Elbow joint module mass | 0.30 kg at elbow axis | ESTIMATE pending S/M/L data |
+| A6 | Forearm link mass, CoM mid-length | 0.08 kg at 50 mm from elbow | ESTIMATE |
+| A7 | Wrist joint module mass | 0.18 kg at wrist axis | ESTIMATE |
+| A8 | Gripper + mount mass (optional, passive baseline) | 0.12 kg at 40 mm beyond wrist | ESTIMATE; passive gripper assumed for baseline |
+| A9 | Payload mass (high end of printed range) | 0.20 kg at gripper tip | CONCEPT_TARGET upper bound |
+| A10 | Representative joint speed | 1.57 rad/s (90° in 1 s) | ASSUMED planning value; no trajectory given |
+| A11 | Representative angular acceleration | 10 rad/s² | ASSUMED; reaches A10 in ~0.16 s |
+| A12 | Planning factor on required torque | 1.5× | Covers friction, gearbox efficiency, cable drag, mass growth; not a validated margin |
 
-- Source-revision-controlled actuator geometry, mass, mounting interface, continuous/peak torque curves, speed limits, thermal/duty envelope and gearbox data from the actuator owner.
-- Concept-specific link dimensions, offsets, joint coordinate frames, centre-of-mass and inertia assumptions.
-- Payload/mass distribution and representative operating poses.
-- Motion profile: joint range, angular velocity, acceleration, duty cycle and expected transient events.
-- For legged concepts: support phase, ground reaction, foot placement, terrain/contact assumptions, gait/stride and impact/transient assumptions.
-- For DA-04 wheel channels: wheel radius, wheelbase/track, total mass, load distribution, slope, acceleration, floor friction and desired travel speed.
+## 4. Per-joint torque demand (output shaft, one arm, 0.2 kg payload)
 
-## 4. Calculation methods to use when inputs exist
+Static gravity torque at pose A2 uses moment arms about each joint axis. Inertial contribution uses a simplified rigid-body estimate I·α with α = A11. All results are **ESTIMATE**.
 
-State the engineering question, inputs, source revision, units and assumptions before calculation. Do not substitute assumed numbers.
+| Joint | Static torque (N·m) | Inertial (N·m) | Peak (N·m) | Continuous (holding) | Speed (rad/s) | Calc ref | S/M/L | Status |
+|---|---:|---:|---:|---:|---:|---|---|---|
+| Shoulder yaw | ≈ 0 (vertical axis) | ≈ 0.55 | ≈ 0.55 | friction / cable TBD | 1.57 (A10) | CALC-DA01-01 | TBD | ESTIMATE |
+| Shoulder pitch | ≈ 2.15 | ≈ 0.55 | ≈ 2.70 | ≈ 2.15 | 1.57 | CALC-DA01-01 | TBD | ESTIMATE |
+| Elbow pitch | ≈ 0.68 | ≈ 0.09 | ≈ 0.77 | ≈ 0.68 | 1.57 | CALC-DA01-01 | TBD | ESTIMATE |
+| Wrist (pitch or rotation) | ≈ 0.18 | ≈ 0.01 | ≈ 0.19 | ≈ 0.18 | 1.57 | CALC-DA01-01 | TBD | ESTIMATE |
 
-**Static gravity/load moment (joint axis projection):**
+### 4.1 Required torque after planning factor (A12 = 1.5×)
 
-\`tau_static = sum((r_i × F_i) · e_axis)\`
+| Joint | Peak × 1.5 (N·m) | Continuous × 1.5 (N·m) |
+|---|---:|---:|
+| Shoulder yaw | ≈ 0.83 | TBD (friction-dominated) |
+| Shoulder pitch | ≈ 4.05 | ≈ 3.23 |
+| Elbow pitch | ≈ 1.16 | ≈ 1.02 |
+| Wrist | ≈ 0.29 | ≈ 0.27 |
 
-where each moment arm vector `r_i` and force `F_i` is in SI units and `e_axis` is the defined unit vector of the joint axis. Inputs are presently `TBD`.
+These figures are the quantities to compare against source-controlled S/M/L candidate data once the actuator owner supplies it. They are **not** requirements and do **not** select an actuator.
 
-**Dynamic joint demand (conceptual rigid-body form):**
+### 4.2 Low-payload check (0.1 kg)
 
-\`tau_required(q, qdot, qddot) = M(q) qddot + C(q,qdot) qdot + g(q) + tau_external + tau_friction\`
+Static shoulder-pitch torque drops to ≈ 1.65 N·m; elbow ≈ 0.52 N·m; wrist ≈ 0.12 N·m. Order of magnitude is unchanged.
 
-This requires a defined kinematic model, mass/inertia parameters, motion profile and external loads; none is complete in Week 2.
+## 5. Calculation method summary (CALC-DA01-01)
 
-**Speed:**
+**Static gravity moment about joint axis**
 
-\`omega = delta_theta / delta_t\`
+```
+τ_static = Σ (r_i × m_i g) · e_axis
+```
 
-or derive joint rates from a specified end-effector/foot trajectory and Jacobian. No trajectory, time interval or joint range is specified; required speed remains `TBD`.
+where r_i is the position of each distal mass relative to the joint, e_axis is the unit vector of the joint axis, and g = 9.81 m/s².
 
-**Actuator comparison:** compare per-joint continuous and peak torque, output speed, range, duty/thermal limits, mass/envelope, mounting interface and documented margins against the source-revision-controlled S/M/L candidate data. Do not assign S/M/L from joint function or the elbow reference.
+For shoulder pitch at full horizontal extension the dominant terms are:
 
-## 5. Week 3 carry-forward
+- payload 0.20 kg × 0.350 m
+- gripper 0.12 kg × 0.310 m
+- wrist module 0.18 kg × 0.275 m
+- forearm 0.08 kg × 0.225 m
+- elbow module 0.30 kg × 0.175 m
+- upper-arm 0.12 kg × 0.0875 m
 
-For each row, populate results only when inputs are available. Include formula, substitutions, units, result, uncertainty/sensitivity, source commit/revision and limitations. If any input is missing, retain `TBD` or `BLOCKED` with a named dependency. S/M/L remains `TBD` until requirements are derived and data is source-controlled.
+yielding ≈ 2.15 N·m (rounded).
 
-## 6. Related requirements and unknowns
+**Inertial contribution (simplified)**
 
-- FREQ-009, FREQ-010, FREQ-011, FREQ-012, FREQ-013, FREQ-014.
-- FREQ-026 and FREQ-027 for dual-arm concepts; FREQ-029 and FREQ-031 for legged concepts.
-- U-007 (joint torque/speed) and U-008 (joint-to-actuator S/M/L mapping).
-- Existing global risk FRISK-001 (legged-joint torque capability) and FRISK-005 (actuator source maturity), where applicable.
+Approximate I about the joint from point-mass contributions and multiply by α = 10 rad/s².
+
+Full expansion, sensitivity tables and unit checks live in `calculations/CALC-DA01-01_joint_torque.md`.
+
+## 6. Speed, ROM, duty cycle
+
+- ROM: still TBD / OWNER_DECISION (wrist axis ambiguity D4).
+- Speed: only the planning value A10 is available; no trajectory or cycle time is specified.
+- Duty: TBD. Tabletop pick-and-place is expected to be intermittent; continuous rating should still be sized for the holding case plus margin.
+
+## 7. S/M/L mapping status
+
+**Not started.** Mapping requires:
+
+1. Derived continuous and peak torque (this file).
+2. Source-controlled S/M/L mass, envelope, continuous/peak torque, speed and thermal data from the actuator repository (commit/revision controlled).
+3. Owner review of margins and packaging.
+
+Until those exist, every joint remains “TBD — no S/M/L assignment”.
+
+## 8. Risks and open items carried forward
+
+- Wrist axis (rotation vs pitch) remains OWNER_DECISION (D4).
+- Link lengths, joint offsets and coordinate frames remain UNKNOWN.
+- Actuator source data maturity is a global risk (FRISK-005).
+- Cable routing torque and friction not yet quantified.
+- Optional powered gripper would add a seventh actuator channel per arm; currently excluded.
+
+See `OPEN_QUESTIONS.md` for the full decision register.
+
+## 9. Week 3 status for this concept
+
+| Item | Status |
+|---|---|
+| Joint instance list | Complete (Week 2) |
+| Assumption set for calculation | Documented (this revision) |
+| Static + inertial torque estimates | ESTIMATE produced |
+| S/M/L comparison | BLOCKED on actuator source data |
+| Speed / ROM / duty | Still TBD |
+| Calculation file | CALC-DA01-01 drafted |
+
+Mechanical HOLD D-003 remains in force. No actuator is selected or approved.
