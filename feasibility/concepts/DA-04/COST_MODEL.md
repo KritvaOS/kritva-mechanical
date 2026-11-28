@@ -1,22 +1,23 @@
-# DA-04 — Cost Evidence Record (Week 3/4)
+# DA-04 — Research-backed preliminary cost model
 
-**Status: UNKNOWN — no traceable concept BOM prices are available.** HOLD D-003 remains active. No supplier quotes, procurement or purchase approval are present.
+**Status:** PROPOSED planning estimate; no quotation, purchase authorization or final BOM. D-003 remains HOLD.
 
-## Planning ceiling
+The comparison ceiling is ₹2,00,000 from [EVALUATION_CRITERIA.md, EC-03](../../EVALUATION_CRITERIA.md) and FREQ-032. The baseline price scenario uses eight 24 V Makiina arm modules, two 24 V base motor/driver listings, a 10 Ah battery plus BMS, computer, camera, two light grippers, frame material, machining time and basic safety/harness. Full assumptions and references: [WEEK3_ESTIMATE_METHOD.md](../../interns/INTERN-01/WEEK3_ESTIMATE_METHOD.md) and [WEEK3_SOURCE_REGISTER.md](../../interns/INTERN-01/WEEK3_SOURCE_REGISTER.md).
 
-The study comparison ceiling is ₹2,00,000 per feasibility criterion EC-03; it is not a procurement budget. Source: [EVALUATION_CRITERIA.md, EC-03](../../EVALUATION_CRITERIA.md) and [REQUIREMENTS_REGISTER.md, FREQ-032–034](../../REQUIREMENTS_REGISTER.md).
+| Cost line | Quantity / rate | INR |
+|---|---|---:|
+| Makiina 10 Nm arm modules | 8 × USD 90 × ₹92.9139/USD | 66,898 |
+| 24 V 100 W drive motor/driver listings | 2 × ₹11,664 × 1.18 tax assumption | 27,527 |
+| 10 Ah battery plus 20 A BMS | ₹6,899 + ₹629 | 7,528 |
+| Raspberry Pi 5 4 GB board | USD 110 × ₹92.9139/USD | 10,221 |
+| OAK-D Lite camera | Listed price | 36,799 |
+| Two light grippers | 2 × (₹489 kit + ₹304.27 MG995 servo) | 1,587 |
+| 6061 material | 11.61 kg × ₹430/kg | 4,992 |
+| Machining time | 20 h × ₹600/h | 12,000 |
+| Fabrication/setup allowance | Estimate | 3,000 |
+| Harness and safety allowance | Estimate | 4,500 |
+| **24 V economy subtotal** | Before foreign actuator shipping/customs | **175,052** |
 
-## Quote-ready scope; no prices inferred
+Applying an 18% tax-only sensitivity to the eight imported Makiina modules gives ₹187,093; no foreign shipping or customs duty is included. The economy case is under ₹2,00,000 but does not clear the 1.0 kg payload shoulder-pitch screen. Replacing the two shoulder-pitch modules with 18 Nm AK10-9 units raises the subtotal to ₹288,202 before landing costs; those products require 48 V. Using 18 Nm modules for all eight arm axes gives a ₹627,654 subtotal before tax/shipping.
 
-| Cost line | Source-backed scope / quantity | Unit price | Extended price | Missing evidence |
-|---|---|---|---|---|
-| Actuator channels | 10 baseline actuators: 8 arm joints and 2 drive channels; README.md / ARCHITECTURE.md | UNKNOWN | UNKNOWN | Exact variant and part number, dated supplier source or quote, quantity break, taxes and shipping |
-| Structure and joints | differential-drive base and four wheels; torso and fixed head; two four-joint arm assemblies | UNKNOWN | UNKNOWN | Released geometry, materials, process, quantity and supplier quote |
-| Compute, drivers and power | Conceptual provisions only; board/component models not selected | UNKNOWN | UNKNOWN | Controlled part numbers, quantities and dated prices |
-| Sensors, battery and optional modules | Optional or undefined in source artwork | UNKNOWN | UNKNOWN | Owner decision, part selection and price source |
-| Assembly, fabrication, test, logistics and taxes | Scope and quantities not defined | UNKNOWN | UNKNOWN | Cost inclusions, process/quantity basis and dated estimate or quote |
-| **Total / comparison to ceiling** | Unpriced lines remain visible | **NOT COMPUTABLE** | **NOT COMPUTABLE** | Do not treat missing prices as zero |
-
-No low/nominal/high cost bands or affordability statement are made. EC-03 must remain NOT SCORED until the components, quantities, budget inclusions and traceable prices are established. The pinned actuator-family specification does not identify priced robot actuator variants. The actuator repository's A0 sourcing document concerns a separate prototype scope and mixes listings with estimates; it is not used as a price for these concept assemblies (see SOURCE_REGISTER.md SRC-07–SRC-08).
-
-To resume costing, record each BOM line with part number, source URL/document, source date, currency, quantity, quote/listing/estimate status, taxes, shipping, lead time and limitations. See EVALUATION_CRITERIA.md EC-03 and REQUIREMENTS_REGISTER.md FREQ-032–034.
+The two base motor/driver price listings conservatively double-count a dual-driver board. At a 50 mm wheel radius, the product title’s 25 rpm corresponds to 0.131 m/s; the listing description elsewhere says 35 rpm, so 25 rpm is used as the lower-speed case. The 10 Ah battery is a planning scenario, not a runtime guarantee. Its 22.2 V nominal listing is not assumed directly compatible with the 24 V motors/modules; voltage conditioning is not priced. The 40 Ah listing is not treated as a complete alternative because its high-current BMS pairing is not included in the source. The source README’s 10-channel baseline is reported as the existing concept statement; this model does not assert an unverified approval date or decision ID.

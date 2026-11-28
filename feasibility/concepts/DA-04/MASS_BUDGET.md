@@ -1,31 +1,22 @@
-# DA-04 — Mass Budget Evidence Record (Week 3/4)
+# DA-04 — Research-backed mass budget
 
-**Status: INCOMPLETE — system mass is UNKNOWN; no component-mass estimate is supported by the available sources.** HOLD D-003 remains active.
+**Status:** PROPOSED ESTIMATE; paper-only, D-003 active. This is not a measured mass, BOM or design selection.
 
-## Published target (not a derived mass)
+The source README target is 25–35 kg. Two paired scenarios show the trade: the low-mass 24 V modules miss the 1 kg payload shoulder screen, while the 18 Nm arm-module scenario uses a 48 V actuator and changes the power architecture. Assumed geometry and sources are in [WEEK3_ESTIMATE_METHOD.md](../../interns/INTERN-01/WEEK3_ESTIMATE_METHOD.md) and [WEEK3_SOURCE_REGISTER.md](../../interns/INTERN-01/WEEK3_SOURCE_REGISTER.md).
 
-The source concept README prints a robot mass target of 25–35 kg (est.). It is an unapproved CONCEPT_TARGET copied from illustrative artwork, not an independently calculated estimate, measured mass, or basis for allocating component masses. See [README.md, section 4](README.md#4-concept_target), [ARCHITECTURE.md](ARCHITECTURE.md), and [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-04.
+| Subsystem | 24 V economy kg | 18 Nm arm scenario kg | High packaging kg | Basis |
+|---|---:|---:|---:|---|
+| Eight arm modules | 1.92 | 7.52 | 7.52 | 8 × 0.240 kg Makiina or 8 × 0.940 kg CubeMars AK10-9; S02/S04. |
+| Two drive motors | 4.10 | 4.10 | 4.10 | 2 × listed 2.050 kg motor modules; S18. |
+| Base plate, rails and brackets | 8.32 | 8.32 | 9.50 | 500×600×4 mm plate = 3.24 kg; 3.40 m 40×40×3 rail = 4.08 kg; brackets. |
+| Torso/head structure | 2.44 | 2.44 | 3.00 | Two 400×600×1.5 mm panels = 1.94 kg plus framing allowance. |
+| Arm links and mounts | 0.85 | 0.85 | 1.40 | 0.900 m 20×20×2 tube = 0.350 kg bare plus joints/mounts. |
+| Battery and BMS | 1.65 | 1.65 | 1.65 | Listed 10 Ah 22.2 V pack plus 45 g BMS; S11–S12. |
+| Compute, camera, harness and grippers | 1.31 | 1.31 | 1.75 | Estimated compute and harness; listed camera, gripper kits and servo; S14, S19–S20. |
+| **Total** | **20.59** | **26.19** | **28.92** | Economy case is below 25–35 kg target; 18 Nm scenario is within it. |
 
-## Traceable subsystem breakdown
+Displayed component rows are rounded to 0.01 kg; totals use the listed battery (1.600 kg) plus 45 g BMS. The 18 Nm case uses a 48 V actuator and is a packaging/mass sensitivity, not a voltage-compatible selection. The 24 V economy case does not satisfy the 1.0 kg payload shoulder screen. DA-04 source artwork states 24 V conceptually and does not show a battery; the modeled 10 Ah battery is an estimate branch.
 
-| Subsystem | Source-backed configuration | Mass contribution | Evidence needed before calculating |
-|---|---|---|---|
-| differential-drive base and four wheels | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| torso and fixed head | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| two four-joint arm assemblies | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| two base drive channels | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| optional grippers and sensors | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| battery not shown in source artwork | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| compute, power, harness and covers | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
-| System total / low–nominal–high range | No source-backed component values are available | UNKNOWN — no subtotal computed; unknowns are not treated as zero | Verified component list, mass source per line, and mass/CoM datum |
+Base chassis mass uses a 4 mm plate, 3.40 m total 40×40×3 tube and 1.00 kg bracket allowance. Material mass is calculated from 2,700 kg/m³ density; this is not a strength, stiffness, tipping or structural verification result.
 
-The family-level actuator specification provides provisional torque bands and proposed roles; it does not provide variant-specific actuator masses. The concept artwork does not provide thicknesses, link sections, enclosure geometry, board models, battery selection or component masses. Therefore no subsystem mass, CoM, or total can be derived from this record. The printed target is not used as a measured load input.
-
-## Required evidence
-
-- Controlled component list and selected actuator variants, with revisioned mass data.
-- Dimensioned, approved geometry plus selected material and density source for fabricated parts.
-- Exact board, battery, sensor, gripper, fastener and harness part data.
-- Confirmation of what the printed target includes (payload, battery, sensors, cables and optional modules).
-
-References: README.md section 4; ARCHITECTURE.md sections 2–3 and 8; calculations/WEEK2_ARCHITECTURE_CHECKS.md; [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07. Until those inputs exist, the mass result remains UNKNOWN.
+**Related:** [CALC-DA04-01_arm_drive_screen.md](calculations/CALC-DA04-01_arm_drive_screen.md), [ACTUATOR_ANALYSIS.md](ACTUATOR_ANALYSIS.md), [COST_MODEL.md](COST_MODEL.md), and [FREQ-019/020/026/027/032](../../REQUIREMENTS_REGISTER.md).

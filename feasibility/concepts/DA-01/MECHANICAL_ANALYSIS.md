@@ -1,29 +1,19 @@
-# DA-01 — Mechanical Evidence Status (Week 3/4)
+# DA-01 — Mechanical feasibility screen
 
-**Status:** INCOMPLETE — qualitative configuration review only. HOLD D-003 active.
+**Status:** PROPOSED / ESTIMATE; no structural verification. D-003 remains active.
 
-## Source-backed configuration
+## Load path and packaging
 
-Two 3-DOF arms on a fixed tabletop base are transcribed from the concept README/artwork. Printed dimensions (including the 300 × 250 mm base and 350 mm shoulder-to-gripper reach) are CONCEPT_TARGETs; the drawings are not to scale and do not define joint frames, pose, material thickness or support conditions. See README.md sections 2, 4, 6 and 9; ARCHITECTURE.md sections 2–3.
+The proposed path is payload → gripper/wrist → forearm → elbow → upper arm → shoulder support → base plate → tabletop. A 350 mm arm reach and 300×250 mm base are concept targets, not controlled CAD dimensions. Two 20×20×2 mm aluminum tube link runs weigh approximately 0.272 kg bare at 0.389 kg/m; end plates, fasteners and wiring are allowances in the mass budget. The 300×250×4 mm 6061 plate is approximately 0.81 kg at 2,700 kg/m³. This establishes a coherent packaging estimate, not bending, deflection, fatigue or fastener adequacy.
 
-## Load path and missing stability inputs
+## Stability screen
 
-Qualitative load path: payload/gripper → wrist → forearm → elbow → upper arm → shoulder → central body/base → tabletop support. This is a configuration description, not a verified load case.
+For an illustrative 6.33 kg total-mass case and a 250 mm-deep footprint, assuming the entire mass acts at the footprint center gives an upper-bound restoring moment of 6.33×9.81×0.125 = 7.76 Nm about a front support edge. The conditional shoulder-pitch gravity branch is 2.49 Nm per fully extended arm, or 4.99 Nm for two arms extended forward. That is 64% of the optimistic whole-mass restoring moment before acceleration or contact. Because arm mass is not located at the base center, this is not a pass: actual restoring moment can be lower. A positive clamp or a verified base/arm COM model is not part of the concept target.
 
-No sourced component masses, CoM coordinates, material sections, fastener details, friction coefficient, fixture/clamp design, joint pose or allowable overturning margin are available. The printed mass/payload targets do not fill those gaps. Stability and tipping moment are therefore UNKNOWN; no tipping margin, likelihood, clamp recommendation or safety factor is reported.
+## Serviceability and score implications
 
-## Structural and workspace status
+The paper configuration keeps six baseline joint modules and separates shoulder-pitch and wrist-axis alternatives. The camera mast, two demonstration grippers, cables and optional shoulder axis add packaging and snag risks. A removable cover, accessible fasteners and strain relief are included as design criteria, not a completed layout. The 4.77 Nm conditional shoulder-pitch screen is below the HEBI T5-4 4 Nm reference after headroom, and fits the 10 Nm Makiina load reference; the mass/cost cases remain estimates.
 
-Link sections, material grades, wall thicknesses, joint offsets, ROM, cable drag and stiffness data are absent. Workspace, collision, stress and deflection remain qualitative/TBD. The source README records a reach/overall-width pose ambiguity; no geometry is inferred to resolve it.
+## Evidence boundary
 
-## Evidence status
-
-| Topic | Status | Source / next input |
-|---|---|---|
-| Configuration and DOF | Transcribed CONCEPT_TARGET | README.md / ARCHITECTURE.md |
-| Joint loads and speed | TBD; no numeric per-joint load is defensible from current baseline inputs | ACTUATOR_ANALYSIS.md and CALC-DA01-01 |
-| Mass and CoM | UNKNOWN | MASS_BUDGET.md; source-controlled component masses/geometry needed |
-| Table support and stability | UNKNOWN | OPEN_QUESTIONS.md; support condition, mass distribution and pose needed |
-| Cost | UNKNOWN | COST_MODEL.md; priced BOM required |
-
-References: references/SOURCE_REGISTER.md SRC-01–SRC-06; calculations/WEEK2_ARCHITECTURE_CHECKS.md. No simulation, bench or physical evidence is claimed.
+Table dimensions, tube sections, 6.33 kg mass, 0.20 kg payload, moment arms and support edge are explicit assumptions or concept targets. No FEA, hand calculation of plate stress, modal analysis, tipping test, ergonomic assessment or physical evidence is claimed. A material strength number is not used to imply a safety margin.
