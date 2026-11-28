@@ -1,83 +1,37 @@
-# QR-02 — Joint and Actuator Requirements (Week 2)
+# QR-02 — Joint and Actuator Evidence Status
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+| Property | Value |
+|---|---|
+| Status | INCOMPLETE — per-joint requirements are TBD |
+| Version | 0.6.0 |
+| Last updated | 2026-11-28 |
+| Evidence | Concept-art transcription and conditional paper calculations only |
+| HOLD | D-003 active |
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+## Baseline joint/channel inventory
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+four legs, three DOF per leg. Baseline count: 12 baseline leg actuators: four legs with three DOF each. The inventory below follows README.md and ARCHITECTURE.md; it is not a torque, speed or actuator assignment.
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+| Joint/channel | Count | Motion as source-labelled | Torque requirement | Speed / ROM / duty |
+|---|---:|---|---|---|
+| Hip abduction/adduction | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
+| Hip/thigh flexion/extension | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
+| Knee flexion/extension | 4 | one per leg | NOT DERIVED — see calculations; geometry/mass inputs missing | UNKNOWN / TBD | UNKNOWN / TBD |
 
-## 1. Scope
+The calculation file gives a conditional one-leg full-weight force scenario from the printed mass target. Joint torques remain unknown because moment arms and pose are absent.
 
-Week 2 records every baseline joint/channel and makes missing actuator requirements explicit. Week 3 is scheduled for torque/speed calculations and actuator assessment. This file does not select or validate an actuator.
+## Family roles and ranges (proposal only; not a mapping)
 
-Preserve:
-- BLDC/PMSM modular rotary actuator direction.
-- Option C mechanical direction.
-- S/M/L architecture; do not redefine size classes.
-- 24 V DC as investigation direction only, not a finalized system voltage.
-- Existing elbow reference (24 V, 10 N·m continuous, 20 N·m peak) is specific to that elbow discussion and must not be copied to any other joint.
+| Variant | Proposed continuous output torque | Proposed peak output torque | Proposed speed | Intended role (proposal) |
+|---|---:|---:|---|---|
+| Kritva-S | 2–5 N·m | 5–10 N·m | up to about 60 RPM | Small joints/light mechanisms, e.g. wrist or neck |
+| Kritva-M | 10 N·m | 20–25 N·m (stretch) | 45 RPM | Elbow and reference joint; baseline remains unfrozen |
+| Kritva-L | 25–40 N·m | 50–80 N·m | about 20–40 RPM | Higher-load joints, e.g. hip or knee, subject to mass/power/thermal feasibility |
 
-## 2. Per-joint requirements matrix
+Source: the pinned Kritva actuator family specification, 2026-10-15 revision, references/SOURCE_REGISTER.md SRC-07. The spec explicitly says S/L values are placeholders and the M reference is not frozen. It gives proposed roles, not a product selection or validated performance. S is the proposal for small joints/wrist/neck, M for elbow/reference, and L for higher-load hip/knee; these roles are not assignments to this concept.
 
-| Joint instance | Motion | Qty | ROM | Continuous torque | Peak torque | Output speed | Duty cycle | Gear ratio | Technology shown | S/M/L / evidence status |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Front-left hip abduction/adduction | Abduction / adduction | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Front-right hip abduction/adduction | Abduction / adduction | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Rear-left hip abduction/adduction | Abduction / adduction | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Rear-right hip abduction/adduction | Abduction / adduction | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Front-left hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Front-right hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Rear-left hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Rear-right hip flexion/extension | Flexion / extension (cross-section previously labelled thigh pitch; README records naming resolved) | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Front-left knee | Flexion / extension | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Front-right knee | Flexion / extension | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Rear-left knee | Flexion / extension | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
-| Rear-right knee | Flexion / extension | 1 | TBD | TBD | TBD | TBD | TBD | TBD | BLDC/PMSM with gearbox, as shown | TBD — no per-joint derivation / actuator comparison yet |
+## Required inputs before per-joint sizing
 
-The quantity rows enumerate physical joint instances. `TBD` is intentional: the source does not give range, torque, speed, gear ratio or duty cycle for these joints. Every joint must receive a separate Week 3 derivation or remain explicitly `TBD`.
+Exact joint frames/axes, dimensions and offsets, component masses and centres of mass, payload location, representative pose, motion profile, speed, duty, friction/cable loads, output-side variant data, and thermal/envelope limits. For legged concepts add support phase, load share, foot-ground forces and gait/impact cases. Missing values remain UNKNOWN/TBD; no assumed multiplier, back-solved moment arm, torque rating or speed is introduced.
 
-## 3. Required load and motion inputs
-
-- Source-revision-controlled actuator geometry, mass, mounting interface, continuous/peak torque curves, speed limits, thermal/duty envelope and gearbox data from the actuator owner.
-- Concept-specific link dimensions, offsets, joint coordinate frames, centre-of-mass and inertia assumptions.
-- Payload/mass distribution and representative operating poses.
-- Motion profile: joint range, angular velocity, acceleration, duty cycle and expected transient events.
-- For legged concepts: support phase, ground reaction, foot placement, terrain/contact assumptions, gait/stride and impact/transient assumptions.
-- For DA-04 wheel channels: wheel radius, wheelbase/track, total mass, load distribution, slope, acceleration, floor friction and desired travel speed.
-
-## 4. Calculation methods to use when inputs exist
-
-State the engineering question, inputs, source revision, units and assumptions before calculation. Do not substitute assumed numbers.
-
-**Static gravity/load moment (joint axis projection):**
-
-\`tau_static = sum((r_i × F_i) · e_axis)\`
-
-where each moment arm vector `r_i` and force `F_i` is in SI units and `e_axis` is the defined unit vector of the joint axis. Inputs are presently `TBD`.
-
-**Dynamic joint demand (conceptual rigid-body form):**
-
-\`tau_required(q, qdot, qddot) = M(q) qddot + C(q,qdot) qdot + g(q) + tau_external + tau_friction\`
-
-This requires a defined kinematic model, mass/inertia parameters, motion profile and external loads; none is complete in Week 2.
-
-**Speed:**
-
-\`omega = delta_theta / delta_t\`
-
-or derive joint rates from a specified end-effector/foot trajectory and Jacobian. No trajectory, time interval or joint range is specified; required speed remains `TBD`.
-
-**Actuator comparison:** compare per-joint continuous and peak torque, output speed, range, duty/thermal limits, mass/envelope, mounting interface and documented margins against the source-revision-controlled S/M/L candidate data. Do not assign S/M/L from joint function or the elbow reference.
-
-## 5. Week 3 carry-forward
-
-For each row, populate results only when inputs are available. Include formula, substitutions, units, result, uncertainty/sensitivity, source commit/revision and limitations. If any input is missing, retain `TBD` or `BLOCKED` with a named dependency. S/M/L remains `TBD` until requirements are derived and data is source-controlled.
-
-## 6. Related requirements and unknowns
-
-- FREQ-009, FREQ-010, FREQ-011, FREQ-012, FREQ-013, FREQ-014.
-- FREQ-026 and FREQ-027 for dual-arm concepts; FREQ-029 and FREQ-031 for legged concepts.
-- U-007 (joint torque/speed) and U-008 (joint-to-actuator S/M/L mapping).
-- Existing global risk FRISK-001 (legged-joint torque capability) and FRISK-005 (actuator source maturity), where applicable.
+References: [README.md](README.md) sections 4 and 6; [ARCHITECTURE.md](ARCHITECTURE.md); [calculation note](calculations/CALC-QR02-01_leg_torque.md); [SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07; [DESIGN_GUIDELINES.md](../../DESIGN_GUIDELINES.md) FREQ-006/007/012.

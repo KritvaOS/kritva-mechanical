@@ -1,26 +1,18 @@
-# QR-02 — Week 2 Source Register
+# QR-02 — Source Register (Week 3/4)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status:** PROPOSED — paper-only traceability record; HOLD D-003 active.
 
-**HOLD:** Mechanical HOLD D-003 remains active.
-
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
-
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
-
-| Ref | Source | Use | Maturity / restriction |
+| Ref | Source | Numeric or decision use | Limitation |
 |---|---|---|---|
-| SRC-01 | `feasibility/concepts/QR-02/README.md` | Primary concept text, target table, joints, mechanical architecture, cables and open items | PROPOSED; existing concept record |
-| SRC-02 | `docs/images/KMECH-CONCEPT-QR-02.png` | Primary configuration artwork | Illustrative; not to scale; L0; not engineering evidence |
-| SRC-03 | `docs/images/KMECH-CROSS-SECTION-QR-02.png` | Internal arrangement artwork | Illustrative; not to scale; not engineering evidence |
-| SRC-04 | `docs/images/ARTWORK_INDEX.md` | Artwork review status and discrepancy summary | Statuses require owner confirmation; REVIEWED is not design approval |
-| SRC-05 | `docs/images/ARTWORK_MANIFEST.json` | Artwork metadata / hash / status | Must be checked locally before changing artwork status |
-| SRC-06 | `feasibility/STUDY_PLAN.md` | Common study objectives, Week 2, CP2 and D-003 | PROPOSED study baseline |
-| SRC-07 | `feasibility/DESIGN_GUIDELINES.md` | Joint, interfaces, mass and documentation rules | PROPOSED engineering guidance |
-| SRC-08 | `feasibility/REQUIREMENTS_REGISTER.md` | FREQ-002..034 and U-001..U-012 | PROPOSED common study register; do not edit globally |
-| SRC-09 | `feasibility/INTERN_ASSIGNMENTS.md` | INTERN-01 allocation and responsibilities | PROPOSED assignment plan |
-| SRC-10 | `feasibility/RISK_REGISTER.md` | Global risk conventions and FRISK-001..007 | PROPOSED shared risk register; do not edit globally |
+| SRC-01 | [../README.md](../README.md) sections 2, 4, 6 and 9 | Printed concept targets, assembly count, baseline channels, payload/mass ranges and documented unknowns | Targets are CONCEPT_TARGET; artwork is not to scale and printed estimates have no derivation |
+| SRC-02 | [../ARCHITECTURE.md](../ARCHITECTURE.md) sections 2–3 and 8–9 | Configuration, joint/channel count, dimensions and explicit unknowns | Concept-level; no released geometry, mass breakdown or operating loads |
+| SRC-03 | [concept artwork](../../../../docs/images/KMECH-CONCEPT-QR-02.png) and [cross-section](../../../../docs/images/KMECH-CROSS-SECTION-QR-02.png) | Original concept artwork referred to by README | Illustrative, not scale-calibrated or engineering evidence |
+| SRC-04 | [../calculations/WEEK2_ARCHITECTURE_CHECKS.md](../calculations/WEEK2_ARCHITECTURE_CHECKS.md) | Prior check on dimensions and mass-data availability | Confirms unsupported geometry and subsystem mass remain TBD/UNKNOWN |
+| SRC-05 | [DESIGN_GUIDELINES.md](../../../DESIGN_GUIDELINES.md) and [REQUIREMENTS_REGISTER.md](../../../REQUIREMENTS_REGISTER.md) | Traceability rules; distinguish sourced values, assumptions and calculations | Proposed study guidance; does not approve product requirements |
+| SRC-06 | [EVALUATION_CRITERIA.md](../../../EVALUATION_CRITERIA.md), sections 3–6 and EC-03 | Scoring evidence rules and ₹2,00,000 comparison ceiling | Proposed study methodology; unknown evidence must remain NOT SCORED |
+| SRC-07 | [Kritva actuator family spec, pinned revision](<https://github.com/KritvaOS/kritva-actuator/blob/31bfc20aed0479a3bce64cf8945e86b1fa6f2fa6/docs/architecture/ACTUATOR_FAMILY_SPEC.md>) | Provisional S/M/L torque bands and intended roles | S/L values are placeholders; M reference is not frozen; no variant mass, price or compatibility evidence |
+| SRC-08 | [Actuator prototype sourcing and cost draft, pinned revision](<https://github.com/KritvaOS/kritva-actuator/blob/31bfc20aed0479a3bce64cf8945e86b1fa6f2fa6/docs/architecture/COMPONENTS_SOURCING_AND_COST.md>) | Checked as a possible cost-source reference | Separate A0 prototype scope; listings/estimates are not prices for these robot assemblies and are not used here |
 
 ## Source handling
 
-Use only the exact numeric content present in the current concept README/artwork. Any copied dimension or target is marked `CONCEPT_TARGET`; a printed `(est.)` is not upgraded to an independently derived estimate. No actuator repository value has been included here because a current owner/revision/source commit for the actuator interface has not been established.
+Only values explicitly printed in SRC-01/SRC-02 are copied as CONCEPT_TARGET. No component mass, cost, material property, link length, moment arm, speed or acceleration is inferred from an unscaled drawing. Conditional calculations identify their exact target inputs, equations and scenario limits in the relevant CALC file. Missing inputs remain UNKNOWN/TBD.

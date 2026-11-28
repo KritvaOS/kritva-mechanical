@@ -1,68 +1,28 @@
-# DA-04 — Preliminary Mechanical Assessment (Week 2)
+# DA-04 — Mechanical Evidence Status (Week 3/4)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status:** INCOMPLETE — qualitative configuration review only. HOLD D-003 active.
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+## Source-backed configuration
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+The concept record describes a mobile humanoid with two four-DOF arms and a differential-drive base with two drive channels. Four wheels are shown; the source also prints a 25–35 kg (est.) target mass, a 0.5–1.0 kg (est.) per-arm payload and a 450 mm reach. These are CONCEPT_TARGETs, not measured or independently derived inputs. See README.md sections 2, 4, 6 and 9; ARCHITECTURE.md sections 2–3.
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+## Load paths and stability
 
-## 1. Configuration and mechanical boundary
+Qualitative arm load path: gripper/payload → wrist → elbow → shoulder → torso → mobile base/support. Drive loads pass through wheel/tyre, drive channel and base structure. No approved component masses, CoM, wheel radius, track, load distribution, friction, slope, acceleration or travel-speed inputs are available. The battery is not drawn in the source artwork.
 
-Humanoid upper torso with fixed head, mounted on a differential-drive chassis. Two arms each have four baseline DOF (shoulder yaw, shoulder pitch, elbow pitch and wrist pitch). The base has two driven channels: left wheel pair and right wheel pair, with four physical wheels shown. The approved study baseline is 10 actuators (8 arm + 2 base); head pan is excluded and grippers are optional/not counted. A printed future path to five-DOF arms and an advanced mobile base is not part of the baseline.
+No tipping moment, drive torque, traction margin or stability result is calculated. Arm payload torque is limited to the conditional payload-only shoulder-pitch case in CALC-DA04-01; it is not a complete joint load. No operating slope or clamp/fixture recommendation is made.
 
-## 2. Load path and structural assembly
+## Structure and packaging
 
-Arm load path: payload/gripper → wrist → forearm → elbow → upper arm → shoulder → torso → base chassis → wheel contact patch/floor. Base drive load path: motor/gearbox → wheel hub → tyre/contact patch. Examine tall-body/arm-extension tipping, wheel reactions, base footprint, differential traction and turn envelope, arm-arm workspace/interference, stiffness of torso/shoulder mounts and cable passage across moving chassis. Printed target 25–35 kg and 1200 mm overall height are unverified concept targets, not a stability analysis.
+Material/process callouts on the artwork are illustrative options. No selected material, section, tolerance, wheel geometry, interface allowables, battery package or released dimensions exist for calculation. Stress, deflection, packaging, cable flex and collision remain UNKNOWN/TBD.
 
-Material/process options from the existing README/artwork: Artwork shows differential-drive base with four wheels, left and right driven pairs, BLDC motor/encoder per side, optional gearbox, hub and rubber tyre; torso frame aluminium or carbon; arm links aluminium/CNC/3D-printed with composites as options; BLDC/PMSM joints with harmonic/planetary gearboxes, output shaft encoder and timing belt where used; rubber/TPU finger pads. No material/process selected.
+## Evidence status
 
-No material grade, cross-section, wall thickness, fastener class, bearing series, allowable stress, safety factor, stiffness limit or process is selected. These require traceable requirements and owner review.
-
-## 3. Preliminary dimensions and packaging
-
-See `ARCHITECTURE.md` section 2 for all artwork dimensions and their exact source. The concept sheets are not to scale and do not establish datums or tolerances.
-
-Packaging elements to reserve conceptually:
-- Body/base and structural members.
-- Joint housings, actuators, gearboxes, output shafts and encoders.
-- Compute/control (Kritva Edge where shown), motor drivers and power distribution/protection.
-- Sensor modules and their mounting/wiring where applicable.
-- Cable channels, strain relief and service access.
-- End effectors or feet.
-- Battery only where the source says a battery space exists; DA-04 battery is not drawn and its sizing is explicitly outside this study. Do not invent battery mass or envelope.
-
-## 4. Week 2 preliminary mechanical checks
-
-| Topic | Week 2 conclusion | Evidence / gap |
+| Topic | Status | Source / next input |
 |---|---|---|
-| Mechanical configuration | Identified conceptually | `ARCHITECTURE.md`, source artwork |
-| Major load path | Identified qualitatively | Section 2 above |
-| Joint and link layout | Listed by joint instance | `ARCHITECTURE.md`, `ACTUATOR_ANALYSIS.md` |
-| Joint range / swept envelope | INCOMPLETE | Joint ranges, link lengths and coordinate frames are TBD |
-| Structural stiffness / deflection | INCOMPLETE | Geometry, material properties, section sizes, loads and allowable deflection unavailable |
-| Stability / support | INCOMPLETE | Support conditions, mass distribution, loads and operational poses unavailable |
-| Workspace / reach / clearance | INCOMPLETE | Joint ranges, link geometry, reference pose and coordinate system unavailable |
-| Interfaces | Preliminary inventory only | `INTERFACES.md`; not a released interface-control document |
-| Serviceability / maintenance | Conceptual issues identified | No service door, tool clearance or maintenance interval is defined |
-| Mechanical safety | Preliminary hazards recorded | Not a hazard analysis certification or safety approval |
+| Configuration and actuator count | Transcribed CONCEPT_TARGET | README.md / ARCHITECTURE.md |
+| Arm joint loads | TBD except conditional payload-only term | ACTUATOR_ANALYSIS.md and CALC-DA04-01 |
+| Base drive torque and stability | UNKNOWN | Wheel radius, contact/load distribution, friction, operating case and CoM required |
+| Mass and cost | UNKNOWN | MASS_BUDGET.md and COST_MODEL.md |
 
-## 5. Concept-specific assessment questions
-
-Standing, turning and arm-manipulation load cases; wheel reactions; centre-of-mass and support polygon; tipping under forward/lateral arm extension; drive torque/traction/slope; workspace overlap; shoulder/torso stiffness; torso-to-base harness flex; head and sensor packaging.
-
-## 6. Week 3 calculation plan
-
-Only after inputs become traceable:
-- Define free-body diagrams and representative load cases.
-- Derive joint gravity and dynamic loads for each relevant joint.
-- Assess link and mount stress/deflection with sourced material properties and geometry.
-- Assess stability/support with an explicit support polygon and centre-of-mass model where applicable.
-- Assess reach/workspace and clearances over documented ranges of motion.
-- For legged concepts, keep static standing/lifted-leg and dynamic gait/impact cases distinct.
-- For mobile DA-04, distinguish drive traction/turning from arm-manipulation tipping.
-
-## 7. Risks and limitations
-
-See `OPEN_QUESTIONS.md`. Qualitative risk levels use the repository's Low/Med/High scale and are marked `ESTIMATE`; status remains OPEN until owner disposition. Do not report a feasibility score merely because this preliminary review exists.
+References: references/SOURCE_REGISTER.md SRC-01–SRC-06; no dynamic, simulation, bench or physical evidence is claimed.

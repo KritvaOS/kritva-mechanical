@@ -1,68 +1,29 @@
-# DA-01 — Preliminary Mechanical Assessment (Week 2)
+# DA-01 — Mechanical Evidence Status (Week 3/4)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status:** INCOMPLETE — qualitative configuration review only. HOLD D-003 active.
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+## Source-backed configuration
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+Two 3-DOF arms on a fixed tabletop base are transcribed from the concept README/artwork. Printed dimensions (including the 300 × 250 mm base and 350 mm shoulder-to-gripper reach) are CONCEPT_TARGETs; the drawings are not to scale and do not define joint frames, pose, material thickness or support conditions. See README.md sections 2, 4, 6 and 9; ARCHITECTURE.md sections 2–3.
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+## Load path and missing stability inputs
 
-## 1. Configuration and mechanical boundary
+Qualitative load path: payload/gripper → wrist → forearm → elbow → upper arm → shoulder → central body/base → tabletop support. This is a configuration description, not a verified load case.
 
-Two symmetric 3-DOF arms mounted on opposite sides of a fixed central base/torso enclosure and base plate. The central enclosure contains the conceptual compute, power-distribution and left/right motor-driver blocks. There is no mobile base. Two-finger parallel grippers are optional and may be passive or powered; powered-gripper motion is not part of the six-actuator baseline. The cross-section shows an optional adjustable camera mast; its inclusion in the baseline is not authorized.
+No sourced component masses, CoM coordinates, material sections, fastener details, friction coefficient, fixture/clamp design, joint pose or allowable overturning margin are available. The printed mass/payload targets do not fill those gaps. Stability and tipping moment are therefore UNKNOWN; no tipping margin, likelihood, clamp recommendation or safety factor is reported.
 
-## 2. Load path and structural assembly
+## Structural and workspace status
 
-Primary load path: gripper/payload → wrist → forearm/link → elbow → upper arm/link → shoulder → central torso/base → base plate → tabletop/support. Preliminary assessment must examine extended-arm overturning/sliding, base support and stiffness, link/joint deflection, left/right workspace overlap and collision, payload/reach pose assumptions, gripper mounting, and access to the central enclosure. The README itself warns that 350 mm per-side reach, 700 mm total reach and 700 mm overall width do not describe one posture without a stated pose. Do not infer a pose or geometry.
+Link sections, material grades, wall thicknesses, joint offsets, ROM, cable drag and stiffness data are absent. Workspace, collision, stress and deflection remain qualitative/TBD. The source README records a reach/overall-width pose ambiguity; no geometry is inferred to resolve it.
 
-Material/process options from the existing README/artwork: Artwork shows a base plate in aluminium or steel; central enclosure; aluminium, CNC-machined or 3D-printed arm links; aluminium/CNC joint housings; harmonic or planetary gearbox examples; absolute or incremental encoder examples; rubber/TPU gripper pads. These are illustrative options, not selected materials or manufacturing processes.
+## Evidence status
 
-No material grade, cross-section, wall thickness, fastener class, bearing series, allowable stress, safety factor, stiffness limit or process is selected. These require traceable requirements and owner review.
-
-## 3. Preliminary dimensions and packaging
-
-See `ARCHITECTURE.md` section 2 for all artwork dimensions and their exact source. The concept sheets are not to scale and do not establish datums or tolerances.
-
-Packaging elements to reserve conceptually:
-- Body/base and structural members.
-- Joint housings, actuators, gearboxes, output shafts and encoders.
-- Compute/control (Kritva Edge where shown), motor drivers and power distribution/protection.
-- Sensor modules and their mounting/wiring where applicable.
-- Cable channels, strain relief and service access.
-- End effectors or feet.
-- Battery only where the source says a battery space exists; DA-04 battery is not drawn and its sizing is explicitly outside this study. Do not invent battery mass or envelope.
-
-## 4. Week 2 preliminary mechanical checks
-
-| Topic | Week 2 conclusion | Evidence / gap |
+| Topic | Status | Source / next input |
 |---|---|---|
-| Mechanical configuration | Identified conceptually | `ARCHITECTURE.md`, source artwork |
-| Major load path | Identified qualitatively | Section 2 above |
-| Joint and link layout | Listed by joint instance | `ARCHITECTURE.md`, `ACTUATOR_ANALYSIS.md` |
-| Joint range / swept envelope | INCOMPLETE | Joint ranges, link lengths and coordinate frames are TBD |
-| Structural stiffness / deflection | INCOMPLETE | Geometry, material properties, section sizes, loads and allowable deflection unavailable |
-| Stability / support | INCOMPLETE | Support conditions, mass distribution, loads and operational poses unavailable |
-| Workspace / reach / clearance | INCOMPLETE | Joint ranges, link geometry, reference pose and coordinate system unavailable |
-| Interfaces | Preliminary inventory only | `INTERFACES.md`; not a released interface-control document |
-| Serviceability / maintenance | Conceptual issues identified | No service door, tool clearance or maintenance interval is defined |
-| Mechanical safety | Preliminary hazards recorded | Not a hazard analysis certification or safety approval |
+| Configuration and DOF | Transcribed CONCEPT_TARGET | README.md / ARCHITECTURE.md |
+| Joint loads and speed | TBD; no numeric per-joint load is defensible from current baseline inputs | ACTUATOR_ANALYSIS.md and CALC-DA01-01 |
+| Mass and CoM | UNKNOWN | MASS_BUDGET.md; source-controlled component masses/geometry needed |
+| Table support and stability | UNKNOWN | OPEN_QUESTIONS.md; support condition, mass distribution and pose needed |
+| Cost | UNKNOWN | COST_MODEL.md; priced BOM required |
 
-## 5. Concept-specific assessment questions
-
-Pose-specific reach and collision envelope; workspace overlap; base plate support and clamp/foot condition; bending stiffness of links and shoulder support; optional gripper load path; cable twist/bend at all three joints; enclosure heat rejection and access.
-
-## 6. Week 3 calculation plan
-
-Only after inputs become traceable:
-- Define free-body diagrams and representative load cases.
-- Derive joint gravity and dynamic loads for each relevant joint.
-- Assess link and mount stress/deflection with sourced material properties and geometry.
-- Assess stability/support with an explicit support polygon and centre-of-mass model where applicable.
-- Assess reach/workspace and clearances over documented ranges of motion.
-- For legged concepts, keep static standing/lifted-leg and dynamic gait/impact cases distinct.
-- For mobile DA-04, distinguish drive traction/turning from arm-manipulation tipping.
-
-## 7. Risks and limitations
-
-See `OPEN_QUESTIONS.md`. Qualitative risk levels use the repository's Low/Med/High scale and are marked `ESTIMATE`; status remains OPEN until owner disposition. Do not report a feasibility score merely because this preliminary review exists.
+References: references/SOURCE_REGISTER.md SRC-01–SRC-06; calculations/WEEK2_ARCHITECTURE_CHECKS.md. No simulation, bench or physical evidence is claimed.

@@ -1,34 +1,22 @@
-# QR-02 — Preliminary Cost Model Status
+# QR-02 — Cost Evidence Record (Week 3/4)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status: UNKNOWN — no traceable concept BOM prices are available.** HOLD D-003 remains active. No supplier quotes, procurement or purchase approval are present.
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+## Planning ceiling
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+The study comparison ceiling is ₹2,00,000 per feasibility criterion EC-03; it is not a procurement budget. Source: [EVALUATION_CRITERIA.md, EC-03](../../EVALUATION_CRITERIA.md) and [REQUIREMENTS_REGISTER.md, FREQ-032–034](../../REQUIREMENTS_REGISTER.md).
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+## Quote-ready scope; no prices inferred
 
-## 1. Week 2 scope
+| Cost line | Source-backed scope / quantity | Unit price | Extended price | Missing evidence |
+|---|---|---|---|---|
+| Actuator channels | 12 baseline leg actuators: four legs with three DOF each; README.md / ARCHITECTURE.md | UNKNOWN | UNKNOWN | Exact variant and part number, dated supplier source or quote, quantity break, taxes and shipping |
+| Structure and joints | central body/chassis; four three-joint legs; four feet | UNKNOWN | UNKNOWN | Released geometry, materials, process, quantity and supplier quote |
+| Compute, drivers and power | Conceptual provisions only; board/component models not selected | UNKNOWN | UNKNOWN | Controlled part numbers, quantities and dated prices |
+| Sensors, battery and optional modules | Optional or undefined in source artwork | UNKNOWN | UNKNOWN | Owner decision, part selection and price source |
+| Assembly, fabrication, test, logistics and taxes | Scope and quantities not defined | UNKNOWN | UNKNOWN | Cost inclusions, process/quantity basis and dated estimate or quote |
+| **Total / comparison to ceiling** | Unpriced lines remain visible | **NOT COMPUTABLE** | **NOT COMPUTABLE** | Do not treat missing prices as zero |
 
-Cost modelling is scheduled for Week 3. This Week 2 file only identifies architecture-dependent cost categories and unresolved cost drivers; it does not quote, price, select vendors or prepare a BOM.
+No low/nominal/high cost bands or affordability statement are made. EC-03 must remain NOT SCORED until the components, quantities, budget inclusions and traceable prices are established. The pinned actuator-family specification does not identify priced robot actuator variants. The actuator repository's A0 sourcing document concerns a separate prototype scope and mixes listings with estimates; it is not used as a price for these concept assemblies (see SOURCE_REGISTER.md SRC-07–SRC-08).
 
-## 2. Cost categories
-
-| Category | Concept relevance | Current value | Status |
-|---|---|---:|---|
-| Actuator modules / gearboxes | 12 baseline joint/drive channels; actuator variant not assigned | UNKNOWN | Requires per-joint demand and verified inventory |
-| Structural chassis / links | Legged structure | UNKNOWN | Material, geometry and process options only |
-| Bearings, shafts and joints | All joint modules | UNKNOWN | Component specifications not selected |
-| Feet / wheels / grippers | Concept-dependent end effectors | UNKNOWN | Configuration partly optional |
-| Compute / controls / drivers | Kritva platform provisions | UNKNOWN | Platform component models/prices not supplied |
-| Power / battery / protection | Concept-dependent; battery status in mass budget | UNKNOWN | No approved electrical design |
-| Sensors / mounts / harnesses | Optional and concept-specific | UNKNOWN | Sensor baseline and interfaces unresolved |
-| Fabrication / finishing / assembly | Concept-level only | UNKNOWN | No process selection or supplier quotation permitted |
-
-## 3. Budget treatment
-
-The study-level planning ceiling is INR 2,00,000. It is not an approved procurement budget and does not establish affordability. No component total is calculated in Week 2 because quantities, variants and verified prices are not available. Supplier quotations and procurement remain NOT STARTED under D-003.
-
-## 4. Next action
-
-In Week 3, create traceable category-level cost ranges only after architecture, quantities and actuator candidates are defined. Label every value `ESTIMATE` or `UNKNOWN`, state exclusions and confidence, and do not represent estimates as quotations.
+To resume costing, record each BOM line with part number, source URL/document, source date, currency, quantity, quote/listing/estimate status, taxes, shipping, lead time and limitations. See EVALUATION_CRITERIA.md EC-03 and REQUIREMENTS_REGISTER.md FREQ-032–034.

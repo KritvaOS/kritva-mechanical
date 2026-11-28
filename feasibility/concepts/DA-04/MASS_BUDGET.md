@@ -1,57 +1,31 @@
-# DA-04 — Week 2 Mass Assumptions and Budget Framework
+# DA-04 — Mass Budget Evidence Record (Week 3/4)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status: INCOMPLETE — system mass is UNKNOWN; no component-mass estimate is supported by the available sources.** HOLD D-003 remains active.
 
-**HOLD:** Mechanical HOLD D-003 remains active.
+## Published target (not a derived mass)
 
-**Evidence boundary:** Week 2 architecture documentation and preliminary mechanical assessment. No CAD, simulation, bench or physical evidence is claimed.
+The source concept README prints a robot mass target of 25–35 kg (est.). It is an unapproved CONCEPT_TARGET copied from illustrative artwork, not an independently calculated estimate, measured mass, or basis for allocating component masses. See [README.md, section 4](README.md#4-concept_target), [ARCHITECTURE.md](ARCHITECTURE.md), and [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-04.
 
-**Numeric classification:** Artwork values are `CONCEPT_TARGET`; unsupported quantities remain `TBD`/`UNKNOWN`; any qualitative rating is `ESTIMATE`.
+## Traceable subsystem breakdown
 
-## 1. Artwork mass target (not a derived mass estimate)
+| Subsystem | Source-backed configuration | Mass contribution | Evidence needed before calculating |
+|---|---|---|---|
+| differential-drive base and four wheels | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| torso and fixed head | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| two four-joint arm assemblies | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| two base drive channels | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| optional grippers and sensors | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| battery not shown in source artwork | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| compute, power, harness and covers | See source README/ARCHITECTURE; quantities or options only as printed | UNKNOWN | Released geometry, selected material, exact component part numbers and source-controlled mass data |
+| System total / low–nominal–high range | No source-backed component values are available | UNKNOWN — no subtotal computed; unknowns are not treated as zero | Verified component list, mass source per line, and mass/CoM datum |
 
-**Published target:** 25–35 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
+The family-level actuator specification provides provisional torque bands and proposed roles; it does not provide variant-specific actuator masses. The concept artwork does not provide thicknesses, link sections, enclosure geometry, board models, battery selection or component masses. Therefore no subsystem mass, CoM, or total can be derived from this record. The printed target is not used as a measured load input.
 
-This is a transcribed artwork target. Although the sheet prints `(est.)`, the repository requires source values to remain distinguished from independently derived estimates. No subsystem mass estimate has been calculated in this Week 2 document. The printed target is not a verified mass, requirement or acceptance limit.
+## Required evidence
 
-## 2. Subsystem mass structure
+- Controlled component list and selected actuator variants, with revisioned mass data.
+- Dimensioned, approved geometry plus selected material and density source for fabricated parts.
+- Exact board, battery, sensor, gripper, fastener and harness part data.
+- Confirmation of what the printed target includes (payload, battery, sensors, cables and optional modules).
 
-| Subsystem category | Mass contribution | Reason / missing input |
-|---|---|---|
-| Primary chassis / base / torso | TBD | Geometry, material/grade and section thickness absent |
-| Arms or leg links | TBD | Link lengths, cross-sections, material and process not selected |
-| Joint modules, motors and gearboxes | TBD | S/M/L selection and source-controlled actuator mass unavailable |
-| Wheels / feet / end effectors | TBD | Wheel/foot/gripper detail and component mass not established |
-| Compute and motor controllers | TBD | Board models, outlines and masses unavailable |
-| Power distribution / protection | TBD | Electrical architecture and component data unavailable |
-| Battery | TBD / UNKNOWN | Concept-dependent: see specific note below |
-| Sensors and mounting hardware | TBD | Optional modules and model selections unresolved |
-| Harnesses, fasteners, bearings and covers | TBD | Routing, quantity and component specifications absent |
-
-No allocation percentages or component masses are invented. The total mass remains `UNKNOWN` until traceable component masses or defensible geometry/material estimates are available.
-
-## 3. Mass model to populate in Week 3
-
-`m_total = m_structure + m_links + m_joint_modules + m_wheels_or_feet + m_end_effectors + m_compute + m_drivers + m_power + m_battery + m_sensors + m_harness + m_fasteners + m_covers`
-
-The centre-of-mass location must be calculated from component masses and positions relative to a defined datum. No datum or subsystem coordinates are available, so `CG_x`, `CG_y`, `CG_z` and mass moments are `UNKNOWN`.
-
-## 4. Concept-specific mass assumptions / unknowns
-
-Battery not drawn or labelled; README explicitly says battery sizing is not part of this study. Unknown whether the printed range includes battery, fixed head/camera, optional sensors, grippers, all wheels/drives, cable harness and fasteners. Component masses and centre of mass are absent.
-
-## 5. Required inputs
-
-- Current concept geometry and datum/coordinate frame.
-- Material and manufacturing options narrowed only when there is source evidence; no final selection.
-- Component masses from the owning actuator/platform repositories with source commit/revision and maturity.
-- Count and envelope of all baseline and optional components.
-- Whether target mass includes battery, payload, cables, fasteners and sensors.
-- Payload and its location relative to joint/body datums.
-- Uncertainty ranges and confidence basis for every independently estimated contribution.
-
-## 6. Status and next action
-
-**Status:** INCOMPLETE for a numerical mass budget; Week 2 mass assumptions and missing inputs are recorded.
-
-**Next action:** Collect the above inputs and create a subsystem-by-subsystem estimate with range, method, source and confidence in Week 3. Do not force the total to match the printed target.
+References: README.md section 4; ARCHITECTURE.md sections 2–3 and 8; calculations/WEEK2_ARCHITECTURE_CHECKS.md; [references/SOURCE_REGISTER.md](references/SOURCE_REGISTER.md) SRC-01–SRC-07. Until those inputs exist, the mass result remains UNKNOWN.
