@@ -1,6 +1,6 @@
-# DA-01 — Architecture and Mechanical Configuration (Week 2)
+# DA-01 â Architecture and Mechanical Configuration (Week 2)
 
-**Status:** PROPOSED — paper feasibility study; subject to owner review.
+**Status:** PROPOSED â paper feasibility study; subject to owner review.
 
 **HOLD:** Mechanical HOLD D-003 remains active.
 
@@ -27,14 +27,14 @@ The source artwork is illustrative, PROPOSED, maturity L0 and not to scale. The 
 
 | Dimension / property | Published value | Source | Classification / note |
 |---|---|---|---|
-| Base plate / base dimensions (W × D) | 300 × 250 mm | Concept sheet and cross-section | CONCEPT_TARGET |
+| Base plate / base dimensions (W Ã D) | 300 Ã 250 mm | Concept sheet and cross-section | CONCEPT_TARGET |
 | Overall width, arm-to-arm | 700 mm | Concept sheet and cross-section | CONCEPT_TARGET |
 | Overall height | 400 mm | Concept sheet and cross-section | CONCEPT_TARGET |
 | Arm reach, each side, shoulder-to-gripper | 350 mm | Concept sheet | CONCEPT_TARGET; pose/datum not defined |
 | Total reach, left-to-right | 700 mm | Concept sheet | CONCEPT_TARGET; pose/datum not defined |
 | Torso width | 300 mm | Cross-section only | CONCEPT_TARGET; OWNER_DECISION / artwork discrepancy |
-| Target payload, each arm | 0.1–0.2 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
-| Target robot weight | 5–8 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
+| Target payload, each arm | 0.1â0.2 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
+| Target robot weight | 5â8 kg (printed as est.) | Concept sheet | CONCEPT_TARGET; basis not provided |
 | Supply voltage | 24 V DC | Concept sheet | CONCEPT_TARGET; investigation direction only |
 | Power rails | 24 V input; 5 V and 12 V rails | Cross-section | CONCEPT_TARGET; electrical specification TBD |
 
@@ -44,12 +44,12 @@ All artwork values remain `CONCEPT_TARGET`. They are not approved product requir
 
 | Joint instance | Intended motion / label | DOF | ROM / angle limits | Actuator technology shown | Week 2 disposition |
 |---|---|---|---|---|---|
-| Left shoulder | Yaw / rotation | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Left elbow | Flexion / extension; cross-section labels pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Left wrist | Rotation / pitch ambiguity; cross-section says pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right shoulder | Yaw / rotation | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right elbow | Flexion / extension; cross-section labels pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
-| Right wrist | Rotation / pitch ambiguity; cross-section says pitch | 1 | TBD — no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left shoulder | Yaw / rotation | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left elbow | Flexion / extension; cross-section labels pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Left wrist | Rotation / pitch ambiguity; cross-section says pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right shoulder | Yaw / rotation | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right elbow | Flexion / extension; cross-section labels pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
+| Right wrist | Rotation / pitch ambiguity; cross-section says pitch | 1 | TBD â no approved range in source | BLDC/PMSM with gearbox, as shown | Baseline joint; torque/speed/S/M/L in ACTUATOR_ANALYSIS.md |
 
 **DOF / actuator count check:** 6 baseline joint/channel rows are documented. DOF arithmetic is concept-level only; it does not prove actuator performance, independent-control suitability, torque capacity, speed, thermal capability or S/M/L compatibility.
 
@@ -67,7 +67,7 @@ Joint range, zero position, axis unit vectors, coordinate frames, hard stops, al
 | End effectors / feet | Optional powered grippers: one separate open/close channel per gripper (up to two additional channels if both are powered); not in baseline six. Optional camera mast / RGB-D or stereo camera; concept sheet also mentions IMU space. Camera mast adjustability appears on cross-section only. | Optional elements remain owner decision / TBD |
 | Kritva platform space | Conceptual space only for relevant Kritva Edge compute/control, power distribution/protection, motor drivers, sensors and communication. | Board dimensions, connectors, thermal and cable limits TBD |
 
-**Qualitative load path / preliminary mechanical considerations:** Primary load path: gripper/payload → wrist → forearm/link → elbow → upper arm/link → shoulder → central torso/base → base plate → tabletop/support. Preliminary assessment must examine extended-arm overturning/sliding, base support and stiffness, link/joint deflection, left/right workspace overlap and collision, payload/reach pose assumptions, gripper mounting, and access to the central enclosure. The README itself warns that 350 mm per-side reach, 700 mm total reach and 700 mm overall width do not describe one posture without a stated pose. Do not infer a pose or geometry.
+**Qualitative load path / preliminary mechanical considerations:** Primary load path: gripper/payload â wrist â forearm/link â elbow â upper arm/link â shoulder â central torso/base â base plate â tabletop/support. Preliminary assessment must examine extended-arm overturning/sliding, base support and stiffness, link/joint deflection, left/right workspace overlap and collision, payload/reach pose assumptions, gripper mounting, and access to the central enclosure. The README itself warns that 350 mm per-side reach, 700 mm total reach and 700 mm overall width do not describe one posture without a stated pose. Do not infer a pose or geometry.
 
 ## 5. Interface architecture
 
@@ -89,9 +89,9 @@ No cable harness design, connector selection, bend-radius value, routing dimensi
 
 ## 8. Mass assumption boundary
 
-5–8 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
+5â8 kg printed target range (marked est.) on concept sheet; provenance remains CONCEPT_TARGET and no derivation is supplied.
 
-Week 2 mass assumptions are documented in `MASS_BUDGET.md`. The published weight range has no supporting subsystem breakdown in the current concept material; do not distribute it among components or use it as verified mass. Centre of mass, mass moments and component masses remain `UNKNOWN` until traceable geometry/material/component sources are available.
+Week 3/4 component-level mass scenarios are now documented in `MASS_BUDGET.md`; these use cited component masses and stated assumptions, and remain paper estimates rather than a validated total. The concept-sheet mass range is still a target, not a measurement. Centre of mass, mass moments and final packaging require authoritative geometry or dimensioned CAD.
 
 ## 9. Preliminary architecture assessment
 
@@ -102,18 +102,18 @@ Week 2 mass assumptions are documented in `MASS_BUDGET.md`. The published weight
 - **Mass assumptions:** Published target isolated from independently derived subsystem mass.
 - **Mechanical assessment:** Qualitative only; structural/stability/clearance calculations carried to later analysis where inputs permit.
 - **Open questions:** See `OPEN_QUESTIONS.md`.
-- **Joint torque/speed and S/M/L:** Each joint listed in `ACTUATOR_ANALYSIS.md`; all values remain `TBD` pending Week 3 inputs.
+- **Joint torque/speed and S/M/L:** Sourced paper screens and role fit are documented in `ACTUATOR_ANALYSIS.md` and the linked calculation files. Exact ROM, axes, gear ratios and duty-cycle requirements remain unapproved where the source does not specify them.
 
 ## 10. CP2 status for this concept
 
 | CP2 criterion | Contribution status | Evidence |
 |---|---|---|
-| CP2-02 Mechanical configuration | DOCUMENTED — draft | This file; concept sketch |
-| CP2-03 DOF and joint configuration | DOCUMENTED — ranges/frames incomplete | Section 3; actuator matrix |
-| CP2-04 Available dimensions with units | DOCUMENTED — source targets only | Section 2 |
-| CP2-05 Major assemblies/interfaces | DOCUMENTED — conceptual | Sections 4–7; `INTERFACES.md` |
+| CP2-02 Mechanical configuration | DOCUMENTED â draft | This file; concept sketch |
+| CP2-03 DOF and joint configuration | DOCUMENTED â ranges/frames incomplete | Section 3; actuator matrix |
+| CP2-04 Available dimensions with units | DOCUMENTED â source targets only | Section 2 |
+| CP2-05 Major assemblies/interfaces | DOCUMENTED â conceptual | Sections 4â7; `INTERFACES.md` |
 | CP2-06 Unknown specifications | DOCUMENTED | `OPEN_QUESTIONS.md`, `MASS_BUDGET.md`, `ACTUATOR_ANALYSIS.md` |
-| CP2-07 Initial risks | DOCUMENTED — qualitative estimates | `OPEN_QUESTIONS.md` |
+| CP2-07 Initial risks | DOCUMENTED â qualitative estimates | `OPEN_QUESTIONS.md` |
 
 CP2-01 (all 12 concepts) and CP2-08 (team-wide assignment evidence) require the other two interns' contributions and reviewer consolidation. This file does not claim CP2 acceptance or task completion.
 
@@ -121,7 +121,7 @@ CP2-01 (all 12 concepts) and CP2-08 (team-wide assignment evidence) require the 
 
 - Existing concept record: `feasibility/concepts/DA-01/README.md`
 - Study plan: `feasibility/STUDY_PLAN.md` sections 4, 6, 8 and 9.1.
-- Design guidelines: `feasibility/DESIGN_GUIDELINES.md` sections 2–7.
+- Design guidelines: `feasibility/DESIGN_GUIDELINES.md` sections 2â7.
 - Requirements: `feasibility/REQUIREMENTS_REGISTER.md` FREQ-002 to FREQ-034.
 - Artwork index and manifest: `docs/images/ARTWORK_INDEX.md`; `docs/images/ARTWORK_MANIFEST.json`.
 - Concept-specific source register: `references/SOURCE_REGISTER.md`.

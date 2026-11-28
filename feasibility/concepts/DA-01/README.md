@@ -1,4 +1,4 @@
-# DA-01 — Fixed Tabletop Dual-Arm
+# DA-01 â Fixed Tabletop Dual-Arm
 
 | Property | Value |
 |---|---|
@@ -23,15 +23,15 @@ DA-01 is the simplest dual-arm concept in the study: two 3-DOF arms on a compact
 - Family: Dual-arm
 - Complexity: Low (relative engineering category, not a validated assessment)
 - Assigned intern: INTERN-01
-- Assessment revision: none yet (NOT STARTED)
+- Assessment revision: Week 3/4 scenario assessment drafted (PROPOSED; owner review pending)
 
 ## 2. Reference Artwork
 
-![KMECH-CONCEPT-DA-01 — Fixed Tabletop Dual-Arm concept design](../../../docs/images/KMECH-CONCEPT-DA-01.png)
+![KMECH-CONCEPT-DA-01 â Fixed Tabletop Dual-Arm concept design](../../../docs/images/KMECH-CONCEPT-DA-01.png)
 
 *Concept sheet: `docs/images/KMECH-CONCEPT-DA-01.png`. This is the primary configuration reference.*
 
-![KMECH-CROSS-SECTION-DA-01 — Fixed Tabletop Dual-Arm internal structure](../../../docs/images/KMECH-CROSS-SECTION-DA-01.png)
+![KMECH-CROSS-SECTION-DA-01 â Fixed Tabletop Dual-Arm internal structure](../../../docs/images/KMECH-CROSS-SECTION-DA-01.png)
 
 *Cross-section sheet: `docs/images/KMECH-CROSS-SECTION-DA-01.png`. This is an illustrative internal arrangement.*
 
@@ -50,22 +50,22 @@ Both sheets are concept artwork (evidence type C, PROPOSED, maturity L0 as propo
 
 ## 4. CONCEPT_TARGET
 
-Every value is printed on the artwork and is `CONCEPT_TARGET`: indicative, unapproved, and not a requirement. Requirements-register values stay `UNKNOWN` or `TBD` until the owner resolves them. Where the sheets disagree, both values are shown and marked `DISCREPANCY — OWNER REVIEW`; nothing is chosen by inference.
+Every value is printed on the artwork and is `CONCEPT_TARGET`: indicative, unapproved, and not a requirement. Requirements-register values stay `UNKNOWN` or `TBD` until the owner resolves them. Where the sheets disagree, both values are shown and marked `DISCREPANCY â OWNER REVIEW`; nothing is chosen by inference.
 
 | Item | Value as printed | Source sheet | Status |
 |---|---|---|---|
 | Total actuators | 6 (optional 2 gripper actuators) | Concept | CONCEPT_TARGET |
-| Base dimensions (W × D) | 300 mm × 250 mm | Concept and Cross-section | CONCEPT_TARGET |
+| Base dimensions (W Ã D) | 300 mm Ã 250 mm | Concept and Cross-section | CONCEPT_TARGET |
 | Overall width (arm to arm) | 700 mm | Concept and Cross-section | CONCEPT_TARGET |
 | Overall height | 400 mm | Concept and Cross-section | CONCEPT_TARGET |
 | Arm reach (each side) | 350 mm (shoulder to gripper) | Concept | CONCEPT_TARGET |
 | Total reach (left to right) | 700 mm | Concept | CONCEPT_TARGET |
-| Target payload (each arm) | 0.1 – 0.2 kg (est.) | Concept | CONCEPT_TARGET |
-| Target weight | 5 – 8 kg (est.) | Concept | CONCEPT_TARGET |
+| Target payload (each arm) | 0.1 â 0.2 kg (est.) | Concept | CONCEPT_TARGET |
+| Target weight | 5 â 8 kg (est.) | Concept | CONCEPT_TARGET |
 | Supply voltage | 24 V DC (concept-level power indication, not a confirmed electrical interface) | Concept | CONCEPT_TARGET |
 | Power rails shown inside | 24 V in; 5 V and 12 V rails | Cross-section | CONCEPT_TARGET |
 | Primary use | Pick-and-place, object transfer, Kritva platform demonstration, research and development | Concept | CONCEPT_TARGET |
-| Torso width | 300 mm | Cross-section | CONCEPT_TARGET; not printed on the concept sheet — OWNER REVIEW |
+| Torso width | 300 mm | Cross-section | CONCEPT_TARGET; not printed on the concept sheet â OWNER REVIEW |
 All dimensions, DOF and actuator counts printed on both sheets agree after the cross-section sheets were regenerated on 2026-10-31. A value printed on one sheet only names that sheet. The concept sheet's own view notes say dimensions are indicative. Items not printed on either sheet (for example joint torque, speed, stride, battery capacity, camera models) stay TBD.
 
 ## 5. Mechanical Architecture
@@ -92,7 +92,7 @@ Mapping as printed on the sheets. Motor model, torque, speed, gear ratio and S/M
 | Wrist (each arm) | Rotation / pitch (concept labels); pitch (cross-section and view notes) | 1 | BLDC/PMSM with gearbox | Baseline |
 | Gripper (each arm) | Parallel two-finger open and close | 0 (counted separately) | Servo or BLDC, as shown | Optional |
 
-Count: 6 baseline arm actuators (3 DOF × 2 arms); up to 2 optional gripper actuators, one per gripper, if powered grippers are selected; 6 baseline, 8 if both are actuated. The cross-section's servo or BLDC gripper drawing is an illustrative implementation and does not put gripper actuation in the baseline. Gripper type and actuator selection are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L.
+Count: 6 baseline arm actuators (3 DOF Ã 2 arms); up to 2 optional gripper actuators, one per gripper, if powered grippers are selected; 6 baseline, 8 if both are actuated. The cross-section's servo or BLDC gripper drawing is an illustrative implementation and does not put gripper actuation in the baseline. Gripper type and actuator selection are TBD. The concept sheet calls the actuators Kritva S/M/L compatible; this study has not mapped any joint to S, M or L.
 
 ## 7. Electronics and Power
 
@@ -123,7 +123,7 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 3. Tabletop stability and base loading under arm motion with the target payload: UNKNOWN, not calculated.
 4. Actuator sizing: torque and speed per joint are not derived; S/M/L compatibility is unassessed.
 5. Cable routing through three joints per arm, and thermal management of enclosed drivers: UNKNOWN.
-6. Weight 5 – 8 kg (est.) and payload 0.1 – 0.2 kg are printed targets with no stated basis.
+6. Weight 5 â 8 kg (est.) and payload 0.1 â 0.2 kg are printed targets with no stated basis.
 7. Gripper actuation, force sensing and camera arrangement are optional and undecided.
 
 ## 10. Artwork Discrepancies
@@ -132,11 +132,11 @@ Routes as labelled on the cross-section sheet. No harness design is implied.
 |---|---|---|---|
 | D1 | Overall arm-to-arm width: 700 mm (concept) vs 800 mm (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets now print 700 mm |
 | D2 | Shoulder joint axis: yaw / rotation (concept) vs pitch (cross-section) | Both | RESOLVED (cross-section regenerated 2026-10-31); both sheets now show shoulder yaw |
-| D3 | Torso width 300 mm is printed on the cross-section only | Cross-section | OPEN — OWNER REVIEW |
+| D3 | Torso width 300 mm is printed on the cross-section only | Cross-section | OPEN â OWNER REVIEW |
 | D4 | Wrist terminology: the concept labels the wrist rotation / pitch while the cross-section and view notes say wrist pitch; one DOF per wrist is counted on both | Both | OPEN |
 | D5 | Camera mast is height adjustable on the cross-section; the concept sheet does not say | Both | NOT VERIFIABLE FROM CURRENT ARTWORK |
 
-After the regeneration the two sheets agree on width 700 mm, height 400 mm, base 300 mm × 250 mm, reach 350 mm, 3 DOF per arm, 6 actuators, a fixed base and the joint sequence. Review status: concept sheet `REVIEWED_WITH_ISSUES` (D4), cross-section `REVIEWED_WITH_ISSUES` (D3) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
+After the regeneration the two sheets agree on width 700 mm, height 400 mm, base 300 mm Ã 250 mm, reach 350 mm, 3 DOF per arm, 6 actuators, a fixed base and the joint sequence. Review status: concept sheet `REVIEWED_WITH_ISSUES` (D4), cross-section `REVIEWED_WITH_ISSUES` (D3) in `docs/images/ARTWORK_MANIFEST.json`. REVIEWED is not design approval.
 
 ## 11. Feasibility Activity
 
@@ -144,7 +144,7 @@ Week 1 reference-study work and Week 2 architecture work are documented in the l
 
 - Architecture and configuration: `ARCHITECTURE.md`.
 - Preliminary mechanical assessment, load paths, workspace/stability/stiffness/serviceability questions: `MECHANICAL_ANALYSIS.md`.
-- Per-joint torque/speed/ROM/duty/S/M/L fields: `ACTUATOR_ANALYSIS.md`; all unavailable values remain `TBD` pending Week 3 inputs.
+- Per-joint torque/speed screens and proposed S/M/L roles: `ACTUATOR_ANALYSIS.md`; exact ROM, axes and duty-cycle requirements remain dependent on authoritative source inputs.
 - Interface inventory and conceptual Kritva platform space provisions: `INTERFACES.md`.
 - Published weight target isolated from unsupported subsystem mass contributions: `MASS_BUDGET.md`.
 - Conceptual sketch: `sketches/WEEK2_CONCEPT_SKETCH.svg` (not to scale; not CAD).
@@ -168,14 +168,14 @@ No torque/speed, structural strength, stability, S/M/L compatibility, mass break
 
 | File / folder | Purpose | Week 2 status |
 |---|---|---|
-| `README.md` | Existing concept overview and study tracking | Sections 11 and 13–16 proposed for update |
+| `README.md` | Existing concept overview and study tracking | Sections 11 and 13â16 proposed for update |
 | `REQUIREMENTS.md` | Concept requirements, assumptions and unknowns | Retain Week 1 register; update only if traceable |
 | `ARCHITECTURE.md` | Configuration, dimension schedule, joints, DOF and assemblies | Updated for Week 2 |
 | `MECHANICAL_ANALYSIS.md` | Load paths, workspace, stability, stiffness, serviceability | Preliminary qualitative assessment; calculations incomplete |
-| `ACTUATOR_ANALYSIS.md` | Every joint's torque/speed/ROM/duty/S-M-L status | Joint instances listed; unavailable values marked TBD |
+| `ACTUATOR_ANALYSIS.md` | Every joint's torque/speed/ROM/duty/S-M-L status | Sourced paper screens documented; exact ROM/duty requirements remain unapproved |
 | `INTERFACES.md` | Mechanical, compute, power, sensors, communication and cable provisions | Concept-level inventory; detailed interfaces TBD |
-| `MASS_BUDGET.md` | Mass assumptions and subsystem budget | Target transcribed; component contributions TBD |
-| `COST_MODEL.md` | Preliminary cost categories | Week 3 activity; no prices/quotes |
+| `MASS_BUDGET.md` | Mass assumptions and subsystem budget | Sourced economy/nominal/high scenarios; estimates, not measured mass |
+| `COST_MODEL.md` | Preliminary cost categories | Source-linked planning scenarios; not supplier quotations |
 | `OPEN_QUESTIONS.md` | Decisions, unknowns, dependencies and risks | Updated for Week 2 |
 | `calculations/` | Calculation notes | `WEEK2_ARCHITECTURE_CHECKS.md`; no unsupported loads calculated |
 | `references/` | Source register | `SOURCE_REGISTER.md` |
@@ -206,7 +206,7 @@ The preliminary mechanical assessment is qualitative. No strength, stiffness, st
 | Mass assumptions | IMPLEMENTED AS TRACEABILITY / UNKNOWN REGISTER; no component mass estimate | `MASS_BUDGET.md` |
 | Sketch | IMPLEMENTED IN OVERLAY; schematic only | `sketches/WEEK2_CONCEPT_SKETCH.svg` |
 | CP2 contribution | DRAFTED for INTERN-01 concept only | `feasibility/interns/INTERN-01/CP2_CONTRIBUTION.md` |
-| Week 3 torque/speed, structure, stability, mass and cost calculations | NOT STARTED / TBD | Requires source inputs and Week 3 work |
+| Week 3/4 paper calculations | COMPLETED as sourced scenarios | See linked calculations and estimate method; no CAD or physical verification |
 | Owner/reviewer acceptance | NOT RUN | Requires review against exact repository commit |
 
 ## 16. Open Decisions
@@ -220,7 +220,7 @@ See `OPEN_QUESTIONS.md` for the full concept-specific decision and dependency re
 - **UNKNOWN:** Tabletop support condition, friction, fastener/fixture assumptions and allowed overturning/sliding margin.
 - **OWNER_DECISION:** Confirm passive versus powered grippers and the intended optional sensor/mast configuration.
 
-All joint ROM, coordinate frames, torque, speed, duty cycle, actuator S/M/L mapping, interface datums/tolerances, subsystem masses, centre of mass, component costs and any unreported geometry remain TBD/UNKNOWN. These are not silently replaced with assumed values. D-003 remains active.
+Exact joint ROM, coordinate frames, duty cycle, interface datums/tolerances, centre of mass and unreported geometry still require authoritative drawings or owner decisions. Cited mass, torque and cost scenarios are now documented in the linked Week 3/4 files; they remain estimates, not measured or approved design values.
 
 ## 17. HOLD D-003
 
